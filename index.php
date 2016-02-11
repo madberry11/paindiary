@@ -8,6 +8,7 @@ if (!isset($page_title)) {
 	$page_title = 'Your Pain Diary';
 
 }
+// change!!
 ?>
 
 <!DOCTYPE>
