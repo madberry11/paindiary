@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 ob_start();
 session_start();
 require ('config.inc.php');
@@ -12,7 +8,6 @@ if (!isset($page_title)) {
 	$page_title = 'Your Pain Diary';
 
 }
-// change!!
 ?>
 
 <!DOCTYPE>
@@ -40,7 +35,7 @@ if (!isset($page_title)) {
 <body>
 
 <div id="header">
-<div id="logintitle"><a href="home.php"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
+<div id="logintitle"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
 </div>
 <div id="pagewraplogin">
 <h1>Member Login</h1>
@@ -48,8 +43,8 @@ if (!isset($page_title)) {
 
 <br />
 <form id="loginform" action="index.php" method="post">
-	<label for="email" class="ui-hidden-accessible">Email Address</label>
-    <input class="logininput" name="email" type="text"  placeholder="email address" maxlength="60" />
+	<label for="username" class="ui-hidden-accessible">Username</label>
+    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" />
     <label for="password" class="ui-hidden-accessible">Password</label>
     <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
     <div class="checkbox">
@@ -67,11 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
 	
 	
-	if (!empty($_POST['email'])) {
-		$e = mysqli_real_escape_string ($dbc, $_POST['email']);
+	if (!empty($_POST['username'])) {
+		$un = mysqli_real_escape_string ($dbc, $_POST['username']);
 	} else {
-		$e = FALSE;
-		echo '<p class="error">You forgot to enter your email address!</p>';
+		$un = FALSE;
+		echo '<p class="error">You forgot to enter your username!</p>';
 	}
 	
 	
@@ -82,10 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo '<p class="error">You forgot to enter your password!</p>';
 	}
 	
-	if ($e && $p) { 
+	if ($un && $p) { 
 
 		
-		$q = "SELECT user_id, first_name, user_level FROM users WHERE (email='$e' AND pass=SHA1('$p')) AND active IS NULL";		
+		$q = "SELECT user_id FROM users WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";		
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (@mysqli_num_rows($r) == 1) { 
@@ -106,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			exit(); 
 				
 		} else { 
-			echo '<p class="error">Either the email address and password entered do not match those on file or you have not yet activated your account.</p>';
+			echo '<p class="error">Either the username and password entered do not match those on file or you have not yet activated your account.</p>';
 		}
 		
 	} else { 
