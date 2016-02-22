@@ -1,0 +1,97 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clearfix {
+  display: inline-block;
+}
+html[xmlns] .clearfix {
+  display: block;
+}
+* html .clearfix {
+  height: 1%;
+}
+.noselect {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+p {
+  text-align: center;
+  font-family: 'Droid Sans Mono';
+  margin: 3em auto 1em auto;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #414141;
+  background: #f4f4f4;
+}
+.left-align {
+  text-align: left;
+}
+.right-align {
+  text-align: right;
+}
+
+.clndr-next-button,
+.clndr-previous-button,
+.clndr-next-year-button,
+.clndr-previous-year-button {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+}
+.clndr-next-button.inactive,
+.clndr-previous-button.inactive,
+.clndr-next-year-button.inactive,
+.clndr-previous-year-button.inactive {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+
+.actualday {
+border: 1px solid #ddd;
+width: 100px !important;
+height: 60px !important;
+text-align: left;
+vertical-align: top !important;
+padding-top: 5px !important;
+padding-left: 5px !important;
+border-radius : 4px;
+padding: 5px;
+border: 2px solid white;
+background-color: #dddee0;
+}
+
+.actualday:hover {
+background-color: #80c5cc;	
+}
+
+.daynumber {
+font-size: small;	
+}
+
+.iconshere {
+text-align: center !important;
+position: relative;
+background-color: #80c5cc;
+display: inline-block;
+height: 100%;
+margin: 5px auto;
+padding-top: 5px;
+padding-bottom: 5px;
+width: 100%;
+margin-bottom: 0px;
+}
