@@ -231,9 +231,9 @@ $('#formid').on('keyup keypress', function(e) {
 $page_title = 'New Entry';
 
 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+$username = "bcac3dbe9c1d06";
+$password = "32d91723";
 $dbname = "booksapp";
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
@@ -310,10 +310,12 @@ if(isset($_GET['calday'])) {
 	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
 }
 
+/*
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "booksapp";
+*/
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
 if ($dbc->connect_error) {
@@ -435,10 +437,12 @@ document.write(document.getElementById("paintags").value);
 <fieldset>
 <legend>Body Parts</legend>
 <?php
+/*
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "booksapp";
+*/
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
 if ($dbc->connect_error) {
@@ -850,10 +854,12 @@ echo $row['sideeffects'];
 <fieldset>
 <legend>Pain Relief Record</legend>
 <?php
+/*
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "booksapp";
+*/
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
 if ($dbc->connect_error) {
