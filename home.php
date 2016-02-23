@@ -56,9 +56,9 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <div id="pagewrap">
 
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+$username = "bcac3dbe9c1d06";
+$password = "32d91723";
 $dbname = "booksapp";
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
