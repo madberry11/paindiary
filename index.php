@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 							
 			
-			$url = BASE_URL . 'http://paindiary.azurewebsites.net/home.php'; 
+			$url = BASE_URL . 'home.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			exit(); 
