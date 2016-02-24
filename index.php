@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($un && $p) { 
 
 		
-		$q = "SELECT user_id FROM users WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";		
+		$q = "SELECT user_id, username FROM users WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";		
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (@mysqli_num_rows($r) == 1) { 
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 							
 			
-			$url = BASE_URL . '../paindiary/home.php'; 
+			$url = BASE_URL . 'http://paindiary.azurewebsites.net/home.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			exit(); 
