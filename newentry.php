@@ -418,9 +418,9 @@ document.write(document.getElementById("paintags").value);
    <!-- <input type="hidden" name="calday" value="$_GET['calday']"> -->
     </p>
     <p class="center">
-    <a href=""><input type="submit" name="entry-submit" value="Save" /></a>
-    <a href=""><button type="reset">Clear</button></a>
-    <a href="newentry.php"><button type="submit" name="cancelentry">Cancel</button></a>
+    <a href="" class="nounderline"><input type="submit" name="entry-submit" value="Save" /></a>
+    <a href="" class="nounderline"><button type="reset">Clear</button></a>
+    <a href="newentry.php" class="nounderline"><button type="submit" name="cancelentry">Cancel</button></a>
     </p>
 </form>
 </fieldset>
@@ -742,9 +742,9 @@ window.location="newentry.php#newentryform";
 </TEXTAREA></td></tr>
 </table>
 <p class="center">
-<a href=""><input type="submit" name="painrelief-submit" value="Save" /></a>
-<a href=""><button type="reset">Clear</button></a>
-<a href="newentry.php"><button type="submit" name="cancelrelief">Cancel</button></a>
+<a href="" class="nounderline"><input type="submit" name="painrelief-submit" value="Save" /></a>
+<a href="" class="nounderline"><button type="reset">Clear</button></a>
+<a href="newentry.php" class="nounderline"><button type="submit" name="cancelrelief">Cancel</button></a>
 </p>
 </form>
 </fieldset>
@@ -869,7 +869,7 @@ if ($dbc->connect_error) {
         <th class="col1">Time</th><th class="col2">Medicine</th><th class="col3">Amount</th><th class="col4">Other Things</th><th class="col5">Relief</th><th class="col6">Side Effects</th>
         <?php
 		while($row = $r->fetch_assoc()) {
-echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['amount'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash' onclick='Deleterecordqry()'></a></td></tr>";
+echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['amount'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' onclick='Deleterecordqry()'></a></td></tr>";
 
 		}?>
         </table>
@@ -892,9 +892,9 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 <form method="post" action="newentry.php">
 <TEXTAREA id="commentfield" name="comment" ROWS=2 COLS=20 placeholder="Enter your comment here."></TEXTAREA>
 <p class="center">
-<a href=""><input type="submit" name="comment-submit" value="Save" /></a>
-<a href=""><button type="reset">Clear</button></a>
-<a href="newentry.php"><button type="submit" name="cancelcomment">Cancel</button></a>
+<a href="" class="nounderline"><input type="submit" name="comment-submit" value="Save" /></a>
+<a href="" class="nounderline"><button type="reset">Clear</button></a>
+<a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
 </p>
 </form>
 </fieldset>
@@ -911,7 +911,7 @@ $sql = "SELECT comment_id, comment FROM comments WHERE entryyear=". $_SESSION['c
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 while($row = $result->fetch_assoc()) {
-echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?commentdelete=$row[comment_id]'></a><a class='icon-edit' onclick='comment()' href='newentry.php?commentedit=$row[comment_id]'></a><a class='icon-trash' onclick='Deletecomment()'></a>" 
+echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?commentdelete=$row[comment_id]'></a><a class='icon-edit nounderline' onclick='comment()' href='newentry.php?commentedit=$row[comment_id]'></a><a class='icon-trash nounderline' onclick='Deletecomment()'></a>" 
 ;}
 }
 ?>
