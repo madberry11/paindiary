@@ -1391,7 +1391,7 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 
 					if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
@@ -1517,31 +1517,31 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 		
 		if (mysqli_num_rows($r) == 1) { 
 			$q = "UPDATE pain SET
-			bodypart := '".mysqli_real_escape_string(mysqli_connect(),$bodypart) ."',
-			p00 := '".mysqli_real_escape_string(mysqli_connect(),$p00) ."',
-			p01 := '".mysqli_real_escape_string(mysqli_connect(),$p01) ."',
-			p02 := '".mysqli_real_escape_string(mysqli_connect(),$p02) ."',
-			p03 := '".mysqli_real_escape_string(mysqli_connect(),$p03) ."',
-			p04 := '".mysqli_real_escape_string(mysqli_connect(),$p04) ."',
-			p05 := '".mysqli_real_escape_string(mysqli_connect(),$p05) ."',
-			p06 := '".mysqli_real_escape_string(mysqli_connect(),$p06) ."',
-			p07 := '".mysqli_real_escape_string(mysqli_connect(),$p07) ."',
-			p08 := '".mysqli_real_escape_string(mysqli_connect(),$p08) ."',
-			p09 := '".mysqli_real_escape_string(mysqli_connect(),$p09) ."',
-			p10 := '".mysqli_real_escape_string(mysqli_connect(),$p10) ."',
-			p11 := '".mysqli_real_escape_string(mysqli_connect(),$p11) ."',
-			p12 := '".mysqli_real_escape_string(mysqli_connect(),$p12) ."',
-			p13 := '".mysqli_real_escape_string(mysqli_connect(),$p13) ."',
-			p14 := '".mysqli_real_escape_string(mysqli_connect(),$p14) ."',
-			p15 := '".mysqli_real_escape_string(mysqli_connect(),$p15) ."',
-			p16 := '".mysqli_real_escape_string(mysqli_connect(),$p16) ."',
-			p17 := '".mysqli_real_escape_string(mysqli_connect(),$p17) ."',
-			p18 := '".mysqli_real_escape_string(mysqli_connect(),$p18) ."',
-			p19 := '".mysqli_real_escape_string(mysqli_connect(),$p19) ."',
-			p20 := '".mysqli_real_escape_string(mysqli_connect(),$p20) ."',
-			p21 := '".mysqli_real_escape_string(mysqli_connect(),$p21) ."',
-			p22 := '".mysqli_real_escape_string(mysqli_connect(),$p22) ."',
-			p23 := '".mysqli_real_escape_string(mysqli_connect(),$p23) ."',
+			bodypart := '".mysqli_real_escape_string($dbc,$bodypart) ."',
+			p00 := '".mysqli_real_escape_string($dbc,$p00) ."',
+			p01 := '".mysqli_real_escape_string($dbc,$p01) ."',
+			p02 := '".mysqli_real_escape_string($dbc,$p02) ."',
+			p03 := '".mysqli_real_escape_string($dbc,$p03) ."',
+			p04 := '".mysqli_real_escape_string($dbc,$p04) ."',
+			p05 := '".mysqli_real_escape_string($dbc,$p05) ."',
+			p06 := '".mysqli_real_escape_string($dbc,$p06) ."',
+			p07 := '".mysqli_real_escape_string($dbc,$p07) ."',
+			p08 := '".mysqli_real_escape_string($dbc,$p08) ."',
+			p09 := '".mysqli_real_escape_string($dbc,$p09) ."',
+			p10 := '".mysqli_real_escape_string($dbc,$p10) ."',
+			p11 := '".mysqli_real_escape_string($dbc,$p11) ."',
+			p12 := '".mysqli_real_escape_string($dbc,$p12) ."',
+			p13 := '".mysqli_real_escape_string($dbc,$p13) ."',
+			p14 := '".mysqli_real_escape_string($dbc,$p14) ."',
+			p15 := '".mysqli_real_escape_string($dbc,$p15) ."',
+			p16 := '".mysqli_real_escape_string($dbc,$p16) ."',
+			p17 := '".mysqli_real_escape_string($dbc,$p17) ."',
+			p18 := '".mysqli_real_escape_string($dbc,$p18) ."',
+			p19 := '".mysqli_real_escape_string($dbc,$p19) ."',
+			p20 := '".mysqli_real_escape_string($dbc,$p20) ."',
+			p21 := '".mysqli_real_escape_string($dbc,$p21) ."',
+			p22 := '".mysqli_real_escape_string($dbc,$p22) ."',
+			p23 := '".mysqli_real_escape_string($dbc,$p23) ."',
 			entrytags := '". $_SESSION['entrytags']. "',
 			avgpain := ( $p00+ $p01 + $p02 + $p03 +$p04 + $p05 + $p06 + $p07 + $p08 + $p09 + $p10 + $p11 + $p12 + $p13 + $p14 + $p15 + $p16 + $p17 + $p18 + $p19 + $p20 + $p21 + $p22 + $p23) /24
 			WHERE entryid = " . $_SESSION['entryid'] . "";
@@ -1550,7 +1550,7 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 
 					if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
@@ -1640,21 +1640,21 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 			user_id := '". $_SESSION['user_id'] . "',
 			entryyear := '". $_SESSION['calyear'] . "',
 			entrymonth := '". $_SESSION['calmonth']. "',
-			entryday := '".mysqli_real_escape_string(mysqli_connect(), $_SESSION['day']). "',
-			time := '".mysqli_real_escape_string(mysqli_connect(),$hour) ."',
-			medicine := '".mysqli_real_escape_string(mysqli_connect(),$medicine) ."',
-			amount := '".mysqli_real_escape_string(mysqli_connect(),$amount) ."',
-			measure := '".mysqli_real_escape_string(mysqli_connect(),$measure) ."',
-			otherthings := '".mysqli_real_escape_string(mysqli_connect(),$otherthings) ."',
-			reliefrating := '".mysqli_real_escape_string(mysqli_connect(),$reliefrating) ."',
-			sideeffects := '".mysqli_real_escape_string(mysqli_connect(),$sideeffects) ."'";
+			entryday := '".mysqli_real_escape_string($dbc, $_SESSION['day']). "',
+			time := '".mysqli_real_escape_string($dbc,$hour) ."',
+			medicine := '".mysqli_real_escape_string($dbc,$medicine) ."',
+			amount := '".mysqli_real_escape_string($dbc,$amount) ."',
+			measure := '".mysqli_real_escape_string($dbc,$measure) ."',
+			otherthings := '".mysqli_real_escape_string($dbc,$otherthings) ."',
+			reliefrating := '".mysqli_real_escape_string($dbc,$reliefrating) ."',
+			sideeffects := '".mysqli_real_escape_string($dbc,$sideeffects) ."'";
 		
 		
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
@@ -1737,13 +1737,13 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 		if (mysqli_num_rows($r) == 1) {
 		
 			$q = "UPDATE painrelief SET
-			time := '".mysqli_real_escape_string(mysqli_connect(),$hour) ."',
-			medicine := '".mysqli_real_escape_string(mysqli_connect(),$medicine) ."',
-			amount := '".mysqli_real_escape_string(mysqli_connect(),$amount) ."',
-			measure := '".mysqli_real_escape_string(mysqli_connect(),$measure) ."',
-			otherthings := '".mysqli_real_escape_string(mysqli_connect(),$otherthings) ."',
-			reliefrating := '".mysqli_real_escape_string(mysqli_connect(),$reliefrating) ."',
-			sideeffects := '".mysqli_real_escape_string(mysqli_connect(),$sideeffects) ."'
+			time := '".mysqli_real_escape_string($dbc,$hour) ."',
+			medicine := '".mysqli_real_escape_string($dbc,$medicine) ."',
+			amount := '".mysqli_real_escape_string($dbc,$amount) ."',
+			measure := '".mysqli_real_escape_string($dbc,$measure) ."',
+			otherthings := '".mysqli_real_escape_string($dbc,$otherthings) ."',
+			reliefrating := '".mysqli_real_escape_string($dbc,$reliefrating) ."',
+			sideeffects := '".mysqli_real_escape_string($dbc,$sideeffects) ."'
 			WHERE record_id = " . $_SESSION['record_id'];
 		
 		
@@ -1751,7 +1751,7 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 
 if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
@@ -1788,7 +1788,7 @@ $result = $dbc->query($sql);
 
 if ($result -> num_rows == 0) {
 		 $q = "INSERT INTO comments SET
-		 comment := '". mysqli_real_escape_string(mysqli_connect(),$comment) ."',
+		 comment := '". mysqli_real_escape_string($dbc,$comment) ."',
 		 entryyear := '". $_SESSION['calyear'] ."',
 		 entrymonth := '". $_SESSION['calmonth'] ."',
 		 entryday := '". $_SESSION['day'] ."',
@@ -1803,7 +1803,7 @@ echo '<p class="error">You have already added a comment for this day.</p>';
 
 if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
@@ -1840,7 +1840,7 @@ $result = $dbc->query($sql);
 
 if (mysqli_num_rows($result) == 1) {
 		 $q = "UPDATE comments SET
-		 comment := '". mysqli_real_escape_string(mysqli_connect(),$comment2) ."'
+		 comment := '". mysqli_real_escape_string($dbc,$comment2) ."'
 		 WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
 		 $result = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		 echo $q;
@@ -1848,7 +1848,7 @@ if (mysqli_num_rows($result) == 1) {
 
 if (mysqli_affected_rows($dbc) == 1) {
 
-	$url = BASE_URL . '../paindiary/newentry.php'; 
+	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
 
