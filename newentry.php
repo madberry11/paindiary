@@ -1248,6 +1248,7 @@ if ((!empty($_POST['cancelentry'])) OR (!empty($_POST['cancelrelief'])) OR (!emp
 
 // IF BODY PART ENTRY GETS SUBMITTED
 
+
 if (!empty($_POST['entry-submit'])) {
 	 
 	 if (!empty($_POST['paintags'])) {
@@ -1356,8 +1357,8 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 			user_id := '". $_SESSION['user_id'] . "',
 			entryyear := '". $_SESSION['calyear'] . "',
 			entrymonth := '". $_SESSION['calmonth']. "',
-			entryday := '".mysqli_real_escape_string(mysqli_connect(), $_SESSION['day']). "',
-			bodypart := '".mysqli_real_escape_string(mysqli_connect(),$bodypart) ."',
+			entryday := '".mysqli_real_escape_string($dbc, $_SESSION['day']). "',
+			bodypart := '".mysqli_real_escape_string($dbc, $bodypart) ."',
 			p00 := '".mysqli_real_escape_string(mysqli_connect(),$p00) ."',
 			p01 := '".mysqli_real_escape_string(mysqli_connect(),$p01) ."',
 			p02 := '".mysqli_real_escape_string(mysqli_connect(),$p02) ."',
