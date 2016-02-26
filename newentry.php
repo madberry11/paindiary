@@ -1250,6 +1250,16 @@ if ((!empty($_POST['cancelentry'])) OR (!empty($_POST['cancelrelief'])) OR (!emp
 
 
 if (!empty($_POST['entry-submit'])) {
+?>
+<style>
+body {
+cursor: wait;	
+}
+* {
+cursor: wait;	
+}
+</style>
+<?php
 	 
 	 if (!empty($_POST['paintags'])) {
 		 
