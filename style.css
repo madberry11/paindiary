@@ -141,6 +141,7 @@ legend {
 	vertical-align: middle;
 	margin-top: 0px;
 	display: inline-block;
+	cursor: pointer;
 	}
 	
 .icon-chevron-left {
@@ -160,6 +161,7 @@ legend {
 .trash3, .edit3 {
 	margin: 0px;
 	line-height: 1em;
+	cursor: pointer;
 }
 	
 .linktext {
