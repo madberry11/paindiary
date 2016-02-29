@@ -88,7 +88,7 @@ if(isset($_SESSION["username"])) {
 	$query2 = "SELECT username, rememberme, keepmeloggedin FROM users WHERE (username='" . $_SESSION['username'] ."')" ;
 	$r = mysqli_query ($dbc, $query2) or trigger_error("Query: $query2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r) == 1) {
-		while($row = $result->fetch_assoc()) {
+		while($row = $r->fetch_assoc()) {
 		$dorememberme = $row[rememberme];
 		$dokeepmeloggedin = $row[keepmeloggedin];
 		
@@ -155,14 +155,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['keeploggedin']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
 			setcookie("pwd",$_POST["pass"],time()+3600000);
-			$query = "UPDATE users SET keepmeloggedin = 1 WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";
+			$query = "UPDATE users SET keepmeloggedin = 1 WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 			}
 			
 			elseif (isset($_POST['rememberme'])) {
 			$_SESSION['rememberme']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
-			$query = "UPDATE users SET rememberme = 1 WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";
+			$query = "UPDATE users SET rememberme = 1 WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 			}
 							
