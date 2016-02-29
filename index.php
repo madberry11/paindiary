@@ -59,10 +59,10 @@ if (!isset($page_title)) {
 
 <script>
 window.onload = function() {
-$('.checkbox .usercheckbox').click(function () {                  
+$('div.checkbox .usercheckbox').click(function () {                  
     var checkedState =   $(this).prop("checked")
     $(this)
-          .parent('.checkbox')
+          .parent('div.checkbox')
           .children('.usercheckbox:checked')
           .prop("checked", false);
     
