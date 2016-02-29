@@ -49,8 +49,8 @@ if (!isset($page_title)) {
     <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
     <div class="checkbox">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
-    <input type="checkbox" name="rememberme" /><label for="rememberme"> Remember me</label></div>
-    <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label>
+    <input type="checkbox" name="rememberme" /><label for="rememberme"> Remember me</label></br>
+    <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
     Do not check these if you are using a shared or public computer.</div>
     <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
     <div id="toregister"><a href="register.php">Create New Account</a></div>
