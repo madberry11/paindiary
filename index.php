@@ -93,7 +93,7 @@ if(isset($_SESSION["username"])) {
 		$dokeepmeloggedin = $row['keepmeloggedin'];
 		
 		if(isset($dorememberme)) {
-			echo "This user has clicked on Remember me.";
+			//echo "This user has clicked on Remember me.";
 			?>
             <script>
 			$("#rememberme").prop("checked", true);
@@ -101,7 +101,7 @@ if(isset($_SESSION["username"])) {
             <?php
 		}
 		elseif(isset($dokeepmeloggedin)) {
-			echo "This user has clicked on Keep me logged in.";
+			//echo "This user has clicked on Keep me logged in.";
 			?>
             <script>
 			$("#keepmeloggedin").prop("checked", true);
@@ -181,12 +181,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			//mysqli_close($dbc);
 			
 							
-			/*
+			
 			$url = BASE_URL . 'home.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			exit(); 
-			*/
+			
 				
 		} else { 
 			echo '<p class="error">Either the username and password entered do not match those on file or you have not yet activated your account.</p>';
