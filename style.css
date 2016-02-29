@@ -867,9 +867,11 @@ display: none !important;
 }
 
 .float-left {
-	float: left;	
+	float: left;
+	width: 10%;	
 }
 
 .float-right {
-	float: right;	
+	float: right;
+	width: 90%;	
 }
