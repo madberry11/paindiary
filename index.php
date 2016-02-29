@@ -95,7 +95,7 @@ if(isset($_SESSION["username"])) {
 		echo $dokeepmeloggedin;
 		
 		if(isset($dorememberme)) {
-			//echo "This user has clicked on Remember me.";
+			echo "This user has clicked on Remember me.";
 			?>
             <script>
 			$("#rememberme").prop("checked", true);
