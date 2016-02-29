@@ -869,6 +869,7 @@ display: none !important;
 .float-left {
 	float: left;
 	width: 10%;	
+	margin-bottom: 10px;
 }
 
 .float-right {
