@@ -879,5 +879,5 @@ display: none !important;
 }
 
 .warning {
-	color: #0080ff;	
+	color: #0080ff !important;	
 }
