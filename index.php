@@ -47,8 +47,14 @@ if (!isset($page_title)) {
 if(isset($_COOKIE["unm"])) {
 $_SESSION["username"] = $_COOKIE["unm"];
 }
+else {
+$_SESSION["username"] = "";	
+}
 if(isset($_COOKIE["pwd"])) {
 $_SESSION["password"] = $_COOKIE["pwd"];
+}
+else {
+$_SESSION["password"] = "";	
 }
 ?>
 
