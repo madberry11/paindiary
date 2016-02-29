@@ -58,6 +58,7 @@ if (!isset($page_title)) {
 </form>
 
 <script>
+window.onload = function() {
 $('.checkbox .usercheckbox').click(function () {                  
     var checkedState =   $(this).prop("checked")
     $(this)
@@ -67,6 +68,7 @@ $('.checkbox .usercheckbox').click(function () {
     
     $(this).prop("checked", checkedState);
 });
+}
 </script>
 
 
