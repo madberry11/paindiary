@@ -58,10 +58,10 @@ if (!isset($page_title)) {
 </form>
 
 <script>
-$('div .usercheckbox').click(function () {                  
+$('.checkbox .usercheckbox').click(function () {                  
     var checkedState =   $(this).prop("checked")
     $(this)
-          .parent('div')
+          .parent('.checkbox')
           .children('.usercheckbox:checked')
           .prop("checked", false);
     
