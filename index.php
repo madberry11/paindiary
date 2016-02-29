@@ -47,10 +47,10 @@ if (!isset($page_title)) {
     <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" />
     <label for="password" class="ui-hidden-accessible">Password</label>
     <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
-    <div class="checkbox">
+    <div class="checkboxdiv">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
-    <input class="usercheckbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
-    <input class="usercheckbox" type="checkbox" id="keepmeloggedin" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
+    <input class="checkbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
+    <input class="checkbox" type="checkbox" id="keepmeloggedin" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
     <a href="http://ezinearticles.com/?The-Overlooked-Risks-of-Staying-Logged-In&id=4523115"><div class="icon-warning-sign float-left"></div></a><div class="small float-right">Do not check these if you are using a shared computer.</div></div>
     <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
     <div id="toregister"><a href="register.php">Create New Account</a></div>
