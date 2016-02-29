@@ -91,6 +91,8 @@ if(isset($_SESSION["username"])) {
 		while($row = $r->fetch_assoc()) {
 		$dorememberme = $row['rememberme'];
 		$dokeepmeloggedin = $row['keepmeloggedin'];
+		echo $dorememberme;
+		echo $dokeepmeloggedin;
 		
 		if(isset($dorememberme)) {
 			//echo "This user has clicked on Remember me.";
