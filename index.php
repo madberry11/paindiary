@@ -58,6 +58,7 @@ if (!isset($page_title)) {
     <div id="toregister"><a href="register.php">Create New Account</a></div>
     <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
 </form>
+<br clear="both" />
 
 <script>
 $('div .checkbox').click(function () {                  
