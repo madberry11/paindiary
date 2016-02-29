@@ -49,13 +49,25 @@ if (!isset($page_title)) {
     <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
     <div class="checkbox">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
-    <input type="checkbox" name="rememberme" /><label for="rememberme"> Remember me</label></br>
-    <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
-    <a class"warning" href="http://ezinearticles.com/?The-Overlooked-Risks-of-Staying-Logged-In&id=4523115"><div class="icon-warning-sign float-left"></div></a><div class="small float-right">Do not check these if you are using a shared computer.</div></div>
+    <input class="usercheckbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
+    <input class="usercheckbox" type="checkbox" id="keepmeloggedin" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
+    <a href="http://ezinearticles.com/?The-Overlooked-Risks-of-Staying-Logged-In&id=4523115"><div class="icon-warning-sign float-left"></div></a><div class="small float-right">Do not check these if you are using a shared computer.</div></div>
     <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
     <div id="toregister"><a href="register.php">Create New Account</a></div>
     <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
 </form>
+
+<script>
+$('div .usercheckbox').click(function () {                  
+    var checkedState =   $(this).prop("checked")
+    $(this)
+          .parent('div')
+          .children('.usercheckbox:checked')
+          .prop("checked", false);
+    
+    $(this).prop("checked", checkedState);
+});
+</script>
 
 
 <?php 
