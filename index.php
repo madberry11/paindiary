@@ -94,9 +94,19 @@ if(isset($_SESSION["username"])) {
 		
 		if(isset($dorememberme)) {
 			echo "This user has clicked on Remember me.";
+			?>
+            <script>
+			$("#rememberme").prop("checked", true);
+			</script>
+            <?php
 		}
 		elseif(isset($dokeepmeloggedin)) {
 			echo "This user has clicked on Keep me logged in.";
+			?>
+            <script>
+			$("#keepmeloggedin").prop("checked", true);
+			</script>
+            <?php
 		}
 		}
 	}
