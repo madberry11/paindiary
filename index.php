@@ -89,8 +89,8 @@ if(isset($_SESSION["username"])) {
 	$r = mysqli_query ($dbc, $query2) or trigger_error("Query: $query2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r) == 1) {
 		while($row = $r->fetch_assoc()) {
-		$dorememberme = $row[rememberme];
-		$dokeepmeloggedin = $row[keepmeloggedin];
+		$dorememberme = $row['rememberme'];
+		$dokeepmeloggedin = $row['keepmeloggedin'];
 		
 		if(isset($dorememberme)) {
 			echo "This user has clicked on Remember me.";
