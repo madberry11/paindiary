@@ -59,19 +59,6 @@ if (!isset($page_title)) {
     <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
 </form>
 
-<div>
-  Red:
-  <input id="chkRed" name="chkRed" type="checkbox" value="red" class="checkbox"> Blue:
-  <input id="chkBlue" name="chkBlue" type="checkbox" value="blue" class="checkbox"> Green:
-  <input id="chkGreen" name="chkGreen" type="checkbox" value="green" class="checkbox">
-</div>
-
-<div> Mango:
-  <input id="chkRed" name="chkMango" type="checkbox" value="Mango" class="checkbox"> Orange:
-  <input id="chkBlue" name="chkOrange" type="checkbox" value="Orange" class="checkbox"> Banana:
-  <input id="chkGreen" name="chkBanana" type="checkbox" value="Banana" class="checkbox">
-</div>
-
 <script>
 $('div .checkbox').click(function () {                  
     var checkedState =   $(this).prop("checked")
