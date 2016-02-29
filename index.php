@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['keeploggedin']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
 			setcookie("pwd",$_POST["pass"],time()+3600000);
-			$query = "UPDATE users SET keepmeloggedin = '1' WHERE username='$un'";
+			$query = "UPDATE users SET keepmeloggedin = '1', rememberme = '0' WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 			echo "keepmeloggedin";
 			}
@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			elseif (isset($_POST['rememberme'])) {
 			$_SESSION['rememberme']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
-			$query = "UPDATE users SET rememberme = '1' WHERE username='$un'";
+			$query = "UPDATE users SET rememberme = '1', keepmeloggedin = '0' WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 			echo "rememberme";
 			}
@@ -184,6 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			elseif(!isset($_POST['keepmeloggedin']) AND !isset($_POST['rememberme'])) {
 			setcookie("unm","",time()-3600000);
 			setcookie("pwd","",time()-3600000);	
+			$query = "UPDATE users SET rememberme = '0', keepmeloggedin = '0' WHERE username='$un'";
 			}
 
 			
