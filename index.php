@@ -58,15 +58,15 @@ if (!isset($page_title)) {
 </form>
 
 <script>
-window.onload = function() {
-$('div checkbox').click(function () { 
-                 checkedState = $(this).attr('checked');
-                  $(this).parent('div').children('checkbox:checked').each(function () {
-                      $(this).attr('checked', false);
-                  });
-                  $(this).attr('checked', checkedState);
+$('div .checkbox').click(function () {                  
+    var checkedState =   $(this).prop("checked")
+    $(this)
+          .parent('div')
+          .children('.checkbox:checked')
+          .prop("checked", false);
+    
+    $(this).prop("checked", checkedState);
 });
-}
 </script>
 
 
