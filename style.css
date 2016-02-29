@@ -147,7 +147,7 @@ legend {
 .icon-commentroundtyping:before{content:'\f157'}
 .icon-pill-antivirusalt:before{content:'\f0aa'}
 .icon-chevron-left:before{content:'\f489'}
-.icon-warning-sign:before{content:'\f316'; color: yellow !important;}
+.icon-warning-sign:before{content:'\f316'; color: #ffc200 !important;}
 .icon-plus-sign, .icon-commentroundtyping, .icon-pill-antivirusalt, .trash2, .icon-men {
 	margin-right: 10px;
 	font-size: 1.4em;
