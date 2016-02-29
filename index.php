@@ -25,6 +25,7 @@ if (!isset($page_title)) {
 	<script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script> 
 	<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <noscript>JavaScript is essential for the functionality of this application. Please enable JavaScript for an improved user experience.</noscript>
 
 <!-- fonts -->
