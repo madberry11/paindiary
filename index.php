@@ -76,6 +76,14 @@ $_SESSION["password"] = "";
 <br clear="both" />
 
 <?php
+
+$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+$username = "bcac3dbe9c1d06";
+$password = "32d91723";
+$dbname = "booksapp";
+
+$dbc = new mysqli($servername, $username, $password, $dbname);
+
 if(isset($_SESSION["username"])) {
 	$query2 = "SELECT username, rememberme, keepmeloggedin FROM users WHERE (username=" . $_SESSION['username'] .")" ;
 	$r = mysqli_query ($dbc, $query2) or trigger_error("Query: $query2\n<br />MySQL Error: " . mysqli_error($dbc));
