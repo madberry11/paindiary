@@ -77,7 +77,7 @@ $_SESSION["password"] = "";
 
 <?php
 if(isset($_SESSION["username"])) {
-	$query2 = "SELECT username, rememberme, keepmeloggedin FROM users WHERE (username='$un' AND pass=SHA1('$p')) AND active IS NULL";
+	$query2 = "SELECT username, rememberme, keepmeloggedin FROM users WHERE (username=" . $_SESSION['username'] .")" ;
 	$r = mysqli_query ($dbc, $query2) or trigger_error("Query: $query2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r) == 1) {
 		while($row = $result->fetch_assoc()) {
