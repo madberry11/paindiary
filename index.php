@@ -43,18 +43,6 @@ if (!isset($page_title)) {
 <h1>Member Login</h1>
 <div id="pagecontent">
 
-<script>
-$('div .checkbox').click(function () {                  
-    var checkedState =   $(this).prop("checked")
-    $(this)
-          .parent('div')
-          .children('.checkbox:checked')
-          .prop("checked", false);
-    
-    $(this).prop("checked", checkedState);
-});
-</script>
-
 <br />
 <form id="loginform" action="index.php" method="post">
 	<label for="username" class="ui-hidden-accessible">Username</label>
@@ -83,6 +71,18 @@ $('div .checkbox').click(function () {
   <input id="chkBlue" name="chkOrange" type="checkbox" value="Orange" class="checkbox"> Banana:
   <input id="chkGreen" name="chkBanana" type="checkbox" value="Banana" class="checkbox">
 </div>
+
+<script>
+$('div .checkbox').click(function () {                  
+    var checkedState =   $(this).prop("checked")
+    $(this)
+          .parent('div')
+          .children('.checkbox:checked')
+          .prop("checked", false);
+    
+    $(this).prop("checked", checkedState);
+});
+</script>
 
 
 <?php 
