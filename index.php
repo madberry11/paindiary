@@ -44,10 +44,10 @@ if (!isset($page_title)) {
 <div id="pagecontent">
 
 <?php
-if(!isset($_COOKIE["unm"])) {
+if(isset($_COOKIE["unm"])) {
 $_SESSION["username"] = $_COOKIE["unm"];
 }
-if(!isset($_COOKIE["pwd"])) {
+if(isset($_COOKIE["pwd"])) {
 $_SESSION["password"] = $_COOKIE["pwd"];
 }
 ?>
