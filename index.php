@@ -46,9 +46,9 @@ if (!isset($page_title)) {
 <br />
 <form id="loginform" action="index.php" method="post">
 	<label for="username" class="ui-hidden-accessible">Username</label>
-    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" />
+    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" value="<?php echo $_COOKIE["unm"]?>" />
     <label for="password" class="ui-hidden-accessible">Password</label>
-    <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
+    <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" value="<?php echo $_COOKIE["pwd"]?>" />
     <div class="checkboxdiv">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
     <input class="checkbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
@@ -109,10 +109,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			if (isset($_POST['keepmeloggedin'])) {
 			$_SESSION['keeploggedin']	 = 1;
+			setcookie("unm",$_POST["username"],time()+3600);
+			setcookie("pwd",$_POST["pass"],time()+3600);
 			}
 			
 			elseif (isset($_POST['rememberme'])) {
 			$_SESSION['rememberme']	 = 1;
+			setcookie("unm",$_POST["username"],time()+3600);
 			}
 							
 			
