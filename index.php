@@ -189,13 +189,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			//mysqli_close($dbc);
 			
-							
-			/*
+
 			$url = BASE_URL . 'home.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			exit(); 
-			*/
+			
 				
 		} else { 
 			echo '<p class="error">Either the username and password entered do not match those on file or you have not yet activated your account.</p>';
