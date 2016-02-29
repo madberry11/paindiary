@@ -59,14 +59,12 @@ if (!isset($page_title)) {
 
 <script>
 window.onload = function() {
-$('div.checkbox .usercheckbox').click(function () {                  
-    var checkedState =   $(this).prop("checked")
-    $(this)
-          .parent('div.checkbox')
-          .children('.usercheckbox:checked')
-          .prop("checked", false);
-    
-    $(this).prop("checked", checkedState);
+$('div .usercheckbox').click(function () { 
+                 checkedState = $(this).attr('checked');
+                  $(this).parent('div').children('.usercheckbox:checked').each(function () {
+                      $(this).attr('checked', false);
+                  });
+                  $(this).attr('checked', checkedState);
 });
 }
 </script>
