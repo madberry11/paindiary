@@ -101,6 +101,17 @@ legend {
   color: #BBDEFB;
 }
 
+.l1{ background-color: #80c5cc !important;}
+.l2{ background-color: #87B3BB !important;}
+.l3{ background-color: #8EA1AA !important;}
+.l4{ background-color: #948E99 !important;}
+.l5{ background-color: #9B7C88 !important;}
+.l6{ background-color: #A26A77 !important;}
+.l7{ background-color: #A95866 !important;}
+.l8{ background-color: #AF4555 !important;}
+.l9{ background-color: #B63344 !important;}
+.l10{ background-color: #BD2133 !important;}
+
 
 
 /* Symbols */
@@ -855,13 +866,10 @@ display: none !important;
 	height: 200px !important;
 }
 
-.l1{ background-color: #80c5cc !important;}
-.l2{ background-color: #87B3BB !important;}
-.l3{ background-color: #8EA1AA !important;}
-.l4{ background-color: #948E99 !important;}
-.l5{ background-color: #9B7C88 !important;}
-.l6{ background-color: #A26A77 !important;}
-.l7{ background-color: #A95866 !important;}
-.l8{ background-color: #AF4555 !important;}
-.l9{ background-color: #B63344 !important;}
-.l10{ background-color: #BD2133 !important;}
+.float-left {
+	float: left;	
+}
+
+.float-right {
+	float: right;	
+}
