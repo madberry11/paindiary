@@ -102,6 +102,7 @@ if(isset($_SESSION["username"])) {
 	}
 }
 
+
 ?>
 
 <script>
@@ -145,13 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (@mysqli_num_rows($r) == 1) { 
-
-			
-			$_SESSION = mysqli_fetch_array ($r, MYSQLI_ASSOC); 
-			mysqli_free_result($r);
-			mysqli_close($dbc);
-			
-			if (isset($_POST['keepmeloggedin'])) {
+		
+					if (isset($_POST['keepmeloggedin'])) {
 			$_SESSION['keeploggedin']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
 			setcookie("pwd",$_POST["pass"],time()+3600000);
@@ -167,6 +163,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 			echo "rememberme";
 			}
+
+			
+			$_SESSION = mysqli_fetch_array ($r, MYSQLI_ASSOC); 
+			mysqli_free_result($r);
+			mysqli_close($dbc);
+			
 							
 			/*
 			$url = BASE_URL . 'home.php'; 
