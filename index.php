@@ -51,7 +51,7 @@ if (!isset($page_title)) {
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
     <input type="checkbox" name="rememberme" /><label for="rememberme"> Remember me</label></br>
     <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
-    Do not check these if you are using a shared or public computer.</div>
+    <span class="small">Do not check these if you are using a shared or public computer.</span></div>
     <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
     <div id="toregister"><a href="register.php">Create New Account</a></div>
     <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
