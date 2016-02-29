@@ -49,7 +49,9 @@ if (!isset($page_title)) {
     <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" />
     <div class="checkbox">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
-    <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></div>
+    <input type="checkbox" name="rememberme" /><label for="rememberme"> Remember me</label></div>
+    <input type="checkbox" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label>
+    Do not check these if you are using a shared or public computer.</div>
     <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
     <div id="toregister"><a href="register.php">Create New Account</a></div>
     <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
@@ -92,6 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			if (isset($_POST['keepmeloggedin'])) {
 			$_SESSION['keeploggedin']	 = 1;
+			}
+			
+			elseif (isset($_POST['rememberme'])) {
+			$_SESSION['rememberme']	 = 1;
 			}
 							
 			
