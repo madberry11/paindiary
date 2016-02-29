@@ -99,6 +99,7 @@ if(isset($_SESSION["username"])) {
 			?>
             <script>
 			$("#rememberme").prop("checked", true);
+			$("#keepmeloggedin").prop("checked", false);
 			</script>
             <?php
 		}
@@ -107,6 +108,7 @@ if(isset($_SESSION["username"])) {
 			?>
             <script>
 			$("#keepmeloggedin").prop("checked", true);
+			$("#rememberme").prop("checked", false);
 			</script>
             <?php
 		}
