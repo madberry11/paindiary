@@ -36,6 +36,52 @@ if (!isset($page_title)) {
 </head>
 <body>
 
+<div id="header">
+<div id="logintitle"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
+</div>
+<div id="pagewraplogin">
+<h1>Member Login</h1>
+<div id="pagecontent">
+
+<?php
+if(!isset($_COOKIE["unm"])) {
+$_SESSION["username"] = $_COOKIE["unm"];
+}
+if(!isset($_COOKIE["pwd"])) {
+$_SESSION["password"] = $_COOKIE["pwd"];
+}
+?>
+
+<br />
+<form id="loginform" action="index.php" method="post">
+	<label for="username" class="ui-hidden-accessible">Username</label>
+    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" value="<?php echo $_SESSION["username"] ?>" />
+    <label for="password" class="ui-hidden-accessible">Password</label>
+    <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" value="<?php echo $_SESSION["password"] ?>" />
+    <div class="checkboxdiv">
+    <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
+    <input class="checkbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
+    <input class="checkbox" type="checkbox" id="keepmeloggedin" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
+    <a href="http://ezinearticles.com/?The-Overlooked-Risks-of-Staying-Logged-In&id=4523115"><div class="icon-warning-sign float-left"></div></a><div class="small float-right">Do not check these if you are using a shared computer.</div></div>
+    <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
+    <div id="toregister"><a href="register.php">Create New Account</a></div>
+    <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
+</form>
+<br clear="both" />
+
+<script>
+$('div .checkbox').click(function () {                  
+    var checkedState =   $(this).prop("checked")
+    $(this)
+          .parent('div')
+          .children('.checkbox:checked')
+          .prop("checked", false);
+    
+    $(this).prop("checked", checkedState);
+});
+</script>
+
+
 <?php 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -99,43 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } 
 ?>
-
-<div id="header">
-<div id="logintitle"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
-</div>
-<div id="pagewraplogin">
-<h1>Member Login</h1>
-<div id="pagecontent">
-
-<br />
-<form id="loginform" action="index.php" method="post">
-	<label for="username" class="ui-hidden-accessible">Username</label>
-    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" value="<?php echo $_COOKIE["unm"]?>" />
-    <label for="password" class="ui-hidden-accessible">Password</label>
-    <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" value="<?php echo $_COOKIE["pwd"]?>" />
-    <div class="checkboxdiv">
-    <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
-    <input class="checkbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>
-    <input class="checkbox" type="checkbox" id="keepmeloggedin" name="keepmeloggedin" /><label for="keepmeloggedin"> Keep me logged in</label></br>
-    <a href="http://ezinearticles.com/?The-Overlooked-Risks-of-Staying-Logged-In&id=4523115"><div class="icon-warning-sign float-left"></div></a><div class="small float-right">Do not check these if you are using a shared computer.</div></div>
-    <p><input type="submit" name="login" id="loginbutton" value="Login" /></p>
-    <div id="toregister"><a href="register.php">Create New Account</a></div>
-    <div id="tochangepassword"><a href="forgot_password.php">Request New Password</a></div>
-</form>
-<br clear="both" />
-
-<script>
-$('div .checkbox').click(function () {                  
-    var checkedState =   $(this).prop("checked")
-    $(this)
-          .parent('div')
-          .children('.checkbox:checked')
-          .prop("checked", false);
-    
-    $(this).prop("checked", checkedState);
-});
-</script>
-
 
 
 
