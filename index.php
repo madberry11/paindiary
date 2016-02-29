@@ -155,22 +155,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['keeploggedin']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
 			setcookie("pwd",$_POST["pass"],time()+3600000);
-			$query = "UPDATE users SET keepmeloggedin = 1 WHERE username='$un'";
+			$query = "UPDATE users SET keepmeloggedin = '1' WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+			echo "keepmeloggedin";
 			}
 			
 			elseif (isset($_POST['rememberme'])) {
 			$_SESSION['rememberme']	 = 1;
 			setcookie("unm",$_POST["username"],time()+3600000);
-			$query = "UPDATE users SET rememberme = 1 WHERE username='$un'";
+			$query = "UPDATE users SET rememberme = '1' WHERE username='$un'";
 			$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+			echo "rememberme";
 			}
 							
-			
+			/*
 			$url = BASE_URL . 'home.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			exit(); 
+			*/
 				
 		} else { 
 			echo '<p class="error">Either the username and password entered do not match those on file or you have not yet activated your account.</p>';
