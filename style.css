@@ -922,7 +922,7 @@ display: none !important;
   left:50px; /* controls horizontal position */
   border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
   border-style:solid;
-  border-color:#f3961c transparent;
+  border-color: white transparent;
   /* reduce the damage in FF3.0 */
   display:block;
   width:0;
@@ -933,9 +933,9 @@ display: none !important;
 
 .triangle-isosceles.top:after {
   top:-15px; /* value = - border-top-width - border-bottom-width */
-  right:400px; /* controls horizontal position */
+  right:420px; /* controls horizontal position */
   bottom:auto;
   left:auto;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
-  border-color:#f3961c transparent;
+  border-color: white transparent;
 }
