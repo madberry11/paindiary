@@ -94,7 +94,7 @@ if(isset($_SESSION["username"])) {
 		echo $dorememberme;
 		echo $dokeepmeloggedin;
 		
-		if(isset($dorememberme)) {
+		if($dorememberme == 1) {
 			echo "This user has clicked on Remember me.";
 			?>
             <script>
@@ -103,7 +103,7 @@ if(isset($_SESSION["username"])) {
 			</script>
             <?php
 		}
-		elseif(isset($dokeepmeloggedin)) {
+		elseif($dokeepmeloggedin == 1) {
 			echo "This user has clicked on Keep me logged in.";
 			?>
             <script>
