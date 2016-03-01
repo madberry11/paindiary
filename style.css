@@ -888,6 +888,7 @@ display: none !important;
 
 #importantday {
 	padding: 5px;
+	padding-left: 10px;
 	background-color: white;
 	text-align: left;
 	display: block;
