@@ -348,7 +348,10 @@ elseif ($_SESSION['calmonth'] >= 10) {
 	echo $_SESSION['calmonth'] . " / ";
 }
 echo "{$_SESSION['calyear']} " ?>
+<a href="" class="icon-exclamation-sign"></a>
 </h1>
+
+
 <div id="addnewstuffwrap">
 <ul id="addnewstuff">
 <li><a href='newentry.php?newbodypart="1"'><div id="addnewbutton" class="visible" onlick="showform()"><div class="icon-men"></div><div class="linktext">Add New Body Part</div></div></a></li>
@@ -1251,6 +1254,7 @@ if ((!empty($_POST['cancelentry'])) OR (!empty($_POST['cancelrelief'])) OR (!emp
 
 if (!empty($_POST['entry-submit'])) {
 ?>
+<!--
 <style>
 body {
 cursor: wait;	
@@ -1259,6 +1263,7 @@ cursor: wait;
 cursor: wait;	
 }
 </style>
+-->
 <?php
 	 
 	 if (!empty($_POST['paintags'])) {
