@@ -91,11 +91,11 @@ if(isset($_SESSION["username"])) {
 		while($row = $r->fetch_assoc()) {
 		$dorememberme = $row['rememberme'];
 		$dokeepmeloggedin = $row['keepmeloggedin'];
-		echo $dorememberme;
-		echo $dokeepmeloggedin;
+		//echo $dorememberme;
+		//echo $dokeepmeloggedin;
 		
 		if($dorememberme == 1) {
-			echo "This user has clicked on Remember me.";
+			//echo "This user has clicked on Remember me.";
 			?>
             <script>
 			$("#rememberme").prop("checked", true);
@@ -104,7 +104,7 @@ if(isset($_SESSION["username"])) {
             <?php
 		}
 		elseif($dokeepmeloggedin == 1) {
-			echo "This user has clicked on Keep me logged in.";
+			//echo "This user has clicked on Keep me logged in.";
 			?>
             <script>
 			$("#keepmeloggedin").prop("checked", true);
