@@ -893,7 +893,7 @@ display: none !important;
 	background-color: white;
 	text-align: left;
 	display: none;
-	width: 690px;
+	width: 700px;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
@@ -934,7 +934,7 @@ display: none !important;
 
 .triangle-isosceles.top:after {
   top:-15px; /* value = - border-top-width - border-bottom-width */
-  right:440px; /* controls horizontal position */
+  right:460px; /* controls horizontal position */
   bottom:auto;
   left:auto;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
