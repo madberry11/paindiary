@@ -888,7 +888,9 @@ display: none !important;
 
 #importantday {
 	padding: 5px;
-	margin: 5px auto;
 	background-color: white;
 	text-align: left;
+	display: block;
+	width: auto;
+	margin-left: 40px;
 }
