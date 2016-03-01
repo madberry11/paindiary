@@ -361,9 +361,11 @@ $('#makeimportant').on('click',function(){
 $("#makeimportant").toggle(function() 
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
+		$("#importantday").css("display", "block");
 
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
+		$("#importantday").css("display", "none");
 });
 </script>
 
