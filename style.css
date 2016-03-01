@@ -892,7 +892,7 @@ display: none !important;
 	background-color: white;
 	text-align: left;
 	display: block;
-	width: 650px;
+	width: 670px;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
@@ -905,13 +905,14 @@ display: none !important;
   -moz-border-radius:10px;
   border-radius:10px;
 }
-
+/*
 .triangle-isosceles.top {
   background:-webkit-gradient(linear, 0 0, 0 100%, from(#f3961c), to(#f9d835));
   background:-moz-linear-gradient(#f3961c, #f9d835);
   background:-o-linear-gradient(#f3961c, #f9d835);
   background:linear-gradient(#f3961c, #f9d835);
 }
+*/
 
 /* creates triangle */
 .triangle-isosceles:after {
@@ -932,7 +933,7 @@ display: none !important;
 
 .triangle-isosceles.top:after {
   top:-15px; /* value = - border-top-width - border-bottom-width */
-  right:50px; /* controls horizontal position */
+  right:-400px; /* controls horizontal position */
   bottom:auto;
   left:auto;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
