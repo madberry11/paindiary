@@ -23,7 +23,8 @@ if (!isset($_SESSION['first_name'])) {
 
 	$_SESSION = array(); 
 	session_destroy(); 
-	setcookie (session_name(), '', time()-3600); 
+	setcookie (session_name(), '', time()-3600000); 
+	$_SESSION['keeploggedin']	 = 0;
 
 }
 
