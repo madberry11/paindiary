@@ -352,8 +352,17 @@ echo "{$_SESSION['calyear']} " ?>
 </h1>
 
 <script>
+/*
 $('#makeimportant').on('click',function(){
    $('#makeimportant').toggleClass("notimportant important");
+});
+*/
+$("#makeimportant").toggle(function() 
+{
+        $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
+
+}, function() {
+        $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 });
 </script>
 
