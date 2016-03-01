@@ -9,6 +9,44 @@ if (!isset($page_title)) {
 
 }
 
+if(isset($_SESSION["username"])) {
+	
+}
+
+elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["keeploggedin"] == 1)) {
+	$_SESSION["username"] = $_COOKIE["unm"];
+	
+	$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+	$username = "bcac3dbe9c1d06";
+	$password = "32d91723";
+	$dbname = "booksapp";
+
+	$dbc = new mysqli($servername, $username, $password, $dbname);
+	
+	$q = "SELECT user_id, username FROM users WHERE (username='".$_SESSION['username']."' AND active IS NULL";		
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	
+	if (@mysqli_num_rows($r) == 1) { 
+			
+			$_SESSION = mysqli_fetch_array ($r, MYSQLI_ASSOC); 
+			mysqli_free_result($r);
+	}
+
+}
+
+else {
+?>
+<script type="text/javascript">
+            window.location.href = "http://paindiary.azurewebsites.net/index.php"
+        </script>
+<?php	
+}
+
+if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
+	$_SESSION["username"] = $_COOKIE["unm"];
+}
+
+
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
