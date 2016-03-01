@@ -348,7 +348,7 @@ elseif ($_SESSION['calmonth'] >= 10) {
 	echo $_SESSION['calmonth'] . " / ";
 }
 echo "{$_SESSION['calyear']} " ?>
-<a href="" class="icon-exclamation-sign"></a>
+<a href="" class="icon-exclamation-sign nounderline notimportant"></a>
 </h1>
 
 

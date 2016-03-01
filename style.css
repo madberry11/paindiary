@@ -877,3 +877,11 @@ display: none !important;
 	width: 90%;
 	padding-top: 10px;	
 }
+
+.notimportant:before {
+	color: #999;
+}
+
+.important:before {
+	color: red;
+}
