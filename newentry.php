@@ -367,6 +367,10 @@ $("#makeimportant").toggle(function()
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
 });
+
+$('#closemessage').click(function(){
+    $("#importantday").css("display", "none");
+});
 </script>
 
 
