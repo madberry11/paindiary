@@ -350,7 +350,7 @@ elseif ($_SESSION['calmonth'] >= 10) {
 echo "{$_SESSION['calyear']} " ?>
 <a href="" id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
 </h1>
-<div id="importantday" class="triangle-isosceles top">For future reference, please explain in a comment why you have marked this day as important.<a href="" class="icon-circledelete nounderline" id="closemessage" ></a></div>
+<div id="importantday" class="triangle-isosceles top">For future reference, please explain in a comment why you have marked this day as important.<div class="icon-circledelete nounderline" id="closemessage" ></div></div>
 
 <script>
 /*
