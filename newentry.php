@@ -348,8 +348,14 @@ elseif ($_SESSION['calmonth'] >= 10) {
 	echo $_SESSION['calmonth'] . " / ";
 }
 echo "{$_SESSION['calyear']} " ?>
-<a href="" class="icon-exclamation-sign nounderline notimportant"></a>
+<a href="" id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
 </h1>
+
+<script>
+$('#makeimportant').on('click',function(){
+   $('#makeimportant').toggleClass("notimportant important");
+});
+</script>
 
 
 <div id="addnewstuffwrap">
