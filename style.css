@@ -883,5 +883,5 @@ display: none !important;
 }
 
 .important:before {
-	color: red;
+	color: #ffc200;
 }
