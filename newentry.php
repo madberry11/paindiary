@@ -362,10 +362,16 @@ $("#makeimportant").toggle(function()
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
+		<?php
+		echo "important";
+		?>
 
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
+		<?php
+		echo "not important";
+		?>
 });
 
 $('#closemessage').click(function(){
