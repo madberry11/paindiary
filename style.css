@@ -148,7 +148,7 @@ legend {
 .icon-chevron-left:before{content:'\f489'}
 .icon-warning-sign:before{content:'\f316'; color: #ffc200 !important;}
 .icon-exclamation-sign:before{content:'\f04a'}
-.icon-circledelete:before{content:'\f0d2'; padding-bottom: -5px; padding-left: 10px;}
+.icon-circledelete:before{content:'\f0d2'; padding-bottom: -5px !important; padding-left: 10px;}
 .icon-plus-sign, .icon-commentroundtyping, .icon-pill-antivirusalt, .trash2, .icon-men {
 	margin-right: 10px;
 	font-size: 1.4em;
@@ -894,7 +894,7 @@ display: none !important;
 	text-align: left;
 	display: none;
 	width: 690px;
-	height: 26px !important;
+	height: 36px !important;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
