@@ -884,7 +884,8 @@ display: none !important;
 }
 
 .important:before {
-	color: #ffc200;
+	/*color: #ffc200;*/ /*amber*/
+	color: #228B22; /* forest green*/
 }
 
 #importantday {
@@ -893,7 +894,7 @@ display: none !important;
 	background-color: white;
 	text-align: left;
 	display: none;
-	width: 700px;
+	width: 690px;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
@@ -906,14 +907,6 @@ display: none !important;
   -moz-border-radius:10px;
   border-radius:10px;
 }
-/*
-.triangle-isosceles.top {
-  background:-webkit-gradient(linear, 0 0, 0 100%, from(#f3961c), to(#f9d835));
-  background:-moz-linear-gradient(#f3961c, #f9d835);
-  background:-o-linear-gradient(#f3961c, #f9d835);
-  background:linear-gradient(#f3961c, #f9d835);
-}
-*/
 
 /* creates triangle */
 .triangle-isosceles:after {
@@ -934,7 +927,7 @@ display: none !important;
 
 .triangle-isosceles.top:after {
   top:-15px; /* value = - border-top-width - border-bottom-width */
-  right:460px; /* controls horizontal position */
+  right:450px; /* controls horizontal position */
   bottom:auto;
   left:auto;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
