@@ -885,7 +885,8 @@ display: none !important;
 
 .important:before {
 	/*color: #ffc200;*/ /*amber*/
-	color: #228B22; /* forest green*/
+	/*color: #228B22;*/ /* forest green*/
+	color: black;
 }
 
 #importantday {
