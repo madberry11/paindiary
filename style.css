@@ -894,6 +894,7 @@ display: none !important;
 	text-align: left;
 	display: none;
 	width: 690px;
+	height: 26px !important;
 	margin-left: 50px;
 	margin-bottom: 20px;
 }
