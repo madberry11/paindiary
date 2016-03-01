@@ -148,7 +148,7 @@ legend {
 .icon-chevron-left:before{content:'\f489'}
 .icon-warning-sign:before{content:'\f316'; color: #ffc200 !important;}
 .icon-exclamation-sign:before{content:'\f04a'}
-.icon-circledelete:before{content:'\f0d2'; margin-bottom: -5px; padding-left: 10px;}
+.icon-circledelete:before{content:'\f0d2'; padding-bottom: -5px; padding-left: 10px;}
 .icon-plus-sign, .icon-commentroundtyping, .icon-pill-antivirusalt, .trash2, .icon-men {
 	margin-right: 10px;
 	font-size: 1.4em;
@@ -935,7 +935,7 @@ display: none !important;
 
 .triangle-isosceles.top:after {
   top:-15px; /* value = - border-top-width - border-bottom-width */
-  right:430px; /* controls horizontal position */
+  right:440px; /* controls horizontal position */
   bottom:auto;
   left:auto;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
