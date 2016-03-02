@@ -411,16 +411,17 @@ default:
 	$r = $dbc->query($query);
 	if ($r -> num_rows == 1) {	
 		
-		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'><span class='icon-exclamation-sign nounderline important'></span>" . $thisday . "</div></a></td>"; 
+		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'><span class='icon-exclamation-sign nounderline important'></span>" . $thisday . "</div></a></td>";
+		 if(($i % 7) == 6 ) echo "</tr>"; 
 	}
 	
 	elseif ($r -> num_rows == 0) {	
 		
 		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
+		 if(($i % 7) == 6 ) echo "</tr>";
 	}
 	}
 		 
-    if(($i % 7) == 6 ) echo "</tr>";
 }
 ?>
 </tr>
