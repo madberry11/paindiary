@@ -249,12 +249,37 @@ if (isset($_SESSION['keeploggedin'])) {
 
 if(isset($_GET['important'])) {
 	echo "important";
-	?>
+	$query = "SELECT * FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+	
+	// if this day had not been marked as important --> make important
+	if ($result -> num_rows == 0) {
+		echo "now important";
+		$uid = $_SESSION['user_id'];
+		$eyear = $_SESSION['calyear'];
+		$emonth = $_SESSION['calmonth'];
+		$eday = $_SESSION['day'];
+		$query ="INSERT INTO important (user_id, entryyear, entrymonth, entryday) VALUES ('$uid', '$eyear', '$emonth', '$eday')";
+		mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+		?>
     <script>
+	window.onload = function(){
     $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 	$("#importantday").css("display", "block");
+	};
+	
 	</script>
     <?php
+	}
+	
+	// if this day had been marked as important --> make not important
+	elseif ($result -> num_rows == 1) {
+		echo "now not important";
+		$query = "DELETE * FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+      	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+		
+		
+	}
 }
 
 elseif(!isset($_GET['important'])) {
@@ -408,7 +433,6 @@ $("#makeimportant").toggle(function()
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
-		window.location.replace("http://paindiary.azurewebsites.net/newentry.php?important=0");
 /*		
 			 function ajaxFunction(){
  var ajaxRequest;  // The variable that makes Ajax possible!
