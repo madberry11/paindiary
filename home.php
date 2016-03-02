@@ -404,22 +404,10 @@ default:
 	
 	
     // for cells in the table that have days in them
-    else {
-		
-	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
-	$r = $dbc->query($query);
-	if ($r -> num_rows == 1) {	
-		
-		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'><span class='icon-exclamation-sign nounderline important'></span>" . $thisday . "</div></a></td>";
-		 if(($i % 7) == 6 ) echo "</tr>"; 
-	}
-	
-	elseif ($r -> num_rows == 0) {	
+    else { 
 		
 		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
 		 if(($i % 7) == 6 ) echo "</tr>";
-	}
 	}
 		 
 }
