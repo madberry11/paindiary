@@ -625,7 +625,7 @@ if ($result -> num_rows > 0) {
 $(function () { 
     $('#container').highcharts({
         chart: {
-            type: 'bar'
+            type: 'line'
         },
         title: {
             text: 'Fruit Consumption'
