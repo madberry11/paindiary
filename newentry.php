@@ -353,7 +353,7 @@ elseif ($_SESSION['calmonth'] >= 10) {
 	echo $_SESSION['calmonth'] . " / ";
 }
 echo "{$_SESSION['calyear']} " ?>
-<a href="newentry.php?important='1'" id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
+<a href='newentry.php?important="1"' id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
 </h1>
 <div id="importantday" class="triangle-isosceles top">For future reference, please explain in a comment why you have marked this day as important.<a class="icon-circledelete nounderline" id="closemessage" ></a></div>
 
