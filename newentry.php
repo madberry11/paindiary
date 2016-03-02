@@ -663,7 +663,7 @@ $(function () {
         },
         series: [{
             name: 'Jane',
-            data: [<?php echo join($data, ',') ?>]
+            data: [2, 4, 7, 8]
         }, {
             name: 'John',
             data: [5, 7, 3]
