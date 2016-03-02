@@ -355,11 +355,33 @@ echo "{$_SESSION['calyear']} " ?>
 
 <script>
 
-/*
+
 $("#makeimportant").toggle(function() 
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
+		
+			 function ajaxFunction(){
+ var ajaxRequest;  // The variable that makes Ajax possible!
+
+ try{
+   // Opera 8.0+, Firefox, Safari
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+   // Internet Explorer Browsers
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         // Something went wrong
+         alert("Your browser broke!");
+         return false;
+      }
+   }
+ } }
+		
 		$.ajax({
        url: 'makeimportant.php',
        dataType: 'json',
@@ -371,6 +393,28 @@ $("#makeimportant").toggle(function()
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
+		
+			 function ajaxFunction(){
+ var ajaxRequest;  // The variable that makes Ajax possible!
+
+ try{
+   // Opera 8.0+, Firefox, Safari
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+   // Internet Explorer Browsers
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         // Something went wrong
+         alert("Your browser broke!");
+         return false;
+      }
+   }
+ } }
+		
 		$.ajax({
        url: 'makenotimportant.php',
        dataType: 'json',
@@ -379,11 +423,11 @@ $("#makeimportant").toggle(function()
        }
     });
 });
-*/
+
 $('#closemessage').click(function(){
     $("#importantday").css("display", "none");
 });
-
+/*
 $('#makeimportant').click(function(){
 	
 	 function ajaxFunction(){
@@ -412,9 +456,9 @@ $('#makeimportant').click(function(){
        dataType: 'json',
        success: function(data){
             alert(data);
-			alert("something!");
        }
 });
+*/
 </script>
 
 
