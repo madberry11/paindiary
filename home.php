@@ -320,10 +320,10 @@ default:
 		 if ($row['entryday'] == $thisday) {
 			 echo $row['entryday'];
 			 
-			 	$sql = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
-	$result = $dbc->query($sql);
-	if ($result -> num_rows == 1) {
+			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
+	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+	$r = $dbc->query($query);
+	if ($r -> num_rows == 1) {
 		echo "yes";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
