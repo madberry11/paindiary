@@ -934,3 +934,8 @@ display: none !important;
   border-width:0 15px 15px; /* vary these values to change the angle of the vertex */
   border-color: white transparent;
 }
+
+#container {
+	height: 500px;
+	width: 90%;	
+}
