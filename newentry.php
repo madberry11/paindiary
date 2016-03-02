@@ -604,6 +604,13 @@ if ($result -> num_rows > 0) {
      }
 } else {
      echo "You have not entered anything for this day.";
+	 ?>
+     <script>
+	 $(document).ready(function(){
+	 $("#makeimportant").css("display", "none");
+	 });
+	 </script>
+     <?php
 	 //$evalue = 1 ;
 }
 ?>
