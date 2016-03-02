@@ -249,9 +249,9 @@ if (isset($_SESSION['keeploggedin'])) {
 
 if(isset($_GET['important'])) {
 	echo "important";
-	$query = "SELECT * FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	$query = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
 	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
-	$result = $dbc->query($query);
+	$result = $dbc->query($sql);
 	
 	// if this day had not been marked as important --> make important
 	if ($result -> num_rows == 0) {
