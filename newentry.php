@@ -264,10 +264,10 @@ if(isset($_GET['important'])) {
 		mysqli_query($dbc,$query) or die(mysqli_error($dbc));
 		?>
     <script>
-	window.onload = function(){
+	$(document).ready(function(){
     $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 	$("#importantday").css("display", "block");
-	};
+	});
 	
 	</script>
     <?php
