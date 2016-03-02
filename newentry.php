@@ -626,7 +626,7 @@ $sql = "SELECT p00 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmont
 $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
-while ($row = mysql_fetch_array($result)) {
+while ($row = mysqli_fetch_array($result)) {
    $data[] = $row['value'];
    echo "query works";
 }
