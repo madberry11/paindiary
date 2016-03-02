@@ -622,12 +622,36 @@ if ($result -> num_rows > 0) {
 
 <!-- HIGH CHARTS -->
 <?php
-$sql = "SELECT p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
+$sql = "SELECT bodypart, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
 $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
 while ($row = mysqli_fetch_array($result)) {
-   $data[] = $row['p00'] . $row['p01'] . $row['p02'] . $row['p03'] . $row['p04'];
+	$bodypart[] = $row['bodypart'];
+   	$p00[] = $row['p00'];
+	$p01[] = $row['p01'];
+	$p02[] = $row['p02'];
+	$p03[] = $row['p03'];
+	$p04[] = $row['p04'];
+	$p05[] = $row['p05'];
+	$p06[] = $row['p06'];
+	$p07[] = $row['p07'];
+	$p08[] = $row['p08'];
+	$p09[] = $row['p09'];
+	$p10[] = $row['p10'];
+	$p11[] = $row['p11'];
+	$p12[] = $row['p12'];
+	$p13[] = $row['p13'];
+	$p14[] = $row['p14'];
+	$p15[] = $row['p15'];
+	$p16[] = $row['p16'];
+	$p17[] = $row['p17'];
+	$p18[] = $row['p18'];
+	$p19[] = $row['p19'];
+	$p20[] = $row['p20'];
+	$p21[] = $row['p21'];
+	$p22[] = $row['p22'];
+	$p23[] = $row['p23'];
    //echo "query works";
 }
 }
@@ -663,8 +687,8 @@ $(function () {
             categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
         },
         series: [{
-            name: 'Jane',
-            data: [<?php echo join($data, ',') ?>]
+            name: [<?php echo $bodypart ?>],
+            data: [<?php echo join($p00, ',') ?>]
         }, {
             name: 'John',
             data: [5, 7, 3, 4, 9, 2]
