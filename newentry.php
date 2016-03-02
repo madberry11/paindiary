@@ -627,7 +627,7 @@ $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
 while ($row = mysqli_fetch_array($result)) {
-   $data[] = $row['*'];
+   $data[] = $row['p00'] . $row['p01'] . $row['p02'] . $row['p03'] . $row['p04'];
    //echo "query works";
 }
 }
