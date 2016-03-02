@@ -247,6 +247,11 @@ if (isset($_SESSION['keeploggedin'])) {
     <?php
 }
 
+if(isset($_GET['calday'])) {
+     $day = $_GET['calday'] - $_GET['startday'] + 1;
+	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
+}
+
 if(isset($_GET['important'])) {
 	
 	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
@@ -357,11 +362,6 @@ if(isset($_GET['deleteall'])) {
 if (isset($_SESSION['calmonth'])) {
 	$calmonth = $_SESSION['calmonth'];
 	$calyear = $_SESSION['calyear'];
-}
-
-if(isset($_GET['calday'])) {
-     $day = $_GET['calday'] - $_GET['startday'] + 1;
-	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
 }
 
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
