@@ -318,6 +318,7 @@ default:
      while($row = $result->fetch_assoc()) {
 		 // if there's an entry for this day
 		 if ($row['entryday'] == $thisday) {
+			 echo $row['entryday'];
 			 
 			 	$sql = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
 	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
