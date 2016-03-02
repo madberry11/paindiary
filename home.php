@@ -357,7 +357,7 @@ default:
 			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l10'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 	}
-	elseif ($result -> num_rows == 0) {
+	elseif ($r -> num_rows == 0) {
 		//echo "no";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
