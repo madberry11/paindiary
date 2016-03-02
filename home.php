@@ -323,6 +323,7 @@ default:
 	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
 	$result = $dbc->query($sql);
 	if ($result -> num_rows == 1) {
+		echo "yes";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
 			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
@@ -356,6 +357,7 @@ default:
 			}
 	}
 	elseif ($result -> num_rows == 0) {
+		echo "no";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
 			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
