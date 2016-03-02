@@ -327,7 +327,7 @@ default:
 		//echo "yes";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><div class='icon-exclamation-sign nounderline important'></div><div class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</div></div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><span class='icon-exclamation-sign nounderline important'></span>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			 }
 			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
 			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l2'><span class='icon-exclamation-sign nounderline important'></span>" . number_format($row['AVG(avgpain)'],1) ."</div>";
