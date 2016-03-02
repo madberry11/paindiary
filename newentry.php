@@ -247,6 +247,10 @@ if (isset($_SESSION['keeploggedin'])) {
     <?php
 }
 
+if(isset($_GET['important'])) {
+	echo "important";
+}
+
 if(isset($_GET['editrecord'])) {
 	$editrecord = $_GET['editrecord'];
 	$rvalue = 3;
@@ -349,7 +353,7 @@ elseif ($_SESSION['calmonth'] >= 10) {
 	echo $_SESSION['calmonth'] . " / ";
 }
 echo "{$_SESSION['calyear']} " ?>
-<a href="" id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
+<a href="newentry.php?important='1'" id="makeimportant" class="icon-exclamation-sign nounderline notimportant"></a>
 </h1>
 <div id="importantday" class="triangle-isosceles top">For future reference, please explain in a comment why you have marked this day as important.<a class="icon-circledelete nounderline" id="closemessage" ></a></div>
 
@@ -360,7 +364,7 @@ $("#makeimportant").toggle(function()
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
-		
+/*	
 			 function ajaxFunction(){
  var ajaxRequest;  // The variable that makes Ajax possible!
 
@@ -389,11 +393,11 @@ $("#makeimportant").toggle(function()
             alert(data); 
        }
     });
-
+*/
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
-		
+/*		
 			 function ajaxFunction(){
  var ajaxRequest;  // The variable that makes Ajax possible!
 
@@ -422,43 +426,13 @@ $("#makeimportant").toggle(function()
             alert(data);
        }
     });
+	*/
 });
 
 $('#closemessage').click(function(){
     $("#importantday").css("display", "none");
 });
-/*
-$('#makeimportant').click(function(){
-	
-	 function ajaxFunction(){
- var ajaxRequest;  // The variable that makes Ajax possible!
 
- try{
-   // Opera 8.0+, Firefox, Safari
-   ajaxRequest = new XMLHttpRequest();
- }catch (e){
-   // Internet Explorer Browsers
-   try{
-      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-   }catch (e) {
-      try{
-         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-      }catch (e){
-         // Something went wrong
-         alert("Your browser broke!");
-         return false;
-      }
-   }
- } }
-	
-	$.ajax({
-       url: 'http://paindiary.azurewebsites.net/makeimportant.php',
-       dataType: 'json',
-       success: function(data){
-            alert(data);
-       }
-});
-*/
 </script>
 
 
