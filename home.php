@@ -326,34 +326,34 @@ default:
 		echo "yes";
 			 
 			 if ($row['AVG(avgpain)'] < 0.95) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			 }
 			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l2'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l2'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 1.95) && ($row['AVG(avgpain)'] < 2.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l3'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l3'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 2.95) && ($row['AVG(avgpain)'] < 3.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l4'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l4'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 3.95) && ($row['AVG(avgpain)'] < 4.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l5'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l5'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 4.95) && ($row['AVG(avgpain)'] < 5.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l6'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l6'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 5.95) && ($row['AVG(avgpain)'] < 6.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l7'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l7'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 6.95) && ($row['AVG(avgpain)'] < 7.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l8'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l8'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 7.95) && ($row['AVG(avgpain)'] < 8.95)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l9'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l9'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 			elseif (($row['AVG(avgpain)'] >= 8.95) && ($row['AVG(avgpain)'] <= 10)) {
-			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l10'><a class='icon-exclamation-sign nounderline notimportant'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l10'><a class='icon-exclamation-sign nounderline important'></a>" . number_format($row['AVG(avgpain)'],1) ."</div>";
 			}
 	}
 	elseif ($result -> num_rows == 0) {

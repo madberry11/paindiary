@@ -255,7 +255,7 @@ if(isset($_GET['important'])) {
 	
 	// if this day had not been marked as important --> make important
 	if ($result -> num_rows == 0) {
-		echo "now important";
+		//echo "now important";
 		$uid = $_SESSION['user_id'];
 		$eyear = $_SESSION['calyear'];
 		$emonth = $_SESSION['calmonth'];
@@ -275,7 +275,7 @@ if(isset($_GET['important'])) {
 	
 	// if this day had been marked as important --> make not important
 	elseif ($result -> num_rows == 1) {
-		echo "now not important";
+		//echo "now not important";
 		$query = "DELETE FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
       	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
 		
