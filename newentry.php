@@ -364,11 +364,8 @@ echo "{$_SESSION['calyear']} " ?>
 <div id="importantday" class="triangle-isosceles top">For future reference, please explain in a comment why you have marked this day as important.<a class="icon-circledelete nounderline" id="closemessage" ></a></div>
 
 <script>
+
 /*
-$('#makeimportant').on('click',function(){
-   $('#makeimportant').toggleClass("notimportant important");
-});
-*/
 $("#makeimportant").toggle(function() 
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
@@ -392,16 +389,18 @@ $("#makeimportant").toggle(function()
        }
     });
 });
-
+*/
 $('#closemessage').click(function(){
     $("#importantday").css("display", "none");
 });
+
 $('#makeimportant').click(function(){
 	$.ajax({
-       url: 'makeimportant.php',
+       url: 'http://paindiary.azurewebsites.net/makeimportant.php',
        dataType: 'json',
        success: function(data){
-            alert(data); 
+            alert(data);
+			alert("something!");
        }
 });
 </script>
