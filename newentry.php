@@ -688,7 +688,7 @@ $(function () {
         },
         series: [{
             name: 'Mary',
-            data: [<?php echo join($p00, ',') ?>]
+            data: [<?php echo join($p16, ',') ?>]
         }, {
             name: 'John',
             data: [5, 7, 3, 4, 9, 2]
