@@ -628,7 +628,7 @@ $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 while ($row = mysql_fetch_array($result)) {
    $data[] = $row['value'];
-   echo $data[];
+   echo join($data, ',');
 }
 }
 ?>
