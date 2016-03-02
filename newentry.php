@@ -284,7 +284,20 @@ if(isset($_GET['important'])) {
 }
 
 elseif(!isset($_GET['important'])) {
-	echo "not important";
+	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
+	$result = $dbc->query($sql);
+	if ($result -> num_rows == 1) {
+		?>
+    <script>
+	$(document).ready(function(){
+    $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
+	$("#importantday").css("display", "block");
+	});
+	
+	</script>
+    <?php
+	}
 }
 
 if(isset($_GET['editrecord'])) {
