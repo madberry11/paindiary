@@ -99,7 +99,6 @@ margin-bottom: 0px;
 }
 
 .vmiddle {
-padding-top: -10px !important;
-margin-bottom: 10px !important;
+vertical-align: middle !important;
 display: inline-block;
 }
