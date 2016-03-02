@@ -739,6 +739,13 @@ if (mysqli_num_rows($result) == 1) {
 	while($row = $result->fetch_assoc()) {
 		$comment = $row['comment'];
 		$cvalue = 4;
+		?>
+     <script>
+	 $(document).ready(function(){
+	 $("#importantday").css("display", "none");
+	 });
+	 </script>
+     <?php
 	}
 }
 else {
