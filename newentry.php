@@ -364,6 +364,7 @@ $("#makeimportant").toggle(function()
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
+		window.location.replace("http://paindiary.azurewebsites.net/newentry.php?important=1");
 /*	
 			 function ajaxFunction(){
  var ajaxRequest;  // The variable that makes Ajax possible!
