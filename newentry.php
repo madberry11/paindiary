@@ -377,7 +377,7 @@ $("#makeimportant").toggle(function()
        url: 'makeimportant.php',
        dataType: 'json',
        success: function(data){
-            alert(data);
+            alert(data); 
        }
     });
 
@@ -395,6 +395,14 @@ $("#makeimportant").toggle(function()
 
 $('#closemessage').click(function(){
     $("#importantday").css("display", "none");
+});
+$('#makeimportant').click(function(){
+	$.ajax({
+       url: 'makeimportant.php',
+       dataType: 'json',
+       success: function(data){
+            alert(data); 
+       }
 });
 </script>
 
