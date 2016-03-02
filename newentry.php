@@ -621,6 +621,29 @@ if ($result -> num_rows > 0) {
 
 
 <!-- HIGH CHARTS -->
+<?php
+$sql = "SELECT p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
+$result = $dbc->query($sql);
+
+if ($result -> num_rows > 0) {
+while ($row = mysql_fetch_array($result)) {
+   $data[] = $row['value'];
+}
+}
+?>
+<!--
+var chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container'
+      },
+      series: [{
+         data: [<?php echo join($data, ',') ?>],
+         pointStart: 0,
+         pointInterval
+      }]
+});
+-->
+
 <script>
 $(function () { 
     $('#container').highcharts({
@@ -640,7 +663,7 @@ $(function () {
         },
         series: [{
             name: 'Jane',
-            data: [1, 0, 4]
+            data: [<?php echo join($data, ',') ?>]
         }, {
             name: 'John',
             data: [5, 7, 3]
