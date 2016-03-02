@@ -630,10 +630,10 @@ $(function () {
         title: {
             text: 'Fruit Consumption'
         },
-        xAxis: {
+        yAxis: {
             categories: ['Apples', 'Bananas', 'Oranges']
         },
-        yAxis: {
+        xAxis: {
             title: {
                 text: 'Fruit eaten'
             }
