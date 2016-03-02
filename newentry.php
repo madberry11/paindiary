@@ -377,7 +377,7 @@ $("#makeimportant").toggle(function()
        url: 'makeimportant.php',
        dataType: 'json',
        success: function(data){
-            //data returned from php
+            alert(data);
        }
     });
 
@@ -388,7 +388,7 @@ $("#makeimportant").toggle(function()
        url: 'makenotimportant.php',
        dataType: 'json',
        success: function(data){
-            //data returned from php
+            alert(data);
        }
     });
 });
