@@ -249,6 +249,16 @@ if (isset($_SESSION['keeploggedin'])) {
 
 if(isset($_GET['important'])) {
 	echo "important";
+	?>
+    <script>
+    $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
+	$("#importantday").css("display", "block");
+	</script>
+    <?php
+}
+
+elseif(!isset($_GET['important'])) {
+	echo "not important";
 }
 
 if(isset($_GET['editrecord'])) {
