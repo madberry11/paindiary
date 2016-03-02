@@ -86,6 +86,7 @@ font-size: small;
 
 .iconshere {
 text-align: center !important;
+vertical-align: middle !important;
 position: relative;
 background-color: #80c5cc;
 display: inline-block;
