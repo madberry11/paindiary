@@ -622,12 +622,12 @@ if ($result -> num_rows > 0) {
 
 <!-- HIGH CHARTS -->
 <?php
-$sql = "SELECT p00 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
+$sql = "SELECT p01 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
 $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
 while ($row = mysqli_fetch_array($result)) {
-   $data[] = $row['p00'];
+   $data[] = $row['p01'];
    echo "query works";
 }
 }
