@@ -40,6 +40,17 @@ if (!isset($page_title)) {
 <script>
 var myInterval = setTimeout("location=('index.php');",3600000);
 
+/* AJAX */
+
+var xhttp;
+if (window.XMLHttpRequest) {
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+
 /*globals $ */
 /*jslint vars:true */
 
@@ -362,16 +373,24 @@ $("#makeimportant").toggle(function()
 {
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
-		<?php
-		echo "important";
-		?>
+		$.ajax({
+       url: 'makeimportant.php',
+       dataType: 'json',
+       success: function(data){
+            //data returned from php
+       }
+    });
 
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
-		<?php
-		echo "not important";
-		?>
+		$.ajax({
+       url: 'makenotimportant.php',
+       dataType: 'json',
+       success: function(data){
+            //data returned from php
+       }
+    });
 });
 
 $('#closemessage').click(function(){
