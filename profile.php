@@ -108,14 +108,16 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	
 	if (@mysqli_num_rows($r) == 1) { 
 	$row = mysqli_fetch_assoc($r);
-	echo "success";
 	$username=$row['username'];
+	$register=$row['registration_date'];
+	$email=$row['email'];
+	$password=$row['pass'];
 	}
 ?>
 <p>Username: <?php echo $username ?></p>
-<p>Registration date:</p>
-<p>Email address:</p>
-<p>Password:</p>
+<p>Registration date: <?php echo $register ?></p>
+<p>Email address: <?php echo $email ?></p>
+<p>Password: <?php echo $password ?></p>
 </div>
 </body>
 </html>
