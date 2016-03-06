@@ -115,9 +115,10 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	}
 ?>
 <table id="usertable">
-<tr><td>Username:</td><td> <?php echo $username ?></td></tr>
-<tr><td>Email address:</td><td><?php echo $email ?></td></tr>
-<tr><td>Registration date:</td><td><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
+<tr><td>Username:</td><td> <?php echo $username ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td></tr>
+<tr><td>Email address:</td><td><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
+<tr><td>Registration date:</td><td><?php echo date_format($register, 'Y-m-d'); ?></td><td></td></tr>
+<tr><td>Number of entries:</td><td></td><td></td></tr>
 </table>
 <p>Change Password</p>
 <p>Delete Account</p>
