@@ -627,7 +627,7 @@ $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
 	$row_cnt = $result->num_rows;
-	echo $row_cnt;
+	//echo $row_cnt;
 while ($row = mysqli_fetch_array($result)) {
 	$bodypart[] = $row['bodypart'];
    	$p00[] = $row['p00'];
@@ -675,7 +675,7 @@ var chart = new Highcharts.Chart({
 $(function () { 
     $('#container').highcharts({
         chart: {
-            type: 'line'
+            type: 'scatter'
         },
         title: {
             text: 'Daily Pain Itensity'
