@@ -95,7 +95,11 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <br clear="both" />
 <div id="divider"></div>
 <div id="pagewrap">
-Something!
+<h1>User Profile</h1>
+<p>Username:</p>
+<p>Registration date:</p>
+<p>Email address:</p>
+<p>Password:</p>
 </div>
 </body>
 </html>
