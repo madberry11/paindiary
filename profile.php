@@ -109,7 +109,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	if (@mysqli_num_rows($r) == 1) { 
 	$row = mysqli_fetch_assoc($r);
 	$username=$row['username'];
-	$register=$row['registration_date'];
+	$register=new DateTime($row['registration_date']);
 	$email=$row['email'];
 	$password=$row['pass'];
 	}
