@@ -107,7 +107,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
-	$row = mysqli_fetch_assoc($result);
+	$row = mysqli_fetch_assoc($r);
 	echo "success";
 	$username=$row['username'];
 	}
