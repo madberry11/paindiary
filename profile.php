@@ -51,8 +51,6 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 
 
 ?>
-<!DOCTYPE>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><?php echo $page_title; ?></title>
@@ -96,7 +94,17 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <div id="divider"></div>
 <div id="pagewrap">
 <h1>User Profile</h1>
-<p>Username:</p>
+<?php
+
+$q = "SELECT * FROM users WHERE (user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	
+	if (@mysqli_num_rows($r) == 1) { 
+	echo "success";
+	$username=$row['username'];
+	}
+?>
+<p>Username: <?php echo $username ?></p>
 <p>Registration date:</p>
 <p>Email address:</p>
 <p>Password:</p>
