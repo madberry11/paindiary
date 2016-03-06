@@ -31,6 +31,7 @@ if (!isset($page_title)) {
   	<script src="demo/js/jquery-ui.1.8.20.min.js"></script>
   	<script src="js/tagit.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="draggable-points.js"></script>
     <noscript>JavaScript is essential for the functionality of this application. Please enable JavaScript for an improved user experience.</noscript>
     
 <!-- fonts -->
@@ -592,6 +593,8 @@ if ($result -> num_rows > 0) {
 	 //$evalue= 4;
 	 		 ?>
 <div id='container'></div>
+<div id="drag"></div>
+<div id="drop"></div>
          <?php
      while($row = $result->fetch_assoc()) {
 		
@@ -697,7 +700,8 @@ $(function () {
 		?>
 		{
             name: '<?php echo $bodypart[$i] ?>',
-			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>]
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true
         },
 		<?php
 		$i++;
@@ -707,7 +711,8 @@ $(function () {
 		?>
 		 {
             name: '<?php echo $bodypart[$i] ?>',
-			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>]
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true
         }
 		<?php
 		}
