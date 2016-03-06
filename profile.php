@@ -114,7 +114,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$password=$row['pass'];
 	}
 ?>
-<table>
+<table id="usertable">
 <tr><td>Username:</td><td> <?php echo $username ?></td></tr>
 <tr><td>Email address:</td><td><?php echo $email ?></td></tr>
 <tr><td>Registration date:</td><td><?php echo date_format($register, 'Y-m-d'); ?></td></tr>

@@ -940,3 +940,8 @@ display: none !important;
 	width: 95%;
 	margin: 10px auto;	
 }
+
+#usertable {
+	width: 300px;
+	border: 2px solid white;
+}
