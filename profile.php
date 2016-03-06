@@ -119,7 +119,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
 <tr><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td>&nbsp;</td></tr>
 <tr><th>Number of entries:</th><td class="right">&nbsp;</td><td>&nbsp;</td></tr>
-<tr><th>Password:</th><td>&nbsp;</td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td></tr>
+<tr><th>Password:</th><td><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td></tr>
 </table>
 <p>Delete Account</p>
 </div>
