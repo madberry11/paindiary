@@ -40,12 +40,12 @@ legend {
 	box-shadow: 0 0 12px 			#49a596;	
 }
 
-#addnewbutton, #addpainrelief, #addcomment, #deleteall {
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
 	border: 1px solid black;
 	background-color: #da4657;
 }
 
-#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover {
+#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover, #changepass:hover {
 	background-color: #bd2133;
 }
 
