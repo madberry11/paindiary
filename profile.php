@@ -119,8 +119,8 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
 <tr><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td></td></tr>
 <tr><th>Number of entries:</th><td class="right"></td><td></td></tr>
+<tr><td rowspan="3"><div id="changepass"><a href="" class="nounderline">Change Password</a></div></td></tr>
 </table>
-<div id="changepass"><a href="" class="nounderline">Change Password</a></div>
 <p>Delete Account</p>
 </div>
 </body>
