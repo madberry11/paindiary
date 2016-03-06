@@ -692,6 +692,40 @@ $(function () {
         xAxis: {
             categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
         },
+		
+		plotOptions: {
+        series: {
+            point: {
+                events: {
+
+                    drag: function (e) {
+                        // Returning false stops the drag and drops. Example:
+                        /*
+                        if (e.newY > 300) {
+                            this.y = 300;
+                            return false;
+                        }
+                        */
+
+                        $('#drag').html(
+                            'Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Highcharts.numberFormat(e.y, 2) + '</b>');
+                    },
+                    drop: function () {
+                        $('#drop').html(
+                            'In <b>' + this.series.name + '</b>, <b>' + this.category + '</b> was set to <b>' + Highcharts.numberFormat(this.y, 2) + '</b>');
+                    }
+                }
+            },
+            stickyTracking: false
+        },
+        column: {
+            stacking: 'normal'
+        },
+        line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
         series: [
 		<?php
 		$i=0;
