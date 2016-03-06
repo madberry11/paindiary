@@ -626,8 +626,8 @@ $sql = "SELECT bodypart, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, 
 $result = $dbc->query($sql);
 
 if ($result -> num_rows > 0) {
-	$num_rows = num_rows;
-	echo $num_rows;
+	$row_cnt = $result->num_rows;
+	echo $row_cnt;
 while ($row = mysqli_fetch_array($result)) {
 	$bodypart[] = $row['bodypart'];
    	$p00[] = $row['p00'];
