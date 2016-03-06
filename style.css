@@ -356,7 +356,7 @@ transition-property: position;
 transition-duration: 1s;
 }
 
-#addnewbutton, #addpainrelief, #addcomment, #deleteall {
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
 	position: relative;
 	display: inline-block;
 	padding: 5px;
@@ -958,4 +958,8 @@ display: none !important;
 	border: none !important;
 	text-align: left !important;
 	padding-left: 10px;	
+}
+
+#changepass {
+	width: 400px !important;	
 }
