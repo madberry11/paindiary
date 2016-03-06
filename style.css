@@ -942,6 +942,11 @@ display: none !important;
 }
 
 #usertable {
-	width: 350px;
+	margin: 20px;
+	width: 400px;
 	border: 2px solid white;
+}
+
+#usertable th {
+	border: none !important;	
 }
