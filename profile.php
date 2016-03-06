@@ -114,10 +114,13 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$password=$row['pass'];
 	}
 ?>
-<p>Username: <?php echo $username ?></p>
-<p>Registration date: <?php echo date_format($register, 'Y-m-d'); ?></p>
-<p>Email address: <?php echo $email ?></p>
-<p>Password: <?php echo $password ?></p>
+<table>
+<tr><td>Username:</td><td> <?php echo $username ?></td></tr>
+<tr><td>Email address:</td><td><?php echo $email ?></td></tr>
+<tr><td>Registration date:</td><td><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
+</table>
+<p>Change Password</p>
+<p>Delete Account</p>
 </div>
 </body>
 </html>
