@@ -121,7 +121,6 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 <tr><th>Number of entries:</th><td class="right"></td><td></td></tr>
 </table>
 <div id="changepass"><a href="" class="nounderline">Change Password</a></div>
-<p>Change Password</p>
 <p>Delete Account</p>
 </div>
 </body>
