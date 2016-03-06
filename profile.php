@@ -115,7 +115,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	}
 ?>
 <p>Username: <?php echo $username ?></p>
-<p>Registration date: <?php echo $register->format('d-m-Y'); ?></p>
+<p>Registration date: <?php echo date_format($register, 'Y-m-d'); ?></p>
 <p>Email address: <?php echo $email ?></p>
 <p>Password: <?php echo $password ?></p>
 </div>
