@@ -120,7 +120,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 <tr><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td></td></tr>
 <tr><th>Number of entries:</th><td class="right"></td><td></td></tr>
 </table>
-<div id="changepass"><a href="">Change Password</a></div>
+<div id="changepass"><a href="" class="nounderline">Change Password</a></div>
 <p>Change Password</p>
 <p>Delete Account</p>
 </div>
