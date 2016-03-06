@@ -946,6 +946,8 @@ display: none !important;
 	width: 400px;
 	border: 2px solid white;
 	background-color: #dddee0;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; /* future proofing */
