@@ -1,3 +1,6 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <?php
 
 ob_start();
@@ -48,8 +51,7 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 
 
 ?>
-<!DOCTYPE>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><?php echo $page_title; ?></title>
@@ -86,7 +88,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <ul id="navbar">
 <li class="activetab"><a href="home.php" class="nounderline">Home</a></li>
 <li><a href="profile.php" class="nounderline">Profile</a></li>
-<li><a data-ajax="false" href="logout.php" class="nounderline">Logout</div></li>
+<li><a data-ajax="false" href="logout.php" class="nounderline">Logout</a></li>
 </ul>
 </div>
 <br clear="both" />

@@ -1,3 +1,6 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <?php
 
 ob_start();
@@ -52,8 +55,6 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 
 ?>
 
-<!DOCTYPE>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title><?php echo $page_title; ?></title>
