@@ -103,7 +103,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 
-$q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE (user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+$q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
