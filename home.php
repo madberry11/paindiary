@@ -85,7 +85,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <div id="title"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
 <ul id="navbar">
 <li class="activetab"><a href="home.php" class="nounderline">Home</a></li>
-<li><a href="" class="nounderline">Profile</a></li>
+<li><a href="profile.php" class="nounderline">Profile</a></li>
 <li><a data-ajax="false" href="logout.php" class="nounderline">Logout</div></li>
 </ul>
 </div>
