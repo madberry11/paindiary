@@ -32,11 +32,7 @@ if (!isset($page_title)) {
 <div id="pagecontent">
 
 <form action="register.php" method="post">
-
-<!--<label for="first_name" class="ui-hidden-accessible">First Name</label>
-<input class="logininput" type="text" name="first_name" placeholder="first name" maxlength="20" value="<?php if (isset($trimmed['first_name'])) echo $trimmed['first_name']; ?>" />
-<label for="last_name" class="ui-hidden-accessible">Last Name</label>
-<input class="logininput" type="text" name="last_name" placeholder="last name" maxlength="40" value="<?php if (isset($trimmed['last_name'])) echo $trimmed['last_name']; ?>" />-->
+<div class="center">
 
 <label for="username" class="ui-hidden-accessible">Username</label>
 <input class="logininput" type="text" name="username" placeholder="username" maxlength="40" value="<?php if (isset($trimmed['username'])) echo $trimmed['username']; ?>" />
@@ -49,6 +45,7 @@ if (!isset($page_title)) {
 
 <p><input type="submit" name="registerbutton" id="registerbutton" value="Create New Account" /></p>
 <!--<div id="tologin"><a href="index.php">Member Login</a></div>-->
+</div>
 </form>
 
 
