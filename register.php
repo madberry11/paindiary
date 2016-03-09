@@ -1,3 +1,20 @@
+<?php
+
+ob_start();
+session_start();
+require ('config.inc.php');
+
+if (!isset($page_title)) {
+	$page_title = 'Your Pain Diary';
+
+}
+?>
+
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title><?php echo $page_title; ?></title>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script> 
@@ -6,6 +23,9 @@
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Ruda:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
 
 <div id="header">
 <div id="logintitle"><a href="index.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
@@ -50,20 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$un = $sid = $st = $e = $p = FALSE;
 	
-	
-	/*if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['first_name'])) {
-		$fn = mysqli_real_escape_string ($dbc, $trimmed['first_name']);
-	} else {
-		echo '<p class="error">Please enter your first name!</p>';
-	}
-
-	
-	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['last_name'])) {
-		$ln = mysqli_real_escape_string ($dbc, $trimmed['last_name']);
-	} else {
-		echo '<p class="error">Please enter your last name!</p>';
-	}*/
-	
 	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
 		$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
 	} else {
@@ -104,8 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			if (mysqli_affected_rows($dbc) == 1) { 
 
-				
-				$body = "Thank you for registering at www.stwinweb.com. To activate your account, please click on this link:\n\n";
+				$subject = "Thank you for registering - Your Pain Diary";
+				$body = "Thank you for registering at www.paindiary.azurewebsites.net. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
 				
@@ -132,3 +138,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </div>
 </div>
+</body>
+</html>
