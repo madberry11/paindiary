@@ -1,7 +1,5 @@
 <?php
 
-ob_start();
-session_start();
 require ('config.inc.php');
 
 if (!isset($page_title)) {
