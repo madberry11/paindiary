@@ -116,7 +116,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	
 $q2 = "SELECT COUNT(*) AS numofentries FROM pain GROUP BY entryyear, entrymonth, entryday";
 $r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
-$result2 = mysqli_fetch_array($dbc, $r2);
+$result2 = mysqli_fetch_array($r2,MYSQLI_NUM);
 
 ?>
 <table id="usertable">
