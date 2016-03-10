@@ -971,12 +971,12 @@ display: none !important;
 
 #leftside {
 	float: left;
-	width: 400px;
+	width: 450px;
 	background-color: yellow;
 }
 
 #rightside {
 	float: right;
-	width: 400px;
+	width: 450px;
 	background-color: green;
 }

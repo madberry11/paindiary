@@ -143,7 +143,7 @@ while($row2 = $r2->fetch_assoc()) {
 <p>Delete Account</p>
 </div>
 <div id="rightside">
-
+something
 </div>
 </div>
 </body>
