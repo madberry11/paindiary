@@ -114,7 +114,7 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$password=$row['pass'];
 	}
 	
-$q2 = "SELECT COUNT entryid AS FROM pain GROUP BY entryyear, entrymonth, entryday";
+$q2 = "SELECT COUNT entryid AS numofentries FROM pain GROUP BY entryyear, entrymonth, entryday";
 $r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
 $result2 = mysql_fetch_array($r2);
 
