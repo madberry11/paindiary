@@ -117,15 +117,17 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 $q2 = "SELECT COUNT(entryyear, entrymonth, entryday) FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 //$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 $r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
-$result2 = mysqli_fetch_array($r2,MYSQLI_NUM);
-//if (@mysqli_num_rows($r2) > 0) { 
-/*while($row2 = $r2->fetch_assoc()) {
+$numofentries = 0;
+if (@mysqli_num_rows($r2) > 0) { 
+while($row2 = $r2->fetch_assoc()) {
 	$year = $row2['entryyear'];
 	$month = $row2['entrymonth'];
 	$day = $row2['entryday'];
 	echo $year . " " . $month . " " . $day;
+	$numofentries++;
 	
-}*/
+}
+}
 
 
 ?>
@@ -134,7 +136,7 @@ $result2 = mysqli_fetch_array($r2,MYSQLI_NUM);
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
 <tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td></tr>
 <tr><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td>&nbsp;</td></tr>
-<tr><th>Number of entries:</th><td class="right">&nbsp;</td><td><?php echo $result2[]; ?></td></tr>
+<tr><th>Number of entries:</th><td class="right">&nbsp;</td><td><?php echo $numofentries ?></td></tr>
 </table>
 <p>Delete Account</p>
 </div>
