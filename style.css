@@ -941,9 +941,9 @@ display: none !important;
 	margin: 10px auto;	
 }
 
-#usertable {
+.usertable {
 	margin: 20px auto;
-	width: 80%;
+	width: 400px;
 	border: 2px solid white;
 	background-color: #dddee0;
 	padding-top: 10px;
