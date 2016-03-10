@@ -114,9 +114,18 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$password=$row['pass'];
 	}
 	
-$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
+$g2 = "SELECT entryyear, entrymonth, entryday FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
+//$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 $r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
-$result2 = mysqli_fetch_array($r2,MYSQLI_NUM);
+//$result2 = mysqli_fetch_array($r2,MYSQLI_NUM);
+if (@mysqli_num_rows($r2) == 1) { 
+while($row2 = $r2->fetch_assoc()) {
+	$year = $row2['entryyear'];
+	$month = $row2['entrymonth'];
+	$day = $row2['entryday'];
+	echo $year . " " . $month . " " . $day;
+}
+}
 
 ?>
 <table id="usertable">
