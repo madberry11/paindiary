@@ -137,8 +137,8 @@ while($row2 = $r2->fetch_assoc()) {
 <table id="usertable">
 <tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
-<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td><th</th><td></td></tr>
-<tr><th>Colour scheme:</th><td class="right"></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td><th></th><td><a href="">Delete Account</a></td></tr>
+<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td><th>&nbsp;</th><td>&nbsp;</td></tr>
+<tr><th>Colour scheme:</th><td class="right"></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td><th>&nbsp;</th><td><a href="">Delete Account</a></td></tr>
 </table>
 </fieldset>
 </div>
