@@ -942,9 +942,9 @@ display: none !important;
 }
 
 #usertable {
-	margin-left: 20px;
+	margin-left: 10px;
 	margin-top: 20px;
-	margin-right: 20px;
+	margin-right: 10px;
 	margin-bottom: 10px;
 	width: 400px;
 	border: 2px solid white;
@@ -971,14 +971,14 @@ display: none !important;
 
 #leftside {
 	float: left;
-	width: 400px;
+	width: 450px;
 	background-color: yellow;
 	margin-left: 20px;
 }
 
 #rightside {
 	float: right;
-	width: 400px;
+	width: 450px;
 	background-color: green;
 	margin-right: 20px;
 }
