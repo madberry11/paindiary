@@ -132,7 +132,8 @@ while($row2 = $r2->fetch_assoc()) {
 
 ?>
 <div id="leftside">
-<h2>User Details</h2>
+<fieldset>
+<legend>User Details</legend>
 <table id="usertable">
 <tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td></tr>
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
@@ -142,10 +143,13 @@ while($row2 = $r2->fetch_assoc()) {
 <tr><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td><td>&nbsp;</td></tr>
 </table>
 <p>Delete Account</p>
+</fieldset>
 </div>
 <div id="rightside">
-<h2>Medication Schedule</h2>
+<fieldset>
+<legend>Medication Schedule</legend>
 something
+</fieldset>
 </div>
 </div>
 </body>
