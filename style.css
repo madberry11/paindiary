@@ -968,3 +968,15 @@ display: none !important;
 	text-align: center;
 	margin-left: 20px;
 }
+
+#leftside {
+	float: left;
+	width: 400px;
+	background-color: yellow;
+}
+
+#rightside {
+	float: right;
+	width: 400px;
+	background-color: green;
+}
