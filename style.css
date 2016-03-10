@@ -971,14 +971,14 @@ display: none !important;
 
 #leftside {
 	float: left;
-	width: 450px;
+	width: 400px;
 	background-color: yellow;
 	margin-left: 20px;
 }
 
 #rightside {
 	float: right;
-	width: 450px;
+	width: 400px;
 	background-color: green;
 	margin-right: 20px;
 }
