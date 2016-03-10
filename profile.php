@@ -135,12 +135,9 @@ while($row2 = $r2->fetch_assoc()) {
 <fieldset>
 <legend>User Details</legend>
 <table id="usertable">
-<tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td></tr>
-<tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td></tr>
-<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td></tr>
-<tr><th>Colour scheme:</th><td class="right"></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td></tr>
-<tr><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td>&nbsp;</td></tr>
-<tr><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td><td>&nbsp;</td></tr>
+<tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td><th>Colour scheme:</th><td class="right"></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td></tr>
+<tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td><td>&nbsp;</td></tr>
+<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td><td>&nbsp;</td></tr>
 </table>
 <p>Delete Account</p>
 </fieldset>
