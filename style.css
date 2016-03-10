@@ -973,10 +973,12 @@ display: none !important;
 	float: left;
 	width: 450px;
 	background-color: yellow;
+	margin-left: 10px;
 }
 
 #rightside {
 	float: right;
 	width: 450px;
 	background-color: green;
+	margin-right: 10px;
 }
