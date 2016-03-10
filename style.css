@@ -946,7 +946,7 @@ display: none !important;
 	margin-top: 20px;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	width: 400px;
+	width: 70%;
 	border: 2px solid white;
 	background-color: #dddee0;
 	padding-top: 10px;
@@ -970,15 +970,15 @@ display: none !important;
 }
 
 #leftside {
-	float: left;
+	/*float: left;
 	width: 450px;
 	background-color: yellow;
-	margin-left: 20px;
+	margin-left: 20px;*/
 }
 
 #rightside {
-	float: right;
+	/*float: right;
 	width: 450px;
 	background-color: green;
-	margin-right: 20px;
+	margin-right: 20px;*/
 }
