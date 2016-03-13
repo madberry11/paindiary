@@ -721,8 +721,8 @@ var chart = new Highcharts.Chart({
 $(function () { 
     $('#container').highcharts({
         chart: {
-            type: 'scatter',
-			zoomType: 'xy'
+            type: 'column'
+			//zoomType: 'xy'
         },
         title: {
             text: 'Daily Pain Itensity'
