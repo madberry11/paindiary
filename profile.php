@@ -224,11 +224,11 @@ else {
 
 <fieldset id="deleteaccount">
 <legend>Delete Account</legend>
-This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved. Areyou sure you want to delete your account?
+This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved. Are you sure you want to delete your account?
 <br /><br /><div class="center">
 <a href="" class="nounderline"><input type="submit" id="delete-account" name="delete-account" value="Yes" /></a>
 <a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
-</div><br />
+</div>
 </fieldset>
 
 <fieldset id="medschedule">
