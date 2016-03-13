@@ -92,6 +92,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 </div>
 <br clear="both" />
 <div id="divider"></div>
+
 <div id="pagewrap">
 <h1>User Profile</h1>
 <?php
@@ -131,8 +132,7 @@ while($row2 = $r2->fetch_assoc()) {
 
 
 ?>
-<div id="leftside">
-<fieldset>
+<fieldset id="userdetails">
 <legend>User Details</legend>
 <table id="usertable">
 <tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
@@ -141,13 +141,100 @@ while($row2 = $r2->fetch_assoc()) {
 <tr><th>Colour scheme:</th><td class="right"></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td></tr>
 </table>
 </fieldset>
-</div>
-<div id="rightside">
-<fieldset>
+
+<fieldset id="changeusername">
+<legend>Change Username</legend>
+
+</fieldset>
+
+<fieldset id="changeemail">
+<legend>Change Email Address</legend>
+
+</fieldset>
+
+<fieldset id="changepassword">
+<legend>Change Password</legend>
+	<form action="change_password.php" method="post">
+   	<table id="changepasswordtable">
+    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" size="30" maxlength="20" /></td></tr>
+    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
+    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" size="30" maxlength="20" /></td></tr>
+    </table>
+    <input type="submit" name="changepasswordsubmit" value="Change My Password" />
+</form>
+</fieldset>
+
+<fieldset id="deleteaccount">
+<legend>Delete Account</legend>
+
+</fieldset>
+
+<fieldset id="medschedule">
 <legend>Medication Schedule</legend>
 something
 </fieldset>
 </div>
-</div>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	require (MYSQL);
+	
+if (!empty($_POST['changepasswordsubmit'])) {
+			
+	
+	$p = FALSE;
+	if (preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) {
+		if ($_POST['password1'] == $_POST['password2']) {
+			$p = mysqli_real_escape_string ($dbc, $_POST['password1']); //Password Validation
+		} else {
+			echo '<p class="error">Your password did not match the confirmed password!</p>';
+		}
+	} else {
+		echo '<p class="error">Please enter a valid password!</p>';
+	}
+	
+	
+	if (!empty($_POST['password0'])) {
+		$p = mysqli_real_escape_string ($dbc, $_POST['password0']);
+	
+	if ($p) { 
+
+		
+		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id={$_SESSION['user_id']} LIMIT 1";	
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) == 1) { //Updating MYSQL Database
+
+			
+			echo '<h3>Your password has been changed.</h3>';
+			mysqli_close($dbc); 
+			include ('footer.html'); 
+			exit();
+			
+		} else { 
+		
+			echo '<p class="error">Your password was not changed. Make sure your new password is different than the current password. Contact the system administrator if you think an error occurred.</p>'; 
+
+		}
+
+	} else { 
+		echo '<p class="error">Invalid password. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';		
+	}
+	
+	mysqli_close($dbc); 
+
+} 
+
+else {
+		$p = FALSE;
+		echo '<p class="error">You forgot to enter your old password!</p>';
+	}
+}
+
+}
+
+?>
+
+
 </body>
 </html>
