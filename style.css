@@ -68,7 +68,7 @@ legend {
 }
 
 .paintable { border-collapse: separate; }
-.paintable td, .paintable th, #calendar th {
+.paintable td, .paintable th, #calendar th, .relieftable2 td, .relieftable2 th {
     border-radius : 4px !important;
 }
 
