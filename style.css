@@ -990,6 +990,7 @@ padding-right: 50px;
 
 .success {
 	margin: 20px auto;
-	width: 95%;
-	font-weight: bold;	
+	width: 90%;
+	font-weight: bold;
+	background-color: #eee;
 }
