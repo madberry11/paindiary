@@ -721,7 +721,7 @@ var chart = new Highcharts.Chart({
 $(function () { 
     $('#container').highcharts({
         chart: {
-            type: 'column'
+            type: 'bar'
 			//zoomType: 'xy'
         },
         title: {
