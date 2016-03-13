@@ -1044,7 +1044,15 @@ window.location="newentry.php#newentryform";
 </TEXTAREA>
 </td></tr>
 <tr><td><label for="reliefrating">Pain Relief Rating</label></td>
-<td><input class="tdright" name="reliefrating" type="number" placeholder="0" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" /></td></tr>
+<td>
+<select class="tdright" id="reliefrating" name="reliefrating">
+<option value="0">0 - No Relief</option>
+<option value="1">1 - Slight Relief</option>
+<option value="2">2 - Significant Relief</option>
+<option value="3">3 - Full Relief</option>
+</select>
+<!--<input class="tdright" name="reliefrating" type="number" placeholder="0" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" />-->
+</td></tr>
 <tr><td><label for="sideeffects">Side Effects / Problems</label></td>
 <td><TEXTAREA class="relieftextarea tdright" name="sideeffects">
 <?php if (isset($trimmed['sideeffects'])) echo $trimmed['sideeffects']; ?>
@@ -1940,8 +1948,9 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);}
 // reliefrating
-if (empty($_POST["reliefrating"])) {$reliefrating = 0;}
-else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
+$reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
+//if (empty($_POST["reliefrating"])) {$reliefrating = 0;}
+//else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
 // sideeffects
 if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
 		$sideeffects = mysqli_real_escape_string ($dbc, $trimmed['sideeffects']);
