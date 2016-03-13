@@ -12,7 +12,7 @@ require ('config.inc.php');
 $page_title = 'Logout Page';
 
 
-if (!isset($_SESSION['first_name'])) {
+if (!isset($_SESSION['user_id'])) {
 
 	$url = BASE_URL . 'index.php'; //BASE_URL is defined in the config.inc.php
 	ob_end_clean(); 
@@ -27,12 +27,7 @@ if (!isset($_SESSION['first_name'])) {
 	$_SESSION['keeploggedin']	 = 0;
 
 }
-
-
-echo '<h3>You are now logged out!</h3>'; //Message after loggin out
 ?>
 
 </div>
 </div>
-
-<?php include ('footer.html'); ?>
