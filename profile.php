@@ -142,38 +142,6 @@ while($row2 = $r2->fetch_assoc()) {
 </table>
 </fieldset>
 
-<fieldset id="changeusername">
-<legend>Change Username</legend>
-
-</fieldset>
-
-<fieldset id="changeemail">
-<legend>Change Email Address</legend>
-
-</fieldset>
-
-<fieldset id="changepassword">
-<legend>Change Password</legend>
-	<form action="profile.php" method="post">
-   	<table id="changepasswordtable">
-    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" size="30" maxlength="20" /></td></tr>
-    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
-    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" size="30" maxlength="20" /></td></tr>
-    </table>
-    <input type="submit" name="changepasswordsubmit" value="Change My Password" />
-</form>
-</fieldset>
-
-<fieldset id="deleteaccount">
-<legend>Delete Account</legend>
-
-</fieldset>
-
-<fieldset id="medschedule">
-<legend>Medication Schedule</legend>
-something
-</fieldset>
-
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -207,13 +175,6 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			echo '<p class="success">Your password has been changed.</p>';
 			mysqli_close($dbc);  
 			exit();
-			?>
-            <script>
-			window.setTimeout(function(){
-        	window.location.href = "http://paindiary.azurewebsites.net/profile.php";
-			}, 3000);
-			</script>
-    		<?php
 			
 		} else { 
 		
@@ -238,6 +199,39 @@ else {
 }
 
 ?>
+
+<fieldset id="changeusername">
+<legend>Change Username</legend>
+
+</fieldset>
+
+<fieldset id="changeemail">
+<legend>Change Email Address</legend>
+
+</fieldset>
+
+<fieldset id="changepassword">
+<legend>Change Password</legend>
+	<form action="profile.php" method="post">
+   	<table id="changepasswordtable">
+    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" size="30" maxlength="20" /></td></tr>
+    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
+    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" size="30" maxlength="20" /></td></tr>
+    </table>
+    <input type="submit" name="changepasswordsubmit" value="Change My Password" />
+</form>
+</fieldset>
+
+<fieldset id="deleteaccount">
+<legend>Delete Account</legend>
+
+</fieldset>
+
+<fieldset id="medschedule">
+<legend>Medication Schedule</legend>
+something
+</fieldset>
+
 </div>
 
 </body>
