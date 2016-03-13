@@ -989,6 +989,7 @@ padding-right: 50px;
 }
 
 .success {
-	margin-left: 40px;
+	margin: 20px auto;
+	width: 95%;
 	font-weight: bold;	
 }
