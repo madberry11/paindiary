@@ -207,8 +207,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 			
 			echo '<h3>Your password has been changed.</h3>';
-			mysqli_close($dbc); 
-			include ('footer.html'); 
+			mysqli_close($dbc);  
 			exit();
 			
 		} else { 
