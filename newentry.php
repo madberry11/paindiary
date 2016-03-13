@@ -738,6 +738,7 @@ $(function () {
 		
 		plotOptions: {
         series: {
+			pointRange: 24 * 3600 * 1000,
             point: {
                 events: {
 
