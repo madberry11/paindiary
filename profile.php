@@ -210,6 +210,39 @@ else {
 	}
 }
 
+// if the account is getting deleted
+	
+if (!empty($_POST['deleteaccount'])) {
+	
+		$q = "DELETE FROM pain WHERE user_id={$_SESSION['user_id']}";
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		$q2 = "DELETE FROM painrelief WHERE user_id={$_SESSION['user_id']}";
+		$r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
+		$q3 = "DELETE FROM comments WHERE user_id={$_SESSION['user_id']}";
+		$r3 = mysqli_query ($dbc, $q3) or trigger_error("Query: $q3\n<br />MySQL Error: " . mysqli_error($dbc));
+		$q4 = "DELETE FROM important WHERE user_id={$_SESSION['user_id']}";
+		$r4 = mysqli_query ($dbc, $q4) or trigger_error("Query: $q4\n<br />MySQL Error: " . mysqli_error($dbc));
+		// place for scheduled medicine table
+		$q6 = "DELETE FROM users WHERE user_id={$_SESSION['user_id']}";
+		$r6 = mysqli_query ($dbc, $q6) or trigger_error("Query: $q6\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) > 0) {
+
+			
+			$url = BASE_URL . 'index.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
+			mysqli_close($dbc);  
+			exit();
+			
+		} else { 
+		
+			echo '<p class="error">Your account could not be deleted due to a system error.</p>'; 
+
+		}	
+	
+	
+}
+
 }
 
 ?>
@@ -245,11 +278,13 @@ else {
 
 <fieldset id="deleteaccount">
 <legend>Delete Account</legend>
+	<form action="profile.php" method="post">
 This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.<br /> Are you sure you want to delete your account?
-<br /><br /><div class="center">
-<a href="" class="nounderline"><input type="submit" id="delete-account" name="delete-account" value="Yes" /></a>
-<a href="profile.php" class="nounderline"><button type="submit" name="canceldelete">Cancel</button></a>
-</div>
+	<br /><br /><div class="center">
+	<input type="submit" id="deleteaccount" name="deleteaccount" value="Yes" />
+	<button type="submit" id="canceldelete" name="canceldelete">Cancel</button>
+    </form>
+	</div>
 </fieldset>
 
 
