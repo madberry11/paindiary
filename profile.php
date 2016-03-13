@@ -147,6 +147,20 @@ while($row2 = $r2->fetch_assoc()) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
 	
+	
+// if cancel button was clicked
+
+if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword']))) {
+	
+	$url = BASE_URL . 'profile.php'; 
+	ob_end_clean(); 
+	header("Location: $url");	
+}	
+	
+	
+	
+// if password is getting changed
+	
 if (!empty($_POST['changepasswordsubmit'])) {
 	
 	$p = FALSE;
@@ -200,15 +214,18 @@ else {
 
 ?>
 
+
 <fieldset id="changeusername">
 <legend>Change Username</legend>
 
 </fieldset>
 
+
 <fieldset id="changeemail">
 <legend>Change Email Address</legend>
 
 </fieldset>
+
 
 <fieldset id="changepassword">
 <legend>Change Password</legend>
@@ -218,18 +235,23 @@ else {
     <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
     <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" size="30" maxlength="20" /></td></tr>
     </table>
+    <br /><br /><div class="center">
     <input type="submit" name="changepasswordsubmit" value="Change My Password" />
+    <input type="submit" name="cancelpassword" value="Cancel" />
+    </div>
 </form>
 </fieldset>
+
 
 <fieldset id="deleteaccount">
 <legend>Delete Account</legend>
 This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.<br /> Are you sure you want to delete your account?
 <br /><br /><div class="center">
 <a href="" class="nounderline"><input type="submit" id="delete-account" name="delete-account" value="Yes" /></a>
-<a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
+<a href="profile.php" class="nounderline"><button type="submit" name="canceldelete">Cancel</button></a>
 </div>
 </fieldset>
+
 
 <fieldset id="medschedule">
 <legend>Medication Schedule</legend>
