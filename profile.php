@@ -207,6 +207,13 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			echo '<p class="success">Your password has been changed.</p>';
 			mysqli_close($dbc);  
 			exit();
+			?>
+            <script>
+			window.setTimeout(function(){
+        	window.location.href = "http://paindiary.azurewebsites.net/profile.php";
+			}, 3000);
+			</script>
+    		<?php
 			
 		} else { 
 		
