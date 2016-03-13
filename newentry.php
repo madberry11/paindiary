@@ -738,33 +738,9 @@ $(function () {
         },
 		
 		plotOptions: {
+        
         column: {
-			pointRange: 24 * 3600 * 1000,
-            point: {
-                events: {
-
-                    drag: function (e) {
-                        // Returning false stops the drag and drops. Example:
-                        /*
-                        if (e.newY > 300) {
-                            this.y = 300;
-                            return false;
-                        }
-                        */
-
-                        $('#drag').html(
-                            'Dragging <b>' + this.series.name + '</b>, <b>' + this.category + '</b> to <b>' + Highcharts.numberFormat(e.y, 2) + '</b>');
-                    },
-                    drop: function () {
-                        $('#drop').html(
-                            'In <b>' + this.series.name + '</b>, <b>' + this.category + '</b> was set to <b>' + Highcharts.numberFormat(this.y, 2) + '</b>');
-                    }
-                }
-            },
-            stickyTracking: false
-        },
-        column: {
-            stacking: 'normal'
+            stacking: 'null'
         },
         line: {
             cursor: 'ns-resize'
