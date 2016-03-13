@@ -178,7 +178,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			
 		} else { 
 		
-			echo '<p class="error">Your password was not changed. Make sure your new password is different than the current password.</p>'; 
+			echo '<p class="error">Your password was not changed. Make sure your new password is different from the current password.</p>'; 
 
 		}
 
@@ -224,7 +224,11 @@ else {
 
 <fieldset id="deleteaccount">
 <legend>Delete Account</legend>
-
+This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved. Areyou sure you want to delete your account?
+<p class="center">
+<a href="" class="nounderline"><input type="submit" id="delete-account" name="delete-account" value="Yes" /></a>
+<a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
+</p>
 </fieldset>
 
 <fieldset id="medschedule">
