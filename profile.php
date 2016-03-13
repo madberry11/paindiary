@@ -141,7 +141,7 @@ while($row2 = $r2->fetch_assoc()) {
 <tr><th>Colour scheme:</th><td class="right"></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td></tr>
 </table>
 </fieldset>
-
+<br  />
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
