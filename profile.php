@@ -180,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
 	
 if (!empty($_POST['changepasswordsubmit'])) {
-			
+echo "attempted changing password";
 	
 	$p = FALSE;
 	if (preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) {
