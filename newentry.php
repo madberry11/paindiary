@@ -740,6 +740,7 @@ $(function () {
 		plotOptions: {
         column: {
 			pointRange: 24 * 3600 * 1000,
+            point: {
                 events: {
 
                     drag: function (e) {
