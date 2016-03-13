@@ -738,10 +738,7 @@ $(function () {
 		
 		plotOptions: {
         
-        column: {
-            stacking: 'null'
-        },
-        line: {
+                line: {
             cursor: 'ns-resize'
         }
     },
