@@ -173,7 +173,6 @@ while($row2 = $r2->fetch_assoc()) {
 <legend>Medication Schedule</legend>
 something
 </fieldset>
-</div>
 
 <?php
 
@@ -212,7 +211,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			
 		} else { 
 		
-			echo '<p class="error">Your password was not changed. Make sure your new password is different than the current password. Contact the system administrator if you think an error occurred.</p>'; 
+			echo '<p class="error">Your password was not changed. Make sure your new password is different than the current password.</p>'; 
 
 		}
 
@@ -233,7 +232,7 @@ else {
 }
 
 ?>
-
+</div>
 
 </body>
 </html>
