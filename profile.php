@@ -180,7 +180,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
 	
 if (!empty($_POST['changepasswordsubmit'])) {
-echo "attempted changing password";
 	
 	$p = FALSE;
 	if (preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) {
@@ -205,7 +204,7 @@ echo "attempted changing password";
 		if (mysqli_affected_rows($dbc) == 1) { //Updating MYSQL Database
 
 			
-			echo '<h3>Your password has been changed.</h3>';
+			echo '<p class="success">Your password has been changed.</p>';
 			mysqli_close($dbc);  
 			exit();
 			

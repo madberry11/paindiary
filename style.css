@@ -987,3 +987,8 @@ padding-right: 50px;
 	margin: 10px auto;
 	width: 95%;	
 }
+
+.success {
+	margin-left: 40px;
+	font-weight: bold;	
+}
