@@ -530,7 +530,7 @@ width: 60px;
 #relieftable td {
 padding: 5px;
 width: 200px;
-text-align: center;
+text-align: center !important;
 }
 
 .relieftable2 {
@@ -543,7 +543,7 @@ box-shadow: none;
 .paintable th, .relieftable2 th {
 font-weight: normal;
 white-space: nowrap;
-text-align: center;
+text-align: center !important;
 }
 
 .paintablecaption {
