@@ -154,7 +154,7 @@ while($row2 = $r2->fetch_assoc()) {
 
 <fieldset id="changepassword">
 <legend>Change Password</legend>
-	<form action="change_password.php" method="post">
+	<form action="profile.php" method="post">
    	<table id="changepasswordtable">
     <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" size="30" maxlength="20" /></td></tr>
     <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
