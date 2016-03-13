@@ -530,6 +530,7 @@ width: 60px;
 #relieftable td {
 padding: 5px;
 width: 200px;
+text-align: center;
 }
 
 .relieftable2 {
