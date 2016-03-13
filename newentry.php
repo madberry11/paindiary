@@ -1206,6 +1206,7 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 <fieldset>
 <legend>Add Comment</legend>
 <!--<span id="commentlabel">Add Comment: </span>-->
+<div class="commentstuff">
 <form method="post" action="newentry.php">
 <TEXTAREA id="commentfield" name="comment" ROWS=2 COLS=20 placeholder="Enter your comment here."></TEXTAREA>
 <p class="center">
@@ -1214,6 +1215,7 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 <a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
 </p>
 </form>
+</div>
 </fieldset>
 </div>
 
@@ -1222,7 +1224,7 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 <div id="oldcomment" class="hidden">
 <fieldset>
 <legend>Comment</legend>
-<!--<span id="commentlabel">Comment: </span>-->
+<div class="commentstuff">
 <?php
 $sql = "SELECT comment_id, comment FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
 $result = $dbc->query($sql);
@@ -1232,6 +1234,7 @@ echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?
 ;}
 }
 ?>
+</div>
 </fieldset>
 </div>
 
@@ -1240,6 +1243,7 @@ echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?
 <div id="editcomment" name="editcomment" class="hidden">
 <fieldset>
 <legend>Edit Comment</legend>
+<div class="commentstuff">
 <form method="post" action="newentry.php">
 <TEXTAREA id="commentfield" name="comment2">
 <?php
@@ -1258,6 +1262,7 @@ echo $row['comment'];
 <a href="newentry.php" class="nounderline"><button type="submit" name="cancelcomment">Cancel</button></a>
 </p>
 </form>
+</div>
 </fieldset>
 </div>
 

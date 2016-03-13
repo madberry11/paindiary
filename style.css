@@ -982,3 +982,8 @@ display: none !important;
 .editcell {
 padding-right: 50px;	
 }
+
+.commentstuff {
+	margin: 10px auto;
+	width: 95%;	
+}
