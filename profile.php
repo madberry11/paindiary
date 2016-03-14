@@ -256,6 +256,17 @@ if (!empty($_POST['deleteaccount'])) {
 
 <fieldset id="changeemail">
 <legend>Change Email Address</legend>
+	<form action="profile.php" method="post">
+   	<table id="changeemailtable">
+    <tr><td><label>Enter Old Email Address:</label></td><td><input type="email" name="email0" maxlength="60" /></td></tr>
+    <tr><td><label>Enter New Email Address:</label></td><td><input type="email" name="email1" maxlength="60" /></td></tr>
+    <tr><td><label>Confirm New Email Address:</label></td><td><input type="email" name="email2" maxlength="60" /></td></tr>
+    </table>
+    <br /><br /><div class="center">
+    <input type="submit" name="changeemailsubmit" value="Change My Email Address" />
+    <input type="submit" name="cancelemail" value="Cancel" />
+    </div>
+	</form>
 
 </fieldset>
 
@@ -264,15 +275,15 @@ if (!empty($_POST['deleteaccount'])) {
 <legend>Change Password</legend>
 	<form action="profile.php" method="post">
    	<table id="changepasswordtable">
-    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" size="30" maxlength="20" /></td></tr>
-    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" size="30" maxlength="20" /></td></tr>
-    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" size="30" maxlength="20" /></td></tr>
+    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" maxlength="20" /></td></tr>
+    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" maxlength="20" /></td></tr>
+    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" maxlength="20" /></td></tr>
     </table>
     <br /><br /><div class="center">
     <input type="submit" name="changepasswordsubmit" value="Change My Password" />
     <input type="submit" name="cancelpassword" value="Cancel" />
     </div>
-</form>
+	</form>
 </fieldset>
 
 
