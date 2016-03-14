@@ -37,7 +37,7 @@ if (!isset($page_title)) {
 <label for="username" class="ui-hidden-accessible">Username</label>
 <input class="logininput" type="text" name="username" placeholder="username" maxlength="40" value="<?php if (isset($trimmed['username'])) echo $trimmed['username']; ?>" />
 <label for="email" class="ui-hidden-accessible">E-mail Address</label>
-<input class="logininput" type="text" name="email" placeholder="email address" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>" />
+<input class="logininput" type="email" name="email" placeholder="email address" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>" />
 <label for="password1" class="ui-hidden-accessible">Password</label>
 <input class="logininput" type="password" name="password1" placeholder="password" maxlength="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
 <label for="password2" class="ui-hidden-accessible">Confirm Password</label>
