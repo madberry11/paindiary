@@ -150,16 +150,16 @@ if(isset($_GET['edit'])) {
 <fieldset id="userdetails">
 <legend>User Details</legend>
 <table id="usertable">
-<tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$username'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
-<tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
-<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=$password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
+<tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
+<tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
+<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
 <tr><th>Colour scheme:</th>
 	<td class="right">
     <div id="chosencolour"></div>
     <div id="choosecolour"></div>
     </td><td class="editcell">
     <div id="save"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'></a></div>
-    <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=$colour'></a></div>
+    <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
     </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td></tr>
 </table>
 </fieldset>
