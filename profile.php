@@ -175,7 +175,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'><input type="submit" name="colour-submit" /></a></div>
+    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'><input class="hidden" type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
     </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td>
 </form>
