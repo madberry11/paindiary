@@ -232,7 +232,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 	if ($e) { 
 
 		
-		$q = "UPDATE users SET email=". $e2 ." WHERE user_id={$_SESSION['user_id']}";	
+		$q = "UPDATE users SET email='". $e2 . "' WHERE user_id={$_SESSION['user_id']}";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 
