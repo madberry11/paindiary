@@ -164,13 +164,22 @@ if(isset($_GET['edit'])) {
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
 <tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
 <tr><th>Colour scheme:</th>
+<form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
 	<td class="right">
     <div id="chosencolour">chosen colour</div>
-    <div id="choosecolour" class="hidden">choose colour</div>
+    <div id="choosecolour" class="hidden">
+    <select id="csscolour" name="csscolour">
+		<option value="1">blue</option>
+		<option value="2">yellow</option>
+		<option value="3">red</option>
+	</select>
+    </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'></a></div>
+    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'><input type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
-    </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td></tr>
+    </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td>
+</form>
+</tr>
 </table>
 </fieldset>
 <br  />
