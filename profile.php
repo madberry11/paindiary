@@ -77,6 +77,24 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 <script type="text/javascript">
 var myInterval = setTimeout("location=('index.php');",3600000);
 </script>  
+
+<?php
+if(isset($_GET['edit'])) {
+     if ($_GET['edit'] == "username") {
+		echo "editing username"; 
+	 }
+	 elseif ($_GET['edit'] == "email") {
+		 echo "editing email";
+	 }
+	 elseif ($_GET['edit'] == "password") {
+		 echo "editing password";
+	 }
+	 if ($_GET['edit'] == "colour") {
+		 echo "editing colour";
+	 }
+}
+
+?>
   
 </head>
 
