@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 // if cancel button was clicked
 
-if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!empty($_POST['cancelemail']))) {
+if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!empty($_POST['cancelemail'])) OR (!empty($_POST['cancelusername']))) {
 	
 	$url = BASE_URL . 'profile.php'; 
 	ob_end_clean(); 
@@ -211,6 +211,9 @@ else {
 	
 	
 }
+
+
+// if email address is getting changed
 	
 if (!empty($_POST['changeemailsubmit'])) {
 	
@@ -263,6 +266,61 @@ else {
 	
 }
 
+
+// if username is getting changed
+
+if (!empty($_POST['changeusernamesubmit'])) {
+	
+	$u2 = FALSE;
+	if (preg_match ('/^(\w){4,20}$/', $_POST['username1']) ) {
+		if ($_POST['username1'] == $_POST['username2']) {
+			$u2 = mysqli_real_escape_string ($dbc, $_POST['username1']);
+		} else {
+			echo '<p class="error">Your username did not match the confirmed username!</p>';
+		}
+	} else {
+		echo '<p class="error">Please enter a valid username!</p>';
+	}
+	
+	
+	if (!empty($_POST['username0'])) {
+		$u = mysqli_real_escape_string ($dbc, $_POST['username0']);
+	
+	if ($u) { 
+
+		
+		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id={$_SESSION['user_id']}";	
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) == 1) {
+
+			
+			echo '<p class="success">Your username has been changed.</p>';
+			mysqli_close($dbc);  
+			exit();
+			
+		} else { 
+		
+			echo '<p class="error">Your username was not changed. Make sure your new username is different from the current one.</p>'; 
+
+		}
+
+	} else { 
+		echo '<p class="error">Invalid username. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';		
+	}
+	
+	mysqli_close($dbc); 
+
+} 
+
+else {
+		$p = FALSE;
+		echo '<p class="error">You forgot to enter your old username!</p>';
+	}
+	
+	
+}
+
+
 // if the account is getting deleted
 	
 if (!empty($_POST['deleteaccount'])) {
@@ -304,7 +362,17 @@ if (!empty($_POST['deleteaccount'])) {
 
 <fieldset id="changeusername">
 <legend>Change Username</legend>
-
+	<form action="profile.php" method="post">
+   	<table id="changeusernametable">
+    <tr><td><label>Enter Old Username:</label></td><td><input type="text" name="username0" maxlength="20" /></td></tr>
+    <tr><td><label>Enter New Username:</label></td><td><input type="text" name="username1" maxlength="20" /></td></tr>
+    <tr><td><label>Confirm New Username:</label></td><td><input type="text" name="username2" maxlength="20" /></td></tr>
+    </table>
+    <br /><br /><div class="center">
+    <input type="submit" name="changeusernamesubmit" value="Change Username" />
+    <input type="submit" name="cancelusername" value="Cancel" />
+    </div>
+	</form>
 </fieldset>
 
 
@@ -312,12 +380,12 @@ if (!empty($_POST['deleteaccount'])) {
 <legend>Change Email Address</legend>
 	<form action="profile.php" method="post">
    	<table id="changeemailtable">
-    <tr><td><label>Enter Old Email Address:</label></td><td><input type="text" name="email0" maxlength="60" /></td></tr>
-    <tr><td><label>Enter New Email Address:</label></td><td><input type="text" name="email1" maxlength="60" /></td></tr>
-    <tr><td><label>Confirm New Email Address:</label></td><td><input type="text" name="email2" maxlength="60" /></td></tr>
+    <tr><td><label>Enter Old Email Address:</label></td><td><input type="email" name="email0" maxlength="60" /></td></tr>
+    <tr><td><label>Enter New Email Address:</label></td><td><input type="email" name="email1" maxlength="60" /></td></tr>
+    <tr><td><label>Confirm New Email Address:</label></td><td><input type="email" name="email2" maxlength="60" /></td></tr>
     </table>
     <br /><br /><div class="center">
-    <input type="submit" name="changeemailsubmit" value="Change My Email Address" />
+    <input type="submit" name="changeemailsubmit" value="Change Email Address" />
     <input type="submit" name="cancelemail" value="Cancel" />
     </div>
 	</form>
@@ -334,7 +402,7 @@ if (!empty($_POST['deleteaccount'])) {
     <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" maxlength="20" /></td></tr>
     </table>
     <br /><br /><div class="center">
-    <input type="submit" name="changepasswordsubmit" value="Change My Password" />
+    <input type="submit" name="changepasswordsubmit" value="Change Password" />
     <input type="submit" name="cancelpassword" value="Cancel" />
     </div>
 	</form>
@@ -347,7 +415,7 @@ if (!empty($_POST['deleteaccount'])) {
 This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.
 <br /> Are you sure you want to delete your account?
 	<br /><br /><div class="center">
-	<input type="submit" id="deleteaccount" name="deleteaccount" value="Yes" />
+	<input type="submit" id="deleteaccount" name="deleteaccount" value="Delete Account" />
 	<button type="submit" id="canceldelete" name="canceldelete">Cancel</button>
     </form>
 	</div>
