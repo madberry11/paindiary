@@ -214,10 +214,10 @@ else {
 	
 if (!empty($_POST['changeemailsubmit'])) {
 	
-	$e = FALSE;
+	$e2 = FALSE;
 	if (filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL)) {
 		if ($_POST['email1'] == $_POST['email2']) {
-			$e = mysqli_real_escape_string ($dbc, $_POST['email1']);
+			$e2 = mysqli_real_escape_string ($dbc, $_POST['email1']);
 		} else {
 			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
 		}
@@ -232,7 +232,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 	if ($e) { 
 
 		
-		$q = "UPDATE users SET email=". $e ." WHERE user_id={$_SESSION['user_id']}";	
+		$q = "UPDATE users SET email=". $e2 ." WHERE user_id={$_SESSION['user_id']}";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 
