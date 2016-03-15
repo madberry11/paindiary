@@ -142,6 +142,16 @@ if(isset($_GET['edit'])) {
 	 }
 	 if ($_GET['edit'] == "colour") {
 		 echo "editing colour";
+		 ?>
+     <script>
+	 $(document).ready(function(){
+	 $("#save").css("display", "block");
+	 $("#edit").css("display", "none");
+	 $("#choosecolour").css("display", "block");
+	 $("#chosencolour").css("display", "none");
+	 });
+	 </script>
+     <?php
 	 }
 }
 
@@ -155,10 +165,10 @@ if(isset($_GET['edit'])) {
 <tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
 <tr><th>Colour scheme:</th>
 	<td class="right">
-    <div id="chosencolour"></div>
-    <div id="choosecolour"></div>
+    <div id="chosencolour">chosen colour</div>
+    <div id="choosecolour">choose colour</div>
     </td><td class="editcell">
-    <div id="save"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'></a></div>
+    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
     </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td></tr>
 </table>
