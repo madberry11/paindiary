@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+body {
+	background-color: yellow;
+	color: black;
+	font-family: Verdana, Geneva, sans-serif;	
+	margin: 0px;
+}
+
+#header {
+	color: white;
+}
+
+h1 {
+	background-color: #80c5cc;	
+}
+
+#pagewrap, #pagewraplogin {
+	border: 2px solid white;
+	background-color: #eee;
+}
+
+legend {
+	background-color: #80c5cc;
+}
+
+.logininput[type=text], .logininput[type=password] {
+	border: 5px solid white;
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+	background: rgba(255,255,255,0.5);
+}
+
+.logininput input[type=text]:focus, .logininput[type=password]:focus {
+    -webkit-box-shadow: 0 0 12px 	#49a596;
+	-moz-box-shadow: 0 0 12px 		#49a596;
+	box-shadow: 0 0 12px 			#49a596;	
+}
+
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
+	border: 1px solid black;
+	background-color: #da4657;
+}
+
+#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover, #changepass:hover {
+	background-color: #bd2133;
+}
+
+#loginbutton, #registerbutton {
+	background-color: #da4657;
+	color: white;
+}
+
+#loginbutton:hover, #registerbutton:hover {
+	background-color: #bd2133;
+}
+
+.paintable th, .relieftable2 th, #calendar th {
+	background-color: #999 !important;
+	color: black;
+}
+
+.paintable td:hover, .paintable th:hover, .relieftable2 td:hover, .relieftable2 th:hover {
+	background-color: #80c5cc !important;
+}
+
+.paintable, .relieftable2 { border-collapse: separate; }
+.paintable td, .paintable th, #calendar th, .relieftable2 td, .relieftable2 th {
+    border-radius : 4px !important;
+}
+
+.paintable td, .relieftable2 td {
+	color: black;
+}
+
+#monthly li {
+	background-color: #663366;
+	color: white;
+}
+
+#monthly li:hover, .selected {
+	background-color: #bd2133 !important;
+}
+
+.tag-box li.tags {
+  	background: #2196F3;
+  	color: #fff;
+}
+
+.tag-box li.tags.edit {
+  background: none;
+  border: 1px solid #2196F3;
+  color: #2196F3;
+}
+
+.tag-box li.tags .close {
+  color: #BBDEFB;
+}
+
+.l1{ background-color: #80c5cc !important;}
+.l2{ background-color: #87B3BB !important;}
+.l3{ background-color: #8EA1AA !important;}
+.l4{ background-color: #948E99 !important;}
+.l5{ background-color: #9B7C88 !important;}
+.l6{ background-color: #A26A77 !important;}
+.l7{ background-color: #A95866 !important;}
+.l8{ background-color: #AF4555 !important;}
+.l9{ background-color: #B63344 !important;}
+.l10{ background-color: #BD2133 !important;}
+
+
+
+
