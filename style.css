@@ -26,7 +26,7 @@
 	
 .icon-ok:before{content:'\2713'}
 .icon-edit:before{content:'\f47c'}
-.icon-edit{
+.icon-edit, .icon-ok {
 	margin-left: 10px;
 }
 .icon-trash:before{content:'\f0ce'}
