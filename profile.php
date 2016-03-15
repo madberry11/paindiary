@@ -164,7 +164,7 @@ if(isset($_GET['edit'])) {
 <tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
 <tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
 <tr><th>Colour scheme:</th>
-<form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
+<form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="right">
     <div id="chosencolour">chosen colour</div>
     <div id="choosecolour" class="hidden">
