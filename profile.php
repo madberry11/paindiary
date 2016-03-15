@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 // if cancel button was clicked
 
-if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword']))) {
+if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!empty($_POST['cancelemail']))) {
 	
 	$url = BASE_URL . 'profile.php'; 
 	ob_end_clean(); 
@@ -208,6 +208,59 @@ else {
 		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
+	
+	
+	
+	
+if (!empty($_POST['changeemailsubmit'])) {
+	
+	$e = FALSE;
+	if (filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL)) {
+		if ($_POST['email1'] == $_POST['email2']) {
+			$e = mysqli_real_escape_string ($dbc, $_POST['email1']);
+		} else {
+			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
+		}
+	} else {
+		echo '<p class="error">Please enter a valid email address!</p>';
+	}
+	
+	
+	if (!empty($_POST['email0'])) {
+		$e = mysqli_real_escape_string ($dbc, $_POST['email0']);
+	
+	if ($e) { 
+
+		
+		$q = "UPDATE users SET email=". $e ." WHERE user_id={$_SESSION['user_id']}";	
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) == 1) {
+
+			
+			echo '<p class="success">Your email address has been changed.</p>';
+			mysqli_close($dbc);  
+			exit();
+			
+		} else { 
+		
+			echo '<p class="error">Your email address was not changed. Make sure your new email address is different from the current one.</p>'; 
+
+		}
+
+	} else { 
+		echo '<p class="error">Invalid email address. Please try again.</p>';		
+	}
+	
+	mysqli_close($dbc); 
+
+} 
+
+else {
+		$p = FALSE;
+		echo '<p class="error">You forgot to enter your old email address!</p>';
+	}
+	
+	
 }
 
 // if the account is getting deleted
@@ -290,7 +343,8 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="deleteaccount">
 <legend>Delete Account</legend>
 	<form action="profile.php" method="post">
-This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.<br /> Are you sure you want to delete your account?
+This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.
+<br /> Are you sure you want to delete your account?
 	<br /><br /><div class="center">
 	<input type="submit" id="deleteaccount" name="deleteaccount" value="Yes" />
 	<button type="submit" id="canceldelete" name="canceldelete">Cancel</button>
