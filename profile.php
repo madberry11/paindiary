@@ -298,6 +298,8 @@ if (!empty($_POST['deleteaccount'])) {
 
 }
 
+}
+
 ?>
 
 
