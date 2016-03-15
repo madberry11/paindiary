@@ -210,7 +210,7 @@ else {
 	}
 	
 	
-	
+}
 	
 if (!empty($_POST['changeemailsubmit'])) {
 	
@@ -298,7 +298,6 @@ if (!empty($_POST['deleteaccount'])) {
 
 }
 
-}
 
 ?>
 
