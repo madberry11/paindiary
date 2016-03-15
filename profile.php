@@ -166,7 +166,7 @@ if(isset($_GET['edit'])) {
 <tr><th>Colour scheme:</th>
 	<td class="right">
     <div id="chosencolour">chosen colour</div>
-    <div id="choosecolour">choose colour</div>
+    <div id="choosecolour" class="hidden">choose colour</div>
     </td><td class="editcell">
     <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php?colour=$colour'></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
