@@ -365,6 +365,7 @@ else {
 // if colour scheme is getting changed
 
 if (!empty($_POST['colour-submit'])) {
+	echo "colour scheme got changed";
 	$colour = isset($_POST['csscolour']) ? $_POST['csscolour'] : false;
 	echo $colour;
 }
