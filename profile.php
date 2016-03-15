@@ -312,9 +312,9 @@ if (!empty($_POST['deleteaccount'])) {
 <legend>Change Email Address</legend>
 	<form action="profile.php" method="post">
    	<table id="changeemailtable">
-    <tr><td><label>Enter Old Email Address:</label></td><td><input type="email" name="email0" maxlength="60" /></td></tr>
-    <tr><td><label>Enter New Email Address:</label></td><td><input type="email" name="email1" maxlength="60" /></td></tr>
-    <tr><td><label>Confirm New Email Address:</label></td><td><input type="email" name="email2" maxlength="60" /></td></tr>
+    <tr><td><label>Enter Old Email Address:</label></td><td><input type="text" name="email0" maxlength="60" /></td></tr>
+    <tr><td><label>Enter New Email Address:</label></td><td><input type="text" name="email1" maxlength="60" /></td></tr>
+    <tr><td><label>Confirm New Email Address:</label></td><td><input type="text" name="email2" maxlength="60" /></td></tr>
     </table>
     <br /><br /><div class="center">
     <input type="submit" name="changeemailsubmit" value="Change My Email Address" />
