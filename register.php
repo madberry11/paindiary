@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// SendGrid
 				
 				//require 'vendor/autoload.php';
-				$sendgrid = new SendGrid("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");
+				$sendgrid = new SendGrid("mtSPDROVQ_-RhOK5TmjZqA");
 				$email    = new SendGrid\Email();
 				
 				$email->addTo("nemrestellem@gmail.com")
