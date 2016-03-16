@@ -102,15 +102,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
-
+/*
 				$subject = "Thank you for registering - Your Pain Diary";
 				$body = "Thank you for registering at www.paindiary.azurewebsites.net. To activate your account, please click on this link:\n\n";
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
-				
+*/
+			
 				// SendGrid
 				
-				require 'vendor/autoload.php';
+				//require 'vendor/autoload.php';
 				$sendgrid = new SendGrid("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");
 				$email    = new SendGrid\Email();
 
