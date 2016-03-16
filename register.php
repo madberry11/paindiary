@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 				// SendGrid
 				
-				require 'vendor/autoload.php';
+				//require 'vendor/autoload.php';
 				$sendgrid = new SendGrid("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");
 				$email    = new SendGrid\Email();
 				
