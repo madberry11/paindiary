@@ -310,7 +310,7 @@ padding-right: 20px;
 	/* [disabled]text-align: center; */
 }
 
-.logininput[type=text], .logininput[type=password] { 
+.logininput[type=text], .logininput[type=password], .logininput[type=email] { 
     padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 10px;
