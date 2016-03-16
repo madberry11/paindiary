@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$sendgrid = new SendGrid("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");
 				$email    = new SendGrid\Email();
 				
-				$email->addTo("1407067@rgu.ac.uk")
+				$email->addTo("nemrestellem@gmail.com")
       			->setFrom("you@youremail.com")
       			->setSubject("Sending with SendGrid is Fun")
       			->setHtml("and easy to do anywhere, even with PHP");
