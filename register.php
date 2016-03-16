@@ -108,6 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
 */
+
+				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 			
 				// SendGrid
 				
@@ -123,8 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$sendgrid->send($email);
 
 				
-				echo "something";
-				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 				exit(); 
 				
 			} else { 
