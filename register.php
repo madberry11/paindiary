@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				//require 'vendor/autoload.php';
 				$sendgrid = new SendGrid("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");
 				$email    = new SendGrid\Email();
-
+				echo $e;
 				$email->addTo($e)
       			->setFrom("you@youremail.com")
       			->setSubject("Sending with SendGrid is Fun")
