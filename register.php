@@ -108,6 +108,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
 				
+				// SendGrid
+				
+				require 'vendor/autoload.php';
+				$sendgrid = new SendGrid("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");
+				$email    = new SendGrid\Email();
+
+				$email->addTo($e)
+      			->setFrom("you@youremail.com")
+      			->setSubject("Sending with SendGrid is Fun")
+      			->setHtml("and easy to do anywhere, even with PHP");
+
+				$sendgrid->send($email);
+
+				
 				
 				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 				exit(); 
