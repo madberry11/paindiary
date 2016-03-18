@@ -146,3 +146,4 @@ if(!$mail->send()) {
 </div>
 </div>
 </body>
+</html>

@@ -1,11 +1,35 @@
 <?php
-include ('header.html');
-?>
-<meta http-equiv="refresh" content="3;URL='index.php'" />
-<link rel="stylesheet" href="style.css" type="text/css" />
-<div id="pagewrap">
-<div id="pagecontent">
 
+if (!isset($page_title)) {
+	$page_title = 'Your Pain Diary';
+
+}
+?>
+
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title><?php echo $page_title; ?></title>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script> 
+<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ruda:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div id="header">
+<div id="logintitle"><a href="index.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
+</div>
+
+<div id="pagewraplogin">
+<h1><a href="index.php" class="icon-chevron-left nounderline"></a>Activating Your Account</h1>
+<div id="pagecontent">
 <?php
 require ('config.inc.php'); 
 $page_title = 'Activating Your Account';
@@ -41,3 +65,5 @@ if (isset($_GET['x'], $_GET['y'], $_GET['hash'])
 
 </div>
 </div>
+</body>
+</html>
