@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} 
 	
 	if ($uid) { 
-echo "uid";
 		
 		$p = substr ( md5(uniqid(rand(), true)), 3, 10);
 
@@ -44,7 +43,7 @@ echo "uid";
 
 		if (mysqli_affected_rows($dbc) == 1) { 
 		
-		echo '<p class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</p>';
+		echo '<p class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered.</p>';
 			
 // Send Activation Email
 
@@ -70,7 +69,7 @@ $mail->isHTML(true);                                  // Set email format to HTM
  
 $mail->Subject = 'Reset Password';
 $mail->Body    = '<p>Hi.</p>
-<p>You have requested a new password for accessing <a href="http://paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to <span class="bold">'. $p .'</span>. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
+<p>You have requested a new password for accessing <a href="http://paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to <b>'. $p .'</b>. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
 ';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
