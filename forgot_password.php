@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} 
 	
 	if ($uid) { 
-
+echo "uid";
 		
 		$p = substr ( md5(uniqid(rand(), true)), 3, 10);
 
@@ -47,12 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if (mysqli_affected_rows($dbc) == 1) { 
 		
-			/*
-			$body = "Your password to log into <whatever site> has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
-			mail ($_POST['email'], 'Your temporary password.', $body, 'From: myemail@domain.com');
-			*/
+		echo '<p class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</p>';
 			
-						// Send Activation Email
+// Send Activation Email
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
  
@@ -86,12 +83,10 @@ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 //$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
  
 if(!$mail->send()) {
-   echo '<div class="error">Message could not be sent.</div>';
-   echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
+   echo '<p class="error">Message could not be sent.</p>';
+   echo '<p class="error">Mailer Error: ' . $mail->ErrorInfo .'</p>';
    exit;
-}			else {
-			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div>';
-}
+}	
 			
 			exit(); 
 			
