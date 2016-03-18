@@ -3,6 +3,10 @@
 <div id="pagewraplogin">
 <h1>Reset Password</h1>
 <div id="pagecontent">
+Please enter your email address. 
+<form action="forgot_password.php" method="post">
+	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
+</form>
 
 <?php 
 require ('config.inc.php'); 
@@ -86,8 +90,7 @@ if(!$mail->send()) {
    echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
    exit;
 }			
-			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div></div></div>';
-			mysqli_close($dbc);
+			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div>';
 			
 			exit(); 
 			
@@ -103,10 +106,6 @@ if(!$mail->send()) {
 
 } 
 ?>
-Please enter your email address. 
-<form action="forgot_password.php" method="post">
-	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
-</form>
 
 </div>
 </div>
