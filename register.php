@@ -48,7 +48,6 @@ if (!isset($page_title)) {
 </div>
 </form>
 
-<?php echo (extension_loaded('openssl')?'SSL loaded':'SSL not loaded')."\n"; ?>
 
 <?php 
 require ('config.inc.php');
@@ -100,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$hash = md5( rand(0,1000) );
 
 			
-			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysqli_real_escape_string($e) ."', '". mysqli_real_escape_string(SHA1('$p')) ."', '".mysqli_real_escape_string($un)."', '".mysqli_real_escape_string($a)."', NOW(), '". mysqli_real_escape_string($hash) ."' )";
+			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysqli_real_escape_string($dbc, $e) ."', '". mysqli_real_escape_string($dbc, SHA1('$p')) ."', '".mysqli_real_escape_string($dbc, $un)."', '".mysqli_real_escape_string($dbc, $a)."', NOW(), '". mysqli_real_escape_string($dbc, $hash) ."' )";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
