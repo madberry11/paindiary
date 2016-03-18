@@ -31,14 +31,14 @@ if (!isset($page_title)) {
 <div id="pagewraplogin">
 <h1><a href="index.php" class="icon-chevron-left nounderline"></a>Reset Password</h1>
 <div id="pagecontent">
-<div class="center">
 <form action="forgot_password.php" method="post">
+<div class="center">
 	<label for="email" class="ui-hidden-accessible">E-mail Address</label>
 	<p><input id="emailaddress" placeholder="email address" type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
     <div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div></p>
     <p><input type="submit" id="passwordbutton" name="passwordbutton" value="Reset My Password" /></p>
+    </div>
 </form>
-</div>
 
 <?php 
 require ('config.inc.php'); 
