@@ -138,7 +138,7 @@ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('PHPMailer/examples/contents.html'), dirname(__FILE__));
+$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
  
 if(!$mail->send()) {
    echo 'Message could not be sent.';
