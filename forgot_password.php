@@ -21,8 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (mysqli_num_rows($r) == 1) { 
+		while ($row = mysqli_fetch_array($result)) {
 			list($uid) = mysqli_fetch_array ($r, MYSQLI_NUM); 
 			$username = $row['username'];
+		}
 		} else { 
 			echo '<p class="error">The submitted email address does not match a registered user!</p>';
 		}
@@ -71,8 +73,7 @@ $mail->isHTML(true);                                  // Set email format to HTM
  
 $mail->Subject = 'Reset Password';
 $mail->Body    = '<p>Hi '.$username.'.</p>
-<p>Your account has been created. Please click this link to activate your account:</p>
-<p>You have requested a new password for accessing <a href="paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.
+<p>You have requested a new password for accessing <a href="paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
 ';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
