@@ -20,6 +20,8 @@ if (!isset($page_title)) {
 <link href='http://fonts.googleapis.com/css?family=Ruda:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
 
@@ -42,7 +44,7 @@ if (!isset($page_title)) {
 <input class="logininput" type="password" name="password1" placeholder="password" maxlength="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
 <label for="password2" class="ui-hidden-accessible">Confirm Password</label>
 <input class="logininput" type="password" name="password2" placeholder="confirm password" maxlength="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>" />
-
+<div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div>
 <p><input type="submit" name="registerbutton" id="registerbutton" value="Create New Account" /></p>
 <!--<div id="tologin"><a href="index.php">Member Login</a></div>-->
 </div>
@@ -85,6 +87,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		echo '<p class="error">Please enter a valid password! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 	}
+	
+	if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+        if(!$captcha){
+          echo '<h2>Please check the the captcha form.</h2>';
+          exit;
+        }
+	$secretKey = "";
+	$ip = $_SERVER['REMOTE_ADDR'];
+        $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+	$responseKeys = json_decode($response,true);
+        if(intval($responseKeys["success"]) !== 1) {
+          echo '<h2>You are spammer ! Get the @$%K out</h2>';
+        } else {
 	
 	if ($un && $e && $p) { 
 
@@ -167,6 +184,7 @@ if(!$mail->send()) {
 
 	mysqli_close($dbc);
 
+		}
 } 
 ?>
 
