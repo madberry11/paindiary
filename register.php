@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Send Activation Email
 			
 
-require 'PHPMailerAutoload.php';
+require 'PHPMailer-master/PHPMailerAutoload.php';
  
 $mail = new PHPMailer;
  
