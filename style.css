@@ -311,10 +311,9 @@ padding-right: 20px;
 }
 
 .logininput[type=text], .logininput[type=password], .logininput[type=email] { 
-    padding-left: 30px !important;
 	padding-top: 10px;
 	padding-bottom: 10px;
-    margin: 0 0 10px 0;
+    margin: 0 50px 10px 0;
 	font-family: 'Ruda', sans-serif;
 	font-weight: 700;
 	text-align: left;
