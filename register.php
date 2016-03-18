@@ -103,12 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
-/*
-				$subject = "Thank you for registering - Your Pain Diary";
-				$body = "Thank you for registering at www.paindiary.azurewebsites.net. To activate your account, please click on this link:\n\n";
-				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
-				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
-*/
 
 				echo '<h3>Thank you for registering! A confirmation email has been sent to your email address. Please click on the link in the email in order to activate your account.';
 				//Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
@@ -148,8 +142,8 @@ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 //$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
  
 if(!$mail->send()) {
-   echo 'Message could not be sent.';
-   echo 'Mailer Error: ' . $mail->ErrorInfo;
+   echo '<div class="error">Message could not be sent.</div>';
+   echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
    exit;
 }
  
