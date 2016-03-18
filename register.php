@@ -97,9 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			
 			$a = md5(uniqid(rand(), true));
+			$hash = md5( rand(0,1000) );
 
 			
-			$q = "INSERT INTO users (email, pass, username, active, registration_date) VALUES ('$e', SHA1('$p'), '$un', '$a', NOW() )";
+			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysql_escape_string($e) ."', '". mysql_escape_string(SHA1('$p')) ."', '".mysql_escape_string($un)."', '".mysql_escape_string($a)."', NOW(), '". mysql_escape_string($hash) ."' )";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
@@ -110,7 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				mail($trimmed['email'], 'Registration Confirmation', $body, 'From: myemail@domain.com');
 */
 
-				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
+				echo '<h3>Thank you for registering! A confirmation email has been sent to your email address. Please click on the link in the email in order to activate your account.';
+				//Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 			
 			// Send Activation Email
 
@@ -125,22 +127,26 @@ $mail->Username = 'nemrestellem@gmail.com';                   // SMTP username
 $mail->Password = 'gugurekasu22';               // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
 $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
-$mail->SMTPDebug  = 2;								// enable SMTP authentication
-$mail->setFrom('nemrestellem@gmail.com', 'Zsofia Gaspar');     //Set who the message is to be sent from
+$mail->SMTPDebug  = 0;								// enable SMTP authentication
+$mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');     //Set who the message is to be sent from
 $mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');  //Set an alternative reply-to address
-$mail->addAddress('1407067@rgu.ac.uk');               // Name is optional
+$mail->addAddress($e);               // Name is optional
 $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 //$mail->addAttachment('/usr/labnol/file.doc');         // Add attachments
 //$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
  
-$mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+$mail->Subject = 'Welcome to Your Pain Diary!';
+$mail->Body    = '<p>Thanks for signing up, <?php $un ?>!</p>
+<p>Your account has been created. Please click this link to activate your account:</p>
+<p>http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'</p>
+';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
+
+//$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
  
 if(!$mail->send()) {
    echo 'Message could not be sent.';
