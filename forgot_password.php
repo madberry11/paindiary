@@ -36,7 +36,7 @@ Please enter your email address.
 <form action="forgot_password.php" method="post">
 	<p><input type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
     <div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div>
-    <input type="submit" name="submit" value="Reset My Password" /></p>
+    <input type="submit" id="passwordbutton" name="passwordbutton" value="Reset My Password" /></p>
 </form>
 </div>
 
