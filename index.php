@@ -58,7 +58,6 @@ $_SESSION["password"] = "";
 }
 ?>
 
-<br />
 <form id="loginform" action="index.php" method="post">
 	<label for="username" class="ui-hidden-accessible">Username</label>
     <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" value="<?php echo $_SESSION["username"] ?>" />
