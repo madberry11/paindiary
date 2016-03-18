@@ -48,6 +48,7 @@ if (!isset($page_title)) {
 </div>
 </form>
 
+<?php echo (extension_loaded('openssl')?'SSL loaded':'SSL not loaded')."\n"; ?>
 
 <?php 
 require ('config.inc.php');
