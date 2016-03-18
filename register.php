@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  * This example shows sending a message using a local sendmail binary.
  */
 
-require '../PHPMailer-master/PHPMailerAutoload.php';
+require 'PHPMailer-master/PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
