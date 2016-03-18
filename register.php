@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$hash = md5( rand(0,1000) );
 
 			
-			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysql_escape_string($e) ."', '". mysql_escape_string(SHA1('$p')) ."', '".mysql_escape_string($un)."', '".mysql_escape_string($a)."', NOW(), '". mysql_escape_string($hash) ."' )";
+			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysqli_real_escape_string($e) ."', '". mysqli_real_escape_string(SHA1('$p')) ."', '".mysqli_real_escape_string($un)."', '".mysqli_real_escape_string($a)."', NOW(), '". mysqli_real_escape_string($hash) ."' )";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
