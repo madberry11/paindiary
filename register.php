@@ -111,82 +111,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 			
-			/*
-				// SendGrid
-				
-				//require 'vendor/autoload.php';
-				$sendgrid = new SendGrid("mtSPDROVQ_-RhOK5TmjZqA");
-				$email    = new SendGrid\Email();
-				
-				$email->addTo("nemrestellem@gmail.com")
-      			->setFrom("you@youremail.com")
-      			->setSubject("Sending with SendGrid is Fun")
-      			->setHtml("and easy to do anywhere, even with PHP");
+			// Send Activation Email
+			
 
-				$sendgrid->send($email);
-				
-				*/
-				
- //include_once "vendor/autoload.php";
- /*
-  * Create the body of the message (a plain-text and an HTML version).
-  * $text is your plain-text email
-  * $html is your html version of the email
-  * If the reciever is able to view html emails then only the html
-  * email will be displayed
-  */ 
- $text = "Hi!\nHow are you?\n";
- $html = "<html>
-       <head></head>
-       <body>
-           <p>Hi!<br>
-               How are you?<br>
-           </p>
-       </body>
-       </html>";
- // This is your From email address
- $from = array('someone@example.com' => 'Name To Appear');
- // Email recipients
- $to = array(
-       'nemrestellem@gmail.com'=>'Destination 1 Name',
-       '1407067@rgu.ac.uk'=>'Destination 2 Name'
- );
- // Email subject
- $subject = 'Example PHP Email';
-
- // Login credentials
- $username = 'azure_2b39e0bb4e5f794200917155f6518255@azure.com';
- $password = 'gugurekasu11';
-
- // Setup Swift mailer parameters
- $transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 587);
- $transport->setUsername($username);
- $transport->setPassword($password);
- $swift = Swift_Mailer::newInstance($transport);
-
- // Create a message (subject)
- $message = new Swift_Message($subject);
-
- // attach the body of the email
- $message->setFrom($from);
- $message->setBody($html, 'text/html');
- $message->setTo($to);
- $message->addPart($text, 'text/plain');
+require 'PHPMailerAutoload.php';
  
+$mail = new PHPMailer;
  
- // send message 
- if ($recipients = $swift->send($message, $failures))
- {
-     // This will let us know how many users received this message
-     echo 'Message sent out to '.$recipients.' users';
- }
- // something went wrong =(
- else
- {
-     echo "Something went wrong - ";
-     print_r($failures);
- }
-
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'nemrestellem@gmail.com';                   // SMTP username
+$mail->Password = 'gugurekasu11';               // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+$mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+$mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');     //Set who the message is to be sent from
+$mail->addAddress('1407067@rgu.ac.uk');               // Name is optional
+$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+//$mail->addAttachment('/usr/labnol/file.doc');         // Add attachments
+//$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+ 
+$mail->Subject = 'Here is the subject';
+$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+ 
+//Read an HTML message body from an external file, convert referenced images to embedded,
+//convert HTML into a basic plain-text alternative body
+$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+ 
+if(!$mail->send()) {
+   echo 'Message could not be sent.';
+   echo 'Mailer Error: ' . $mail->ErrorInfo;
+   exit;
+}
+ 
+echo 'Message has been sent';
+ 
 				
 				exit(); 
 				
