@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$q = 'SELECT user_id, username FROM users WHERE email="'.  mysqli_real_escape_string ($dbc, $_POST['email']) . '"';
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_num_rows($r) == 1) { 
+		echo "yes";
 		while ($row = mysqli_fetch_array($r)) {
 			list($uid) = mysqli_fetch_array ($r, MYSQLI_NUM); 
 			$username = $row['username'];
