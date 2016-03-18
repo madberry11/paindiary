@@ -138,7 +138,7 @@ $mail->isHTML(true);                                  // Set email format to HTM
 $mail->Subject = 'Welcome to Your Pain Diary!';
 $mail->Body    = '<p>Thanks for signing up, <?php $un ?>!</p>
 <p>Your account has been created. Please click this link to activate your account:</p>
-<p>http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'</p>
+<p><a href="http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'">http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'</a></p>
 ';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
