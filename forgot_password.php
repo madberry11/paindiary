@@ -32,7 +32,6 @@ if (!isset($page_title)) {
 <h1><a href="index.php" class="icon-chevron-left nounderline"></a>Reset Password</h1>
 <div id="pagecontent">
 <div class="center">
-Please enter your email address. 
 <form action="forgot_password.php" method="post">
 	<label for="email" class="ui-hidden-accessible">E-mail Address</label>
 	<p><input id="emailaddress" placeholder="email address" type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
