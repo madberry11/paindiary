@@ -57,7 +57,7 @@ $page_title = 'Register';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
 
-	
+	$captcha;
 	require (MYSQL);
 	
 	$trimmed = array_map('trim', $_POST);
