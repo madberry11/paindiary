@@ -1001,3 +1001,7 @@ padding-right: 50px;
 	font-weight: bold;
 	background-color: #eee;
 }
+
+.g-recaptcha {
+	margin: 0px auto;
+}
