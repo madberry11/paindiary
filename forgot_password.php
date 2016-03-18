@@ -32,7 +32,7 @@ if (!isset($page_title)) {
 <div id="pagecontent">
 Please enter your email address. 
 <form action="forgot_password.php" method="post">
-	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
+	<p><input type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
 </form>
 
 <?php 
