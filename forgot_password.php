@@ -19,9 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		$q = 'SELECT user_id, username FROM users WHERE email="'.  mysqli_real_escape_string ($dbc, $_POST['email']) . '"';
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		
 		if (mysqli_num_rows($r) == 1) { 
-		while ($row = mysqli_fetch_array($result)) {
+		while ($row = mysqli_fetch_array($r)) {
 			list($uid) = mysqli_fetch_array ($r, MYSQLI_NUM); 
 			$username = $row['username'];
 		}
@@ -73,7 +72,7 @@ $mail->isHTML(true);                                  // Set email format to HTM
  
 $mail->Subject = 'Reset Password';
 $mail->Body    = '<p>Hi '.$username.'.</p>
-<p>You have requested a new password for accessing <a href="paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
+<p>You have requested a new password for accessing <a href='.paindiary.azurewebsites.net/index.php.'>Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
 ';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
