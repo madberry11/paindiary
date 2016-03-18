@@ -41,14 +41,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if (mysqli_affected_rows($dbc) == 1) { 
 		
-			
+			/*
 			$body = "Your password to log into <whatever site> has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
 			mail ($_POST['email'], 'Your temporary password.', $body, 'From: myemail@domain.com');
+			*/
 			
-			
-			echo '<h3>Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</h3></div></div>';
+						// Send Activation Email
+
+require 'PHPMailer-master/PHPMailerAutoload.php';
+ 
+$mail = new PHPMailer;
+ 
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'nemrestellem@gmail.com';                   // SMTP username
+$mail->Password = 'gugurekasu22';               // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+$mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+$mail->SMTPDebug  = 0;								// enable SMTP authentication
+$mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');     //Set who the message is to be sent from
+$mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');  //Set an alternative reply-to address
+$mail->addAddress($e);               // Name is optional
+$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+//$mail->addAttachment('/usr/labnol/file.doc');         // Add attachments
+//$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+ 
+$mail->Subject = 'Reset Password';
+$mail->Body    = '<p>Hi '.$un.'.</p>
+<p>Your account has been created. Please click this link to activate your account:</p>
+<p>You have requested a new password for accessing <a href="paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.
+';
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+ 
+//Read an HTML message body from an external file, convert referenced images to embedded,
+//convert HTML into a basic plain-text alternative body
+
+//$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
+ 
+if(!$mail->send()) {
+   echo '<div class="error">Message could not be sent.</div>';
+   echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
+   exit;
+}			
+			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div></div></div>';
 			mysqli_close($dbc);
-			include ('footer.html');
+			
 			exit(); 
 			
 		} else { 
