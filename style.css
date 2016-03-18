@@ -315,7 +315,7 @@ padding-right: 20px;
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-    margin: 0 0 10px 0;
+    margin: 0px auto;
 	font-family: 'Ruda', sans-serif;
 	font-weight: 700;
 	text-align: left;
@@ -421,7 +421,7 @@ font-size: 1.5em;
 }
 
 #loginform {
-margin: -30px auto !important;	
+margin: -30px auto !important;
 }
 
 #loginbutton, #registerbutton {
