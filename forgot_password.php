@@ -4,11 +4,6 @@
 <h1>Reset Password</h1>
 <div id="pagecontent">
 
-Please enter your email address. 
-<form action="forgot_password.php" method="post">
-	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
-</form>
-
 <?php 
 require ('config.inc.php'); 
 
@@ -28,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		while ($row = mysqli_fetch_array($r)) {
 			list($uid) = mysqli_fetch_array ($r, MYSQLI_NUM); 
 			$username = $row['username'];
-			echo "yesyes";
 		}
 		} else { 
 			echo '<p class="error">The submitted email address does not match a registered user!</p>';
@@ -48,8 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 		if (mysqli_affected_rows($dbc) == 1) { 
+		
+			/*
+			$body = "Your password to log into <whatever site> has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
+			mail ($_POST['email'], 'Your temporary password.', $body, 'From: myemail@domain.com');
+			*/
 			
-// Send Activation Email
+						// Send Activation Email
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
  
@@ -86,11 +85,9 @@ if(!$mail->send()) {
    echo '<div class="error">Message could not be sent.</div>';
    echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
    exit;
-}		
-else {	
+}			
 			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div></div></div>';
 			mysqli_close($dbc);
-}
 			
 			exit(); 
 			
@@ -106,5 +103,10 @@ else {
 
 } 
 ?>
+Please enter your email address. 
+<form action="forgot_password.php" method="post">
+	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
+</form>
+
 </div>
 </div>
