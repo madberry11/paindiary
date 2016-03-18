@@ -153,7 +153,7 @@ if(!$mail->send()) {
    exit;
 }
  
-echo 'Message has been sent';
+//echo 'Message has been sent';
 
  
 				
