@@ -1004,4 +1004,9 @@ padding-right: 50px;
 
 .g-recaptcha {
 	margin-left: 22px;
+	margin-top: 0px;
+}
+
+#emailaddress {
+	margin-bottom: 10px !important;
 }
