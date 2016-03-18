@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$hash = md5( rand(0,1000) );
 
 			
-			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysqli_real_escape_string($dbc, $e) ."', '". mysqli_real_escape_string($dbc, SHA1('$p')) ."', '".mysqli_real_escape_string($dbc, $un)."', '".mysqli_real_escape_string($dbc, $a)."', NOW(), '". mysqli_real_escape_string($dbc, $hash) ."' )";
+			$q = "INSERT INTO users (email, pass, username, active, registration_date, hash) VALUES ('". mysqli_real_escape_string($dbc, $e) ."', SHA1('$p'), '".mysqli_real_escape_string($dbc, $un)."', '".mysqli_real_escape_string($dbc, $a)."', NOW(), '". mysqli_real_escape_string($dbc, $hash) ."' )";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 			if (mysqli_affected_rows($dbc) == 1) { 
@@ -136,7 +136,7 @@ $mail->WordWrap = 50;                                 // Set word wrap to 50 cha
 $mail->isHTML(true);                                  // Set email format to HTML
  
 $mail->Subject = 'Welcome to Your Pain Diary!';
-$mail->Body    = '<p>Thanks for signing up, <?php $un ?>!</p>
+$mail->Body    = '<p>Thanks for signing up, '.$un.'!</p>
 <p>Your account has been created. Please click this link to activate your account:</p>
 <p><a href="http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'">http://paindiary.azurewebsites.net/activate.php?x='.urlencode($e).'&y='.$a.'&hash='.$hash.'</a></p>
 ';
