@@ -17,11 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (!empty($_POST['email'])) {
 
 		
-		$q = 'SELECT user_id FROM users WHERE email="'.  mysqli_real_escape_string ($dbc, $_POST['email']) . '"';
+		$q = 'SELECT user_id, username FROM users WHERE email="'.  mysqli_real_escape_string ($dbc, $_POST['email']) . '"';
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (mysqli_num_rows($r) == 1) { 
 			list($uid) = mysqli_fetch_array ($r, MYSQLI_NUM); 
+			$username = $row['username'];
 		} else { 
 			echo '<p class="error">The submitted email address does not match a registered user!</p>';
 		}
@@ -69,7 +70,7 @@ $mail->WordWrap = 50;                                 // Set word wrap to 50 cha
 $mail->isHTML(true);                                  // Set email format to HTML
  
 $mail->Subject = 'Reset Password';
-$mail->Body    = '<p>Hi '.$un.'.</p>
+$mail->Body    = '<p>Hi '.$username.'.</p>
 <p>Your account has been created. Please click this link to activate your account:</p>
 <p>You have requested a new password for accessing <a href="paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.
 ';
