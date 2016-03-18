@@ -20,6 +20,7 @@ if (!isset($page_title)) {
 <link href='http://fonts.googleapis.com/css?family=Ruda:700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 
@@ -33,7 +34,9 @@ if (!isset($page_title)) {
 <div class="center">
 Please enter your email address. 
 <form action="forgot_password.php" method="post">
-	<p><input type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
+	<p><input type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
+    <div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div>
+    <input type="submit" name="submit" value="Reset My Password" /></p>
 </form>
 </div>
 
@@ -42,12 +45,24 @@ require ('config.inc.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
-
-	
+	$captcha;
 	$uid = FALSE;
-
 	
-	if (!empty($_POST['email'])) {
+	if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+        if(!$captcha){
+          echo '<h2>Please check the the captcha form.</h2>';
+          exit;
+        }
+	$secretKey = "6LdAMhsTAAAAAMNbXZqi_puaVdJ_LJPhfj-w9g7o";
+	$ip = $_SERVER['REMOTE_ADDR'];
+        $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
+	$responseKeys = json_decode($response,true);
+        if(intval($responseKeys["success"]) !== 1) {
+          echo '<h2>You are spammer ! Get the @$%K out</h2>';
+        } elseif (!empty($_POST['email'])) {
+		
 
 		
 		$q = 'SELECT user_id, username FROM users WHERE email="'.  mysqli_real_escape_string ($dbc, $_POST['email']) . '"';
