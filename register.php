@@ -113,25 +113,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			// Send Activation Email
 			
-
 /**
- * This example shows sending a message using a local sendmail binary.
+ * This example shows sending a message using PHP's mail() function.
  */
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
-// Set PHPMailer to use the sendmail transport
-$mail->isSendmail();
 //Set who the message is to be sent from
 $mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');
 //Set an alternative reply-to address
 $mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');
 //Set who the message is to be sent to
-$mail->addAddress('1407067@rgu.ac.uk');
+$mail->addAddress('1407067@rgu.ac.uk', 'Zsofia Gaspar');
 //Set the subject line
-$mail->Subject = 'PHPMailer sendmail test';
+$mail->Subject = 'PHPMailer mail() test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
 $mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
