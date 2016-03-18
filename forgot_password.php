@@ -72,7 +72,7 @@ $mail->isHTML(true);                                  // Set email format to HTM
  
 $mail->Subject = 'Reset Password';
 $mail->Body    = '<p>Hi '.$username.'.</p>
-<p>You have requested a new password for accessing <a href='.paindiary.azurewebsites.net/index.php.'>Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
+<p>You have requested a new password for accessing <a href="http://paindiary.azurewebsites.net/index.php">Your Pain Diary</a>. Your password has been temporarily changed to '. $p .'. Please log in using this password, then you may change it to something more familiar by clicking on the "Change Password" link on the Profile page.</p>
 ';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
  
