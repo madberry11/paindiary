@@ -4,6 +4,11 @@
 <h1>Reset Password</h1>
 <div id="pagecontent">
 
+Please enter your email address. 
+<form action="forgot_password.php" method="post">
+	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
+</form>
+
 <?php 
 require ('config.inc.php'); 
 
@@ -43,13 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 		if (mysqli_affected_rows($dbc) == 1) { 
-		
-			/*
-			$body = "Your password to log into <whatever site> has been temporarily changed to '$p'. Please log in using this password and this email address. Then you may change your password to something more familiar.";
-			mail ($_POST['email'], 'Your temporary password.', $body, 'From: myemail@domain.com');
-			*/
 			
-						// Send Activation Email
+// Send Activation Email
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
  
@@ -104,10 +104,5 @@ if(!$mail->send()) {
 
 } 
 ?>
-Please enter your email address. 
-<form action="forgot_password.php" method="post">
-	<p><input type="text" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" /><input style="margin-left: 5px" type="submit" name="submit" value="Reset My Password" /></p>
-</form>
-
 </div>
 </div>
