@@ -62,7 +62,7 @@ $mail->Port = 587;                                    //Set the SMTP port number
 $mail->SMTPDebug  = 0;								// enable SMTP authentication
 $mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');     //Set who the message is to be sent from
 $mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');  //Set an alternative reply-to address
-$mail->addAddress($e);               // Name is optional
+$mail->addAddress(mysqli_real_escape_string ($dbc, $_POST['email']));               // Name is optional
 $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 //$mail->addAttachment('/usr/labnol/file.doc');         // Add attachments
 //$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
