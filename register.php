@@ -125,6 +125,7 @@ $mail->Username = 'nemrestellem@gmail.com';                   // SMTP username
 $mail->Password = 'gugurekasu11';               // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
 $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+$mail->SMTPDebug  = 2;								// enable SMTP authentication
 $mail->setFrom('nemrestellem@gmail.com', 'Zsofia Gaspar');     //Set who the message is to be sent from
 $mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');  //Set an alternative reply-to address
 $mail->addAddress('1407067@rgu.ac.uk');               // Name is optional
