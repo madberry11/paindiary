@@ -1,7 +1,34 @@
+<?php
+
+if (!isset($page_title)) {
+	$page_title = 'Your Pain Diary';
+
+}
+?>
+
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title><?php echo $page_title; ?></title>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script> 
+<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ruda:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div id="header">
+<div id="logintitle"><a href="index.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
+</div>
+
 <div id="pagewraplogin">
-<h1>Reset Password</h1>
+<h1><a href="index.php" class="icon-chevron-left nounderline"></a>Reset Password</h1>
 <div id="pagecontent">
 Please enter your email address. 
 <form action="forgot_password.php" method="post">
@@ -43,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if (mysqli_affected_rows($dbc) == 1) { 
 		
-		echo '<p class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered.</p>';
+		echo '<p class="success">Your password has been changed. You will receive the new, temporary password at the email address you have just entered.</p>';
 			
 // Send Activation Email
 
@@ -101,3 +128,4 @@ if(!$mail->send()) {
 
 </div>
 </div>
+</body>
