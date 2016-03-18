@@ -89,8 +89,9 @@ if(!$mail->send()) {
    echo '<div class="error">Message could not be sent.</div>';
    echo '<div class="error">Mailer Error: ' . $mail->ErrorInfo .'</div>';
    exit;
-}			
+}			else {
 			echo '<div class="success">Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link on the Profile page.</div>';
+}
 			
 			exit(); 
 			
