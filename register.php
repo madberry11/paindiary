@@ -112,37 +112,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account. Or click the link below:<br /><a href="'.BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a".'">click here</a></h3>'; 
 			
 			// Send Activation Email
-			
-/**
- * This example shows sending a message using PHP's mail() function.
- */
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
-
-//Create a new PHPMailer instance
+ 
 $mail = new PHPMailer;
-//Set who the message is to be sent from
-$mail->setFrom('nemrestellem@gmail.com', 'Your Pain Diary');
-//Set an alternative reply-to address
-$mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');
-//Set who the message is to be sent to
-$mail->addAddress('1407067@rgu.ac.uk', 'Zsofia Gaspar');
-//Set the subject line
-$mail->Subject = 'PHPMailer mail() test';
+ 
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'nemrestellem@gmail.com';                   // SMTP username
+$mail->Password = 'gugurekasu11';               // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+$mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+$mail->setFrom('nemrestellem@gmail.com', 'Zsofia Gaspar');     //Set who the message is to be sent from
+$mail->addReplyTo('1407067@rgu.ac.uk', 'Your Pain Diary');  //Set an alternative reply-to address
+$mail->addAddress('1407067@rgu.ac.uk');               // Name is optional
+$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+//$mail->addAttachment('/usr/labnol/file.doc');         // Add attachments
+//$mail->addAttachment('/images/image.jpg', 'new.jpg'); // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+ 
+$mail->Subject = 'Here is the subject';
+$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+ 
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('PHPMailer-master/examples/contents.html'), dirname(__FILE__));
-//Replace the plain text body with one created manually
-$mail->AltBody = 'This is a plain-text message body';
-//Attach an image file
-//$mail->addAttachment('images/phpmailer_mini.png');
-
-//send the message, check for errors
-if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo "Message sent!";
+$mail->msgHTML(file_get_contents('PHPMailer/examples/contents.html'), dirname(__FILE__));
+ 
+if(!$mail->send()) {
+   echo 'Message could not be sent.';
+   echo 'Mailer Error: ' . $mail->ErrorInfo;
+   exit;
 }
+ 
+echo 'Message has been sent';
 
  
 				
