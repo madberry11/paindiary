@@ -953,7 +953,6 @@ display: none !important;
 #usertable {
 	margin: 20px auto;
 	width: 95%;
-	padding: 10px;
 }
 
 .userdata {
@@ -963,6 +962,7 @@ display: none !important;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */	
+	padding: 10px;
 }
 
 #usertable th {

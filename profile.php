@@ -177,10 +177,11 @@ if(isset($_GET['edit'])) {
     </td><td class="editcell userdata">
     <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php'><input class="hidden" type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
-    </td><th>&nbsp;</th><td class="right userdata"><a href="">Delete Account</a></td>
+   	</td>
 </tr>
 <tr><th>Registration date:</th><td colspan="2" class="right userdata"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
 <tr><th>Number of entries:</th><td colspan="2" class="right userdata"><?php echo $numofentries ?></td></tr>
+<tr><th>&nbsp;</th><td colspan="2" class="right userdata"><a href="">Delete Account</a></td></tr>
 </form>
 </table>
 </fieldset>
