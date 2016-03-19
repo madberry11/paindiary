@@ -982,7 +982,7 @@ display: none !important;
 .editcell {
 	text-align: center !important;
 	width: 40px !important;
-	margin-right: 20px !important;
+	padding-right: 20px !important;
 }
 
 .commentstuff {
