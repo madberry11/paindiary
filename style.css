@@ -953,7 +953,7 @@ display: none !important;
 #usertable {
 	margin: 20px auto;
 	/*width: 95%;*/
-	width: 70%;
+	width: 80%;
 }
 
 .userdata {
@@ -981,6 +981,7 @@ display: none !important;
 
 .editcell {
 	text-align: center !important;
+	margin-right: 20px;
 }
 
 .commentstuff {
