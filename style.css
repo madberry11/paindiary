@@ -969,6 +969,7 @@ display: none !important;
 	border: none !important;
 	text-align: left !important;
 	padding-left: 10px;	
+	width: 100px;
 }
 
 #changepass {
@@ -977,22 +978,8 @@ display: none !important;
 	margin-left: 20px;
 }
 
-#leftside {
-	/*float: left;
-	width: 450px;
-	background-color: yellow;
-	margin-left: 20px;*/
-}
-
-#rightside {
-	/*float: right;
-	width: 450px;
-	background-color: green;
-	margin-right: 20px;*/
-}
-
 .editcell {
-padding-right: 50px;	
+	
 }
 
 .commentstuff {
