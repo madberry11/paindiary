@@ -160,9 +160,9 @@ if(isset($_GET['edit'])) {
 <fieldset id="userdetails">
 <legend>User Details</legend>
 <table id="usertable">
-<tr><th>Username:</th><td class="right userdata"> <?php echo $username ?></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
-<tr><th>Email address:</th><td class="right userdata"><?php echo $email ?></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
-<tr><th>Password:</th><td class="right userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
+<tr><th>Username:</th><td class="right userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
+<tr><th>Email address:</th><td class="right userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
+<tr><th>Password:</th><td class="right userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="right userdata">
@@ -174,7 +174,7 @@ if(isset($_GET['edit'])) {
 		<option value="3">red</option>
 	</select>
     </div>
-    </td><td class="editcell userdata">
+    </td><td class="editcell">
     <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php'><input class="hidden" type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
