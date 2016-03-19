@@ -953,9 +953,12 @@ display: none !important;
 #usertable {
 	margin: 20px auto;
 	width: 95%;
+	padding: 10px;
+}
+
+.userdata {
 	border: 2px solid white;
 	background-color: #dddee0;
-	padding: 10px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; /* future proofing */

@@ -160,12 +160,12 @@ if(isset($_GET['edit'])) {
 <fieldset id="userdetails">
 <legend>User Details</legend>
 <table id="usertable">
-<tr><th>Username:</th><td class="right"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td><th>Registration date:</th><td class="right"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
-<tr><th>Email address:</th><td class="right"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td><th>Number of entries:</th><td class="right"><?php echo $numofentries ?></td></tr>
-<tr><th>Password:</th><td class="right"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td><th>&nbsp;</th><td class="right">&nbsp;</td></tr>
+<tr><th>Username:</th><td class="right userdata"> <?php echo $username ?></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
+<tr><th>Email address:</th><td class="right userdata"><?php echo $email ?></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
+<tr><th>Password:</th><td class="right userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell userdata"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
-	<td class="right">
+	<td class="right userdata">
     <div id="chosencolour">chosen colour</div>
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
@@ -174,12 +174,14 @@ if(isset($_GET['edit'])) {
 		<option value="3">red</option>
 	</select>
     </div>
-    </td><td class="editcell">
+    </td><td class="editcell userdata">
     <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php'><input class="hidden" type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
-    </td><th>&nbsp;</th><td class="right"><a href="">Delete Account</a></td>
-</form>
+    </td><th>&nbsp;</th><td class="right userdata"><a href="">Delete Account</a></td>
 </tr>
+<tr><th>Registration date:</th><td colspan="2" class="right userdata"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
+<tr><th>Number of entries:</th><td colspan="2" class="right userdata"><?php echo $numofentries ?></td></tr>
+</form>
 </table>
 </fieldset>
 <br  />
