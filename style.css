@@ -950,7 +950,7 @@ display: none !important;
 	margin: 10px auto;	
 }
 
-#usertable {
+.usertable {
 	margin: 20px auto;
 	/*width: 95%;*/
 	width: 80%;
@@ -967,7 +967,7 @@ display: none !important;
 	padding-left: 20px;
 }
 
-#usertable th {
+.usertable th {
 	border: none !important;
 	text-align: right !important;
 	padding-right: 20px;	
