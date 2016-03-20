@@ -160,12 +160,12 @@ if(isset($_GET['edit'])) {
 <fieldset id="userdetails">
 <legend>User Details</legend>
 <table id="usertable">
-<tr><th>Username:</th><td class="right userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
-<tr><th>Email address:</th><td class="right userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
-<tr><th>Password:</th><td class="right userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
+<tr><th>Username:</th><td class="userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
+<tr><th>Email address:</th><td class="userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
+<tr><th>Password:</th><td class="userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
-	<td class="right userdata">
+	<td class="userdata">
     <div id="chosencolour">chosen colour</div>
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
@@ -179,9 +179,9 @@ if(isset($_GET['edit'])) {
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
-<tr><th>Registration date:</th><td class="right userdata"><?php echo date_format($register, 'Y-m-d'); ?></td><td class="editcell">&nbsp;</td></tr>
-<tr><th>Number of entries:</th><td class="right userdata"><?php echo $numofentries ?></td><td class="editcell">&nbsp;</td></tr>
-<tr><th>&nbsp;</th><td class="right userdata"><a href="">Delete Account</a></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>Registration date:</th><td class="userdata"><?php echo date_format($register, 'Y-m-d'); ?></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>Number of entries:</th><td class="userdata"><?php echo $numofentries ?></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>&nbsp;</th><td class="userdata"><a href="">Delete Account</a></td><td class="editcell">&nbsp;</td></tr>
 </form>
 </table>
 </fieldset>
