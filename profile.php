@@ -416,11 +416,12 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changeusername">
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
-   	<table id="changeusernametable" class="usertable">
-    <tr><th><label>Enter Old Username:</label></th><td class="userdata"><input type="text" name="username0" maxlength="20" /></td></tr>
-    <tr><th><label>Enter New Username:</label></th><td class="userdata"><input type="text" name="username1" maxlength="20" /></td></tr>
-    <tr><th><label>Confirm New Username:</label></th><td class="userdata"><input type="text" name="username2" maxlength="20" /></td></tr>
-    </table>
+    <label for="username0" class="ui-hidden-accessible">Enter Old Username</label>
+<input class="logininput" type="text" name="username0" placeholder="enter old username" maxlength="40" />
+<label for="username1" class="ui-hidden-accessible">Enter New Username</label>
+<input class="logininput" type="text" name="username1" placeholder="enter new username" maxlength="40" />
+<label for="username2" class="ui-hidden-accessible">Confirm New Username</label>
+<input class="logininput" type="text" name="username2" placeholder="confirm new username" maxlength="40" />
     <br /><br /><div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
     <input type="submit" name="cancelusername" value="Cancel" />
