@@ -61,6 +61,7 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 
 <!-- JavaScript / JQuery -->
 	<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
     <script src="json2.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
