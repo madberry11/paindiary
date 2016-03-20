@@ -179,9 +179,9 @@ if(isset($_GET['edit'])) {
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
-<tr><th>Registration date:</th><td colspan="2" class="right userdata"><?php echo date_format($register, 'Y-m-d'); ?></td></tr>
-<tr><th>Number of entries:</th><td colspan="2" class="right userdata"><?php echo $numofentries ?></td></tr>
-<tr><th>&nbsp;</th><td colspan="2" class="right userdata"><a href="">Delete Account</a></td></tr>
+<tr><th>Registration date:</th><td class="right userdata"><?php echo date_format($register, 'Y-m-d'); ?></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>Number of entries:</th><td class="right userdata"><?php echo $numofentries ?></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>&nbsp;</th><td class="right userdata"><a href="">Delete Account</a></td><td class="editcell">&nbsp;</td></tr>
 </form>
 </table>
 </fieldset>
