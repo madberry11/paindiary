@@ -968,8 +968,8 @@ display: none !important;
 
 #usertable th {
 	border: none !important;
-	text-align: left !important;
-	padding-left: 10px;	
+	text-align: right !important;
+	padding-right: 10px;	
 	width: 150px;
 }
 
