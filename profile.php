@@ -159,7 +159,7 @@ if(isset($_GET['edit'])) {
 ?>
 <fieldset id="userdetails">
 <legend>User Details</legend>
-<table id="usertable">
+<table class="usertable">
 <tr><th>Username:</th><td class="userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
 <tr><th>Email address:</th><td class="userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
 <tr><th>Password:</th><td class="userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
@@ -416,10 +416,10 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changeusername">
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
-   	<table id="changeusernametable">
-    <tr><td><label>Enter Old Username:</label></td><td><input type="text" name="username0" maxlength="20" /></td></tr>
-    <tr><td><label>Enter New Username:</label></td><td><input type="text" name="username1" maxlength="20" /></td></tr>
-    <tr><td><label>Confirm New Username:</label></td><td><input type="text" name="username2" maxlength="20" /></td></tr>
+   	<table id="changeusernametable" class="usertable">
+    <tr><th><label>Enter Old Username:</label></th><td class="userdata"><input type="text" name="username0" maxlength="20" /></td></tr>
+    <tr><th><label>Enter New Username:</label></th><td class="userdata"><input type="text" name="username1" maxlength="20" /></td></tr>
+    <tr><th><label>Confirm New Username:</label></th><td class="userdata"><input type="text" name="username2" maxlength="20" /></td></tr>
     </table>
     <br /><br /><div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
