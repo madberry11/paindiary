@@ -533,7 +533,7 @@ $('#closemessage').click(function(){
 
 <div id="addnewstuffwrap">
 <ul id="addnewstuff">
-<li><a href='newentry.php?newbodypart="1"'><div id="addnewbutton" class="visible" onlick="showform()"><div class="icon-men"></div><div class="linktext">Add New Body Part</div></div></a></li>
+<li><a href='newentry.php?newbodypart="1"'><div id="addnewbutton" class="visible" onClick="showform()"><div class="icon-men"></div><div class="linktext">Add New Body Part</div></div></a></li>
 <li><a href='newentry.php?newrecord="1"'><div id="addpainrelief" class="visible" onClick="painrelief()"><div class="icon-pill-antivirusalt"></div><div class="linktext">Add New Pain Relief Record</div></div></a></li>
 <li><a href='newentry.php?createcomment="1"'><div id="addcomment" class="visible" onClick="comment()"><div class="icon-commentroundtyping"></div><div class="linktext">Comment</div></div></a></li>
 <li><div id="deleteall" class="hidden" onClick="Deleteall()"><div class="icon-trash trash2"></div><div class="linktext">Delete All</div></div></li>
