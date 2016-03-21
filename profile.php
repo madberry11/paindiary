@@ -211,7 +211,8 @@ if(isset($_GET['edit'])) {
 <br  />
 <script type="text/javascript">
 function colour() { 
-	document.getElementById('colour-submit').click();
+	document.getElementById('colourform').submit();
+    document.write("got to javascript");
 }
 </script>
 <?php
