@@ -117,7 +117,7 @@ $q = "SELECT user_id, username, email, pass, registration_date, colour FROM user
 	$colour=$row['colour'];
 	
 	switch($colour) {
-case 'blue':
+case '1':
 	echo "blue";
 	?>
     <script type="text/javascript">
@@ -125,10 +125,10 @@ case 'blue':
 	</script>
     <?php
 	break;
-case 'yellow':
+case '2':
 	echo "yellow";
 	break;
-case 'red':
+case '3':
 	echo "red";
 	break;
 default:
@@ -198,7 +198,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><input class="hidden icon-ok nounderline" type="submit" name="colour-submit" /></div>
+    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline' href='profile.php'><input class="hidden icon-ok nounderline" type="submit" name="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
