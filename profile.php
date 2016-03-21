@@ -218,13 +218,13 @@ function colour() {
 	var e = document.getElementById("csscolour");
 	var colourIndex = e.options[e.selectedIndex].value;
     if (colourIndex = 1) {
-    	window.location="newentry.php?colourIndex=1";
+    	window.location="profile.php?colourIndex=1";
     }
     else if (colourIndex = 2) {
-    	window.location="newentry.php?colourIndex=2";
+    	window.location="profile.php?colourIndex=2";
     }
     else {
-    	window.location="newentry.php?colourIndex=3";
+    	window.location="profile.php?colourIndex=3";
     
     }
 }
