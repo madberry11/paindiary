@@ -98,10 +98,6 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <h1>User Profile</h1>
 <?php
 
-if (isset($colour)) {
-	echo $colour;
-}
-
 	$servername = "ap-cdbr-azure-east-c.cloudapp.net";
 	$username = "bcac3dbe9c1d06";
 	$password = "32d91723";
@@ -109,7 +105,7 @@ if (isset($colour)) {
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 
-$q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+$q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -118,7 +114,29 @@ $q = "SELECT user_id, username, email, pass, registration_date FROM users WHERE 
 	$register=new DateTime($row['registration_date']);
 	$email=$row['email'];
 	$password=$row['pass'];
+	$colour=$row['colour'];
+	
+	switch($colour) {
+case 'blue':
+	echo "blue";
+	?>
+    <script type="text/javascript">
+
+	</script>
+    <?php
+	break;
+case 'yellow':
+	echo "yellow";
+	break;
+case 'red':
+	echo "red";
+	break;
+default:
+	echo "default blue";
+	break;
 	}
+	
+}
 	
 $q2 = "SELECT entryyear, entrymonth, entryday FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 //$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
@@ -375,6 +393,15 @@ else {
 if (!empty($_POST['colour-submit'])) {
 	echo "colour scheme got changed";
 	$colour = isset($_POST['csscolour']) ? $_POST['csscolour'] : false;
+		$q = "UPDATE users SET colour='". $colour . "' WHERE user_id={$_SESSION['user_id']}";	
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) == 1) {
+
+			
+			echo '<p class="success">Your preferred colour scheme has been changed.</p>';
+			mysqli_close($dbc);  
+			exit();
+		}
 }
 
 
