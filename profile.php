@@ -198,7 +198,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><a class="icon-ok nounderline" onClick="colour()><input class="hidden" type="submit" name="colour-submit" id="colour-submit" /></a></div>
+    <div id="save" class="hidden"><div class="icon-ok nounderline"><input type="submit" name="colour-submit" id="colour-submit" /></div></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
@@ -209,12 +209,6 @@ if(isset($_GET['edit'])) {
 </table>
 </fieldset>
 <br  />
-<script type="text/javascript">
-function colour() { 
-	document.getElementById('colourform').submit();
-    document.write("got to javascript");
-}
-</script>
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
