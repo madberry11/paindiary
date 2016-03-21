@@ -45,9 +45,17 @@ else {
 <?php	
 }
 
+
 if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 	$_SESSION["username"] = $_COOKIE["unm"];
 }
+
+	$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+	$username = "bcac3dbe9c1d06";
+	$password = "32d91723";
+	$dbname = "booksapp";
+
+	$dbc = new mysqli($servername, $username, $password, $dbname);
 
 if (isset($_GET['colourIndex'])) {
 	$colourIndex = $_GET['colourIndex'];
@@ -110,13 +118,6 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <div id="pagewrap">
 <h1>User Profile</h1>
 <?php
-
-	$servername = "ap-cdbr-azure-east-c.cloudapp.net";
-	$username = "bcac3dbe9c1d06";
-	$password = "32d91723";
-	$dbname = "booksapp";
-
-	$dbc = new mysqli($servername, $username, $password, $dbname);
 
 $q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
