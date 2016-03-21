@@ -49,6 +49,10 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 	$_SESSION["username"] = $_COOKIE["unm"];
 }
 
+if (isset($_GET['colourIndex'])) {
+	echo "got back";
+}
+
 
 ?>
 <head>
@@ -198,7 +202,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><div class="icon-ok nounderline"><input type="submit" name="colour-submit" id="colour-submit" value="" /></div></div>
+    <div id="save" class="hidden"><a class="icon-ok nounderline" onClick="colour()><input class="hidden" type="submit" name="colour-submit" id="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
@@ -209,6 +213,22 @@ if(isset($_GET['edit'])) {
 </table>
 </fieldset>
 <br  />
+<script type="text/javascript">
+function colour() { 
+	var e = document.getElementById("choosecolour");
+	var colourIndex = e.options[e.selectedIndex].value;
+    if (colourIndex = 1) {
+    	window.location="newentry.php?colourIndex=1";
+    }
+    elseif (colourIndex = 2) {
+    	window.location="newentry.php?colourIndex=2";
+    }
+    elseif (colourIndex = 3) {
+    	window.location="newentry.php?colourIndex=3";
+    
+    }
+}
+</script>
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
