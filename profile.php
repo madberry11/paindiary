@@ -98,6 +98,10 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <h1>User Profile</h1>
 <?php
 
+if (isset($colour)) {
+	echo $colour;
+}
+
 	$servername = "ap-cdbr-azure-east-c.cloudapp.net";
 	$username = "bcac3dbe9c1d06";
 	$password = "32d91723";
@@ -371,7 +375,6 @@ else {
 if (!empty($_POST['colour-submit'])) {
 	echo "colour scheme got changed";
 	$colour = isset($_POST['csscolour']) ? $_POST['csscolour'] : false;
-	echo $colour;
 }
 
 
