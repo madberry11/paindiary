@@ -198,7 +198,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><a data-ajax='false' class='icon-ok nounderline'><input class="hidden icon-ok nounderline" type="submit" name="colour-submit" /></a></div>
+    <div id="save" class="hidden"><div class='icon-ok nounderline'><input class=" icon-ok nounderline" type="submit" name="colour-submit" /></div></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
