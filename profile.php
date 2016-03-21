@@ -202,7 +202,7 @@ if(isset($_GET['edit'])) {
 	</select>
     </div>
     </td><td class="editcell">
-    <div id="save" class="hidden"><a class="icon-ok nounderline" onClick="colour()><input class="hidden" type="submit" name="colour-submit" id="colour-submit" /></a></div>
+    <div id="save" class="hidden"><a class="icon-ok nounderline" onClick="colour()"><input class="hidden" type="submit" name="colour-submit" id="colour-submit" /></a></div>
     <div id="edit"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=colour'></a></div>
    	</td>
 </tr>
@@ -220,10 +220,10 @@ function colour() {
     if (colourIndex = 1) {
     	window.location="newentry.php?colourIndex=1";
     }
-    elseif (colourIndex = 2) {
+    else if (colourIndex = 2) {
     	window.location="newentry.php?colourIndex=2";
     }
-    elseif (colourIndex = 3) {
+    else {
     	window.location="newentry.php?colourIndex=3";
     
     }
