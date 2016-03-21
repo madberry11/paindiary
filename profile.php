@@ -215,7 +215,7 @@ if(isset($_GET['edit'])) {
 <br  />
 <script type="text/javascript">
 function colour() { 
-	var e = document.getElementById("choosecolour");
+	var e = document.getElementById("csscolour");
 	var colourIndex = e.options[e.selectedIndex].value;
     if (colourIndex = 1) {
     	window.location="newentry.php?colourIndex=1";
