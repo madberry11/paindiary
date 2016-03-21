@@ -224,16 +224,17 @@ if(isset($_GET['edit'])) {
 function colour() { 
 	var e = document.getElementById("csscolour");
 	var colourIndex = e.options[e.selectedIndex].value;
-    if (colourIndex = 1) {
-    	window.location="profile.php?colourIn=1";
-    }
-    else if (colourIndex = 2) {
-    	window.location="profile.php?colourIn=2";
-    }
-    else {
-    	window.location="profile.php?colourIn=3";
     
-    }
+	switch (colourIndex) {
+  case 3:
+     window.location="profile.php?colourIn=3";
+     break;
+  case 2:
+     window.location="profile.php?colourIn=2";
+     break;
+  default:
+     window.location="profile.php?colourIn=1";
+}
 }
 </script>
 <?php
