@@ -57,9 +57,9 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 
-if (isset($_GET['colourIndex'])) {
-	$colourIndex = $_GET['colourIndex'];
-	$q = "UPDATE users SET colour=". $colourIndex . " WHERE user_id={$_SESSION['user_id']}";	
+if (isset($_GET['colourIn'])) {
+	$colourIn = $_GET['colourIn'];
+	$q = "UPDATE users SET colour=". $colourIn . " WHERE user_id={$_SESSION['user_id']}";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 			mysqli_close($dbc);  
@@ -225,13 +225,13 @@ function colour() {
 	var e = document.getElementById("csscolour");
 	var colourIndex = e.options[e.selectedIndex].value;
     if (colourIndex = 1) {
-    	window.location="profile.php?colourIndex=1";
+    	window.location="profile.php?colourIn=1";
     }
     else if (colourIndex = 2) {
-    	window.location="profile.php?colourIndex=2";
+    	window.location="profile.php?colourIn=2";
     }
     else {
-    	window.location="profile.php?colourIndex=3";
+    	window.location="profile.php?colourIn=3";
     
     }
 }
