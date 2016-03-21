@@ -62,9 +62,6 @@ if (isset($_GET['colourIndex'])) {
 	$q = "UPDATE users SET colour='". $colourIndex . "' WHERE user_id={$_SESSION['user_id']}";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
-
-			
-			echo '<p class="success">Your preferred colour scheme has been changed.</p>';
 			mysqli_close($dbc);  
 			exit();
 		}
