@@ -234,6 +234,7 @@ function colour() {
      break;
   default:
      window.location="profile.php?colourIn=1";
+	 break;
 }
 }
 </script>
