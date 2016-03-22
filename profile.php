@@ -201,7 +201,7 @@ if(isset($_GET['edit'])) {
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="userdata">
     <div id="chosencolour">chosen colour</div>
-    <div id="choosecolour" class="hidden">
+    <div id="choosecolour" class="hidden" onChange="colour(this)">
     <select id="csscolour" name="csscolour">
 		<option value="1">blue</option>
 		<option value="2">yellow</option>
