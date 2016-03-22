@@ -226,14 +226,14 @@ function colour() {
 	var colourIndex = e.options[e.selectedIndex].value;
     
 	switch (colourIndex) {
-  case 3:
-     window.location="profile.php?colourIn=3";
+  case 1:
+     window.location="profile.php?colourIn=1";
      break;
   case 2:
      window.location="profile.php?colourIn=2";
      break;
   default:
-     window.location="profile.php?colourIn=1";
+     window.location="profile.php?colourIn=3";
 	 break;
 }
 }
