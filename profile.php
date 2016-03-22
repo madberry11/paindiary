@@ -232,7 +232,7 @@ function colour() {
   case 2:
      window.location="profile.php?colourIn=2";
      break;
-  default:
+  case 3:
      window.location="profile.php?colourIn=3";
 	 break;
 }
