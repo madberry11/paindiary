@@ -127,7 +127,7 @@ case '1':
     <?php
 	break;
 case '2':
-	$chosen="yellow";
+	$chosen="green";
 		?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = true;
