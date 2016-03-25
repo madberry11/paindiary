@@ -141,12 +141,6 @@ padding-right: 20px;
 	transition-duration: 1s;
 }
 
-#navbar li:hover, #navbar li.activetab {
-	background-color: #663366;
-	transition-property: background-color;
-	transition-duration: 1s;
-}
-
 .lato900 {
 	font-family: 'Lato', sans-serif;
 	font-weight: 900;

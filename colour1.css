@@ -13,6 +13,12 @@ body {
 	height: 10px;	
 }
 
+#navbar li:hover, #navbar li.activetab {
+	background-color: #663366;
+	transition-property: background-color;
+	transition-duration: 1s;
+}
+
 #header {
 	color: white;
 }
