@@ -13,6 +13,7 @@ if (!isset($page_title)) {
 	<title><?php echo $page_title; ?></title>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
 <script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script> 
 <script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />

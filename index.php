@@ -18,6 +18,7 @@ if (!isset($page_title)) {
     
 <!-- stylesheets -->
 	<link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
     <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />
 	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css" type="text/css" />
 
