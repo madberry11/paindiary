@@ -62,7 +62,10 @@ if (isset($_GET['colourIn'])) {
 	$q = "UPDATE users SET colour='". $colourIn . "' WHERE user_id={$_SESSION['user_id']}";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
-			mysqli_close($dbc);  
+			mysqli_close($dbc); 
+			$url = BASE_URL . 'profile.php'; 
+			ob_end_clean(); 
+			header("Location: $url"); 
 			exit();
 		}
 }
@@ -115,7 +118,6 @@ $q = "SELECT user_id, username, email, pass, registration_date, colour FROM user
 	
 	switch($colour) {
 case '1':
-	echo "blue";
 	$chosen="blue";
 	?>
     <script type="text/javascript">
@@ -126,7 +128,6 @@ case '1':
     <?php
 	break;
 case '2':
-	echo "yellow";
 	$chosen="yellow";
 		?>
 	<script type="text/javascript">
@@ -137,7 +138,6 @@ case '2':
     <?php
 	break;
 case '3':
-	echo "red";
 	$chosen="red";
 	?>
 	<script type="text/javascript">
