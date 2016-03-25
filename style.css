@@ -761,7 +761,7 @@ display: none !important;
 }
 
 .notimportant:before {
-	color: #dddee0;
+	color: #dedbd6;
 }
 
 .important:before {
