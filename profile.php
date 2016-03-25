@@ -117,7 +117,7 @@ $q = "SELECT user_id, username, email, pass, registration_date, colour FROM user
 	
 	switch($colour) {
 case '1':
-	$chosen="blue";
+	$chosen="Blue";
 	?>
     <script type="text/javascript">
     document.getElementById('colour1').disabled = false;
@@ -127,7 +127,7 @@ case '1':
     <?php
 	break;
 case '2':
-	$chosen="green";
+	$chosen="Green";
 		?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = true;
@@ -137,7 +137,7 @@ case '2':
     <?php
 	break;
 case '3':
-	$chosen="purple";
+	$chosen="Purple";
 	?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = true;
@@ -147,7 +147,7 @@ case '3':
     <?php
 	break;
 default:
-	$chosen="blue";
+	$chosen="Blue";
 		?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = false;
@@ -234,9 +234,9 @@ if(isset($_GET['edit'])) {
     <div id="chosencolour"><?php echo $chosen ?></div>
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
-		<option value="1">blue</option>
-		<option value="2">green</option>
-		<option value="3">purple</option>
+		<option value="1">Blue</option>
+		<option value="2">Green</option>
+		<option value="3">Purple</option>
 	</select>
     </div>
     </td><td class="editcell">
