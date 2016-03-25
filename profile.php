@@ -115,7 +115,7 @@ case '1':
 	echo "blue";
 	?>
     <script type="text/javascript">
-$(document).ready(function (){
+$(function() {
    $('link[href="colour1.css"]').attr('href','colour1.css');
 });
 	</script>
@@ -125,7 +125,7 @@ case '2':
 	echo "yellow";
 		?>
 	<script type="text/javascript">
-$(document).ready(function (){
+$(function() {
    $('link[href="colour2.css"]').attr('href','colour2.css');
 });
 	</script>
@@ -135,7 +135,7 @@ case '3':
 	echo "red";
 	?>
 	<script type="text/javascript">
-$(document).ready(function (){
+$(function() {
    $('link[href="colour3.css"]').attr('href','colour3.css');
 });
 	</script>
@@ -145,7 +145,7 @@ default:
 	echo "default blue";
 		?>
 	<script type="text/javascript">
-$(document).ready(function (){
+$(function() {
    $('link[href="colour1.css"]').attr('href','colour1.css');
 });
 	</script>
