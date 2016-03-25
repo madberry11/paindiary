@@ -204,6 +204,7 @@ padding-right: 20px;
 	width: 65% !important;
 	margin: 10px auto !important;
 	display: block;
+	text-align: center !important;
 }
 
 input[type=number] {
