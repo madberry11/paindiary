@@ -7,6 +7,26 @@ body {
 	margin: 0px;
 }
 
+#divider {
+	width: 100%;
+	background-color: #663366;
+	height: 10px;	
+}
+
+#navbar li:hover, #navbar li.activetab {
+	background-color: #663366;
+	transition-property: background-color;
+	transition-duration: 1s;
+}
+
+#monthnav {
+	background-color: #80c5cc;
+}
+
+#next, #previous {
+	background-color: #da4657;
+}
+
 #header {
 	color: white;
 }
@@ -75,12 +95,16 @@ legend {
 }
 
 #monthly li {
-	background-color: #663366;
+	background-color: #7071b4;
 	color: white;
 }
 
 #monthly li:hover, .selected {
 	background-color: #bd2133 !important;
+}
+
+.taglist li {
+	background-color: #663366;
 }
 
 .tag-box li.tags {
