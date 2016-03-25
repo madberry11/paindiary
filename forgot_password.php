@@ -35,7 +35,7 @@ if (!isset($page_title)) {
 <form action="forgot_password.php" method="post">
 <div class="center">
 	<label for="email" class="ui-hidden-accessible">E-mail Address</label>
-	<p><input id="emailaddress" placeholder="email address" type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
+	<p><input id="emailaddress" placeholder="Email Address" type="email" class="logininput" name="email" size="50" maxlength="60" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
     <div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div></p>
     <p><input type="submit" id="passwordbutton" name="passwordbutton" value="Reset My Password" /></p>
     </div>

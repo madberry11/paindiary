@@ -61,9 +61,9 @@ $_SESSION["password"] = "";
 
 <form id="loginform" action="index.php" method="post">
 	<label for="username" class="ui-hidden-accessible">Username</label>
-    <input class="logininput" name="username" type="text"  placeholder="username" maxlength="60" value="<?php echo $_SESSION["username"] ?>" />
+    <input class="logininput" name="username" type="text"  placeholder="Username" maxlength="60" value="<?php echo $_SESSION["username"] ?>" />
     <label for="password" class="ui-hidden-accessible">Password</label>
-    <input class="logininput" name="pass" type="password" placeholder="password" maxlength="20" value="<?php echo $_SESSION["password"] ?>" />
+    <input class="logininput" name="pass" type="password" placeholder="Password" maxlength="20" value="<?php echo $_SESSION["password"] ?>" />
     <div class="checkboxdiv">
     <!--<input type="checkbox" name="rememberme" value="yes" /><label for="rememberme"> Remember me </label><br />-->
     <input class="checkbox" type="checkbox" id="rememberme" name="rememberme" /><label for="rememberme"> Remember me</label></br>

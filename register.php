@@ -38,13 +38,13 @@ if (!isset($page_title)) {
 <div class="center">
 
 <label for="username" class="ui-hidden-accessible">Username</label>
-<input class="logininput" type="text" name="username" placeholder="username" maxlength="40" value="<?php if (isset($trimmed['username'])) echo $trimmed['username']; ?>" />
+<input class="logininput" type="text" name="username" placeholder="Username" maxlength="40" value="<?php if (isset($trimmed['username'])) echo $trimmed['username']; ?>" />
 <label for="email" class="ui-hidden-accessible">E-mail Address</label>
-<input class="logininput" type="email" name="email" placeholder="email address" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>" />
+<input class="logininput" type="email" name="email" placeholder="Email Address" maxlength="60" value="<?php if (isset($trimmed['email'])) echo $trimmed['email']; ?>" />
 <label for="password1" class="ui-hidden-accessible">Password</label>
-<input class="logininput" type="password" name="password1" placeholder="password" maxlength="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
+<input class="logininput" type="password" name="password1" placeholder="Password" maxlength="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
 <label for="password2" class="ui-hidden-accessible">Confirm Password</label>
-<input class="logininput" type="password" name="password2" placeholder="confirm password" maxlength="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>" />
+<input class="logininput" type="password" name="password2" placeholder="Confirm Password" maxlength="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>" />
 <div class="g-recaptcha" data-sitekey="6LdAMhsTAAAAAMX7hLpafjBh-lbVL1Pbkqohj2q7"></div>
 <p><input type="submit" name="registerbutton" id="registerbutton" value="Create New Account" /></p>
 <!--<div id="tologin"><a href="index.php">Member Login</a></div>-->
