@@ -116,41 +116,45 @@ $q = "SELECT user_id, username, email, pass, registration_date, colour FROM user
 	switch($colour) {
 case '1':
 	echo "blue";
+	$chosen="blue";
 	?>
     <script type="text/javascript">
-    document.getElementById('colour1').disabled = true;
-    document.getElementById('colour2').disabled = false;
-	document.getElementById('colour3').disabled = false;
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
 	</script>
     <?php
 	break;
 case '2':
 	echo "yellow";
+	$chosen="yellow";
 		?>
 	<script type="text/javascript">
-    document.getElementById('colour1').disabled = false;
-    document.getElementById('colour2').disabled = true;
-	document.getElementById('colour3').disabled = false;
-	</script>
-    <?php
-	break;
-case '3':
-	echo "red";
-	?>
-	<script type="text/javascript">
-    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour1').disabled = true;
     document.getElementById('colour2').disabled = false;
 	document.getElementById('colour3').disabled = true;
 	</script>
     <?php
 	break;
-default:
-	echo "default blue";
-		?>
+case '3':
+	echo "red";
+	$chosen="red";
+	?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = true;
-    document.getElementById('colour2').disabled = false;
+    document.getElementById('colour2').disabled = true;
 	document.getElementById('colour3').disabled = false;
+	</script>
+    <?php
+	break;
+default:
+	echo "default blue";
+	$chosen="blue";
+		?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
 	</script>
     <?php
 	break;
