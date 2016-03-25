@@ -81,6 +81,7 @@ if (isset($_GET['colourIn'])) {
     <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
     <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
     <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />
 
 <!-- JavaScript / JQuery -->
 	<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script>
@@ -519,11 +520,11 @@ if (!empty($_POST['deleteaccount'])) {
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
     <label for="username0" class="ui-hidden-accessible">Enter Old Username</label>
-<input class="logininput" type="text" name="username0" placeholder="enter old username" maxlength="40" />
-<label for="username1" class="ui-hidden-accessible">Enter New Username</label>
-<input class="logininput" type="text" name="username1" placeholder="enter new username" maxlength="40" />
-<label for="username2" class="ui-hidden-accessible">Confirm New Username</label>
-<input class="logininput" type="text" name="username2" placeholder="confirm new username" maxlength="40" />
+	<input class="logininput" type="text" name="username0" placeholder="enter old username" maxlength="40" />
+	<label for="username1" class="ui-hidden-accessible">Enter New Username</label>
+	<input class="logininput" type="text" name="username1" placeholder="enter new username" maxlength="40" />
+	<label for="username2" class="ui-hidden-accessible">Confirm New Username</label>
+	<input class="logininput" type="text" name="username2" placeholder="confirm new username" maxlength="40" />
     <br /><br /><div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
     <input type="submit" name="cancelusername" value="Cancel" />
