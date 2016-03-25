@@ -524,7 +524,7 @@ if (!empty($_POST['deleteaccount'])) {
 	<tr><th>Enter New Username:</th><td class="userdata">something</td><td class="editcell">&nbsp;</a></td></tr>
 	<tr><th>Confirm New Username:</th><td class="userdata">something</td><td class="editcell">&nbsp;</td></tr>
     </table>
-
+the fuck is going on
     <label for="username0" class="ui-hidden-accessible">Enter Old Username</label>
 	<input class="logininput prof" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" />
 	<label for="username1" class="ui-hidden-accessible">Enter New Username</label>
