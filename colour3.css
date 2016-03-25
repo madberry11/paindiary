@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-	background-color: red;
+	background-color: #7071b4;
 	color: black;
 	font-family: Verdana, Geneva, sans-serif;	
 	margin: 0px;
@@ -95,7 +95,7 @@ legend {
 }
 
 #monthly li {
-	background-color: #7071b4;
+	background-color: #663366;
 	color: white;
 }
 
