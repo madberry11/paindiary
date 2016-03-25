@@ -46,20 +46,6 @@ legend {
 	color: white;
 }
 
-.logininput[type=text], .logininput[type=password] {
-	border: 5px solid white;
-    box-shadow: 
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1);
-	background: rgba(255,255,255,0.5);
-}
-
-.logininput input[type=text]:focus, .logininput[type=password]:focus {
-    -webkit-box-shadow: 0 0 12px 	#49a596;
-	-moz-box-shadow: 0 0 12px 		#49a596;
-	box-shadow: 0 0 12px 			#49a596;	
-}
-
 #addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
 	border: 1px solid black;
 	background-color: #da4657;
