@@ -105,15 +105,19 @@ legend {
 	background-color: #bd2133 !important;
 }
 
+.taglist li {
+	background-color: #008b9a;
+}
+
 .tag-box li.tags {
-  	background: #008b9a;
+  	background: #2196F3;
   	color: #fff;
 }
 
 .tag-box li.tags.edit {
   background: none;
-  border: 1px solid #008b9a;
-  color: #008b9a;
+  border: 1px solid #2196F3;
+  color: #2196F3;
 }
 
 .tag-box li.tags .close {

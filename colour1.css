@@ -103,6 +103,10 @@ legend {
 	background-color: #bd2133 !important;
 }
 
+.taglist li {
+	background-color: #663366;
+}
+
 .tag-box li.tags {
   	background: #2196F3;
   	color: #fff;
