@@ -137,7 +137,7 @@ case '2':
     <?php
 	break;
 case '3':
-	$chosen="red";
+	$chosen="purple";
 	?>
 	<script type="text/javascript">
     document.getElementById('colour1').disabled = true;
@@ -235,8 +235,8 @@ if(isset($_GET['edit'])) {
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
 		<option value="1">blue</option>
-		<option value="2">yellow</option>
-		<option value="3">red</option>
+		<option value="2">green</option>
+		<option value="3">purple</option>
 	</select>
     </div>
     </td><td class="editcell">
