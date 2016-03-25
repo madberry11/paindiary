@@ -284,7 +284,7 @@ a {
 
 h1 {
 width:100%;
-padding-left: 47px;
+padding-left: 55px;
 padding-top: 5px;
 font-size: 24px;
 font-weight: normal;
@@ -294,7 +294,7 @@ color: white;
 }
 
 .outh1 {
-padding-left: 40px !important;	
+padding-left: 35px !important;	
 }
 
 h2 {
@@ -559,7 +559,7 @@ table tr {
 
 .checkboxdiv {
 	text-align: left;
-	margin-left: 17px;
+	margin-left: 19px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
