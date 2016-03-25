@@ -314,11 +314,11 @@ if (!empty($_POST['changepasswordsubmit'])) {
 		if (mysqli_affected_rows($dbc) == 1) { //Updating MYSQL Database
 
 			
-			echo '<p class="success">Your password has been changed.</p>';
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
+			echo '<p class="success">Your password has been changed.</p>';
 			exit();
 			
 		} else { 
@@ -371,11 +371,11 @@ if (!empty($_POST['changeemailsubmit'])) {
 		if (mysqli_affected_rows($dbc) == 1) {
 
 			
-			echo '<p class="success">Your email address has been changed.</p>';
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
+			echo '<p class="success">Your email address has been changed.</p>';
 			exit();
 			
 		} else { 
@@ -428,11 +428,11 @@ if (!empty($_POST['changeusernamesubmit'])) {
 		if (mysqli_affected_rows($dbc) == 1) {
 
 			
-			echo '<p class="success">Your username has been changed.</p>';
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
+			echo '<p class="success">Your username has been changed.</p>';
 			exit();
 			
 		} else { 
@@ -468,11 +468,11 @@ if (!empty($_POST['colour-submit'])) {
 		if (mysqli_affected_rows($dbc) == 1) {
 
 			
-			echo '<p class="success">Your preferred colour scheme has been changed.</p>';
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
+			echo '<p class="success">Your preferred colour scheme has been changed.</p>';
 			exit();
 		}
 }
