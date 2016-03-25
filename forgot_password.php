@@ -30,7 +30,7 @@ if (!isset($page_title)) {
 </div>
 
 <div id="pagewraplogin">
-<h1><a href="index.php" class="icon-chevron-left nounderline"></a>Reset Password</h1>
+<h1 class="outh1"><a href="index.php" class="icon-chevron-left nounderline"></a>Reset Password</h1>
 <div id="pagecontent">
 <form action="forgot_password.php" method="post">
 <div class="center">

@@ -41,7 +41,7 @@ if (!isset($page_title)) {
 <div id="logintitle"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
 </div>
 <div id="pagewraplogin">
-<h1>Member Login</h1>
+<h1 class="outh1">Member Login</h1>
 <div id="pagecontent">
 
 <?php
