@@ -43,7 +43,7 @@ h1 {
 legend {
 	background-color: #80c5cc;
 }
-
+/*
 .logininput[type=text], .logininput[type=password] {
 	border: 5px solid white;
     box-shadow: 
@@ -57,6 +57,7 @@ legend {
 	-moz-box-shadow: 0 0 12px 		#49a596;
 	box-shadow: 0 0 12px 			#49a596;	
 }
+*/
 
 #addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
 	border: 1px solid black;
