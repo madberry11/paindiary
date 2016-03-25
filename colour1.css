@@ -19,6 +19,14 @@ body {
 	transition-duration: 1s;
 }
 
+#monthnav {
+	background-color: #80c5cc;
+}
+
+#next, #previous {
+	background-color: #da4657;
+}
+
 #header {
 	color: white;
 }

@@ -19,12 +19,21 @@ body {
 	transition-duration: 1s;
 }
 
+#monthnav {
+	background-color: #008b9a;
+}
+
+#next, #previous {
+	background-color: #da4657;
+}
+
 #header {
 	color: white;
 }
 
 h1 {
-	background-color: #008b9a;	
+	background-color: #008b9a;
+	color: white;
 }
 
 #pagewrap, #pagewraplogin {
@@ -34,6 +43,7 @@ h1 {
 
 legend {
 	background-color: #008b9a;
+	color: white;
 }
 
 .logininput[type=text], .logininput[type=password] {

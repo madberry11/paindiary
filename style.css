@@ -484,7 +484,7 @@ padding: 20px;
 }
 
 legend {
-	margin-top: 15px;
+margin-top: 15px;
 font-size: 14px;
 font-weight: normal;
 font-family: Lato;
@@ -702,7 +702,6 @@ display: none !important;
     width: 90%; /*Optional*/
     table-layout: fixed; /*Optional*/
 	margin: 20px auto;
-	background-color: #80c5cc;
 }
 
 .monthnavcell {
@@ -714,7 +713,6 @@ display: none !important;
 	text-align: center;
 	display: block;
 	padding: 5px;
-	background-color: #da4657;
 	transition-property: background-color;
 	transition-duration: 1s;
 }
