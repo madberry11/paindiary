@@ -232,7 +232,7 @@ if(isset($_GET['edit'])) {
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="userdata">
-    <div id="chosencolour"><?php echo $chosen ?></div>
+    <div id="chosencolour"><?php echo $chosen ?> colour</div>
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
 		<option value="1">Blue</option>
