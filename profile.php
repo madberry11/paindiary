@@ -199,16 +199,16 @@ while($row2 = $r2->fetch_assoc()) {
 
 if(isset($_GET['edit'])) {
      if ($_GET['edit'] == "username") {
-		echo "editing username"; 
+		//echo "editing username"; 
 	 }
 	 elseif ($_GET['edit'] == "email") {
-		 echo "editing email";
+		 //echo "editing email";
 	 }
 	 elseif ($_GET['edit'] == "password") {
-		 echo "editing password";
+		 //echo "editing password";
 	 }
 	 if ($_GET['edit'] == "colour") {
-		 echo "editing colour";
+		 //echo "editing colour";
 		 ?>
      <script>
 	 $(document).ready(function(){
@@ -315,6 +315,9 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 			
 			echo '<p class="success">Your password has been changed.</p>';
+			$url = BASE_URL . 'profile.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
 			mysqli_close($dbc);  
 			exit();
 			
@@ -369,6 +372,9 @@ if (!empty($_POST['changeemailsubmit'])) {
 
 			
 			echo '<p class="success">Your email address has been changed.</p>';
+			$url = BASE_URL . 'profile.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
 			mysqli_close($dbc);  
 			exit();
 			
@@ -423,6 +429,9 @@ if (!empty($_POST['changeusernamesubmit'])) {
 
 			
 			echo '<p class="success">Your username has been changed.</p>';
+			$url = BASE_URL . 'profile.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
 			mysqli_close($dbc);  
 			exit();
 			
@@ -460,6 +469,9 @@ if (!empty($_POST['colour-submit'])) {
 
 			
 			echo '<p class="success">Your preferred colour scheme has been changed.</p>';
+			$url = BASE_URL . 'profile.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
 			mysqli_close($dbc);  
 			exit();
 		}
