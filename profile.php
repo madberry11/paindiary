@@ -75,6 +75,9 @@ if (isset($_GET['colourIn'])) {
     
 <!-- stylesheets -->
 	<link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
+    <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
+    <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
     <link rel="stylesheet" href="clndr.css">
 
 <!-- JavaScript / JQuery -->
@@ -115,9 +118,9 @@ case '1':
 	echo "blue";
 	?>
     <script type="text/javascript">
-$(function() {
-   $('link[href="colour1.css"]').attr('href','colour1.css');
-});
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = false;
+	document.getElementById('colour3').disabled = false;
 	</script>
     <?php
 	break;
@@ -125,9 +128,9 @@ case '2':
 	echo "yellow";
 		?>
 	<script type="text/javascript">
-$(function() {
-   $('link[href="colour2.css"]').attr('href','colour2.css');
-});
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = false;
 	</script>
     <?php
 	break;
@@ -135,9 +138,9 @@ case '3':
 	echo "red";
 	?>
 	<script type="text/javascript">
-$(function() {
-   $('link[href="colour3.css"]').attr('href','colour3.css');
-});
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = false;
+	document.getElementById('colour3').disabled = true;
 	</script>
     <?php
 	break;
@@ -145,9 +148,9 @@ default:
 	echo "default blue";
 		?>
 	<script type="text/javascript">
-$(function() {
-   $('link[href="colour1.css"]').attr('href','colour1.css');
-});
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = false;
+	document.getElementById('colour3').disabled = false;
 	</script>
     <?php
 	break;
