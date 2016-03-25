@@ -7,6 +7,12 @@ body {
 	margin: 0px;
 }
 
+#divider {
+	width: 100%;
+	background-color: #663366;
+	height: 10px;	
+}
+
 #header {
 	color: white;
 }
