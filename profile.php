@@ -81,7 +81,6 @@ if (isset($_GET['colourIn'])) {
     <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
     <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
     <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
-    <link rel="stylesheet" href="clndr.css">
 
 <!-- JavaScript / JQuery -->
 	<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script>
@@ -148,7 +147,6 @@ case '3':
     <?php
 	break;
 default:
-	echo "default blue";
 	$chosen="blue";
 		?>
 	<script type="text/javascript">

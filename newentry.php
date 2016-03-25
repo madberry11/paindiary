@@ -61,6 +61,9 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
     
 <!-- stylesheets -->
     <link rel="stylesheet" href="style.css" type="text/css" /> <!-- base CSS -->
+    <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
+    <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
+    <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> <!-- jQuery base CSS -->
 	<link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><!-- jQuery style CSS -->
     <link href="demo/css/demo.css" rel="stylesheet" type="text/css"/> <!-- tagbox CSS -->
@@ -429,6 +432,55 @@ if ($result -> num_rows > 0) {
 else {
 	$evalue = 1;
 }
+
+	$qn = "SELECT user_id, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+	$rn = mysqli_query ($dbc, $qn) or trigger_error("Query: $qn\n<br />MySQL Error: " . mysqli_error($dbc));
+	
+	if (@mysqli_num_rows($rn) == 1) { 
+	$row = mysqli_fetch_assoc($rn);
+	$colour=$row['colour'];
+	
+	switch($colour) {
+case '1':
+	?>
+    <script type="text/javascript">
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+case '2':
+		?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = false;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+case '3':
+	?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = false;
+	</script>
+    <?php
+	break;
+default:
+		?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+	}
+	
+}
+
 
 ?>
 

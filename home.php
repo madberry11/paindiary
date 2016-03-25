@@ -58,6 +58,9 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
     
 <!-- stylesheets -->
 	<link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="colour1.css" type="text/css" id="colour1" />
+    <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
+    <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
     <link rel="stylesheet" href="clndr.css">
 
 <!-- JavaScript / JQuery -->
@@ -165,6 +168,54 @@ if (!isset($_REQUEST["year"])) $_REQUEST["year"] = date("Y");
 <?php
 $cMonth = $_REQUEST["month"];
 $cYear = $_REQUEST["year"];
+
+	$q = "SELECT user_id, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	
+	if (@mysqli_num_rows($r) == 1) { 
+	$row = mysqli_fetch_assoc($r);
+	$colour=$row['colour'];
+	
+	switch($colour) {
+case '1':
+	?>
+    <script type="text/javascript">
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+case '2':
+		?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = false;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+case '3':
+	?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = true;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = false;
+	</script>
+    <?php
+	break;
+default:
+		?>
+	<script type="text/javascript">
+    document.getElementById('colour1').disabled = false;
+    document.getElementById('colour2').disabled = true;
+	document.getElementById('colour3').disabled = true;
+	</script>
+    <?php
+	break;
+	}
+	
+}
 
 $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
 $result = $dbc->query($sql);
