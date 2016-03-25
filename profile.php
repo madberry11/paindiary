@@ -96,24 +96,7 @@ if (isset($_GET['colourIn'])) {
 <script type="text/javascript">
 var myInterval = setTimeout("location=('index.php');",3600000);
 </script>  
-  
-</head>
 
-<body>
-
-<div id="header">
-<div id="title"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
-<ul id="navbar">
-<li><a href="home.php" class="nounderline">Home</a></li>
-<li class="activetab"><a href="profile.php" class="nounderline">Profile</a></li>
-<li><a data-ajax="false" href="logout.php" class="nounderline">Logout</a></li>
-</ul>
-</div>
-<br clear="both" />
-<div id="divider"></div>
-
-<div id="pagewrap">
-<h1>User Profile</h1>
 <?php
 
 $q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
@@ -171,6 +154,26 @@ $(document).ready(function (){
 	}
 	
 }
+?>
+  
+</head>
+
+<body>
+
+<div id="header">
+<div id="title"><a href="home.php" class="nounderline"><span class="lato900">Your</span> <span class="lato300">Pain Diary</span></a></div>
+<ul id="navbar">
+<li><a href="home.php" class="nounderline">Home</a></li>
+<li class="activetab"><a href="profile.php" class="nounderline">Profile</a></li>
+<li><a data-ajax="false" href="logout.php" class="nounderline">Logout</a></li>
+</ul>
+</div>
+<br clear="both" />
+<div id="divider"></div>
+
+<div id="pagewrap">
+<h1>User Profile</h1>
+<?php
 	
 $q2 = "SELECT entryyear, entrymonth, entryday FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 //$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
