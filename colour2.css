@@ -97,7 +97,7 @@ legend {
 }
 
 #monthly li {
-	background-color: #663366;
+	background-color: #008b9a;
 	color: white;
 }
 
@@ -106,14 +106,14 @@ legend {
 }
 
 .tag-box li.tags {
-  	background: #2196F3;
+  	background: #008b9a;
   	color: #fff;
 }
 
 .tag-box li.tags.edit {
   background: none;
-  border: 1px solid #2196F3;
-  color: #2196F3;
+  border: 1px solid #008b9a;
+  color: #008b9a;
 }
 
 .tag-box li.tags .close {
