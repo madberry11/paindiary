@@ -232,7 +232,7 @@ if(isset($_GET['edit'])) {
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="userdata">
-    <div id="chosencolour"><?php echo $chosen ?> colour</div>
+    <div id="chosencolour"><?php echo $chosen ?></div>
     <div id="choosecolour" class="hidden">
     <select id="csscolour" name="csscolour">
 		<option value="1">Blue</option>
@@ -520,7 +520,7 @@ if (!empty($_POST['deleteaccount'])) {
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
     <table class="usertable">
-	<tr><th>Enter Old Username:</th><td class="userdata">something</td><td class="editcell">&nbsp;</td></tr>
+	<tr><th>Enter Old Username:</th><td class="userdata"><input class="logininput" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" /></td><td class="editcell">&nbsp;</td></tr>
 	<tr><th>Enter New Username:</th><td class="userdata">something</td><td class="editcell">&nbsp;</a></td></tr>
 	<tr><th>Confirm New Username:</th><td class="userdata">something</td><td class="editcell">&nbsp;</td></tr>
     </table>
