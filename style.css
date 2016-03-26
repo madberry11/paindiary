@@ -206,6 +206,12 @@ padding-right: 20px;
 	display: block;
 }
 
+.prof2 {
+	width: 85% !important;
+	margin: 10px auto !important;
+	display: block;	
+}
+
 input[type=number] {
 width: 50px;
 text-align: center;
