@@ -839,7 +839,7 @@ display: none !important;
 	margin: 10px auto;	
 }
 
-.usertable {
+.usertable, .usertable2 {
 	margin: 20px auto;
 	/*width: 95%;*/
 	width: 80%;
