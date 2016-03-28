@@ -471,7 +471,7 @@ default:
     </div>-->
 </div>
 <div id="createreport">
-Create Report for This Month
+<a data-ajax='false' href='report.php'  class='nounderline'>Create Report for This Month</a>
 </div>
 <?php
 $_SESSION['calmonth'] = $cMonth;
