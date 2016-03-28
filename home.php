@@ -459,7 +459,7 @@ default:
     // for cells in the table that have days in them
     else { 
 		
-		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp '> Add Entry </div></a></td>";
+		 echo "<td class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div><div class='noentry'> Add Entry </div></a></td>";
 		 if(($i % 7) == 6 ) echo "</tr>";
 	}
 		 
