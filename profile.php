@@ -521,17 +521,9 @@ if (!empty($_POST['deleteaccount'])) {
 	<form action="profile.php" method="post">
     <table class="usertable">
 	<tr><th>Enter Old Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
-	<tr><th>Enter New Username:</th><td class="userdata2">something</td><td class="editcell2">&nbsp;</td></tr>
-	<tr><th>Confirm New Username:</th><td class="userdata2">something</td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" placeholder="Enter New Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" placeholder="Confirm New Esername" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-
-    <label for="username0" class="ui-hidden-accessible">Enter Old Username</label>
-	<input class="logininput prof2" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" />
-	<label for="username1" class="ui-hidden-accessible">Enter New Username</label>
-	<input class="logininput prof2" type="text" name="username1" placeholder="Enter New Username" maxlength="40" />
-	<label for="username2" class="ui-hidden-accessible">Confirm New Username</label>
-	<input class="logininput prof2" type="text" name="username2" placeholder="Confirm New Esername" maxlength="40" />
-    <br /><div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
     <input type="submit" name="cancelusername" value="Cancel" />
     </div>
