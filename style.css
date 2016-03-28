@@ -864,7 +864,7 @@ display: none !important;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */	
 	padding: 10px;
-	width: 68%;
+	width: 67%;
 	margin-right: 30px;
 }
 
@@ -890,7 +890,7 @@ display: none !important;
 .editcell2 {
 	text-align: center !important;
 	width: 60px !important;
-	padding-right: 40px !important;
+	padding-right: 35px !important;
 }
 
 .commentstuff {
