@@ -519,10 +519,10 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changeusername">
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
-    <table class="usertable" id="changeusernametable">
-	<tr><th>Enter Old Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
-	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" placeholder="Enter New Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
-	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" placeholder="Confirm New Esername" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
+    <table class="usertable">
+	<tr><th>Enter Old Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username0" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
    	<div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
@@ -552,12 +552,12 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changepassword">
 <legend>Change Password</legend>
 	<form action="profile.php" method="post">
-   	<table id="changepasswordtable">
-    <tr><td><label>Enter Old Password:</label></td><td><input type="password" name="password0" maxlength="20" /></td></tr>
-    <tr><td><label>Enter New Password:</label></td><td><input type="password" name="password1" maxlength="20" /></td></tr>
-    <tr><td><label>Confirm New Password:</label></td><td><input type="password" name="password2" maxlength="20" /></td></tr>
+    <table class="usertable">
+	<tr><th>Enter Old Password:</th><td class="userdata2"><input class="logininput prof2" type="password" name="password0" maxlength="20" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Enter New Password:</th><td class="userdata2"><input class="logininput prof2" type="password" name="password1" maxlength="20" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Confirm New Password:</th><td class="userdata2"><input class="logininput prof2" type="password" name="password2" maxlength="20" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-    <br /><br /><div class="center">
+	<div class="center">
     <input type="submit" name="changepasswordsubmit" value="Change Password" />
     <input type="submit" name="cancelpassword" value="Cancel" />
     </div>
