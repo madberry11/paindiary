@@ -198,15 +198,15 @@ while($row2 = $r2->fetch_assoc()) {
 
 if(isset($_GET['edit'])) {
      if ($_GET['edit'] == "username") {
-		//echo "editing username"; 
+		$editthis = 2;
 	 }
 	 elseif ($_GET['edit'] == "email") {
-		 //echo "editing email";
+		$editthis = 3;
 	 }
 	 elseif ($_GET['edit'] == "password") {
-		 //echo "editing password";
+		 $editthis = 4;
 	 }
-	 if ($_GET['edit'] == "colour") {
+	 elseif ($_GET['edit'] == "colour") {
 		 //echo "editing colour";
 		 ?>
      <script>
@@ -219,6 +219,12 @@ if(isset($_GET['edit'])) {
 	 </script>
      <?php
 	 }
+	 elseif ($_GET['edit'] == "delete"){
+		 $editthis = 5;
+	 }
+}
+else {
+	$editthis = 1;	
 }
 
 
@@ -247,7 +253,7 @@ if(isset($_GET['edit'])) {
 </tr>
 <tr><th>Registration date:</th><td class="userdata"><?php echo date_format($register, 'Y-m-d'); ?></td><td class="editcell">&nbsp;</td></tr>
 <tr><th>Number of entries:</th><td class="userdata"><?php echo $numofentries ?></td><td class="editcell">&nbsp;</td></tr>
-<tr><th>&nbsp;</th><td class="userdata"><a href="">Delete Account</a></td><td class="editcell">&nbsp;</td></tr>
+<tr><th>&nbsp;</th><td class="userdata"><a href="profile.php?edit=delete">Delete Account</a></td><td class="editcell">&nbsp;</td></tr>
 </form>
 </table>
 </fieldset>
@@ -584,6 +590,94 @@ something
 </fieldset>
 
 </div>
+<?php
+
+
+switch($edithis) {
+case '1' :
+	//echo "Nothing is getting edited.";
+	?>
+    <script type="text/javascript">
+	window.onload = function(){
+	document.getElementById('changeusername').style.display = "none";
+	document.getElementById('changeemail').style.display = "none";
+	document.getElementById('changepassword').style.display = "none";
+	document.getElementById('deleteaccount').style.display = "none";
+	document.getElementById('medschedule').style.display = "none";
+	}
+	</script>
+    <?php
+	break;
+case '2' :
+	//echo "Username is getting edited";
+	?>
+    <script type="text/javascript">
+	window.onload = function(){
+	document.getElementById('changeusername').style.display = "block";
+	document.getElementById('changeemail').style.display = "none";
+	document.getElementById('changepassword').style.display = "none";
+	document.getElementById('deleteaccount').style.display = "none";
+	document.getElementById('medschedule').style.display = "none";
+	}
+	</script>
+    <?php
+	break;
+case '3' :
+	//echo "Email address is getting edited.";
+	?>
+    <script type="text/javascript">
+	window.onload = function(){
+	document.getElementById('changeusername').style.display = "none";
+	document.getElementById('changeemail').style.display = "block";
+	document.getElementById('changepassword').style.display = "none";
+	document.getElementById('deleteaccount').style.display = "none";
+	document.getElementById('medschedule').style.display = "none";
+	}
+	</script>
+    <?php
+	break;
+case '4' :
+	//echo "Password is getting edited.";
+	?>
+    <script type="text/javascript">
+	window.onload = function(){
+	document.getElementById('changeusername').style.display = "none";
+	document.getElementById('changeemail').style.display = "none";
+	document.getElementById('changepassword').style.display = "block";
+	document.getElementById('deleteaccount').style.display = "none";
+	document.getElementById('medschedule').style.display = "none";
+	}
+	</script>
+    <?php
+	break;
+case '5' :
+	//echo "Account is getting deleted.";
+	?>
+    <script type="text/javascript">
+	window.onload = function(){
+	document.getElementById('changeusername').style.display = "none";
+	document.getElementById('changeemail').style.display = "none";
+	document.getElementById('changepassword').style.display = "none";
+	document.getElementById('deleteaccount').style.display = "block";
+	document.getElementById('medschedule').style.display = "none";	
+	}
+	</script>
+    <?php
+    break;
+default:
+?>
+	<script type="text/javascript">
+	document.getElementById('changeusername').style.display = "none";
+	document.getElementById('changeemail').style.display = "none";
+	document.getElementById('changepassword').style.display = "none";
+	document.getElementById('deleteaccount').style.display = "none";
+	document.getElementById('medschedule').style.display = "none";
+	</script>
+    <?php
+    break;
+}
+?>
+
 
 </body>
 </html>
