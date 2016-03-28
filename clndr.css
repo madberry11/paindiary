@@ -83,7 +83,8 @@ background-color: #80c5cc;
 .daynumber {
 font-size: small;
 height: 100%;
-width: 100%;	
+width: 100%;
+z-index: 20000;
 }
 
 .iconshere {
@@ -93,7 +94,7 @@ position: relative;
 background-color: #80c5cc;
 display: inline-block;
 height: 100%;
-margin: 5px auto;
+margin: 10px auto;
 padding-top: 5px;
 padding-bottom: 5px;
 width: 100%;
