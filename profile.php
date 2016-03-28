@@ -593,7 +593,7 @@ something
 <?php
 
 
-switch($edithis) {
+switch($editthis) {
 case '1' :
 	//echo "Nothing is getting edited.";
 	?>
