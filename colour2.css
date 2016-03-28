@@ -43,7 +43,7 @@ h1 {
 
 legend {
 	background-color: #008b9a;
-	color: white;
+	color: white !important;
 }
 
 #addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
