@@ -207,7 +207,7 @@ if(isset($_GET['edit'])) {
 		 $editthis = 4;
 	 }
 	 elseif ($_GET['edit'] == "colour") {
-		 //echo "editing colour";
+		 $editthis = 1;
 		 ?>
      <script>
 	 $(document).ready(function(){
