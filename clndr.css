@@ -90,14 +90,12 @@ z-index: 2000 !important;
 .iconshere {
 text-align: center !important;
 v-align: top !important;
-position: absolute;
 background-color: #80c5cc;
 display: block;
 margin: 0px auto;
 padding-top: 5px;
 padding-bottom: 5px;
 width: 100%;
-margin-bottom: 0px;
 }
 
 .vmiddle {
