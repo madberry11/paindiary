@@ -538,15 +538,9 @@ if (!empty($_POST['deleteaccount'])) {
     <table class="usertable">
 	<tr><th>Enter Old Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email0" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Enter New Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email1" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
-	<tr><th>Confirm New Email Address:</th><td class="userdata2"><input class="loginiput prof2" type="email" name="email2" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Confirm New Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email2" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-    
-   	<table id="changeemailtable">
-    <tr><td><label>Enter Old Email Address:</label></td><td><input class="logininput prof2" type="email" name="email0" maxlength="60" /></td></tr>
-    <tr><td><label>Enter New Email Address:</label></td><td><input class="logininput prof2" type="email" name="email1" maxlength="60" /></td></tr>
-    <tr><td><label>Confirm New Email Address:</label></td><td><input class="loginiput prof2" type="email" name="email2" maxlength="60" /></td></tr>
-    </table>
-    <br /><br /><div class="center">
+    <div class="center">
     <input type="submit" name="changeemailsubmit" value="Change Email Address" />
     <input type="submit" name="cancelemail" value="Cancel" />
     </div>
