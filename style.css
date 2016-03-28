@@ -207,7 +207,7 @@ padding-right: 20px;
 }
 
 .prof2 {
-	width: 95% !important;
+	width: 100% !important;
 	margin: 0px !important;
 	display: block;	
 }
@@ -864,7 +864,8 @@ display: none !important;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */	
 	padding: 10px;
-	width: 70%;
+	width: 65%;
+	margin-right: 30px;
 }
 
 .usertable th {
