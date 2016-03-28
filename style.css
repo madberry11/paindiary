@@ -845,6 +845,12 @@ display: none !important;
 	width: 80%;
 }
 
+.usertable2 {
+	margin: 20px auto;
+	width: 80%;
+	padding-right: 30px !important;
+}
+
 .userdata {
 	border: 2px solid white;
 	background-color: #dddee0;
