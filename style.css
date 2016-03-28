@@ -933,4 +933,7 @@ display: none !important;
 	padding-bottom: 30px;
 	margin: 20px auto;
 	margin-bottom: 20px;
+	color: white;
+	text-align: center;
+	v-align: middle;
 }
