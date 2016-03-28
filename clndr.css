@@ -93,7 +93,7 @@ text-align: center !important;
 v-align: top !important;
 position: absolute;
 left: 0px;
-top: 30px;
+top: 30px !important;
 background-color: #80c5cc;
 display: inline-block;
 margin: 0px auto !important;
