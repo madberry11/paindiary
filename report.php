@@ -210,8 +210,29 @@ switch ($calmonth) {
 
 <div id="pagewrap">
 <h1>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
+<?php
+$servername = "ap-cdbr-azure-east-c.cloudapp.net";
+$username = "bcac3dbe9c1d06";
+$password = "32d91723";
+$dbname = "booksapp";
+
+$dbc = new mysqli($servername, $username, $password, $dbname);
 
 
+$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
+$result = $dbc->query($sql);
+if ($result -> num_rows > 0) {
+	
+	
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+		 echo $row['entryid'];
+	 }
+}
+else {
+	echo "There is nothing to report for this month yet.";
+}
+?>
 </div>
 </body>
 </html>
