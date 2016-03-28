@@ -922,3 +922,7 @@ display: none !important;
 #colour-submit {
 	background-color: transparent;	
 }
+
+#changeusername, #changeemail, #changepassword, #deleteaccount {
+	display: none;
+}
