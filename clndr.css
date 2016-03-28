@@ -81,7 +81,9 @@ background-color: #80c5cc;
 }
 
 .daynumber {
-font-size: small;	
+font-size: small;
+height: 100%;
+width: 100%;	
 }
 
 .iconshere {
@@ -107,16 +109,4 @@ margin-top: -10px !important;
 .noimp {
 padding-top: 9px !important;
 padding-bottom: 7px !important;	
-}
-
-.noentry {
-text-align: center !important;
-vertical-align: middle !important;
-position: relative;
-display: inline-block;
-margin: 5px auto;
-padding-top: 5px;
-padding-bottom: 5px;
-width: 100%;
-margin-bottom: 0px;
 }
