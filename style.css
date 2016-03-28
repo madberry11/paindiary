@@ -875,6 +875,10 @@ display: none !important;
 	width: 200px;
 }
 
+.center2 {
+	margin-left: 400px;	
+}
+
 #changepass {
 	width: 90% !important;
 	text-align: center;

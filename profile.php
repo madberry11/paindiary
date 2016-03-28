@@ -524,7 +524,7 @@ if (!empty($_POST['deleteaccount'])) {
 	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-   	<div class="center">
+   	<div class="center2">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
     <input type="submit" name="cancelusername" value="Cancel" />
     </div>
@@ -540,7 +540,7 @@ if (!empty($_POST['deleteaccount'])) {
 	<tr><th>Enter New Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email1" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Confirm New Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email2" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-    <div class="center">
+    <div class="center2">
     <input type="submit" name="changeemailsubmit" value="Change Email Address" />
     <input type="submit" name="cancelemail" value="Cancel" />
     </div>
@@ -557,7 +557,7 @@ if (!empty($_POST['deleteaccount'])) {
 	<tr><th>Enter New Password:</th><td class="userdata2"><input class="logininput prof2" type="password" name="password1" maxlength="20" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Confirm New Password:</th><td class="userdata2"><input class="logininput prof2" type="password" name="password2" maxlength="20" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
-	<div class="center">
+	<div class="center2">
     <input type="submit" name="changepasswordsubmit" value="Change Password" />
     <input type="submit" name="cancelpassword" value="Cancel" />
     </div>
