@@ -78,8 +78,7 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script src="moment-2.8.3.js"></script>
-  	<script src="clndr.js"></script>
- 	<script src="site.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <!-- fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
@@ -219,7 +218,7 @@ $dbname = "booksapp";
 $dbc = new mysqli($servername, $username, $password, $dbname);
 
 
-$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ;
+$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16 ";
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 	
@@ -233,6 +232,116 @@ else {
 	echo "There is nothing to report for this month yet.";
 }
 ?>
+
+<!-- HIGH CHARTS -->
+<?php
+$sql = "SELECT bodypart, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
+$result = $dbc->query($sql);
+
+if ($result -> num_rows > 0) {
+	$row_cnt = $result->num_rows;
+	//echo $row_cnt;
+while ($row = mysqli_fetch_array($result)) {
+	$bodypart[] = $row['bodypart'];
+   	$p00[] = $row['p00'];
+	$p01[] = $row['p01'];
+	$p02[] = $row['p02'];
+	$p03[] = $row['p03'];
+	$p04[] = $row['p04'];
+	$p05[] = $row['p05'];
+	$p06[] = $row['p06'];
+	$p07[] = $row['p07'];
+	$p08[] = $row['p08'];
+	$p09[] = $row['p09'];
+	$p10[] = $row['p10'];
+	$p11[] = $row['p11'];
+	$p12[] = $row['p12'];
+	$p13[] = $row['p13'];
+	$p14[] = $row['p14'];
+	$p15[] = $row['p15'];
+	$p16[] = $row['p16'];
+	$p17[] = $row['p17'];
+	$p18[] = $row['p18'];
+	$p19[] = $row['p19'];
+	$p20[] = $row['p20'];
+	$p21[] = $row['p21'];
+	$p22[] = $row['p22'];
+	$p23[] = $row['p23'];
+   //echo "query works";
+}
+}
+?>
+<!--
+var chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container'
+      },
+      series: [{
+         data: [<?php echo join($data, ',') ?>],
+         pointStart: 0,
+         pointInterval
+      }]
+});
+-->
+
+<script>
+$(function () { 
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Daily Pain Itensity'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Itensity'
+            }
+        },
+        xAxis: {
+            categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+        },
+		
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		<?php
+		$i=0;
+		while ($i<$row_cnt-1) {
+		//repeat this part until i = (row_cnt-2)
+		?>
+		{
+            name: '<?php echo $bodypart[$i] ?>',
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true,
+			dragMinY: 0
+        },
+		<?php
+		$i++;
+		}
+		if ($i == $row_cnt-1) {
+		// write this when i = (row_cnt-1)
+		?>
+		 {
+            name: '<?php echo $bodypart[$i] ?>',
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true,
+			dragMinY: 0
+        }
+		<?php
+		}
+		?>
+		]
+    });
+});
+
+</script>
 </div>
 </body>
 </html>
