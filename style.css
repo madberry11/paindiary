@@ -926,3 +926,11 @@ display: none !important;
 #changeusername, #changeemail, #changepassword, #deleteaccount, #medschedule {
 	display: none;
 }
+
+#createreport {
+	width: 960px;
+	display: block;
+	padding-bottom: 30px;
+	margin: 20px auto;
+	margin-bottom: 20px;
+}

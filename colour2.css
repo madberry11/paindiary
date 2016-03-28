@@ -13,6 +13,10 @@ body {
 	height: 10px;	
 }
 
+#createreport {
+	background-color: #008b9a;
+}
+
 #navbar li:hover, #navbar li.activetab {
 	background-color: #008b9a;
 	transition-property: background-color;

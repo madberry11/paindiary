@@ -470,6 +470,9 @@ default:
 <!--<div class="cal1">
     </div>-->
 </div>
+<div id="createreport">
+Create Report for This Month
+</div>
 <?php
 $_SESSION['calmonth'] = $cMonth;
 $_SESSION['calyear'] = $cYear;
