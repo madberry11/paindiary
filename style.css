@@ -845,13 +845,6 @@ display: none !important;
 	width: 80%;
 }
 
-.usertable2 {
-	margin: 20px auto;
-	width: 80%;
-	padding-right: 50px !important;
-	background-color: blue;
-}
-
 .userdata {
 	border: 2px solid white;
 	background-color: #dddee0;
@@ -891,6 +884,12 @@ display: none !important;
 .editcell {
 	text-align: center !important;
 	width: 40px !important;
+	padding-right: 20px !important;
+}
+
+.editcell2 {
+	text-align: center !important;
+	width: 70px !important;
 	padding-right: 20px !important;
 }
 
