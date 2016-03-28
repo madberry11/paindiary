@@ -524,6 +524,7 @@ if (!empty($_POST['deleteaccount'])) {
 	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" placeholder="Enter New Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" placeholder="Confirm New Esername" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
     </table>
+   	<div class="center">
     <input type="submit" name="changeusernamesubmit" value="Change Username" />
     <input type="submit" name="cancelusername" value="Cancel" />
     </div>
