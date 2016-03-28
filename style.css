@@ -930,10 +930,9 @@ display: none !important;
 #createreport {
 	width: 960px;
 	display: block;
-	padding-bottom: 30px;
 	margin: 20px auto;
 	margin-bottom: 20px;
 	color: white;
 	text-align: center;
-	v-align: middle;
+	padding: 10px;
 }
