@@ -519,7 +519,7 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changeusername">
 <legend>Change Username</legend>
 	<form action="profile.php" method="post">
-    <table class="usertable">
+    <table class="usertable" id="changeusernametable">
 	<tr><th>Enter Old Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username0" placeholder="Enter Old Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Enter New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username1" placeholder="Enter New Username" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
 	<tr><th>Confirm New Username:</th><td class="userdata2"><input class="logininput prof2" type="text" name="username2" placeholder="Confirm New Esername" maxlength="40" /></td><td class="editcell2">&nbsp;</td></tr>
@@ -535,10 +535,16 @@ if (!empty($_POST['deleteaccount'])) {
 <fieldset id="changeemail">
 <legend>Change Email Address</legend>
 	<form action="profile.php" method="post">
+    <table class="usertable">
+	<tr><th>Enter Old Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email0" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Enter New Email Address:</th><td class="userdata2"><input class="logininput prof2" type="email" name="email1" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
+	<tr><th>Confirm New Email Address:</th><td class="userdata2"><input class="loginiput prof2" type="email" name="email2" maxlength="60" /></td><td class="editcell2">&nbsp;</td></tr>
+    </table>
+    
    	<table id="changeemailtable">
-    <tr><td><label>Enter Old Email Address:</label></td><td><input type="email" name="email0" maxlength="60" /></td></tr>
-    <tr><td><label>Enter New Email Address:</label></td><td><input type="email" name="email1" maxlength="60" /></td></tr>
-    <tr><td><label>Confirm New Email Address:</label></td><td><input type="email" name="email2" maxlength="60" /></td></tr>
+    <tr><td><label>Enter Old Email Address:</label></td><td><input class="logininput prof2" type="email" name="email0" maxlength="60" /></td></tr>
+    <tr><td><label>Enter New Email Address:</label></td><td><input class="logininput prof2" type="email" name="email1" maxlength="60" /></td></tr>
+    <tr><td><label>Confirm New Email Address:</label></td><td><input class="loginiput prof2" type="email" name="email2" maxlength="60" /></td></tr>
     </table>
     <br /><br /><div class="center">
     <input type="submit" name="changeemailsubmit" value="Change Email Address" />
