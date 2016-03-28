@@ -84,7 +84,7 @@ background-color: #80c5cc;
 font-size: small;
 height: 100%;
 width: 100%;
-z-index: 200 !important;
+z-index: 2000 !important;
 }
 
 .iconshere {
@@ -94,7 +94,7 @@ position: relative;
 background-color: #80c5cc;
 display: inline-block;
 height: 100%;
-margin: -60px auto;
+margin: -55px auto;
 padding-top: 5px;
 padding-bottom: 5px;
 width: 100%;
