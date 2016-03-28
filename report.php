@@ -209,7 +209,7 @@ switch ($calmonth) {
 <div id="divider"></div>
 
 <div id="pagewrap">
-<h1>Report for <?php echo $month ?> <?php echo $cYear ?></h1>
+<h1>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
 
 
 </div>
