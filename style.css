@@ -923,6 +923,6 @@ display: none !important;
 	background-color: transparent;	
 }
 
-#changeusername, #changeemail, #changepassword, #deleteaccount {
+#changeusername, #changeemail, #changepassword, #deleteaccount, #medschedule {
 	display: none;
 }
