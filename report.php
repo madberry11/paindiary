@@ -219,7 +219,7 @@ $dbname = "booksapp";
 $dbc = new mysqli($servername, $username, $password, $dbname);
 
 
-$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
+$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 	
