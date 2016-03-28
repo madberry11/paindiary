@@ -89,6 +89,7 @@ z-index: 2000 !important;
 
 .iconshere {
 text-align: center !important;
+v-align: top !important;
 background-color: #80c5cc;
 display: block;
 margin: 0px auto;
