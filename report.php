@@ -215,8 +215,10 @@ $(document).ready(function () {
   $('#pcomp').click(function () {
     if ($(this).is(':checked')) {
         $('#sub-p').attr('display','block')
+		document.write("checked");
     } else {
        $('#sub-p').attr('display','none') 
+	   document.write("not checked");
     }
   });
   
