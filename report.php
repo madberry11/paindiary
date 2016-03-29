@@ -211,85 +211,30 @@ switch ($calmonth) {
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
 <div id='container'>
 <ul id="monthly">
+<form>
 <?php
-
-if (isset($_GET['active'])) {
-$_SESSION['active'] = $_GET['active'];
-$active = $_SESSION['active'];
-
-if ($_GET['active'] == "allpain") {
-$whichquery = "allpain";}
-else { $whichquery = "bodypart";}
-echo $active;
-}
-
-elseif ((!isset($_GET['active'])) AND (isset($_SESSION['active']))) {
-$_SESSION['active'] = $_SESSION['active'];
-$active = $_SESSION['active'];
-
-if ($_SESSION['active'] == "allpain") {
-$whichquery = "allpain";}
-else { $whichquery = "bodypart";}
-echo $active;
-}
-
-else { 
-$active='allpain';
-// echo $active;
-$whichquery = "allpain";
-}
-
 $sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 
-	while($row = $result->fetch_assoc()) {
-echo "<a data-ajax='false' onclick='allfunc()' href='report.php?active=allpain&month=$calmonth&year=$calyear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
-	}
+while($row = $result->fetch_assoc()) {
+echo "<a data-ajax='false' onclick='allfunc()' href='home.php?active=allpain&month=$calmonth&year=$calyear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
+echo "<input class='checkbox' type='checkbox' id='allpain' name='allpain' /><label for='allpain'> all entries (". $row['COUNT(entryid)'] .")</label>";}
+
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<a data-ajax='false' href='report.php?active=$bodypart&month=$calmonth&year=$calyear'><li id='".$bodypart."'>" . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</li></a>";
-if ($bodypart == $active) {
-	?>
-    <script type="text/javascript">
-	document.getElementById("<?php echo $bodypart ?>").className = "selected";
-	</script>
-    <?php
-}
+echo "<a data-ajax='false' href='home.php?active=$bodypart&month=$cMonth&year=$cYear'><li id='".$bodypart."'>" . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</li></a>";
+echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' /><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 
-if ($active == 'allpain' ) {
-?>
-    <script type="text/javascript">
-	document.getElementById("allpain").className = "selected";
-	</script>
-    <?php	
-}
-
-	?>
-    <script type="text/javascript"> 
-	//document.getElementById('<?php echo $bodypart ?>').style.display = "none";
-	function chooseactive() {
-		window.location.reload();
 	}
-	
-	var choose = document.querySelectorAll('.chooseactive');
-for (var i = 0; i < choose.length; i++) {
-    choose[i].addEventListener('click', function(event) {
-		window.location.reload();
-        }
-    });
-}
-	</script>   
-    <?php
-}
-}
-}
+	}
+	}
 
 ?>
-</ul>
+</form>
 <?php
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
 $username = "bcac3dbe9c1d06";
@@ -304,9 +249,6 @@ $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entry
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 
-switch($whichquery) {
-		
-case 'allpain':
 
 // Day 1
 $sql1 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
@@ -911,15 +853,8 @@ $(function () {
 </script>
 
 <?php
-break;
 
 
-
-case 'bodypart' :
-echo $active ." got clicked";
-break;
-
-}
 
 
 } // This closes the monthly overall SQL.
