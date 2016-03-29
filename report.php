@@ -220,7 +220,7 @@ $active = $_SESSION['active'];
 if ($_GET['active'] == "allpain") {
 $whichquery = "allpain";}
 else { $whichquery = "bodypart";}
-// echo $active;
+echo $active;
 }
 
 elseif ((!isset($_GET['active'])) AND (isset($_SESSION['active']))) {
