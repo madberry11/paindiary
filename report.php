@@ -577,7 +577,7 @@ if ($result16 -> num_rows > 0) {
 	
 	 $day16num = 0;
 	 $day16sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result16->fetch_assoc()) {
 		 $day16num++;
 		 $day16sum = $day16sum + $row['avgpain'];
 	 }
