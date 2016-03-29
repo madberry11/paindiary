@@ -940,3 +940,13 @@ display: none !important;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
+
+#sub-comp {
+	margin-left: 30px;
+	display: none;	
+}
+
+input[type=checkbox].pcomp:checked ~ div.sub-p,
+input[type=checkbox].relcomp:checked ~ div.sub-rel  {
+display:block;
+} 
