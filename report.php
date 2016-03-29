@@ -237,7 +237,7 @@ if ($result1 -> num_rows > 0) {
 		 $day1sum = $day1sum + $row['avgpain'];
 	 }
 	 $day1 = $day1sum/$day1num;
-	 echo "day1 average: ". $day1 ."<br />";
+	 //echo "day1 average: ". $day1 ."<br />";
 }
 else {
 	$day1 = 0;
@@ -255,7 +255,7 @@ if ($result2 -> num_rows > 0) {
 		 $day2sum = $day2sum + $row['avgpain'];
 	 }
 	 $day2 = $day2sum/$day2num;
-	 echo "day2 average: ". $day2 ."<br />";
+	 //echo "day2 average: ". $day2 ."<br />";
 }
 else {
 	$day2 = 0;
@@ -273,7 +273,7 @@ if ($result3 -> num_rows > 0) {
 		 $day3sum = $day3sum + $row['avgpain'];
 	 }
 	 $day3 = $day3sum/$day3num;
-	 echo "day3 average: ". $day3 ."<br />";
+	 //echo "day3 average: ". $day3 ."<br />";
 }
 else {
 	$day3 = 0;
@@ -291,7 +291,7 @@ if ($result4 -> num_rows > 0) {
 		 $day4sum = $day4sum + $row['avgpain'];
 	 }
 	 $day4 = $day4sum/$day4num;
-	 echo "day4 average: ". $day4 ."<br />";
+	 //echo "day4 average: ". $day4 ."<br />";
 }
 else {
 	$day4 = 0;
@@ -309,7 +309,7 @@ if ($result5 -> num_rows > 0) {
 		 $day5sum = $day5sum + $row['avgpain'];
 	 }
 	 $day5 = $day5sum/$day5num;
-	 echo "day5 average: ". $day5 ."<br />";
+	 //echo "day5 average: ". $day5 ."<br />";
 }
 else {
 	$day5 = 0;
@@ -327,7 +327,7 @@ if ($result6 -> num_rows > 0) {
 		 $day6sum = $day6sum + $row['avgpain'];
 	 }
 	 $day6 = $day6sum/$day6num;
-	 echo "day6 average: ". $day6 ."<br />";
+	 //echo "day6 average: ". $day6 ."<br />";
 }
 else {
 	$day6 = 0;
@@ -345,7 +345,7 @@ if ($result7 -> num_rows > 0) {
 		 $day7sum = $day7sum + $row['avgpain'];
 	 }
 	 $day7 = $day7sum/$day7num;
-	 echo "day7 average: ". $day7 ."<br />";
+	 //echo "day7 average: ". $day7 ."<br />";
 }
 else {
 	$day7 = 0;
@@ -363,7 +363,7 @@ if ($result8 -> num_rows > 0) {
 		 $day8sum = $day8sum + $row['avgpain'];
 	 }
 	 $day8 = $day8sum/$day8num;
-	 echo "day8 average: ". $day8 ."<br />";
+	 //echo "day8 average: ". $day8 ."<br />";
 }
 else {
 	$day8 = 0;
@@ -381,7 +381,7 @@ if ($result9 -> num_rows > 0) {
 		 $day9sum = $day9sum + $row['avgpain'];
 	 }
 	 $day9 = $day9sum/$day9num;
-	 echo "day9 average: ". $day9 ."<br />";
+	 //echo "day9 average: ". $day9 ."<br />";
 }
 else {
 	$day9 = 0;
@@ -399,7 +399,7 @@ if ($result10 -> num_rows > 0) {
 		 $day10sum = $day10sum + $row['avgpain'];
 	 }
 	 $day10 = $day10sum/$day10num;
-	 echo "day10 average: ". $day10 ."<br />";
+	 //echo "day10 average: ". $day10 ."<br />";
 }
 else {
 	$day10 = 0;
@@ -417,7 +417,7 @@ if ($result11 -> num_rows > 0) {
 		 $day11sum = $day11sum + $row['avgpain'];
 	 }
 	 $day11 = $day11sum/$day11num;
-	 echo "day11 average: ". $day11 ."<br />";
+	 //echo "day11 average: ". $day11 ."<br />";
 }
 else {
 	$day11 = 0;
@@ -435,7 +435,7 @@ if ($result12 -> num_rows > 0) {
 		 $day12sum = $day12sum + $row['avgpain'];
 	 }
 	 $day12 = $day12sum/$day12num;
-	 echo "day12 average: ". $day12 ."<br />";
+	 //echo "day12 average: ". $day12 ."<br />";
 }
 else {
 	$day12 = 0;
@@ -453,7 +453,7 @@ if ($result13 -> num_rows > 0) {
 		 $day13sum = $day13sum + $row['avgpain'];
 	 }
 	 $day13 = $day13sum/$day13num;
-	 echo "day13 average: ". $day13 ."<br />";
+	 //echo "day13 average: ". $day13 ."<br />";
 }
 else {
 	$day13 = 0;
@@ -471,7 +471,7 @@ if ($result14 -> num_rows > 0) {
 		 $day14sum = $day14sum + $row['avgpain'];
 	 }
 	 $day14 = $day14sum/$day14num;
-	 echo "day14 average: ". $day14 ."<br />";
+	 //echo "day14 average: ". $day14 ."<br />";
 }
 else {
 	$day14 = 0;
@@ -489,7 +489,7 @@ if ($result15 -> num_rows > 0) {
 		 $day15sum = $day15sum + $row['avgpain'];
 	 }
 	 $day15 = $day15sum/$day15num;
-	 echo "day15 average: ". $day15 ."<br />";
+	 //echo "day15 average: ". $day15 ."<br />";
 }
 else {
 	$day15 = 0;
@@ -507,7 +507,7 @@ if ($result16 -> num_rows > 0) {
 		 $day16sum = $day16sum + $row['avgpain'];
 	 }
 	 $day16 = $day16sum/$day16num;
-	 echo "day16 average: ". $day16 ."<br />";
+	 //echo "day16 average: ". $day16 ."<br />";
 }
 else {
 	$day16 = 0;
@@ -525,7 +525,7 @@ if ($result17 -> num_rows > 0) {
 		 $day17sum = $day17sum + $row['avgpain'];
 	 }
 	 $day17 = $day17sum/$day17num;
-	 echo "day17 average: ". $day17 ."<br />";
+	 //echo "day17 average: ". $day17 ."<br />";
 }
 else {
 	$day17 = 0;
@@ -543,7 +543,7 @@ if ($result18 -> num_rows > 0) {
 		 $day18sum = $day18sum + $row['avgpain'];
 	 }
 	 $day18 = $day18sum/$day18num;
-	 echo "day18 average: ". $day18 ."<br />";
+	 //echo "day18 average: ". $day18 ."<br />";
 }
 else {
 	$day18 = 0;
@@ -561,7 +561,7 @@ if ($result19 -> num_rows > 0) {
 		 $day19sum = $day19sum + $row['avgpain'];
 	 }
 	 $day19 = $day19sum/$day19num;
-	 echo "day19 average: ". $day19 ."<br />";
+	 //echo "day19 average: ". $day19 ."<br />";
 }
 else {
 	$day19 = 0;
@@ -579,7 +579,7 @@ if ($result20 -> num_rows > 0) {
 		 $day20sum = $day20sum + $row['avgpain'];
 	 }
 	 $day20 = $day20sum/$day20num;
-	 echo "day20 average: ". $day20 ."<br />";
+	 //echo "day20 average: ". $day20 ."<br />";
 }
 else {
 	$day20 = 0;
@@ -597,7 +597,7 @@ if ($result21 -> num_rows > 0) {
 		 $day21sum = $day21sum + $row['avgpain'];
 	 }
 	 $day21 = $day21sum/$day21num;
-	 echo "day21 average: ". $day21 ."<br />";
+	 //echo "day21 average: ". $day21 ."<br />";
 }
 else {
 	$day21 = 0;
@@ -615,7 +615,7 @@ if ($result22 -> num_rows > 0) {
 		 $day22sum = $day22sum + $row['avgpain'];
 	 }
 	 $day22 = $day22sum/$day22num;
-	 echo "day22 average: ". $day22 ."<br />";
+	 //echo "day22 average: ". $day22 ."<br />";
 }
 else {
 	$day22 = 0;
@@ -633,7 +633,7 @@ if ($result23 -> num_rows > 0) {
 		 $day23sum = $day23sum + $row['avgpain'];
 	 }
 	 $day23 = $day23sum/$day23num;
-	 echo "day23 average: ". $day23 ."<br />";
+	 //echo "day23 average: ". $day23 ."<br />";
 }
 else {
 	$day23 = 0;
@@ -651,7 +651,7 @@ if ($result24 -> num_rows > 0) {
 		 $day24sum = $day24sum + $row['avgpain'];
 	 }
 	 $day24 = $day24sum/$day24num;
-	 echo "day24 average: ". $day24 ."<br />";
+	 //echo "day24 average: ". $day24 ."<br />";
 }
 else {
 	$day24 = 0;
@@ -669,7 +669,7 @@ if ($result25 -> num_rows > 0) {
 		 $day25sum = $day25sum + $row['avgpain'];
 	 }
 	 $day25 = $day25sum/$day25num;
-	 echo "day25 average: ". $day25 ."<br />";
+	 //echo "day25 average: ". $day25 ."<br />";
 }
 else {
 	$day25 = 0;
@@ -687,7 +687,7 @@ if ($result26 -> num_rows > 0) {
 		 $day26sum = $day26sum + $row['avgpain'];
 	 }
 	 $day26 = $day26sum/$day26num;
-	 echo "day26 average: ". $day26 ."<br />";
+	 //echo "day26 average: ". $day26 ."<br />";
 }
 else {
 	$day26 = 0;
@@ -705,7 +705,7 @@ if ($result27 -> num_rows > 0) {
 		 $day27sum = $day27sum + $row['avgpain'];
 	 }
 	 $day27 = $day27sum/$day27num;
-	 echo "day27 average: ". $day27 ."<br />";
+	 //echo "day27 average: ". $day27 ."<br />";
 }
 else {
 	$day27 = 0;
@@ -723,7 +723,7 @@ if ($result28 -> num_rows > 0) {
 		 $day28sum = $day28sum + $row['avgpain'];
 	 }
 	 $day28 = $day28sum/$day28num;
-	 echo "day28 average: ". $day28 ."<br />";
+	 //echo "day28 average: ". $day28 ."<br />";
 }
 else {
 	$day28 = 0;
@@ -741,7 +741,7 @@ if ($result29 -> num_rows > 0) {
 		 $day29sum = $day29sum + $row['avgpain'];
 	 }
 	 $day29 = $day29sum/$day29num;
-	 echo "day29 average: ". $day29 ."<br />";
+	 //echo "day29 average: ". $day29 ."<br />";
 }
 else {
 	$day29 = 0;
@@ -759,7 +759,7 @@ if ($result30 -> num_rows > 0) {
 		 $day30sum = $day30sum + $row['avgpain'];
 	 }
 	 $day30 = $day30sum/$day30num;
-	 echo "day30 average: ". $day30 ."<br />";
+	 //echo "day30 average: ". $day30 ."<br />";
 }
 else {
 	$day30 = 0;
@@ -777,7 +777,7 @@ if ($result31 -> num_rows > 0) {
 		 $day31sum = $day31sum + $row['avgpain'];
 	 }
 	 $day31 = $day31sum/$day31num;
-	 echo "day31 average: ". $day31 ."<br />";
+	 //echo "day31 average: ". $day31 ."<br />";
 }
 else {
 	$day31 = 0;
@@ -815,7 +815,7 @@ $(function () {
         series: [
 		{
 
-            name: 'Average Pain Intensity',
+            name: 'Monthly Pain Intensity',
 			data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
 			draggableY: true,
 			dragMinY: 0
