@@ -217,13 +217,14 @@ $dbname = "booksapp";
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
 
-
-$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16 ";
+$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
+
+$sql1 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
+$result1 = $dbc->query($sql1);
+if ($result1 -> num_rows > 0) {
 	
-	
-     // output data of each row
 	 $day1num = 0;
 	 $day1sum = 0;
      while($row = $result->fetch_assoc()) {
@@ -231,11 +232,16 @@ if ($result -> num_rows > 0) {
 		 $day1num++;
 		 $day1sum = $day1sum + $row['avgpain'];
 	 }
-	 echo "number of entries: ". $day1num;
-	 echo "sum of avgpain: ". $day1sum;
+	 //echo "number of entries: ". $day1num;
+	 //echo "sum of avgpain: ". $day1sum;
 	 $day1 = $day1sum/$day1num;
-	 echo "day1 average: ". $day1;
+	 //echo "day1 average: ". $day1;
 }
+else {
+	echo "There is nothing on the first.";
+}
+}
+
 else {
 	echo "There is nothing to report for this month yet.";
 }
