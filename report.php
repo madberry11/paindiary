@@ -659,7 +659,7 @@ else {
 
 // Day 25
 $sql25 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 25 ";
-$result25 = $dbc->query($sql24);
+$result25 = $dbc->query($sql25);
 if ($result25 -> num_rows > 0) {
 	
 	 $day25num = 0;
