@@ -784,11 +784,11 @@ else {
 }
 ?>
 
-<div id="container" style="width:100%; height:400px;"></div>
+<div id="container2"></div>
 
 <script>
 $(function () { 
-    $('#container').highcharts({
+    $('#container2').highcharts({
         chart: {
             type: 'column'
 			//zoomType: 'xy'
