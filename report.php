@@ -210,7 +210,25 @@ switch ($calmonth) {
 <div id="pagewrap">
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
 <div id='container'>
-<ul id="monthly">
+<script>
+$(document).ready(function () {
+  $('#pcomp').click(function () {
+    if ($(this).is(':checked')) {
+        $('#sub-p').attr('display','block')
+    } else {
+       $('#sub-p').attr('display','none') 
+    }
+  });
+  
+  $('#relcomp').click(function () {
+    if ($(this).is(':checked')) {
+        $('#sub-rel').attr('display','block')
+    } else {
+       $('#sub-rel').attr('display','none')
+    }
+  });
+});
+</script>
 <form id="reportform" action="report.php" method="post">
 <p><input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label></p>
 <p><input class='checkbox pcomp' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
@@ -244,25 +262,6 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' ch
 <p><input class='checkbox' type='checkbox' id='impent' name='impent' /><label for='relcomp'>Important Entries</label></p>
 <p><input type="submit" name="generate" id="generate" value="Generate Report" /></p>
 </form>
-<script>
-$(document).ready(function () {
-  $('#pcomp').click(function () {
-    if ($(this).is(':checked')) {
-        $('#sub-p').attr('display','block')
-    } else {
-       $('#sub-p').attr('display','none') 
-    }
-  });
-  
-  $('#relcomp').click(function () {
-    if ($(this).is(':checked')) {
-        $('#sub-rel').attr('display','block')
-    } else {
-       $('#sub-rel').attr('display','none')
-    }
-  });
-});
-</script>
 
 
 <?php
