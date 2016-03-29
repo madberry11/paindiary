@@ -794,11 +794,12 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Daily Pain Itensity'
+            text: 'Monthly Pain Itensity'
         },
 		yAxis: {
             title: {
-                text: 'Average Pain Itensity'
+                text: 'Average Pain Itensity',
+				enabled: false
             }
         },
         xAxis: {
