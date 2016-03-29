@@ -916,7 +916,7 @@ break;
 
 
 case $bodypart :
-echo $bodypart . " got clicked";
+echo " got clicked";
 break;
 
 }
