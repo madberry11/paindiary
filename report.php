@@ -587,7 +587,9 @@ if ($result16 -> num_rows > 0) {
 	 else {
 		 $day16 = 0;
 	 }
-	 echo "day16 average: ". $day16 ."</br />";
+	 echo "day16 daynum: ". $day16num ."<br />";
+	 echo "day16 daysum ". $day16sum ."<br />";
+	 echo "day16 average: ". $day16 ."<br />";
 }
 else {
 	//echo "There is nothing on the 16th.";
