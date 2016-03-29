@@ -237,10 +237,10 @@ if ($result1 -> num_rows > 0) {
 		 $day1sum = $day1sum + $row['avgpain'];
 	 }
 	 $day1 = $day1sum/$day1num;
-	 echo "day1 average: ". $day1 ."</br />";
+	 echo "day1 average: ". $day1 ."<br />";
 }
 else {
-	//echo "There is nothing on the 1st.";
+	$day1 = 0;
 }
 
 // Day 2
@@ -255,10 +255,10 @@ if ($result2 -> num_rows > 0) {
 		 $day2sum = $day2sum + $row['avgpain'];
 	 }
 	 $day2 = $day2sum/$day2num;
-	 echo "day2 average: ". $day2 ."</br />";
+	 echo "day2 average: ". $day2 ."<br />";
 }
 else {
-	//echo "There is nothing on the 2nd.";
+	$day2 = 0;
 }
 
 // Day 3
@@ -273,10 +273,10 @@ if ($result3 -> num_rows > 0) {
 		 $day3sum = $day3sum + $row['avgpain'];
 	 }
 	 $day3 = $day3sum/$day3num;
-	 echo "day3 average: ". $day3 ."</br />";
+	 echo "day3 average: ". $day3 ."<br />";
 }
 else {
-	//echo "There is nothing on the 3rd.";
+	$day3 = 0;
 }
 
 // Day 4
@@ -291,10 +291,10 @@ if ($result4 -> num_rows > 0) {
 		 $day4sum = $day4sum + $row['avgpain'];
 	 }
 	 $day4 = $day4sum/$day4num;
-	 echo "day4 average: ". $day4 ."</br />";
+	 echo "day4 average: ". $day4 ."<br />";
 }
 else {
-	//echo "There is nothing on the 4th.";
+	$day4 = 0;
 }
 
 // Day 5
@@ -309,10 +309,10 @@ if ($result5 -> num_rows > 0) {
 		 $day5sum = $day5sum + $row['avgpain'];
 	 }
 	 $day5 = $day5sum/$day5num;
-	 echo "day5 average: ". $day5 ."</br />";
+	 echo "day5 average: ". $day5 ."<br />";
 }
 else {
-	//echo "There is nothing on the 5th.";
+	$day5 = 0;
 }
 
 // Day 6
@@ -327,10 +327,10 @@ if ($result6 -> num_rows > 0) {
 		 $day6sum = $day6sum + $row['avgpain'];
 	 }
 	 $day6 = $day6sum/$day6num;
-	 echo "day6 average: ". $day6 ."</br />";
+	 echo "day6 average: ". $day6 ."<br />";
 }
 else {
-	//echo "There is nothing on the 6th.";
+	$day6 = 0;
 }
 
 // Day 7
@@ -345,10 +345,10 @@ if ($result7 -> num_rows > 0) {
 		 $day7sum = $day7sum + $row['avgpain'];
 	 }
 	 $day7 = $day7sum/$day7num;
-	 echo "day7 average: ". $day7 ."</br />";
+	 echo "day7 average: ". $day7 ."<br />";
 }
 else {
-	//echo "There is nothing on the 7th.";
+	$day7 = 0;
 }
 
 // Day 8
@@ -363,10 +363,10 @@ if ($result8 -> num_rows > 0) {
 		 $day8sum = $day8sum + $row['avgpain'];
 	 }
 	 $day8 = $day8sum/$day8num;
-	 echo "day8 average: ". $day8 ."</br />";
+	 echo "day8 average: ". $day8 ."<br />";
 }
 else {
-	//echo "There is nothing on the 8th.";
+	$day8 = 0;
 }
 
 // Day 9
@@ -381,10 +381,10 @@ if ($result9 -> num_rows > 0) {
 		 $day9sum = $day9sum + $row['avgpain'];
 	 }
 	 $day9 = $day9sum/$day9num;
-	 echo "day9 average: ". $day9 ."</br />";
+	 echo "day9 average: ". $day9 ."<br />";
 }
 else {
-	//echo "There is nothing on the 9th.";
+	$day9 = 0;
 }
 
 // Day 10
@@ -399,10 +399,10 @@ if ($result10 -> num_rows > 0) {
 		 $day10sum = $day10sum + $row['avgpain'];
 	 }
 	 $day10 = $day10sum/$day10num;
-	 echo "day10 average: ". $day10 ."</br />";
+	 echo "day10 average: ". $day10 ."<br />";
 }
 else {
-	//echo "There is nothing on the 10th.";
+	$day10 = 0;
 }
 
 // Day 11
@@ -417,10 +417,10 @@ if ($result11 -> num_rows > 0) {
 		 $day11sum = $day11sum + $row['avgpain'];
 	 }
 	 $day11 = $day11sum/$day11num;
-	 echo "day11 average: ". $day11 ."</br />";
+	 echo "day11 average: ". $day11 ."<br />";
 }
 else {
-	//echo "There is nothing on the 11th.";
+	$day11 = 0;
 }
 
 // Day 12
@@ -435,10 +435,10 @@ if ($result12 -> num_rows > 0) {
 		 $day12sum = $day12sum + $row['avgpain'];
 	 }
 	 $day12 = $day12sum/$day12num;
-	 echo "day12 average: ". $day12 ."</br />";
+	 echo "day12 average: ". $day12 ."<br />";
 }
 else {
-	//echo "There is nothing on the 12th.";
+	$day12 = 0;
 }
 
 // Day 13
@@ -453,10 +453,10 @@ if ($result13 -> num_rows > 0) {
 		 $day13sum = $day13sum + $row['avgpain'];
 	 }
 	 $day13 = $day13sum/$day13num;
-	 echo "day13 average: ". $day13 ."</br />";
+	 echo "day13 average: ". $day13 ."<br />";
 }
 else {
-	//echo "There is nothing on the 13th.";
+	$day13 = 0;
 }
 
 // Day 14
@@ -471,10 +471,10 @@ if ($result14 -> num_rows > 0) {
 		 $day14sum = $day14sum + $row['avgpain'];
 	 }
 	 $day14 = $day14sum/$day14num;
-	 echo "day14 average: ". $day14 ."</br />";
+	 echo "day14 average: ". $day14 ."<br />";
 }
 else {
-	//echo "There is nothing on the 14th.";
+	$day14 = 0;
 }
 
 // Day 15
@@ -489,10 +489,10 @@ if ($result15 -> num_rows > 0) {
 		 $day15sum = $day15sum + $row['avgpain'];
 	 }
 	 $day15 = $day15sum/$day15num;
-	 echo "day15 average: ". $day15 ."</br />";
+	 echo "day15 average: ". $day15 ."<br />";
 }
 else {
-	//echo "There is nothing on the 15th.";
+	$day15 = 0;
 }
 
 // Day 16
@@ -507,10 +507,10 @@ if ($result16 -> num_rows > 0) {
 		 $day16sum = $day16sum + $row['avgpain'];
 	 }
 	 $day16 = $day16sum/$day16num;
-	 echo "day16 average: ". $day16 ."</br />";
+	 echo "day16 average: ". $day16 ."<br />";
 }
 else {
-	//echo "There is nothing on the 16th.";
+	$day16 = 0;
 }
 
 // Day 17
@@ -525,10 +525,10 @@ if ($result17 -> num_rows > 0) {
 		 $day17sum = $day17sum + $row['avgpain'];
 	 }
 	 $day17 = $day17sum/$day17num;
-	 echo "day17 average: ". $day17 ."</br />";
+	 echo "day17 average: ". $day17 ."<br />";
 }
 else {
-	//echo "There is nothing on the 17th.";
+	$day17 = 0;
 }
 
 // Day 18
@@ -543,77 +543,246 @@ if ($result18 -> num_rows > 0) {
 		 $day18sum = $day18sum + $row['avgpain'];
 	 }
 	 $day18 = $day18sum/$day18num;
-	 echo "day18 average: ". $day18 ."</br />";
+	 echo "day18 average: ". $day18 ."<br />";
 }
 else {
-	//echo "There is nothing on the 18th.";
+	$day18 = 0;
 }
 
-
-
-
-
-
-
-} // This closes the monthly overall SQL.
-
+// Day 19
+$sql19 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 19 ";
+$result19 = $dbc->query($sql19);
+if ($result19 -> num_rows > 0) {
+	
+	 $day19num = 0;
+	 $day19sum = 0;
+     while($row = $result19->fetch_assoc()) {
+		 $day19num++;
+		 $day19sum = $day19sum + $row['avgpain'];
+	 }
+	 $day19 = $day19sum/$day19num;
+	 echo "day19 average: ". $day19 ."<br />";
+}
 else {
-	echo "There is nothing to report for this month yet.";
+	$day19 = 0;
+}
+
+// Day 20
+$sql20 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 20 ";
+$result20 = $dbc->query($sql20);
+if ($result20 -> num_rows > 0) {
+	
+	 $day20num = 0;
+	 $day20sum = 0;
+     while($row = $result20->fetch_assoc()) {
+		 $day20num++;
+		 $day20sum = $day20sum + $row['avgpain'];
+	 }
+	 $day20 = $day20sum/$day20num;
+	 echo "day20 average: ". $day20 ."<br />";
+}
+else {
+	$day20 = 0;
+}
+
+// Day 21
+$sql21 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 21 ";
+$result21 = $dbc->query($sql21);
+if ($result21 -> num_rows > 0) {
+	
+	 $day21num = 0;
+	 $day21sum = 0;
+     while($row = $result21->fetch_assoc()) {
+		 $day21num++;
+		 $day21sum = $day21sum + $row['avgpain'];
+	 }
+	 $day21 = $day21sum/$day21num;
+	 echo "day21 average: ". $day21 ."<br />";
+}
+else {
+	$day21 = 0;
+}
+
+// Day 22
+$sql22 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 22 ";
+$result22 = $dbc->query($sql22);
+if ($result22 -> num_rows > 0) {
+	
+	 $day22num = 0;
+	 $day22sum = 0;
+     while($row = $result22->fetch_assoc()) {
+		 $day22num++;
+		 $day22sum = $day22sum + $row['avgpain'];
+	 }
+	 $day22 = $day22sum/$day22num;
+	 echo "day22 average: ". $day22 ."<br />";
+}
+else {
+	$day22 = 0;
+}
+
+// Day 23
+$sql23 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 23 ";
+$result23 = $dbc->query($sql23);
+if ($result23 -> num_rows > 0) {
+	
+	 $day23num = 0;
+	 $day23sum = 0;
+     while($row = $result23->fetch_assoc()) {
+		 $day23num++;
+		 $day23sum = $day23sum + $row['avgpain'];
+	 }
+	 $day23 = $day23sum/$day23num;
+	 echo "day23 average: ". $day23 ."<br />";
+}
+else {
+	$day23 = 0;
+}
+
+// Day 24
+$sql24 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 24 ";
+$result24 = $dbc->query($sql24);
+if ($result24 -> num_rows > 0) {
+	
+	 $day24num = 0;
+	 $day24sum = 0;
+     while($row = $result24->fetch_assoc()) {
+		 $day24num++;
+		 $day24sum = $day24sum + $row['avgpain'];
+	 }
+	 $day24 = $day24sum/$day24num;
+	 echo "day24 average: ". $day24 ."<br />";
+}
+else {
+	$day24 = 0;
+}
+
+// Day 25
+$sql25 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 25 ";
+$result25 = $dbc->query($sql24);
+if ($result25 -> num_rows > 0) {
+	
+	 $day25num = 0;
+	 $day25sum = 0;
+     while($row = $result25->fetch_assoc()) {
+		 $day25num++;
+		 $day25sum = $day25sum + $row['avgpain'];
+	 }
+	 $day25 = $day25sum/$day25num;
+	 echo "day25 average: ". $day25 ."<br />";
+}
+else {
+	$day25 = 0;
+}
+
+// Day 26
+$sql26 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 26 ";
+$result26 = $dbc->query($sql26);
+if ($result26 -> num_rows > 0) {
+	
+	 $day26num = 0;
+	 $day26sum = 0;
+     while($row = $result26->fetch_assoc()) {
+		 $day26num++;
+		 $day26sum = $day26sum + $row['avgpain'];
+	 }
+	 $day26 = $day26sum/$day26num;
+	 echo "day26 average: ". $day26 ."<br />";
+}
+else {
+	$day26 = 0;
+}
+
+// Day 27
+$sql27 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 27 ";
+$result27 = $dbc->query($sql27);
+if ($result27 -> num_rows > 0) {
+	
+	 $day27num = 0;
+	 $day27sum = 0;
+     while($row = $result27->fetch_assoc()) {
+		 $day27num++;
+		 $day27sum = $day27sum + $row['avgpain'];
+	 }
+	 $day27 = $day27sum/$day27num;
+	 echo "day27 average: ". $day27 ."<br />";
+}
+else {
+	$day27 = 0;
+}
+
+// Day 28
+$sql28 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 28 ";
+$result28 = $dbc->query($sql28);
+if ($result28 -> num_rows > 0) {
+	
+	 $day28num = 0;
+	 $day28sum = 0;
+     while($row = $result28->fetch_assoc()) {
+		 $day28num++;
+		 $day28sum = $day28sum + $row['avgpain'];
+	 }
+	 $day28 = $day28sum/$day28num;
+	 echo "day28 average: ". $day28 ."<br />";
+}
+else {
+	$day28 = 0;
+}
+
+// Day 29
+$sql29 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 29 ";
+$result29 = $dbc->query($sql29);
+if ($result29 -> num_rows > 0) {
+	
+	 $day29num = 0;
+	 $day29sum = 0;
+     while($row = $result29->fetch_assoc()) {
+		 $day29num++;
+		 $day29sum = $day29sum + $row['avgpain'];
+	 }
+	 $day29 = $day29sum/$day29num;
+	 echo "day29 average: ". $day29 ."<br />";
+}
+else {
+	$day29 = 0;
+}
+
+// Day 30
+$sql30 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 30 ";
+$result30 = $dbc->query($sql30);
+if ($result30 -> num_rows > 0) {
+	
+	 $day30num = 0;
+	 $day30sum = 0;
+     while($row = $result30->fetch_assoc()) {
+		 $day30num++;
+		 $day30sum = $day30sum + $row['avgpain'];
+	 }
+	 $day30 = $day30sum/$day30num;
+	 echo "day30 average: ". $day30 ."<br />";
+}
+else {
+	$day30 = 0;
+}
+
+// Day 31
+$sql31 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 31 ";
+$result31 = $dbc->query($sql31);
+if ($result31 -> num_rows > 0) {
+	
+	 $day31num = 0;
+	 $day31sum = 0;
+     while($row = $result31->fetch_assoc()) {
+		 $day31num++;
+		 $day31sum = $day31sum + $row['avgpain'];
+	 }
+	 $day31 = $day31sum/$day31num;
+	 echo "day31 average: ". $day31 ."<br />";
+}
+else {
+	$day31 = 0;
 }
 ?>
-
-<!-- HIGH CHARTS -->
-
-<?php
-/*
-sql = "SELECT bodypart, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql);
-
-if ($result -> num_rows > 0) {
-	$row_cnt = $result->num_rows;
-	//echo $row_cnt;
-while ($row = mysqli_fetch_array($result)) {
-	$bodypart[] = $row['bodypart'];
-   	$p00[] = $row['p00'];
-	$p01[] = $row['p01'];
-	$p02[] = $row['p02'];
-	$p03[] = $row['p03'];
-	$p04[] = $row['p04'];
-	$p05[] = $row['p05'];
-	$p06[] = $row['p06'];
-	$p07[] = $row['p07'];
-	$p08[] = $row['p08'];
-	$p09[] = $row['p09'];
-	$p10[] = $row['p10'];
-	$p11[] = $row['p11'];
-	$p12[] = $row['p12'];
-	$p13[] = $row['p13'];
-	$p14[] = $row['p14'];
-	$p15[] = $row['p15'];
-	$p16[] = $row['p16'];
-	$p17[] = $row['p17'];
-	$p18[] = $row['p18'];
-	$p19[] = $row['p19'];
-	$p20[] = $row['p20'];
-	$p21[] = $row['p21'];
-	$p22[] = $row['p22'];
-	$p23[] = $row['p23'];
-   //echo "query works";
-}
-}
-?>
-<!--
-var chart = new Highcharts.Chart({
-      chart: {
-         renderTo: 'container'
-      },
-      series: [{
-         data: [<?php echo join($data, ',') ?>],
-         pointStart: 0,
-         pointInterval
-      }]
-});
--->
 
 <script>
 $(function () { 
@@ -631,7 +800,7 @@ $(function () {
             }
         },
         xAxis: {
-            categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
         },
 		
 		plotOptions: {
@@ -642,38 +811,33 @@ $(function () {
     },
 		
         series: [
-		<?php
-		$i=0;
-		while ($i<$row_cnt-1) {
-		//repeat this part until i = (row_cnt-2)
-		?>
 		{
-            name: '<?php echo $bodypart[$i] ?>',
-			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
-			draggableY: true,
-			dragMinY: 0
-        },
-		<?php
-		$i++;
-		}
-		if ($i == $row_cnt-1) {
-		// write this when i = (row_cnt-1)
-		?>
-		 {
-            name: '<?php echo $bodypart[$i] ?>',
-			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+
+            name: 'Average Pain Intensity',
+			data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
 			draggableY: true,
 			dragMinY: 0
         }
-		<?php
-		}
-		?>
 		]
     });
 });
 
-</script>*/
+</script>
+
+<?php
+
+
+
+
+} // This closes the monthly overall SQL.
+
+else {
+	echo "There is nothing to report for this month yet.";
+}
 ?>
+
+<!-- HIGH CHARTS -->
+
 </div>
 </body>
 </html>
