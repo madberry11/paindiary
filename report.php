@@ -218,7 +218,6 @@ $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 
 while($row = $result->fetch_assoc()) {
-echo "<a data-ajax='false' onclick='allfunc()' href='home.php?active=allpain&month=$calmonth&year=$calyear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
 echo "<input class='checkbox' type='checkbox' id='allpain' name='allpain' /><label for='allpain'> all entries (". $row['COUNT(entryid)'] .")</label>";}
 
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
@@ -226,7 +225,6 @@ $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<a data-ajax='false' href='home.php?active=$bodypart&month=$cMonth&year=$cYear'><li id='".$bodypart."'>" . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</li></a>";
 echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' /><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 
 	}
