@@ -213,30 +213,30 @@ switch ($calmonth) {
 <ul id="monthly">
 <form id="reportform" action="report.php" method="post">
 <p><input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label></p>
-<p><input class='checkbox' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
-<div class="sub-comp" id="sub-p">
+<p><input class='checkbox pcomp' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
+<div class="sub-comp sub-p">
 <?php
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' checked/><label for='$bodypart'> " . $row['bodypart'] . " only (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' checked/><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 
 	}
 	}
 ?>
 </div>
 <p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Pain Relief Efficiency</label></p>
-<p><input class='checkbox' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Pain Relief Efficiency Comparison including</label></p>
-<div class="sub-comp" id="sub-rel">
+<p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Pain Relief Efficiency Comparison including</label></p>
+<div class="sub-comp sub-rel">
 <?php
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' /><label for='$bodypart'> " . $row['bodypart'] . " only (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' checked /><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 	}
 	}
 ?>
