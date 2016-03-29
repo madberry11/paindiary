@@ -253,7 +253,7 @@ $sql2 = "SELECT medicine, COUNT(entryid) FROM painrelief WHERE user_id="  . $_SE
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
-		$bodypart = $row['bodypart'];
+		$medicine = $row['medicine'];
 echo "<input class='checkbox' type='checkbox' id='$medicine' name='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(entryid)'] .")</label>";
 	}
 	}
