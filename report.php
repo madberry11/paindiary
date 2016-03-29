@@ -236,7 +236,7 @@ if ($result1 -> num_rows > 0) {
 		 $day1num++;
 		 $day1sum = $day1sum + $row['avgpain'];
 	 }
-	 if ($day1 !== 0) {
+	 if ($day1num !== 0) {
 	 $day1 = $day1sum/$day1num;
 	 }
 	 else {
@@ -259,7 +259,7 @@ if ($result2 -> num_rows > 0) {
 		 $day2num++;
 		 $day2sum = $day2sum + $row['avgpain'];
 	 }
-	 if ($day2 !== 0) {
+	 if ($day2num !== 0) {
 	 $day2 = $day2sum/$day2num;
 	 }
 	 else {
@@ -282,7 +282,7 @@ if ($result3 -> num_rows > 0) {
 		 $day3num++;
 		 $day3sum = $day3sum + $row['avgpain'];
 	 }
-	 if ($day3 !== 0) {
+	 if ($day3num !== 0) {
 	 $day3 = $day3sum/$day3num;
 	 }
 	 else {
@@ -305,7 +305,7 @@ if ($result4 -> num_rows > 0) {
 		 $day4num++;
 		 $day4sum = $day4sum + $row['avgpain'];
 	 }
-	 if ($day4 !== 0) {
+	 if ($day4num !== 0) {
 	 $day4 = $day4sum/$day4num;
 	 }
 	 else {
@@ -328,7 +328,7 @@ if ($result5 -> num_rows > 0) {
 		 $day5num++;
 		 $day5sum = $day5sum + $row['avgpain'];
 	 }
-	 if ($day5 !== 0) {
+	 if ($day5num !== 0) {
 	 $day5 = $day5sum/$day5num;
 	 }
 	 else {
@@ -351,7 +351,7 @@ if ($result6 -> num_rows > 0) {
 		 $day6num++;
 		 $day6sum = $day6sum + $row['avgpain'];
 	 }
-	 if ($day6 !== 0) {
+	 if ($day6num !== 0) {
 	 $day6 = $day6sum/$day6num;
 	 }
 	 else {
@@ -374,7 +374,7 @@ if ($result7 -> num_rows > 0) {
 		 $day7num++;
 		 $day7sum = $day7sum + $row['avgpain'];
 	 }
-	 if ($day7 !== 0) {
+	 if ($day7num !== 0) {
 	 $day7 = $day7sum/$day7num;
 	 }
 	 else {
@@ -397,7 +397,7 @@ if ($result8 -> num_rows > 0) {
 		 $day8num++;
 		 $day8sum = $day8sum + $row['avgpain'];
 	 }
-	 if ($day8 !== 0) {
+	 if ($day8num !== 0) {
 	 $day8 = $day8sum/$day8num;
 	 }
 	 else {
@@ -420,7 +420,7 @@ if ($result9 -> num_rows > 0) {
 		 $day9num++;
 		 $day9sum = $day9sum + $row['avgpain'];
 	 }
-	 if ($day9 !== 0) {
+	 if ($day9num !== 0) {
 	 $day9 = $day9sum/$day9num;
 	 }
 	 else {
@@ -443,7 +443,7 @@ if ($result10 -> num_rows > 0) {
 		 $day10num++;
 		 $day10sum = $day10sum + $row['avgpain'];
 	 }
-	 if ($day10 !== 0) {
+	 if ($day10num !== 0) {
 	 $day10 = $day10sum/$day10num;
 	 }
 	 else {
@@ -466,7 +466,7 @@ if ($result11 -> num_rows > 0) {
 		 $day11num++;
 		 $day11sum = $day11sum + $row['avgpain'];
 	 }
-	 if ($day11 !== 0) {
+	 if ($day11num !== 0) {
 	 $day11 = $day11sum/$day11num;
 	 }
 	 else {
@@ -489,7 +489,7 @@ if ($result12 -> num_rows > 0) {
 		 $day12num++;
 		 $day12sum = $day12sum + $row['avgpain'];
 	 }
-	 if ($day12 !== 0) {
+	 if ($day12num !== 0) {
 	 $day12 = $day12sum/$day12num;
 	 }
 	 else {
@@ -512,7 +512,7 @@ if ($result13 -> num_rows > 0) {
 		 $day13num++;
 		 $day13sum = $day13sum + $row['avgpain'];
 	 }
-	 if ($day13 !== 0) {
+	 if ($day13num !== 0) {
 	 $day13 = $day13sum/$day13num;
 	 }
 	 else {
@@ -535,7 +535,7 @@ if ($result14 -> num_rows > 0) {
 		 $day14num++;
 		 $day14sum = $day14sum + $row['avgpain'];
 	 }
-	 if ($day14 !== 0) {
+	 if ($day14num !== 0) {
 	 $day14 = $day14sum/$day14num;
 	 }
 	 else {
@@ -558,7 +558,7 @@ if ($result15 -> num_rows > 0) {
 		 $day15num++;
 		 $day15sum = $day15sum + $row['avgpain'];
 	 }
-	 if ($day15 !== 0) {
+	 if ($day15num !== 0) {
 	 $day15 = $day15sum/$day15num;
 	 }
 	 else {
@@ -581,7 +581,7 @@ if ($result16 -> num_rows > 0) {
 		 $day16num++;
 		 $day16sum = $day16sum + $row['avgpain'];
 	 }
-	 if ($day16 !== 0) {
+	 if ($day16num !== 0) {
 	 $day16 = $day16sum/$day16num;
 	 }
 	 else {
@@ -604,7 +604,7 @@ if ($result17 -> num_rows > 0) {
 		 $day17num++;
 		 $day17sum = $day17sum + $row['avgpain'];
 	 }
-	 if ($day17 !== 0) {
+	 if ($day17num !== 0) {
 	 $day17 = $day17sum/$day17num;
 	 }
 	 else {
@@ -627,7 +627,7 @@ if ($result18 -> num_rows > 0) {
 		 $day18num++;
 		 $day18sum = $day18sum + $row['avgpain'];
 	 }
-	 if ($day18 !== 0) {
+	 if ($day18num !== 0) {
 	 $day18 = $day18sum/$day18num;
 	 }
 	 else {
