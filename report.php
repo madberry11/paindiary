@@ -212,6 +212,33 @@ switch ($calmonth) {
 <div id='container'>
 <ul id="monthly">
 <?php
+
+if (isset($_GET['active'])) {
+$_SESSION['active'] = $_GET['active'];
+$active = $_SESSION['active'];
+
+if ($_GET['active'] == "allpain") {
+$whichquery = "allpain";}
+else { $whichquery = "bodypart";}
+// echo $active;
+}
+
+elseif ((!isset($_GET['active'])) AND (isset($_SESSION['active']))) {
+$_SESSION['active'] = $_SESSION['active'];
+$active = $_SESSION['active'];
+
+if ($_SESSION['active'] == "allpain") {
+$whichquery = "allpain";}
+else { $whichquery = "bodypart";}
+// echo $active;
+}
+
+else { 
+$active='allpain';
+// echo $active;
+$whichquery = "allpain";
+}
+
 $sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
