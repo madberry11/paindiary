@@ -249,12 +249,12 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' ch
 <p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Medicine Efficiency Comparison including</label></p>
 <div class="sub-comp" id="sub-rel">
 <?php
-$sql2 = "SELECT medicine, COUNT(entryid) FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY medicine";
+$sql2 = "SELECT medicine, COUNT(record_id) FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY medicine";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$medicine = $row['medicine'];
-echo "<input class='checkbox' type='checkbox' id='$medicine' name='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$medicine' name='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(record_id)'] .")</label>";
 	}
 	}
 ?>
