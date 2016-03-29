@@ -212,8 +212,8 @@ switch ($calmonth) {
 <div id='container'>
 <ul id="monthly">
 <form id="reportform" action="report.php" method="post">
-<input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label>
-<input class='checkbox' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label>
+<p><input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label></p>
+<p><input class='checkbox' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
 <div class="sub-comp" id="sub-p">
 <?php
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
@@ -227,8 +227,8 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' ch
 	}
 ?>
 </div>
-<input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Pain Relief Efficiency</label>
-<input class='checkbox' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Pain Relief Efficiency Comparison including</label>
+<p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Pain Relief Efficiency</label></p>
+<p><input class='checkbox' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Pain Relief Efficiency Comparison including</label></p>
 <div class="sub-comp" id="sub-rel">
 <?php
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
@@ -241,7 +241,7 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' />
 	}
 ?>
 </div>
-<input class='checkbox' type='checkbox' id='impent' name='impent' /><label for='relcomp'>Important Entries</label>
+<p><input class='checkbox' type='checkbox' id='impent' name='impent' /><label for='relcomp'>Important Entries</label></p>
 <p><input type="submit" name="generate" id="generate" value="Generate Report" /></p>
 </form>
 <?php
