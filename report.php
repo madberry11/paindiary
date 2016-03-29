@@ -214,19 +214,17 @@ switch ($calmonth) {
 $(document).ready(function () {
   $('#pcomp').click(function () {
     if ($(this).is(':checked')) {
-        $('#sub-p').attr('display','block')
-		document.write("checked");
+        $('#sub-p').attr('display','block');
     } else {
-       $('#sub-p').attr('display','none') 
-	   document.write("not checked");
+       $('#sub-p').attr('display','none');
     }
   });
   
   $('#relcomp').click(function () {
     if ($(this).is(':checked')) {
-        $('#sub-rel').attr('display','block')
+        $('#sub-rel').attr('display','block');
     } else {
-       $('#sub-rel').attr('display','none')
+       $('#sub-rel').attr('display','none');
     }
   });
 });
