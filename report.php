@@ -304,6 +304,9 @@ $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entry
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 
+switch($whichquery) {
+		
+case 'allpain':
 
 // Day 1
 $sql1 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
@@ -908,8 +911,15 @@ $(function () {
 </script>
 
 <?php
+break;
 
 
+
+case $bodypart :
+echo $bodypart . " got clicked";
+break;
+
+}
 
 
 } // This closes the monthly overall SQL.
