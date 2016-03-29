@@ -784,6 +784,8 @@ else {
 }
 ?>
 
+<div id="container" style="width:100%; height:400px;"></div>
+
 <script>
 $(function () { 
     $('#container').highcharts({
