@@ -245,16 +245,16 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' ch
 	}
 ?>
 </div>
-<p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Pain Relief Efficiency</label></p>
-<p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Pain Relief Efficiency Comparison including</label></p>
+<p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Medicine Efficiency</label></p>
+<p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Medicine Efficiency Comparison including</label></p>
 <div class="sub-comp" id="sub-rel">
 <?php
-$sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
+$sql2 = "SELECT medicine, COUNT(entryid) FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY medicine";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' checked /><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$medicine' name='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(entryid)'] .")</label>";
 	}
 	}
 ?>
