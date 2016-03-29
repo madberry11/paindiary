@@ -209,6 +209,7 @@ switch ($calmonth) {
 
 <div id="pagewrap">
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
+<div id='container'>
 <?php
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
 $username = "bcac3dbe9c1d06";
@@ -839,8 +840,7 @@ else {
 }
 ?>
 
-<!-- HIGH CHARTS -->
-
+</div>
 </div>
 </body>
 </html>
