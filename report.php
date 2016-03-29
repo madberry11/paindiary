@@ -212,14 +212,14 @@ switch ($calmonth) {
 <div id='container'>
 <ul id="monthly">
 <?php
-$sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
+$sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 
 	while($row = $result->fetch_assoc()) {
 echo "<a data-ajax='false' onclick='allfunc()' href='home.php?active=allpain&month=$cMonth&year=$cYear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
 	}
-$sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth . " GROUP BY bodypart";
+$sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
 $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
