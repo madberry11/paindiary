@@ -224,9 +224,17 @@ if ($result -> num_rows > 0) {
 	
 	
      // output data of each row
+	 $day1num = 0;
+	 $day1sum = 0;
      while($row = $result->fetch_assoc()) {
-		 echo " &nbsp " . $row['entryid'];
+		 echo " &nbsp " . $row['avgpain'];
+		 $day1num++;
+		 $day1sum = $day1sum + $row['avgpain'];
 	 }
+	 echo "number of entries: ". $day1num;
+	 echo "sum of avgpain: ". $day1sum;
+	 $day1 = $day1sum/$day1num;
+	 echo "day1 average: ". $day1;
 }
 else {
 	echo "There is nothing to report for this month yet.";
