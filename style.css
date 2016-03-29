@@ -941,7 +941,7 @@ display: none !important;
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
 
-.sub-comp {
+#sub-p, #sub-rel {
 	margin-left: 30px;
 	display: none;	
 }
