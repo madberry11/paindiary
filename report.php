@@ -210,6 +210,59 @@ switch ($calmonth) {
 <div id="pagewrap">
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
 <div id='container'>
+<ul id="monthly">
+<?php
+$sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
+$result = $dbc->query($sql);
+if ($result -> num_rows > 0) {
+
+	while($row = $result->fetch_assoc()) {
+echo "<a data-ajax='false' onclick='allfunc()' href='home.php?active=allpain&month=$cMonth&year=$cYear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
+	}
+$sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth . " GROUP BY bodypart";
+$result2 = $dbc->query($sql2);
+if ($result2 -> num_rows > 0) {
+	while($row = $result2->fetch_assoc()) {
+		$bodypart = $row['bodypart'];
+echo "<a data-ajax='false' href='home.php?active=$bodypart&month=$cMonth&year=$cYear'><li id='".$bodypart."'>" . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</li></a>";
+if ($bodypart == $active) {
+	?>
+    <script type="text/javascript">
+	document.getElementById("<?php echo $bodypart ?>").className = "selected";
+	</script>
+    <?php
+}
+
+if ($active == 'allpain' ) {
+?>
+    <script type="text/javascript">
+	document.getElementById("allpain").className = "selected";
+	</script>
+    <?php	
+}
+
+	?>
+    <script type="text/javascript"> 
+	//document.getElementById('<?php echo $bodypart ?>').style.display = "none";
+	function chooseactive() {
+		window.location.reload();
+	}
+	
+	var choose = document.querySelectorAll('.chooseactive');
+for (var i = 0; i < choose.length; i++) {
+    choose[i].addEventListener('click', function(event) {
+		window.location.reload();
+        }
+    });
+}
+	</script>   
+    <?php
+}
+}
+}
+
+?>
+</ul>
 <?php
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
 $username = "bcac3dbe9c1d06";
@@ -217,7 +270,6 @@ $password = "32d91723";
 $dbname = "booksapp";
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
-
 
 
 
