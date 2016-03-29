@@ -232,16 +232,11 @@ if ($result1 -> num_rows > 0) {
 	
 	 $day1num = 0;
 	 $day1sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result1->fetch_assoc()) {
 		 $day1num++;
 		 $day1sum = $day1sum + $row['avgpain'];
 	 }
-	 if ($day1num !== 0) {
 	 $day1 = $day1sum/$day1num;
-	 }
-	 else {
-		 $day1 = 0;
-	 }
 	 echo "day1 average: ". $day1 ."</br />";
 }
 else {
@@ -255,16 +250,11 @@ if ($result2 -> num_rows > 0) {
 	
 	 $day2num = 0;
 	 $day2sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result2->fetch_assoc()) {
 		 $day2num++;
 		 $day2sum = $day2sum + $row['avgpain'];
 	 }
-	 if ($day2num !== 0) {
 	 $day2 = $day2sum/$day2num;
-	 }
-	 else {
-		 $day2 = 0;
-	 }
 	 echo "day2 average: ". $day2 ."</br />";
 }
 else {
@@ -278,16 +268,11 @@ if ($result3 -> num_rows > 0) {
 	
 	 $day3num = 0;
 	 $day3sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result3->fetch_assoc()) {
 		 $day3num++;
 		 $day3sum = $day3sum + $row['avgpain'];
 	 }
-	 if ($day3num !== 0) {
 	 $day3 = $day3sum/$day3num;
-	 }
-	 else {
-		 $day3 = 0;
-	 }
 	 echo "day3 average: ". $day3 ."</br />";
 }
 else {
@@ -301,16 +286,11 @@ if ($result4 -> num_rows > 0) {
 	
 	 $day4num = 0;
 	 $day4sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result4->fetch_assoc()) {
 		 $day4num++;
 		 $day4sum = $day4sum + $row['avgpain'];
 	 }
-	 if ($day4num !== 0) {
 	 $day4 = $day4sum/$day4num;
-	 }
-	 else {
-		 $day4 = 0;
-	 }
 	 echo "day4 average: ". $day4 ."</br />";
 }
 else {
@@ -324,16 +304,11 @@ if ($result5 -> num_rows > 0) {
 	
 	 $day5num = 0;
 	 $day5sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result5->fetch_assoc()) {
 		 $day5num++;
 		 $day5sum = $day5sum + $row['avgpain'];
 	 }
-	 if ($day5num !== 0) {
 	 $day5 = $day5sum/$day5num;
-	 }
-	 else {
-		 $day5 = 0;
-	 }
 	 echo "day5 average: ". $day5 ."</br />";
 }
 else {
@@ -347,16 +322,11 @@ if ($result6 -> num_rows > 0) {
 	
 	 $day6num = 0;
 	 $day6sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result6->fetch_assoc()) {
 		 $day6num++;
 		 $day6sum = $day6sum + $row['avgpain'];
 	 }
-	 if ($day6num !== 0) {
 	 $day6 = $day6sum/$day6num;
-	 }
-	 else {
-		 $day6 = 0;
-	 }
 	 echo "day6 average: ". $day6 ."</br />";
 }
 else {
@@ -370,16 +340,11 @@ if ($result7 -> num_rows > 0) {
 	
 	 $day7num = 0;
 	 $day7sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result7->fetch_assoc()) {
 		 $day7num++;
 		 $day7sum = $day7sum + $row['avgpain'];
 	 }
-	 if ($day7num !== 0) {
 	 $day7 = $day7sum/$day7num;
-	 }
-	 else {
-		 $day7 = 0;
-	 }
 	 echo "day7 average: ". $day7 ."</br />";
 }
 else {
@@ -393,16 +358,11 @@ if ($result8 -> num_rows > 0) {
 	
 	 $day8num = 0;
 	 $day8sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result8->fetch_assoc()) {
 		 $day8num++;
 		 $day8sum = $day8sum + $row['avgpain'];
 	 }
-	 if ($day8num !== 0) {
 	 $day8 = $day8sum/$day8num;
-	 }
-	 else {
-		 $day8 = 0;
-	 }
 	 echo "day8 average: ". $day8 ."</br />";
 }
 else {
@@ -416,16 +376,11 @@ if ($result9 -> num_rows > 0) {
 	
 	 $day9num = 0;
 	 $day9sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result9->fetch_assoc()) {
 		 $day9num++;
 		 $day9sum = $day9sum + $row['avgpain'];
 	 }
-	 if ($day9num !== 0) {
 	 $day9 = $day9sum/$day9num;
-	 }
-	 else {
-		 $day9 = 0;
-	 }
 	 echo "day9 average: ". $day9 ."</br />";
 }
 else {
@@ -439,16 +394,11 @@ if ($result10 -> num_rows > 0) {
 	
 	 $day10num = 0;
 	 $day10sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result10->fetch_assoc()) {
 		 $day10num++;
 		 $day10sum = $day10sum + $row['avgpain'];
 	 }
-	 if ($day10num !== 0) {
 	 $day10 = $day10sum/$day10num;
-	 }
-	 else {
-		 $day10 = 0;
-	 }
 	 echo "day10 average: ". $day10 ."</br />";
 }
 else {
@@ -462,16 +412,11 @@ if ($result11 -> num_rows > 0) {
 	
 	 $day11num = 0;
 	 $day11sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result11->fetch_assoc()) {
 		 $day11num++;
 		 $day11sum = $day11sum + $row['avgpain'];
 	 }
-	 if ($day11num !== 0) {
 	 $day11 = $day11sum/$day11num;
-	 }
-	 else {
-		 $day11 = 0;
-	 }
 	 echo "day11 average: ". $day11 ."</br />";
 }
 else {
@@ -485,16 +430,11 @@ if ($result12 -> num_rows > 0) {
 	
 	 $day12num = 0;
 	 $day12sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result12->fetch_assoc()) {
 		 $day12num++;
 		 $day12sum = $day12sum + $row['avgpain'];
 	 }
-	 if ($day12num !== 0) {
 	 $day12 = $day12sum/$day12num;
-	 }
-	 else {
-		 $day12 = 0;
-	 }
 	 echo "day12 average: ". $day12 ."</br />";
 }
 else {
@@ -508,16 +448,11 @@ if ($result13 -> num_rows > 0) {
 	
 	 $day13num = 0;
 	 $day13sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result13->fetch_assoc()) {
 		 $day13num++;
 		 $day13sum = $day13sum + $row['avgpain'];
 	 }
-	 if ($day13num !== 0) {
 	 $day13 = $day13sum/$day13num;
-	 }
-	 else {
-		 $day13 = 0;
-	 }
 	 echo "day13 average: ". $day13 ."</br />";
 }
 else {
@@ -531,16 +466,11 @@ if ($result14 -> num_rows > 0) {
 	
 	 $day14num = 0;
 	 $day14sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result14->fetch_assoc()) {
 		 $day14num++;
 		 $day14sum = $day14sum + $row['avgpain'];
 	 }
-	 if ($day14num !== 0) {
 	 $day14 = $day14sum/$day14num;
-	 }
-	 else {
-		 $day14 = 0;
-	 }
 	 echo "day14 average: ". $day14 ."</br />";
 }
 else {
@@ -554,16 +484,11 @@ if ($result15 -> num_rows > 0) {
 	
 	 $day15num = 0;
 	 $day15sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result15->fetch_assoc()) {
 		 $day15num++;
 		 $day15sum = $day15sum + $row['avgpain'];
 	 }
-	 if ($day15num !== 0) {
 	 $day15 = $day15sum/$day15num;
-	 }
-	 else {
-		 $day15 = 0;
-	 }
 	 echo "day15 average: ". $day15 ."</br />";
 }
 else {
@@ -581,15 +506,8 @@ if ($result16 -> num_rows > 0) {
 		 $day16num++;
 		 $day16sum = $day16sum + $row['avgpain'];
 	 }
-	 if ($day16num !== 0) {
 	 $day16 = $day16sum/$day16num;
-	 }
-	 else {
-		 $day16 = 0;
-	 }
-	 echo "day16 daynum: ". $day16num ."<br />";
-	 echo "day16 daysum ". $day16sum ."<br />";
-	 echo "day16 average: ". $day16 ."<br />";
+	 echo "day16 average: ". $day16 ."</br />";
 }
 else {
 	//echo "There is nothing on the 16th.";
@@ -602,16 +520,11 @@ if ($result17 -> num_rows > 0) {
 	
 	 $day17num = 0;
 	 $day17sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result17->fetch_assoc()) {
 		 $day17num++;
 		 $day17sum = $day17sum + $row['avgpain'];
 	 }
-	 if ($day17num !== 0) {
 	 $day17 = $day17sum/$day17num;
-	 }
-	 else {
-		 $day17 = 0;
-	 }
 	 echo "day17 average: ". $day17 ."</br />";
 }
 else {
@@ -625,16 +538,11 @@ if ($result18 -> num_rows > 0) {
 	
 	 $day18num = 0;
 	 $day18sum = 0;
-     while($row = $result->fetch_assoc()) {
+     while($row = $result18->fetch_assoc()) {
 		 $day18num++;
 		 $day18sum = $day18sum + $row['avgpain'];
 	 }
-	 if ($day18num !== 0) {
 	 $day18 = $day18sum/$day18num;
-	 }
-	 else {
-		 $day18 = 0;
-	 }
 	 echo "day18 average: ". $day18 ."</br />";
 }
 else {
