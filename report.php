@@ -976,7 +976,7 @@ else {
 		if(!empty($_POST['bodypart'])) {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
-			$countparts++;
+			
 			
 // Day 16
 $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
@@ -988,16 +988,17 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	echo $bodypart . ": " . $day16;
 	}
 	?>
-<div id="container3" width="1200px"></div>
+<div id="container2"></div>
+
 <script>
 $(function () { 
-    $('#container3').highcharts({
+    $('#container2').highcharts({
         chart: {
             type: 'column'
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Pain Itensity Comparison'
+            text: 'Monthly Pain Itensity'
         },
 		yAxis: {
             title: {
@@ -1031,7 +1032,6 @@ else {
 	
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
-		echo "leap year!";
 		?>	
         xAxis: {
             categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
@@ -1058,28 +1058,26 @@ else {
     },
 		
         series: [
+		<?php
+		$i=0;
+		while ($i<$countparts) {
+		?>
 		{
 			showInLegend: false, 
-            name: 'Pain Intensity Comparison',
-			
+			name: '<?php echo $bodypart[$i] ?>',
 			<?php 
-		$i=0;
-		while ($i<$countparts-1) {
 
 // if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
-		
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
 <?php
 }
 
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30 ?>],
 <?php
 }
 
@@ -1089,61 +1087,16 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29 ?>],
 <?php
 	}
 	
 	// if it is not a leap year
 	else {
 		?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28 ?>],
 <?php
 	}
-	$i++;
-}
-if ($i == $row_cnt-1) {
-		// write this when i = (row_cnt-1)
-		?>
-		 {
-			// if the month is January, March, May, July, August, October or December
-if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
-?>		
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
-		
-<?php
-}
-
-// if the month is April, June, September or November
-elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
-?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
-<?php
-}
-
-// if the month is February
-else {
-	
-	// if it is a leap year
-	if ($calyear % 4 == 0) {
-		?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
-<?php
-	}
-	
-	// if it is not a leap year
-	else {
-		?>	
-		name: '<?php echo $bodypart[$i] ?>',
-        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
-<?php
-	} 
-
-}
 
 }
 ?>
@@ -1151,6 +1104,56 @@ else {
 			draggableY: true,
 			dragMinY: 0
         }
+		<?php
+		$i++;
+		}
+if ($i == $countparts) {
+		?>
+				{
+			showInLegend: false, 
+			name: '<?php echo $bodypart[$i] ?>',
+			<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30 ?>],
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29 ?>],
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28 ?>],
+<?php
+	}
+
+}
+?>
+			
+			draggableY: true,
+			dragMinY: 0
+        }
+		<?php
+		}
+		?>
 		]
     });
 });
@@ -1159,9 +1162,9 @@ else {
 <?php
 
 
-
-			} // close tag for if not empty
-		} // close tag for foreach
+				$countparts++;
+			} // close tag for foreach
+		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
 	
 	
