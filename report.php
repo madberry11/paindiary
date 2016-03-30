@@ -973,8 +973,8 @@ else {
 	
 	// if Pain Intensity Comparison got ticked
 	?>
-<div id="container3"></div>
-
+    
+<div id="container3"></div>    
 <script>
 $(function () { 
     $('#container3').highcharts({
@@ -983,65 +983,24 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Monthly Pain Itensity'
+            text: 'Daily Pain Itensity'
         },
 		yAxis: {
             title: {
-                text: 'Average Pain Itensity',
-				enabled: false
+                text: 'Pain Itensity'
             }
         },
+        xAxis: {
+            categories: ['0AM', '1AM', '2AM', '3AM', '4AM']
+        },
 		
-<?php 
-
-// if the month is January, March, May, July, August, October or December
-if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
-?>		
-        xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
-        },
-<?php
-}
-
-// if the month is April, June, September or November
-elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
-?>	
-        xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
-        },
-<?php
-}
-
-// if the month is February
-else {
-	
-	// if it is a leap year
-	if ($calyear % 4 == 0) {
-		?>	
-        xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
-        },
-<?php
-	}
-	
-	// if it is not a leap year
-	else {
-		?>	
-        xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']
-        },
-<?php
-	}
-
-}
-?>	
 		plotOptions: {
         
                 line: {
             cursor: 'ns-resize'
         }
     },
-	
+		
 <?php
 	
 	if (isset($_POST['pcomp'])) {
@@ -1067,50 +1026,23 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$d16[]=$day16;
 	echo $bodypart . ": " . $day16;
 	}
-		?>	
-		 series: [{
-			showInLegend: false, 
-		{ // beginning of dataset
-			
-			<?php 
+	?>
+series: [{
+            name: 'Jane',
+            data: [1, 0, 4, 3, 3]
+        },	
+<?php
 
-// if the month is January, March, May, July, August, October or December
-if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
-?>		
-		name: 'Monthly Pain Intensity',
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-<?php
-}
-
-// if the month is April, June, September or November
-elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
-?>	
-		name: 'Monthly Pain Intensity',
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-<?php
-}
-
-// if the month is February
-else {
-	
-	// if it is a leap year
-	if ($calyear % 4 == 0) {
-		?>	
-		name: 'Monthly Pain Intensity',
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-<?php
-	}
-	
-	// if it is not a leap year
-	else {
-		?>	
-		name: 'Monthly Pain Intensity',
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-<?php
-	}
 	$i++;
-} // close tag for if less than countparts
+}
 
+if ($i == $counterparts) {
+	?>
+	series: [{
+	name: 'John',
+            data: [5, 7, 3, 3, 2]
+        }]
+<?php	
 }
 ?>
 			
