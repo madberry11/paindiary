@@ -997,7 +997,7 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Monthly Pain Itensity'
+            text: 'Pain Itensity Comparison'
         },
 		yAxis: {
             title: {
@@ -1031,6 +1031,7 @@ else {
 	
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
+		echo "leap year!";
 		?>	
         xAxis: {
             categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
