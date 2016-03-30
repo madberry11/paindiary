@@ -229,6 +229,11 @@ $(document).ready(function () {
   });
 });
 </script>
+<?php
+		$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
+$result = $dbc->query($sql);
+if ($result -> num_rows > 0) {
+?>
 <form id="reportform" action="report.php" method="post">
 <p><input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label></p>
 <p><input class='checkbox pcomp' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
@@ -262,9 +267,12 @@ echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' v
 <p><input class='checkbox' type='checkbox' id='impent' name='impent' /><label for='relcomp'>Important Entries</label></p>
 <p><input type="submit" name="generate" id="generate" value="Generate Report" /></p>
 </form>
-
-
 <?php
+}
+else {
+	echo "There is nothing to report for this month yet.";
+}
+
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
 $username = "bcac3dbe9c1d06";
 $password = "32d91723";
@@ -277,9 +285,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// if Average Pain Intensity got ticked
 	if (isset($_POST['avgp'])) {
-		$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
-$result = $dbc->query($sql);
-if ($result -> num_rows > 0) {
 
 
 // Day 1
@@ -960,25 +965,47 @@ else {
 });
 
 </script>
-
 <?php
 
-
-
-
-} // This closes the monthly overall SQL.
-
-else {
-	echo "There is nothing to report for this month yet.";
-}
 		
 	} // close tag for Average Pain Intensity
+	
+	
 	
 	// if Pain Intensity Comparison got ticked
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
     	foreach($_POST['bodypart'] as $check1) {
-            echo $check1;
+			
+// Day 16
+$sql2 = "SELECT entryday, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
+	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($result) == 1) { 
+	$row = mysqli_fetch_assoc($result);
+	$bodypart=$row['bodypart'];
+	$avgpain=$row['avgpain'];
+	echo $bodypart . ": " . $avgpain;
+	}
+
+/*
+$sql16 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16  AND bodypart=" . $check1;
+$result16 = $dbc->query($sql16);
+if ($result16 -> num_rows > 0) {
+	
+	 $day16num = 0;
+	 $day16sum = 0;
+     while($row = $result16->fetch_assoc()) {
+		 $day16num++;
+		 $day16sum = $day16sum + $row['avgpain'];
+	 }
+	 $day16 = $day16sum/$day16num;
+	 //echo "day1 average: ". $day1 ."<br />";
+}
+else {
+	$day1 = 0;
+}
+*/
+
 			}
 		}
 	} // close tag for Pain Intensity Comparison
