@@ -986,7 +986,7 @@ $i = 0;
 while ($i < $countparts) {
 	echo $pain[];
 	$q16 = "SELECT bodypart, avgpain FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=16 AND user_id="  . $_SESSION['user_id'];
-	$r16 = $dbc->query($q16);
+	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($r16 -> num_rows > 0) {
      while($row = $r16->fetch_assoc()) {
 		 $pl16 = $row['avgpain'];
