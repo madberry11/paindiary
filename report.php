@@ -974,15 +974,17 @@ else {
 	// if Pain Intensity Comparison got ticked
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
+			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
+			$countparts++;
 			
 // Day 16
 $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
 	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($result) == 1) { 
 	$row = mysqli_fetch_assoc($result);
-	$bodypart=$row['bodypart'];
-	$day16=$row['avgpain'];
+	$bodypart[]=$row['bodypart'];
+	$day16[]=$row['avgpain'];
 	echo $bodypart . ": " . $day16;
 	}
 	?>
@@ -1060,19 +1062,21 @@ else {
             name: 'Pain Intensity Comparison',
 			
 			<?php 
-foreach($_POST['bodypart'] as $check1) {
+		$i=0;
+		while ($i<$countparts-1) {
 
 // if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
-        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
+		
 <?php
 }
 
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
-        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30 ?>],
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
 <?php
 }
 
@@ -1082,16 +1086,54 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
-        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29 ?>],
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
 <?php
 	}
 	
 	// if it is not a leap year
 	else {
 		?>	
-        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28 ?>],
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
 <?php
 	}
+	$i++;
+}
+if ($i == $row_cnt-1) {
+		// write this when i = (row_cnt-1)
+		?>
+		 {
+			// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
+		
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
+<?php
+	} 
+
 }
 
 }
@@ -1113,10 +1155,12 @@ else {
 		} // close tag for foreach
 	} // close tag for Pain Intensity Comparison
 	
+	
 	// if Average Medicine Efficiency got ticked
 	if (isset($_POST['avgrel'])) {
 		echo "average medicine efficiency<br />";
 	} // close tag for Average Medicine Efficiency
+	
 	
 	//if Medicine Efficiency Comparison got ticked
 	if (isset($_POST['relcomp'])) {
@@ -1126,6 +1170,7 @@ else {
 			}
 		}
 	} // close tag for Medicine Efficiency Comparison
+		
 		
 	// if Important Entries got ticked
 	if (isset($_POST['impent'])) {
