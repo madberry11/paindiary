@@ -971,92 +971,265 @@ else {
 	
 	
 	
-	// if Pain Intensity Comparison got ticked	
+	// if Pain Intensity Comparison got ticked
+	
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
-			//echo $check1 . "<br />";
+			echo $check1 . "<br />";
 			$pain[] = $check1;
 			$countparts++;
 		}
-//print_r($pain);
-	?>
-	
-	<div id="container3"></div>
+print_r($pain);
 
-<script>
-$(function () { 
-    $('#container3').highcharts({
-        chart: {
-            type: 'column'
-			//zoomType: 'xy'
-        },
-        title: {
-            text: 'Monthly Pain Itensity'
-        },
-		yAxis: {
-            title: {
-                text: 'Average Pain Itensity',
-				enabled: false
-            }
-        },
-			
-        xAxis: {
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
-        },
-			
-		plotOptions: {
-        
-                line: {
-            cursor: 'ns-resize'
-        }
-    },
-		series: [{
-<?php
 $i = 0;
 while ($i < $countparts) {
-	//echo $pain[$i];
+	echo $pain[$i];
+	
+	// Day 1
+	$q1 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=1 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r1 = mysqli_query ($dbc, $q1) or trigger_error("Query: $q1\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r1) == 1) { 
+	$row = mysqli_fetch_assoc($r1);
+	$p1[] = $row['avgpain'];
+	}
+	else {
+	$p1[] = 0;	
+	}
+	
+	// Day 2
+	$q2 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=2 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r2) == 1) { 
+	$row = mysqli_fetch_assoc($r2);
+	$p2[] = $row['avgpain'];
+	}
+	else {
+	$p2[] = 0;	
+	}
+	
+	// Day 3
+	$q3 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=3 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r3 = mysqli_query ($dbc, $q3) or trigger_error("Query: $q3\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r3) == 1) { 
+	$row = mysqli_fetch_assoc($r3);
+	$p3[] = $row['avgpain'];
+	}
+	else {
+	$p3[] = 0;	
+	}
+	
+	// Day 4
+	$q4 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=4 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r4 = mysqli_query ($dbc, $q4) or trigger_error("Query: $q4\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r4) == 1) { 
+	$row = mysqli_fetch_assoc($r4);
+	$p4[] = $row['avgpain'];
+	}
+	else {
+	$p4[] = 0;	
+	}
+	
+	// Day 5
+	$q5 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=5 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r5 = mysqli_query ($dbc, $q5) or trigger_error("Query: $q5\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r5) == 1) { 
+	$row = mysqli_fetch_assoc($r5);
+	$p5[] = $row['avgpain'];
+	}
+	else {
+	$p5[] = 0;	
+	}
+	
+	// Day 6
+	$q6 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=6 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r6 = mysqli_query ($dbc, $q6) or trigger_error("Query: $q6\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r6) == 1) { 
+	$row = mysqli_fetch_assoc($r6);
+	$p6[] = $row['avgpain'];
+	}
+	else {
+	$p6[] = 0;	
+	}
+	
+	// Day 7
+	$q7 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=7 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r7 = mysqli_query ($dbc, $q7) or trigger_error("Query: $q7\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r7) == 1) { 
+	$row = mysqli_fetch_assoc($r7);
+	$p7[] = $row['avgpain'];
+	}
+	else {
+	$p7[] = 0;	
+	}
+	
+	// Day 8
+	$q8 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=8 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r8 = mysqli_query ($dbc, $q8) or trigger_error("Query: $q8\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r8) == 1) { 
+	$row = mysqli_fetch_assoc($r8);
+	$p8[] = $row['avgpain'];
+	}
+	else {
+	$p8[] = 0;	
+	}
+	
+	// Day 9
+	$q9 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=9 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r9 = mysqli_query ($dbc, $q9) or trigger_error("Query: $q9\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r9) == 1) { 
+	$row = mysqli_fetch_assoc($r9);
+	$p9[] = $row['avgpain'];
+	}
+	else {
+	$p9[] = 0;	
+	}
+	
+	// Day 10
+	$q10 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=10 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r10 = mysqli_query ($dbc, $q10) or trigger_error("Query: $q10\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r10) == 1) { 
+	$row = mysqli_fetch_assoc($r10);
+	$p10[] = $row['avgpain'];
+	}
+	else {
+	$p10[] = 0;	
+	}
+	
+	// Day 11
+	$q11 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=11 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r11 = mysqli_query ($dbc, $q11) or trigger_error("Query: $q11\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r11) == 1) { 
+	$row = mysqli_fetch_assoc($r11);
+	$p11[] = $row['avgpain'];
+	}
+	else {
+	$p11[] = 0;	
+	}
+	
+	// Day 12
+	$q12 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=12 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r12 = mysqli_query ($dbc, $q12) or trigger_error("Query: $q12\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r12) == 1) { 
+	$row = mysqli_fetch_assoc($r12);
+	$p12[] = $row['avgpain'];
+	}
+	else {
+	$p12[] = 0;	
+	}
+	
+	// Day 13
+	$q13 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=13 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r13 = mysqli_query ($dbc, $q13) or trigger_error("Query: $q13\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r13) == 1) { 
+	$row = mysqli_fetch_assoc($r13);
+	$p13[] = $row['avgpain'];
+	}
+	else {
+	$p13[] = 0;	
+	}
+	
+	// Day 14
+	$q14 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=14 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r14 = mysqli_query ($dbc, $q14) or trigger_error("Query: $q14\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r14) == 1) { 
+	$row = mysqli_fetch_assoc($r14);
+	$p14[] = $row['avgpain'];
+	}
+	else {
+	$p14[] = 0;	
+	}
+	
+	// Day 15
+	$q15 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=15 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r15 = mysqli_query ($dbc, $q15) or trigger_error("Query: $q15\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r15) == 1) { 
+	$row = mysqli_fetch_assoc($r15);
+	$p15[] = $row['avgpain'];
+	}
+	else {
+	$p15[] = 0;	
+	}
+	
+	// Day 16
 	$q16 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r16) == 1) { 
 	$row = mysqli_fetch_assoc($r16);
 	$p16[] = $row['avgpain'];
-	//echo $pl16 ."<br />";
 	}
-// write queries for other 	days
-?>
-	 		name: '<?php echo $pain[$i] ?>',
-			data: [<?php echo $p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i] ?>],
-			
-        },		
-<?php	
+	else {
+	$p16[] = 0;	
+	}
+	
+	// Day 17
+	$q17 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=17 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r17 = mysqli_query ($dbc, $q17) or trigger_error("Query: $q17\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r17) == 1) { 
+	$row = mysqli_fetch_assoc($r17);
+	$p17[] = $row['avgpain'];
+	}
+	else {
+	$p17[] = 0;	
+	}
+	
+	// Day 18
+	$q18 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=18 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r18 = mysqli_query ($dbc, $q18) or trigger_error("Query: $q18\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r18) == 1) { 
+	$row = mysqli_fetch_assoc($r18);
+	$p18[] = $row['avgpain'];
+	}
+	else {
+	$p18[] = 0;	
+	}
+	
+	// Day 19
+	$q19 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=19 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r19 = mysqli_query ($dbc, $q19) or trigger_error("Query: $q19\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r19) == 1) { 
+	$row = mysqli_fetch_assoc($r19);
+	$p19[] = $row['avgpain'];
+	}
+	else {
+	$p19[] = 0;	
+	}
+	
+	// Day 20
+	$q20 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=20 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r20 = mysqli_query ($dbc, $q20) or trigger_error("Query: $q20\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r20) == 1) { 
+	$row = mysqli_fetch_assoc($r20);
+	$p20[] = $row['avgpain'];
+	}
+	else {
+	$p20[] = 0;	
+	}
+	
 	$i++;
 }
-
-
-if ($i == $countparts){
-	//echo $pain[$i];
-	$q16 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
-	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($r16) == 1) { 
-	$row = mysqli_fetch_assoc($r16);
-	$p16[] = $row['avgpain'];
-	//echo $pl16 ."<br />";
-	}
-// write queries for other 	days
-?>
-	 		name: '<?php echo $pain[$i] ?>',
-			data: [<?php echo $p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i] ?>],
-			
-        }
-<?php	
-}
-?>
-]
-    });
-});
-<?php
+print_r($pain);
+print_r($p1);
+print_r($p2);
+print_r($p3);
+print_r($p4);
+print_r($p5);
+print_r($p6);
+print_r($p7);
+print_r($p8);
+print_r($p9);
+print_r($p10);
+print_r($p11);
+print_r($p12);
+print_r($p13);
+print_r($p14);
+print_r($p15);
+print_r($p16);
+print_r($p17);
+print_r($p18);
+print_r($p19);
+print_r($p20);
 
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
