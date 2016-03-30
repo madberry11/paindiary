@@ -239,7 +239,7 @@ $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<input class='checkbox' type='checkbox' id='$bodypart' name='bodypart[]' checked/><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$bodypart' name='bodypart[]' value='$bodypart' checked/><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 
 	}
 	}
@@ -254,7 +254,7 @@ $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$medicine = $row['medicine'];
-echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(record_id)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' value='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(record_id)'] .")</label>";
 	}
 	}
 ?>
