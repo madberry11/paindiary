@@ -1024,7 +1024,7 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$bpart[]=$bodypart;
 	$day16=$row['avgpain'];
 	$d16[]=$day16;
-	echo $bodypart . ": " . $day16;
+	//echo $bodypart . ": " . $day16;
 	}
 	?>
 series: [{
