@@ -239,7 +239,7 @@ $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
-echo "<input class='checkbox' type='checkbox' id='$bodypart' name='$bodypart' checked/><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$bodypart' name='bodypart[]' checked/><label for='$bodypart'> " . $row['bodypart'] . " (". $row['COUNT(entryid)'] .")</label>";
 
 	}
 	}
@@ -254,7 +254,7 @@ $result2 = $dbc->query($sql2);
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$medicine = $row['medicine'];
-echo "<input class='checkbox' type='checkbox' id='$medicine' name='$medicine' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(record_id)'] .")</label>";
+echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' checked /><label for='$medicine'> " . $row['medicine'] . " (". $row['COUNT(record_id)'] .")</label>";
 	}
 	}
 ?>
@@ -282,9 +282,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	// if Pain Intensity Comparison got ticked
 	if (isset($_POST['pcomp'])) {
-		if (isset($_POST['$bodypart'])) {
-			echo $bodypart;
-			echo "pain comp<br />";
+		if(!empty($_POST['bodypart'])) {
+    	foreach($_POST['bodypart'] as $check1) {
+            echo $check1;
+			}
 		}
 	} // close tag for Pain Intensity Comparison
 	
@@ -295,9 +296,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	//if Medicine Efficiency Comparison got ticked
 	if (isset($_POST['relcomp'])) {
-		if (isset($_POST['$medicine'])) {
-			echo $medicine;
-			echo "medicine comp<br />";
+		if(!empty($_POST['medicine'])) {
+    	foreach($_POST['medicine'] as $check2) {
+            echo $check2;
+			}
 		}
 	} // close tag for Medicine Efficiency Comparison
 		
