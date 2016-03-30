@@ -987,8 +987,13 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$day16[]=$row['avgpain'];
 	echo $bodypart . ": " . $day16;
 	}
-	?>
-<div id="container2"></div>
+
+
+
+				$countparts++;
+			} // close tag for foreach
+?>
+			<div id="container2"></div>
 
 <script>
 $(function () { 
@@ -1160,10 +1165,6 @@ else {
 
 </script>
 <?php
-
-
-				$countparts++;
-			} // close tag for foreach
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
 	
