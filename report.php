@@ -966,8 +966,7 @@ else {
 
 </script>
 <?php
-
-		
+	
 	} // close tag for Average Pain Intensity
 	
 	
@@ -983,31 +982,135 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	if (@mysqli_num_rows($result) == 1) { 
 	$row = mysqli_fetch_assoc($result);
 	$bodypart=$row['bodypart'];
-	$avgpain=$row['avgpain'];
-	echo $bodypart . ": " . $avgpain;
+	$day16=$row['avgpain'];
+	echo $bodypart . ": " . $day16;
+	}
+	?>
+<div id="container3"></div>
+<script>
+$(function () { 
+    $('#container3').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Monthly Pain Itensity'
+        },
+		yAxis: {
+            title: {
+                text: 'Average Pain Itensity',
+				enabled: false
+            }
+        },
+		
+<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
+        },
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+        },
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
+        },
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']
+        },
+<?php
 	}
 
-/*
-$sql16 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16  AND bodypart=" . $check1;
-$result16 = $dbc->query($sql16);
-if ($result16 -> num_rows > 0) {
-	
-	 $day16num = 0;
-	 $day16sum = 0;
-     while($row = $result16->fetch_assoc()) {
-		 $day16num++;
-		 $day16sum = $day16sum + $row['avgpain'];
-	 }
-	 $day16 = $day16sum/$day16num;
-	 //echo "day1 average: ". $day1 ."<br />";
 }
-else {
-	$day1 = 0;
-}
-*/
+?>	
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		{
+			showInLegend: false, 
+            name: 'Monthly Pain Intensity',
+			
+			<?php 
+foreach($_POST['bodypart'] as $check1) {
 
-			}
-		}
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30. ',' .$day31 ?>],
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29. ',' .$day30 ?>],
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28. ',' .$day29 ?>],
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        data: [<?php echo $day1. ',' .$day2. ',' .$day3. ',' .$day4. ',' .$day5. ',' .$day6. ',' .$day7. ',' .$day8. ',' .$day9. ',' .$day10. ',' .$day11. ',' .$day12. ',' .$day13. ',' .$day14. ',' .$day15. ',' .$day16. ',' .$day17. ',' .$day18. ',' .$day19. ',' .$day20. ',' .$day21. ',' .$day22. ',' .$day23. ',' .$day24. ',' .$day25. ',' .$day26. ',' .$day27. ',' .$day28 ?>],
+<?php
+	}
+}
+
+}
+?>
+			
+			draggableY: true,
+			dragMinY: 0
+        }
+		]
+    });
+});
+
+</script>
+<?php
+
+
+
+			} // close tag for if not empty
+		} // close tag for foreach
 	} // close tag for Pain Intensity Comparison
 	
 	// if Average Medicine Efficiency got ticked
