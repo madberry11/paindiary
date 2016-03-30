@@ -986,7 +986,7 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	echo $bodypart . ": " . $day16;
 	}
 	?>
-<div id="container3"></div>
+<div id="container3" width="1200px"></div>
 <script>
 $(function () { 
     $('#container3').highcharts({
@@ -1057,7 +1057,7 @@ else {
         series: [
 		{
 			showInLegend: false, 
-            name: 'Monthly Pain Intensity',
+            name: 'Pain Intensity Comparison',
 			
 			<?php 
 foreach($_POST['bodypart'] as $check1) {
