@@ -985,7 +985,7 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$row = mysqli_fetch_assoc($result);
 	$bodypart[]=$row['bodypart'];
 	$day16[]=$row['avgpain'];
-	echo $bodypart . ": " . $day16;
+	echo $bodypart[] . ": " . $day16[];
 	}
 
 
