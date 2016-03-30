@@ -272,6 +272,41 @@ $dbname = "booksapp";
 
 $dbc = new mysqli($servername, $username, $password, $dbname);
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	require (MYSQL);
+
+	// if Average Pain Intensity got ticked
+	if (isset($_POST['avgp'])) {
+		echo "average pain intensity<br />";
+	} // close tag for Average Pain Intensity
+	
+	// if Pain Intensity Comparison got ticked
+	if (isset($_POST['pcomp'])) {
+		if (isset($_POST['$bodypart'])) {
+			echo $bodypart;
+			echo "pain comp<br />";
+		}
+	} // close tag for Pain Intensity Comparison
+	
+	// if Average Medicine Efficiency got ticked
+	if (isset($_POST['avgrel'])) {
+		echo "average medicine efficiency<br />";
+	} // close tag for Average Medicine Efficiency
+	
+	//if Medicine Efficiency Comparison got ticked
+	if (isset($_POST['relcomp'])) {
+		if (isset($_POST['$medicine'])) {
+			echo $medicine;
+			echo "medicine comp<br />";
+		}
+	} // close tag for Medicine Efficiency Comparison
+		
+	// if Important Entries got ticked
+	if (isset($_POST['impent'])) {
+		echo "important entries<br />";
+	} // closing tag for Important Entries
+	
+} // closing request method post
 
 
 
