@@ -971,28 +971,88 @@ else {
 	
 	
 	
-	// if Pain Intensity Comparison got ticked
-	
+	// if Pain Intensity Comparison got ticked	
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
-			echo $check1 . "<br />";
+			//echo $check1 . "<br />";
 			$pain[] = $check1;
 			$countparts++;
 		}
-print_r($pain);
+//print_r($pain);
+	?>
+	
+	<div id="container3"></div>
+
+<script>
+$(function () { 
+    $('#container3').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Monthly Pain Itensity'
+        },
+		yAxis: {
+            title: {
+                text: 'Average Pain Itensity',
+				enabled: false
+            }
+        },
+			
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
+        },
+			
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		series: [{
+<?php
 $i = 0;
 while ($i < $countparts) {
-	echo $pain[$i];
+	//echo $pain[$i];
 	$q16 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r16) == 1) { 
 	$row = mysqli_fetch_assoc($r16);
-	$pl16 = $row['avgpain'];
-	echo $pl16 ."<br />";
+	$p16[] = $row['avgpain'];
+	//echo $pl16 ."<br />";
 	}
+// write queries for other 	days
+?>
+	 		name: '<?php echo $pain[$i] ?>',
+			data: [<?php echo $p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i] ?>],
+			
+        },		
+<?php	
 	$i++;
+}
+
+
+if ($i == $countparts){
+	//echo $pain[$i];
+	$q16 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
+	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($r16) == 1) { 
+	$row = mysqli_fetch_assoc($r16);
+	$p16[] = $row['avgpain'];
+	//echo $pl16 ."<br />";
+	}
+// write queries for other 	days
+?>
+	 		name: '<?php echo $pain[$i] ?>',
+			data: [<?php echo $p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i]. ',' .$p16[$i] ?>],
+			
+        }]
+    });
+});
+<?php	
 }
 
 		} // close tag for if not empty
