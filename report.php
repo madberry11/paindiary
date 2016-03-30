@@ -984,8 +984,8 @@ else {
 print_r($pain);
 $i = 0;
 while ($i < $countparts) {
-	echo $pain[];
-	
+	$q16 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND bodypart=". $pain[] ." AND user_id="  . $_SESSION['user_id'];
+	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	$i++;
 }
