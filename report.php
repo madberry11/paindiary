@@ -3,9 +3,6 @@
 
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
-
 ob_start();
 session_start();
 require ('config.inc.php'); 
@@ -975,52 +972,7 @@ else {
 	
 	
 	// if Pain Intensity Comparison got ticked
-	
-	if (isset($_POST['pcomp'])) {
-		if(!empty($_POST['bodypart'])) {
-			$countparts = 0;
-    	foreach($_POST['bodypart'] as $check1) {
-			echo $check1 . "<br />";
-			$pain[] = $check1;
-			$countparts++;
-		}
-echo '<pre>'; print_r($pain); echo '</pre>';			
-$i=0;
-while ($i<$countparts) {
-			
-// Day 16
-$sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $pain[] . "'" ;
-	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($result) == 1) { 
-	$row = mysqli_fetch_assoc($result);
-	$bodypart=$row['bodypart'];
-	$bpart[]=$bodypart;
-	$day16=$row['avgpain'];
-	$d16[]=$day16;
-	//echo $bodypart . ": " . $day16;
-	}
-	
-} //close tag for while loop
-			
-		} // close tag for if not empty
-	} // close tag for Pain Intensity Comparison
-	
-	
-	// if Average Medicine Efficiency got ticked
-	if (isset($_POST['avgrel'])) {
-		echo "average medicine efficiency<br />";
-	} // close tag for Average Medicine Efficiency
-	
-	
-	//if Medicine Efficiency Comparison got ticked
-	if (isset($_POST['relcomp'])) {
-		if(!empty($_POST['medicine'])) {
-    	foreach($_POST['medicine'] as $check2) {
-            echo $check2;
-			}
-		}
-	} // close tag for Medicine Efficiency Comparison
-		
+
 		
 	// if Important Entries got ticked
 	if (isset($_POST['impent'])) {
