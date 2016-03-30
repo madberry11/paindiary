@@ -978,7 +978,7 @@ else {
     	foreach($_POST['bodypart'] as $check1) {
 			
 // Day 16
-$sql2 = "SELECT entryday, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
+$sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
 	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($result) == 1) { 
 	$row = mysqli_fetch_assoc($result);
