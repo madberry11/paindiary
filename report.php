@@ -990,7 +990,7 @@ while ($i < $countparts) {
 	if (@mysqli_num_rows($r16) == 1) { 
 	$row = mysqli_fetch_assoc($r16);
 	$pl16 = $row['avgpain'];
-	echo $pl16;
+	echo $pl16 ."<br />";
 	}
 	$i++;
 }
