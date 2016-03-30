@@ -1069,21 +1069,28 @@ else {
         series: [
 		{
 			showInLegend: false, 
-            name: 'Monthly Pain Intensity',
+			<?php
+			$i = 0;
+			while ($i<$countparts) {
+		//repeat this part until i = (row_cnt-2)
+		?>
+		{
 			
 			<?php 
 
 // if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+		name: '<?php echo $i ?>',
+		data: [<?php echo $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i  .','. $i .','. $i ?>],
 <?php
 }
 
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        name: '<?php echo $i ?>',
+		data: [<?php echo $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i  .','. $i ?>],
 <?php
 }
 
@@ -1093,16 +1100,20 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        name: '<?php echo $i ?>',
+		data: [<?php echo $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i ?>],
 <?php
 	}
 	
 	// if it is not a leap year
 	else {
 		?>	
-        data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        name: '<?php echo $i ?>',
+		data: [<?php echo $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i .','. $i ?>],
 <?php
 	}
+	$i++;
+} // close tag for if less than countparts
 
 }
 ?>
