@@ -1330,69 +1330,67 @@ while ($i < $countparts) {
 	
 	$i++;
 }
-print_r($pain);
-echo '<br/>';
-print_r($p1);
-echo '<br/>';
-print_r($p2);
-echo '<br/>';
-print_r($p3);
-echo '<br/>';
-print_r($p4);
-echo '<br/>';
-print_r($p5);
-echo '<br/>';
-print_r($p6);
-echo '<br/>';
-print_r($p7);
-echo '<br/>';
-print_r($p8);
-echo '<br/>';
-print_r($p9);
-echo '<br/>';
-print_r($p10);
-echo '<br/>';
-print_r($p11);
-echo '<br/>';
-print_r($p12);
-echo '<br/>';
-print_r($p13);
-echo '<br/>';
-print_r($p14);
-echo '<br/>';
-print_r($p15);
-echo '<br/>';
-print_r($p16);
-echo '<br/>';
-print_r($p17);
-echo '<br/>';
-print_r($p18);
-echo '<br/>';
-print_r($p19);
-echo '<br/>';
-print_r($p20);
-echo '<br/>';
-print_r($p21);
-echo '<br/>';
-print_r($p22);
-echo '<br/>';
-print_r($p23);
-echo '<br/>';
-print_r($p24);
-echo '<br/>';
-print_r($p25);
-echo '<br/>';
-print_r($p26);
-echo '<br/>';
-print_r($p27);
-echo '<br/>';
-print_r($p28);
-echo '<br/>';
-print_r($p29);
-echo '<br/>';
-print_r($p30);
-echo '<br/>';
-print_r($p31);
+?>
+<div id="container3"</div>
+<script>
+$(function () { 
+    $('#container3').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Daily Pain Itensity'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Itensity'
+            }
+        },
+        xAxis: {
+            categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+        },
+		
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		<?php
+		$j=0;
+		while ($i<$countparts) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $bodypart[$i] ?>',
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true,
+			dragMinY: 0
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts) {
+		// write this for the last one only
+		?>
+		 {
+            name: '<?php echo $bodypart[$i] ?>',
+			data: [<?php echo $p00[$i]. ',' .$p01[$i]. ',' .$p02[$i]. ',' .$p03[$i]. ',' .$p04[$i]. ',' .$p05[$i]. ',' .$p06[$i]. ',' .$p07[$i]. ',' .$p08[$i]. ',' .$p09[$i]. ',' .$p10[$i]. ',' .$p11[$i]. ',' .$p12[$i]. ',' .$p13[$i]. ',' .$p14[$i]. ',' .$p15[$i]. ',' .$p16[$i]. ',' .$p17[$i]. ',' .$p18[$i]. ',' .$p19[$i]. ',' .$p20[$i]. ',' .$p21[$i]. ',' .$p22[$i]. ',' .$p23[$i] ?>],
+			draggableY: true,
+			dragMinY: 0
+        }
+		<?php
+		}
+		?>
+		]
+    });
+});
+
+</script>
+<?php
 
 
 		} // close tag for if not empty
