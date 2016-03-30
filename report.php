@@ -974,7 +974,7 @@ else {
 	// if Pain Intensity Comparison got ticked
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
-			$countparts = 0;
+			//$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
 			
 			
@@ -990,9 +990,9 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 
 
 
-				$countparts++;
+				//$countparts++;
 			} // close tag for foreach
-			echo $countparts;
+			//echo $countparts;
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
 	
