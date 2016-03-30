@@ -972,36 +972,6 @@ else {
 	
 	
 	// if Pain Intensity Comparison got ticked
-	?>
-    
-<div id="container3"></div>    
-<script>
-$(function () { 
-    $('#container3').highcharts({
-        chart: {
-            type: 'column'
-			//zoomType: 'xy'
-        },
-        title: {
-            text: 'Daily Pain Itensity'
-        },
-		yAxis: {
-            title: {
-                text: 'Pain Itensity'
-            }
-        },
-        xAxis: {
-            categories: ['0AM', '1AM', '2AM', '3AM', '4AM']
-        },
-		
-		plotOptions: {
-        
-                line: {
-            cursor: 'ns-resize'
-        }
-    },
-		
-<?php
 	
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
@@ -1011,7 +981,7 @@ $(function () {
 			$pain[] = $check1;
 			$countparts++;
 		}
-			
+echo '<pre>'; print_r($pain); echo '</pre>';			
 $i=0;
 while ($i<$countparts) {
 			
@@ -1026,34 +996,10 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$d16[]=$day16;
 	//echo $bodypart . ": " . $day16;
 	}
+	
+} //close tag for while loop
 	?>
-series: [{
-            name: 'Jane',
-            data: [1, 0, 4, 3, 3]
-        },	
-<?php
 
-	$i++;
-}
-
-if ($i == $counterparts) {
-	?>
-	series: [{
-	name: 'John',
-            data: [5, 7, 3, 3, 2]
-        }]
-<?php	
-}
-?>
-			
-			draggableY: true,
-			dragMinY: 0
-        }
-		]
-    });
-});
-
-</script>
 <?php
 			
 		} // close tag for if not empty
