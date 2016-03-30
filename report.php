@@ -983,9 +983,9 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($result) == 1) { 
 	$row = mysqli_fetch_assoc($result);
-	$bodypart[]=$row['bodypart'];
-	$day16[]=$row['avgpain'];
-	echo $bodypart[] . ": " . $day16[];
+	$bodypart=$row['bodypart'];
+	$day16=$row['avgpain'];
+	echo $bodypart . ": " . $day16;
 	}
 
 
