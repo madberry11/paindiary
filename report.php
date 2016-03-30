@@ -3,6 +3,9 @@
 
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
 ob_start();
 session_start();
 require ('config.inc.php'); 
