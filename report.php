@@ -972,7 +972,23 @@ else {
 	
 	
 	// if Pain Intensity Comparison got ticked
+	
 
+	// if Average Medicine Efficiency got ticked
+	if (isset($_POST['avgrel'])) {
+		echo "average medicine efficiency<br />";
+	} // close tag for Average Medicine Efficiency
+	
+	
+	//if Medicine Efficiency Comparison got ticked
+	if (isset($_POST['relcomp'])) {
+		if(!empty($_POST['medicine'])) {
+    	foreach($_POST['medicine'] as $check2) {
+            echo $check2;
+			}
+		}
+	} // close tag for Medicine Efficiency Comparison
+		
 		
 	// if Important Entries got ticked
 	if (isset($_POST['impent'])) {
