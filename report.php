@@ -978,16 +978,8 @@ else {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
 			echo $check1 . "<br />";
-			$pain[] = $check1;
-			$countparts++;
 		}
-print_r($pain);			
-$i=0;
-while ($i<$countparts) {
-			
 
-} //close tag for while loop
-			
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
 	
