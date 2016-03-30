@@ -972,32 +972,8 @@ else {
 	
 	
 	// if Pain Intensity Comparison got ticked
-	if (isset($_POST['pcomp'])) {
-		if(!empty($_POST['bodypart'])) {
-			$countparts = 0;
-    	foreach($_POST['bodypart'] as $check1) {
-			echo $check1 . "<br />";
-			
-			
-// Day 16
-$sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $check1 . "'" ;
-	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($result) == 1) { 
-	$row = mysqli_fetch_assoc($result);
-	$bodypart=$row['bodypart'];
-	$bpart[]=$bodypart;
-	$day16=$row['avgpain'];
-	$d16[]=$day16;
-	echo $bodypart . ": " . $day16;
-	}
-
-
-
-				$countparts++;
-			} // close tag for foreach
-			echo $countparts;
-		?>	
-			<div id="container3"></div>
+	?>
+<div id="container3"></div>
 
 <script>
 $(function () { 
@@ -1065,16 +1041,36 @@ else {
             cursor: 'ns-resize'
         }
     },
-		
-        series: [
-		{
+	
+<?php
+	
+	if (isset($_POST['pcomp'])) {
+		if(!empty($_POST['bodypart'])) {
+			$countparts = 0;
+    	foreach($_POST['bodypart'] as $check1) {
+			echo $check1 . "<br />";
+			$pain[] = $check1;
+			$countparts++;
+		}
+			
+$i=0;
+while ($i<$countparts) {
+			
+// Day 16
+$sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth ." AND entryday = 16 AND bodypart = '" . $pain[] . "'" ;
+	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (@mysqli_num_rows($result) == 1) { 
+	$row = mysqli_fetch_assoc($result);
+	$bodypart=$row['bodypart'];
+	$bpart[]=$bodypart;
+	$day16=$row['avgpain'];
+	$d16[]=$day16;
+	echo $bodypart . ": " . $day16;
+	}
+		?>	
+		 series: [{
 			showInLegend: false, 
-			<?php
-			$i = 0;
-			while ($i<$countparts) {
-		//repeat this part until i = (row_cnt-2)
-		?>
-		{
+		{ // beginning of dataset
 			
 			<?php 
 
