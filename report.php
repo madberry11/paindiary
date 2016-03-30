@@ -1068,6 +1068,7 @@ else {
 // if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
 		
 <?php
@@ -1076,6 +1077,7 @@ if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7)
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
 <?php
 }
@@ -1086,6 +1088,7 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
 <?php
 	}
@@ -1093,6 +1096,7 @@ else {
 	// if it is not a leap year
 	else {
 		?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
 <?php
 	}
@@ -1105,6 +1109,7 @@ if ($i == $row_cnt-1) {
 			// if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i]. ',' .$day31[$i] ?>],
 		
 <?php
@@ -1113,6 +1118,7 @@ if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7)
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i]. ',' .$day30[$i] ?>],
 <?php
 }
@@ -1123,6 +1129,7 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i]. ',' .$day29[$i] ?>],
 <?php
 	}
@@ -1130,6 +1137,7 @@ else {
 	// if it is not a leap year
 	else {
 		?>	
+		name: '<?php echo $bodypart[$i] ?>',
         data: [<?php echo $day1[$i]. ',' .$day2[$i]. ',' .$day3[$i]. ',' .$day4[$i]. ',' .$day5[$i]. ',' .$day6[$i]. ',' .$day7[$i]. ',' .$day8[$i]. ',' .$day9[$i]. ',' .$day10[$i]. ',' .$day11[$i]. ',' .$day12[$i]. ',' .$day13[$i]. ',' .$day14[$i]. ',' .$day15[$i]. ',' .$day16[$i]. ',' .$day17[$i]. ',' .$day18[$i]. ',' .$day19[$i]. ',' .$day20[$i]. ',' .$day21[$i]. ',' .$day22[$i]. ',' .$day23[$i]. ',' .$day24[$i]. ',' .$day25[$i]. ',' .$day26[$i]. ',' .$day27[$i]. ',' .$day28[$i] ?>],
 <?php
 	} 
