@@ -834,7 +834,8 @@ display: none !important;
 }
 
 #container {
-	height: 500px;
+	min-height: 500px;
+	y-overflow: auto;
 	width: 95%;
 	margin: 10px auto;	
 }
@@ -940,8 +941,9 @@ display: none !important;
 	border-radius: 5px; /* future proofing */
 	-khtml-border-radius: 5px; /* for old Konqueror browsers */
 }
-
+/*
 #sub-p, #sub-rel {
 	margin-left: 30px;
 	display: none;	
 }
+*/
