@@ -974,7 +974,7 @@ else {
 	// if Pain Intensity Comparison got ticked
 	if (isset($_POST['pcomp'])) {
 		if(!empty($_POST['bodypart'])) {
-			//$countparts = 0;
+			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
 			
 			
@@ -984,15 +984,17 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	if (@mysqli_num_rows($result) == 1) { 
 	$row = mysqli_fetch_assoc($result);
 	$bodypart=$row['bodypart'];
+	$bpart[]=$bodypart;
 	$day16=$row['avgpain'];
+	$d16[]=$day16;
 	echo $bodypart . ": " . $day16;
 	}
 
 
 
-				//$countparts++;
+				$countparts++;
 			} // close tag for foreach
-			//echo $countparts;
+			echo $countparts;
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
 	
