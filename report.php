@@ -1081,7 +1081,7 @@ else {
 // if the month is January, March, May, July, August, October or December
 if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
 ?>		
-		name: '<?php echo $i?>',
+		name: 'Monthly Pain Intensity',
         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 <?php
 }
@@ -1089,7 +1089,7 @@ if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7)
 // if the month is April, June, September or November
 elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
 ?>	
-		name: '<?php echo $i?>',
+		name: 'Monthly Pain Intensity',
         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 <?php
 }
@@ -1100,7 +1100,7 @@ else {
 	// if it is a leap year
 	if ($calyear % 4 == 0) {
 		?>	
-		name: '<?php echo $i?>',
+		name: 'Monthly Pain Intensity',
         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 <?php
 	}
@@ -1108,7 +1108,7 @@ else {
 	// if it is not a leap year
 	else {
 		?>	
-		name: '<?php echo $i?>',
+		name: 'Monthly Pain Intensity',
         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 <?php
 	}
