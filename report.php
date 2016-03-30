@@ -985,6 +985,7 @@ print_r($pain);
 $i = 0;
 while ($i < $countparts) {
 	echo "yes";
+	$i++;
 }
 
 		} // close tag for if not empty
