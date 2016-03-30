@@ -989,7 +989,7 @@ while ($i < $countparts) {
 	$r16 = mysqli_query ($dbc, $q16) or trigger_error("Query: $q16\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($r16) == 1) { 
 	$row = mysqli_fetch_assoc($r16);
-	$pl16 = $row['username'];
+	$pl16 = $row['avgpain'];
 	echo $pl16;
 	}
 	$i++;
