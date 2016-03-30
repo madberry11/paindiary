@@ -998,9 +998,6 @@ $sql2 = "SELECT entryday, bodypart, avgpain FROM pain WHERE user_id="  . $_SESSI
 	}
 	
 } //close tag for while loop
-	?>
-
-<?php
 			
 		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
