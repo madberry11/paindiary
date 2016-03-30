@@ -981,7 +981,7 @@ else {
 			$pain[] = $check1;
 			$countparts++;
 		}
-echo '<pre>'; print_r($pain); echo '</pre>';			
+print_r($pain);			
 $i=0;
 while ($i<$countparts) {
 			
