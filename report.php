@@ -976,6 +976,7 @@ else {
 		if(!empty($_POST['bodypart'])) {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
+			echo $check . "<br />";
 			
 			
 // Day 16
