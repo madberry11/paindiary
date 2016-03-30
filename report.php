@@ -973,7 +973,25 @@ else {
 	
 	// if Pain Intensity Comparison got ticked
 	
+	if (isset($_POST['pcomp'])) {
+		if(!empty($_POST['bodypart'])) {
+			$countparts = 0;
+    	foreach($_POST['bodypart'] as $check1) {
+			echo $check1 . "<br />";
+			$pain[] = $check1;
+			$countparts++;
+		}
+echo '<pre>'; print_r($pain); echo '</pre>';			
+$i=0;
+while ($i<$countparts) {
+			
 
+} //close tag for while loop
+			
+		} // close tag for if not empty
+	} // close tag for Pain Intensity Comparison
+	
+	
 	// if Average Medicine Efficiency got ticked
 	if (isset($_POST['avgrel'])) {
 		echo "average medicine efficiency<br />";
