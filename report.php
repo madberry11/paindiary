@@ -1360,7 +1360,7 @@ $(function () {
 		
         series: [
 		<?php
-		$j=0;
+		$i=0;
 		while ($i<$countparts) {
 		//repeat this part until i = countparts
 		?>
@@ -1371,9 +1371,9 @@ $(function () {
 			dragMinY: 0
         },
 		<?php
-		$j++;
+		$i++;
 		}
-		if ($j == $countparts) {
+		if ($i == $countparts) {
 		// write this for the last one only
 		?>
 		 {
