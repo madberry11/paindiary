@@ -281,6 +281,7 @@ transition-duration: 1s;
 	width: 90%;
 	padding: 5px;
 	margin: 20px auto !important;
+	margin-bottom: -20px !important;
 	font-family: Lato;
 	font-weight: 700;
 	font-size: 14px;
