@@ -3147,7 +3147,7 @@ if ($result -> num_rows > 0) {
 		$sql2 = "SELECT * FROM comments WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth. " AND entryday = '" . $eday[$n] ."'";
 		$result2 = $dbc->query($sql2);
 		if ($result2 -> num_rows > 0) {
-		while($row = $result->fetch_assoc()) {
+		while($row = $result2->fetch_assoc()) {
 		$ecomment[] = $row['comment'];
 			}	
 			}
