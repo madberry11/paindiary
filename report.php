@@ -3150,8 +3150,10 @@ if ($result -> num_rows > 0) {
 		if ($result2 -> num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 		$ecomment[] = $row['comment'];
-		
+			}	
 			}
+		else {
+		$ecomment[] = "There is no comment for this day yet.";
 		}
 		
 ?>
