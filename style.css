@@ -958,3 +958,8 @@ display: none !important;
 #reportform input[type=checkbox] {
 	padding-right: 10px;
 }
+
+#generate {
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
