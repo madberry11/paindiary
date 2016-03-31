@@ -275,7 +275,7 @@ transition-duration: 1s;
 	cursor: pointer;
 }
 
-#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover {
+#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover, #printbutton:hover{
 	transition-property: background-color;
 	transition-duration: 1s;
 }

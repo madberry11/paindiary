@@ -48,12 +48,12 @@ legend {
 	background-color: #adaad5;
 }
 
-#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass, #printbutton {
 	border: 1px solid black;
 	background-color: #da4657;
 }
 
-#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover, #changepass:hover {
+#addnewbutton:hover, #addpainrelief:hover, #addcomment:hover, #deleteall:hover, #changepass:hover, #printbutton:hover {
 	background-color: #bd2133;
 }
 
