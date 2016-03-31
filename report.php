@@ -2322,9 +2322,14 @@ while ($i < $countmed) {
 	// Day 1
 	$qqq1 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=1 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr1 = mysqli_query ($dbc, $qqq1) or trigger_error("Query: $qqq1\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr1) == 1) { 
-	$row = mysqli_fetch_assoc($rrr1);
-	$m1[] = $row['painrelief'];
+	if ($rrr1 -> num_rows > 0) {
+	 $m1num = 0;
+	 $m1sum = 0;
+     while($row = $rrr1->fetch_assoc()) {
+		 $m1num++;
+		 $m1sum = $m1sum + $row['painrelief'];
+	 }
+	 $m1[] = $m1sum/$m1num;
 	}
 	else {
 	$m1[] = 0;	
@@ -2333,9 +2338,14 @@ while ($i < $countmed) {
 	// Day 2
 	$qqq2 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=2 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr2 = mysqli_query ($dbc, $qqq2) or trigger_error("Query: $qqq2\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr2) == 1) { 
-	$row = mysqli_fetch_assoc($rrr2);
-	$m2[] = $row['painrelief'];
+	if ($rrr2 -> num_rows > 0) {
+	 $m2num = 0;
+	 $m2sum = 0;
+     while($row = $rrr2->fetch_assoc()) {
+		 $m2num++;
+		 $m2sum = $m2sum + $row['painrelief'];
+	 }
+	 $m2[] = $m2sum/$m2num;
 	}
 	else {
 	$m2[] = 0;	
@@ -2344,9 +2354,14 @@ while ($i < $countmed) {
 	// Day 3
 	$qqq3 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=3 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr3 = mysqli_query ($dbc, $qqq3) or trigger_error("Query: $qqq3\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr3) == 1) { 
-	$row = mysqli_fetch_assoc($rrr3);
-	$m3[] = $row['painrelief'];
+	if ($rrr3 -> num_rows > 0) {
+	 $m3num = 0;
+	 $m3sum = 0;
+     while($row = $rrr3->fetch_assoc()) {
+		 $m3num++;
+		 $m3sum = $m3sum + $row['painrelief'];
+	 }
+	 $m3[] = $m3sum/$m3num;
 	}
 	else {
 	$m3[] = 0;	
@@ -2355,9 +2370,14 @@ while ($i < $countmed) {
 	// Day 4
 	$qqq4 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=4 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr4 = mysqli_query ($dbc, $qqq4) or trigger_error("Query: $qqq4\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr4) == 1) { 
-	$row = mysqli_fetch_assoc($rrr4);
-	$m4[] = $row['painrelief'];
+	if ($rrr4 -> num_rows > 0) {
+	 $m4num = 0;
+	 $m4sum = 0;
+     while($row = $rrr4->fetch_assoc()) {
+		 $m4num++;
+		 $m4sum = $m4sum + $row['painrelief'];
+	 }
+	 $m4[] = $m4sum/$m4num;
 	}
 	else {
 	$m4[] = 0;	
@@ -2366,9 +2386,14 @@ while ($i < $countmed) {
 	// Day 5
 	$qqq5 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=5 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr5 = mysqli_query ($dbc, $qqq5) or trigger_error("Query: $qqq5\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr5) == 1) { 
-	$row = mysqli_fetch_assoc($rrr5);
-	$m5[] = $row['painrelief'];
+	if ($rrr5 -> num_rows > 0) {
+	 $m5num = 0;
+	 $m5sum = 0;
+     while($row = $rrr5->fetch_assoc()) {
+		 $m5num++;
+		 $m5sum = $m5sum + $row['painrelief'];
+	 }
+	 $m5[] = $m5sum/$m5num;
 	}
 	else {
 	$m5[] = 0;	
@@ -2377,9 +2402,14 @@ while ($i < $countmed) {
 	// Day 6
 	$qqq6 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=6 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr6 = mysqli_query ($dbc, $qqq6) or trigger_error("Query: $qqq6\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr6) == 1) { 
-	$row = mysqli_fetch_assoc($rrr6);
-	$m6[] = $row['painrelief'];
+	if ($rrr6 -> num_rows > 0) {
+	 $m6num = 0;
+	 $m6sum = 0;
+     while($row = $rrr6->fetch_assoc()) {
+		 $m6num++;
+		 $m6sum = $m6sum + $row['painrelief'];
+	 }
+	 $m6[] = $m6sum/$m6num;
 	}
 	else {
 	$m6[] = 0;	
@@ -2388,9 +2418,14 @@ while ($i < $countmed) {
 	// Day 7
 	$qqq7 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=7 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr7 = mysqli_query ($dbc, $qqq7) or trigger_error("Query: $qqq7\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr7) == 1) { 
-	$row = mysqli_fetch_assoc($rrr7);
-	$m7[] = $row['painrelief'];
+	if ($rrr7 -> num_rows > 0) {
+	 $m7num = 0;
+	 $m7sum = 0;
+     while($row = $rrr7->fetch_assoc()) {
+		 $m7num++;
+		 $m7sum = $m7sum + $row['painrelief'];
+	 }
+	 $m7[] = $m7sum/$m7num;
 	}
 	else {
 	$m7[] = 0;	
@@ -2399,9 +2434,14 @@ while ($i < $countmed) {
 	// Day 8
 	$qqq8 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=8 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr8 = mysqli_query ($dbc, $qqq8) or trigger_error("Query: $qqq8\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr8) == 1) { 
-	$row = mysqli_fetch_assoc($rrr8);
-	$m8[] = $row['painrelief'];
+	if ($rrr8 -> num_rows > 0) {
+	 $m8num = 0;
+	 $m8sum = 0;
+     while($row = $rrr8->fetch_assoc()) {
+		 $m8num++;
+		 $m8sum = $m8sum + $row['painrelief'];
+	 }
+	 $m8[] = $m8sum/$m8num;
 	}
 	else {
 	$m8[] = 0;	
@@ -2410,9 +2450,14 @@ while ($i < $countmed) {
 	// Day 9
 	$qqq9 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=9 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr9 = mysqli_query ($dbc, $qqq9) or trigger_error("Query: $qqq9\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr9) == 1) { 
-	$row = mysqli_fetch_assoc($rrr9);
-	$m9[] = $row['painrelief'];
+	if ($rrr9 -> num_rows > 0) {
+	 $m9num = 0;
+	 $m9sum = 0;
+     while($row = $rrr9->fetch_assoc()) {
+		 $m9num++;
+		 $m9sum = $m9sum + $row['painrelief'];
+	 }
+	 $m9[] = $m9sum/$m9num;
 	}
 	else {
 	$m9[] = 0;	
@@ -2421,9 +2466,14 @@ while ($i < $countmed) {
 	// Day 10
 	$qqq10 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=10 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr10 = mysqli_query ($dbc, $qqq10) or trigger_error("Query: $qqq10\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr10) == 1) { 
-	$row = mysqli_fetch_assoc($rrr10);
-	$m10[] = $row['painrelief'];
+	if ($rrr10 -> num_rows > 0) {
+	 $m10num = 0;
+	 $m10sum = 0;
+     while($row = $rrr10->fetch_assoc()) {
+		 $m10num++;
+		 $m10sum = $m10sum + $row['painrelief'];
+	 }
+	 $m10[] = $m10sum/$m10num;
 	}
 	else {
 	$m10[] = 0;	
@@ -2432,9 +2482,14 @@ while ($i < $countmed) {
 	// Day 11
 	$qqq11 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=11 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr11 = mysqli_query ($dbc, $qqq11) or trigger_error("Query: $qqq11\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr11) == 1) { 
-	$row = mysqli_fetch_assoc($rrr11);
-	$m11[] = $row['painrelief'];
+	if ($rrr11 -> num_rows > 0) {
+	 $m11num = 0;
+	 $m11sum = 0;
+     while($row = $rrr11->fetch_assoc()) {
+		 $m11num++;
+		 $m11sum = $m11sum + $row['painrelief'];
+	 }
+	 $m11[] = $m11sum/$m11num;
 	}
 	else {
 	$m11[] = 0;	
@@ -2443,9 +2498,14 @@ while ($i < $countmed) {
 	// Day 12
 	$qqq12 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=12 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr12 = mysqli_query ($dbc, $qqq12) or trigger_error("Query: $qqq12\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr12) == 1) { 
-	$row = mysqli_fetch_assoc($rrr12);
-	$m12[] = $row['painrelief'];
+	if ($rrr12 -> num_rows > 0) {
+	 $m12num = 0;
+	 $m12sum = 0;
+     while($row = $rrr12->fetch_assoc()) {
+		 $m12num++;
+		 $m12sum = $m12sum + $row['painrelief'];
+	 }
+	 $m12[] = $m12sum/$m12num;
 	}
 	else {
 	$m12[] = 0;	
@@ -2454,9 +2514,14 @@ while ($i < $countmed) {
 	// Day 13
 	$qqq13 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=13 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr13 = mysqli_query ($dbc, $qqq13) or trigger_error("Query: $qqq13\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr13) == 1) { 
-	$row = mysqli_fetch_assoc($rrr13);
-	$m13[] = $row['painrelief'];
+	if ($rrr13 -> num_rows > 0) {
+	 $m13num = 0;
+	 $m13sum = 0;
+     while($row = $rrr13->fetch_assoc()) {
+		 $m13num++;
+		 $m13sum = $m13sum + $row['painrelief'];
+	 }
+	 $m13[] = $m13sum/$m13num;
 	}
 	else {
 	$m13[] = 0;	
@@ -2465,9 +2530,14 @@ while ($i < $countmed) {
 	// Day 14
 	$qqq14 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=14 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr14 = mysqli_query ($dbc, $qqq14) or trigger_error("Query: $qqq14\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr14) == 1) { 
-	$row = mysqli_fetch_assoc($rrr14);
-	$m14[] = $row['painrelief'];
+	if ($rrr14 -> num_rows > 0) {
+	 $m14num = 0;
+	 $m14sum = 0;
+     while($row = $rrr14->fetch_assoc()) {
+		 $m14num++;
+		 $m14sum = $m14sum + $row['painrelief'];
+	 }
+	 $m14[] = $m14sum/$m14num;
 	}
 	else {
 	$m14[] = 0;	
@@ -2476,9 +2546,14 @@ while ($i < $countmed) {
 	// Day 15
 	$qqq15 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=15 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr15 = mysqli_query ($dbc, $qqq15) or trigger_error("Query: $qqq15\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr15) == 1) { 
-	$row = mysqli_fetch_assoc($rrr15);
-	$m15[] = $row['painrelief'];
+	if ($rrr15 -> num_rows > 0) {
+	 $m15num = 0;
+	 $m15sum = 0;
+     while($row = $rrr15->fetch_assoc()) {
+		 $m15num++;
+		 $m15sum = $m15sum + $row['painrelief'];
+	 }
+	 $m15[] = $m15sum/$m15num;
 	}
 	else {
 	$m15[] = 0;	
@@ -2487,9 +2562,14 @@ while ($i < $countmed) {
 	// Day 16
 	$qqq16 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=16 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr16 = mysqli_query ($dbc, $qqq16) or trigger_error("Query: $qqq16\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr16) == 1) { 
-	$row = mysqli_fetch_assoc($rrr16);
-	$m16[] = $row['painrelief'];
+	if ($rrr16 -> num_rows > 0) {
+	 $m16num = 0;
+	 $m16sum = 0;
+     while($row = $rrr16->fetch_assoc()) {
+		 $m16num++;
+		 $m16sum = $m16sum + $row['painrelief'];
+	 }
+	 $m16[] = $m16sum/$m16num;
 	}
 	else {
 	$m16[] = 0;	
@@ -2498,9 +2578,14 @@ while ($i < $countmed) {
 	// Day 17
 	$qqq17 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=17 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr17 = mysqli_query ($dbc, $qqq17) or trigger_error("Query: $qqq17\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr17) == 1) { 
-	$row = mysqli_fetch_assoc($rrr17);
-	$m17[] = $row['painrelief'];
+	if ($rrr17 -> num_rows > 0) {
+	 $m17num = 0;
+	 $m17sum = 0;
+     while($row = $rrr17->fetch_assoc()) {
+		 $m17num++;
+		 $m17sum = $m17sum + $row['painrelief'];
+	 }
+	 $m17[] = $m17sum/$m17num;
 	}
 	else {
 	$m17[] = 0;	
@@ -2509,9 +2594,14 @@ while ($i < $countmed) {
 	// Day 18
 	$qqq18 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=18 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr18 = mysqli_query ($dbc, $qqq18) or trigger_error("Query: $qqq18\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr18) == 1) { 
-	$row = mysqli_fetch_assoc($rrr18);
-	$m18[] = $row['painrelief'];
+	if ($rrr18 -> num_rows > 0) {
+	 $m18num = 0;
+	 $m18sum = 0;
+     while($row = $rrr18->fetch_assoc()) {
+		 $m18num++;
+		 $m18sum = $m18sum + $row['painrelief'];
+	 }
+	 $m18[] = $m18sum/$m18num;
 	}
 	else {
 	$m18[] = 0;	
@@ -2520,9 +2610,14 @@ while ($i < $countmed) {
 	// Day 19
 	$qqq19 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=19 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr19 = mysqli_query ($dbc, $qqq19) or trigger_error("Query: $qqq19\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr19) == 1) { 
-	$row = mysqli_fetch_assoc($rrr19);
-	$m19[] = $row['painrelief'];
+	if ($rrr19 -> num_rows > 0) {
+	 $m19num = 0;
+	 $m19sum = 0;
+     while($row = $rrr19->fetch_assoc()) {
+		 $m19num++;
+		 $m19sum = $m19sum + $row['painrelief'];
+	 }
+	 $m19[] = $m19sum/$m19num;
 	}
 	else {
 	$m19[] = 0;	
@@ -2531,9 +2626,14 @@ while ($i < $countmed) {
 	// Day 20
 	$qqq20 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=20 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr20 = mysqli_query ($dbc, $qqq20) or trigger_error("Query: $qqq20\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr20) == 1) { 
-	$row = mysqli_fetch_assoc($rrr20);
-	$m20[] = $row['painrelief'];
+	if ($rrr20 -> num_rows > 0) {
+	 $m20num = 0;
+	 $m20sum = 0;
+     while($row = $rrr20->fetch_assoc()) {
+		 $m20num++;
+		 $m20sum = $m20sum + $row['painrelief'];
+	 }
+	 $m20[] = $m20sum/$m20num;
 	}
 	else {
 	$m20[] = 0;	
@@ -2542,9 +2642,14 @@ while ($i < $countmed) {
 	// Day 21
 	$qqq21 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=21 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr21 = mysqli_query ($dbc, $qqq21) or trigger_error("Query: $qqq21\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr21) == 1) { 
-	$row = mysqli_fetch_assoc($rrr21);
-	$m21[] = $row['painrelief'];
+	if ($rrr21 -> num_rows > 0) {
+	 $m21num = 0;
+	 $m21sum = 0;
+     while($row = $rrr21->fetch_assoc()) {
+		 $m21num++;
+		 $m21sum = $m21sum + $row['painrelief'];
+	 }
+	 $m21[] = $m21sum/$m21num;
 	}
 	else {
 	$m21[] = 0;	
@@ -2553,9 +2658,14 @@ while ($i < $countmed) {
 	// Day 22
 	$qqq22 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=22 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr22 = mysqli_query ($dbc, $qqq22) or trigger_error("Query: $qqq22\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr22) == 1) { 
-	$row = mysqli_fetch_assoc($rrr22);
-	$m22[] = $row['painrelief'];
+	if ($rrr22 -> num_rows > 0) {
+	 $m22num = 0;
+	 $m22sum = 0;
+     while($row = $rrr22->fetch_assoc()) {
+		 $m22num++;
+		 $m22sum = $m22sum + $row['painrelief'];
+	 }
+	 $m22[] = $m22sum/$m22num;
 	}
 	else {
 	$m22[] = 0;	
@@ -2564,9 +2674,14 @@ while ($i < $countmed) {
 	// Day 23
 	$qqq23 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=23 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr23 = mysqli_query ($dbc, $qqq23) or trigger_error("Query: $qqq23\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr23) == 1) { 
-	$row = mysqli_fetch_assoc($rrr23);
-	$m23[] = $row['painrelief'];
+	if ($rrr23 -> num_rows > 0) {
+	 $m23num = 0;
+	 $m23sum = 0;
+     while($row = $rrr23->fetch_assoc()) {
+		 $m23num++;
+		 $m23sum = $m23sum + $row['painrelief'];
+	 }
+	 $m23[] = $m23sum/$m23num;
 	}
 	else {
 	$m23[] = 0;	
@@ -2575,9 +2690,14 @@ while ($i < $countmed) {
 	// Day 24
 	$qqq24 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=24 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr24 = mysqli_query ($dbc, $qqq24) or trigger_error("Query: $qqq24\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr24) == 1) { 
-	$row = mysqli_fetch_assoc($rrr24);
-	$m24[] = $row['painrelief'];
+	if ($rrr24 -> num_rows > 0) {
+	 $m24num = 0;
+	 $m24sum = 0;
+     while($row = $rrr24->fetch_assoc()) {
+		 $m24num++;
+		 $m24sum = $m24sum + $row['painrelief'];
+	 }
+	 $m24[] = $m24sum/$m24num;
 	}
 	else {
 	$m24[] = 0;	
@@ -2586,9 +2706,14 @@ while ($i < $countmed) {
 	// Day 25
 	$qqq25 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=25 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr25 = mysqli_query ($dbc, $qqq25) or trigger_error("Query: $qqq25\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr25) == 1) { 
-	$row = mysqli_fetch_assoc($rrr25);
-	$m25[] = $row['painrelief'];
+	if ($rrr25 -> num_rows > 0) {
+	 $m25num = 0;
+	 $m25sum = 0;
+     while($row = $rrr25->fetch_assoc()) {
+		 $m25num++;
+		 $m25sum = $m25sum + $row['painrelief'];
+	 }
+	 $m25[] = $m25sum/$m25num;
 	}
 	else {
 	$m25[] = 0;	
@@ -2597,9 +2722,14 @@ while ($i < $countmed) {
 	// Day 26
 	$qqq26 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=26 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr26 = mysqli_query ($dbc, $qqq26) or trigger_error("Query: $qqq26\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr26) == 1) { 
-	$row = mysqli_fetch_assoc($rrr26);
-	$m26[] = $row['painrelief'];
+	if ($rrr26 -> num_rows > 0) {
+	 $m26num = 0;
+	 $m26sum = 0;
+     while($row = $rrr26->fetch_assoc()) {
+		 $m26num++;
+		 $m26sum = $m26sum + $row['painrelief'];
+	 }
+	 $m26[] = $m26sum/$m26num;
 	}
 	else {
 	$m26[] = 0;	
@@ -2608,9 +2738,14 @@ while ($i < $countmed) {
 	// Day 27
 	$qqq27 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=27 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr27 = mysqli_query ($dbc, $qqq27) or trigger_error("Query: $qqq27\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr27) == 1) { 
-	$row = mysqli_fetch_assoc($rrr27);
-	$m27[] = $row['painrelief'];
+	if ($rrr27 -> num_rows > 0) {
+	 $m27num = 0;
+	 $m27sum = 0;
+     while($row = $rrr27->fetch_assoc()) {
+		 $m27num++;
+		 $m27sum = $m27sum + $row['painrelief'];
+	 }
+	 $m27[] = $m27sum/$m27num;
 	}
 	else {
 	$m27[] = 0;	
@@ -2619,9 +2754,14 @@ while ($i < $countmed) {
 	// Day 28
 	$qqq28 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=28 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr28 = mysqli_query ($dbc, $qqq28) or trigger_error("Query: $qqq28\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr28) == 1) { 
-	$row = mysqli_fetch_assoc($rrr28);
-	$m28[] = $row['painrelief'];
+	if ($rrr28 -> num_rows > 0) {
+	 $m28num = 0;
+	 $m28sum = 0;
+     while($row = $rrr28->fetch_assoc()) {
+		 $m28num++;
+		 $m28sum = $m28sum + $row['painrelief'];
+	 }
+	 $m28[] = $m28sum/$m28num;
 	}
 	else {
 	$m28[] = 0;	
@@ -2630,9 +2770,14 @@ while ($i < $countmed) {
 	// Day 29
 	$qqq29 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=29 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr29 = mysqli_query ($dbc, $qqq29) or trigger_error("Query: $qqq29\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr29) == 1) { 
-	$row = mysqli_fetch_assoc($rrr29);
-	$m29[] = $row['painrelief'];
+	if ($rrr29 -> num_rows > 0) {
+	 $m29num = 0;
+	 $m29sum = 0;
+     while($row = $rrr29->fetch_assoc()) {
+		 $m29num++;
+		 $m29sum = $m29sum + $row['painrelief'];
+	 }
+	 $m29[] = $m29sum/$m29num;
 	}
 	else {
 	$m29[] = 0;	
@@ -2641,9 +2786,14 @@ while ($i < $countmed) {
 	// Day 30
 	$qqq30 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=30 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr30 = mysqli_query ($dbc, $qqq30) or trigger_error("Query: $qqq30\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr30) == 1) { 
-	$row = mysqli_fetch_assoc($rrr30);
-	$m30[] = $row['painrelief'];
+	if ($rrr30 -> num_rows > 0) {
+	 $m30num = 0;
+	 $m30sum = 0;
+     while($row = $rrr30->fetch_assoc()) {
+		 $m30num++;
+		 $m30sum = $m30sum + $row['painrelief'];
+	 }
+	 $m30[] = $m30sum/$m30num;
 	}
 	else {
 	$m30[] = 0;	
@@ -2652,9 +2802,14 @@ while ($i < $countmed) {
 	// Day 31
 	$qqq31 = "SELECT * FROM painrelief WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=31 AND medicine='". $med[$i] ."' AND user_id="  . $_SESSION['user_id'];
 	$rrr31 = mysqli_query ($dbc, $qqq31) or trigger_error("Query: $qqq31\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (@mysqli_num_rows($rrr31) == 1) { 
-	$row = mysqli_fetch_assoc($rrr31);
-	$m31[] = $row['painrelief'];
+	if ($rrr31 -> num_rows > 0) {
+	 $m31num = 0;
+	 $m31sum = 0;
+     while($row = $rrr31->fetch_assoc()) {
+		 $m31num++;
+		 $m31sum = $m31sum + $row['painrelief'];
+	 }
+	 $m31[] = $m31sum/$m31num;
 	}
 	else {
 	$m31[] = 0;	
