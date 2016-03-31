@@ -276,7 +276,7 @@ transition-duration: 1s;
 }
 
 #printbutton {
-	display: inline-block;
+	display: block;
 	padding: 5px;
 	margin: 20px auto !important;
 	font-family: Lato;
