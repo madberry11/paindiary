@@ -3140,7 +3140,7 @@ else {
 		$sql = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
-	while($row = $result2->fetch_assoc()) {
+	while($row = $result->fetch_assoc()) {
 		echo $row['important_id'] . "<br />";
 	}
 }
