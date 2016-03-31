@@ -1367,7 +1367,7 @@ $(function () {
 		?>
 		{
             name: '<?php echo $pain[$j] ?>',
-			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p16[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j] ?>]
+			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p6[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j] ?>]
         },
 		<?php
 		$j++;
@@ -1377,7 +1377,63 @@ $(function () {
 		?>
 		 {
 			name: '<?php echo $pain[$j] ?>',
-			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p16[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j] ?>]
+			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p6[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+    });
+});
+
+</script>
+
+<div id="container4"</div>
+<script>
+$(function () { 
+    $('#container4').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Pain Intensity Comparison (2)'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Intensity'
+            }
+        },
+        xAxis: {
+            categories: ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+        },
+		
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		<?php
+		$j=0;
+		while ($j<$countparts-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p11[$j]. ',' .$p12[$j]. ',' .$p13[$j]. ',' .$p14[$j]. ',' .$p15[$j]. ',' .$p16[$j]. ',' .$p17[$j]. ',' .$p18[$j]. ',' .$p19[$j]. ',' .$p20[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p11[$j]. ',' .$p12[$j]. ',' .$p13[$j]. ',' .$p14[$j]. ',' .$p15[$j]. ',' .$p16[$j]. ',' .$p17[$j]. ',' .$p18[$j]. ',' .$p19[$j]. ',' .$p20[$j] ?>]
         }
 		<?php
 		}
