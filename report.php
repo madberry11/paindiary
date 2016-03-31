@@ -857,11 +857,11 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Monthly Pain Itensity'
+            text: 'Monthly Pain Intensity'
         },
 		yAxis: {
             title: {
-                text: 'Average Pain Itensity',
+                text: 'Average Pain Intensity',
 				enabled: false
             }
         },
@@ -1341,11 +1341,11 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Pain Itensity Comparison (1)'
+            text: 'Pain Intensity Comparison (1)'
         },
 		yAxis: {
             title: {
-                text: 'Pain Itensity'
+                text: 'Pain Intensity'
             }
         },
         xAxis: {

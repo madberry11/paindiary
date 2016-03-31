@@ -777,11 +777,11 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Daily Pain Itensity'
+            text: 'Daily Pain Intensity'
         },
 		yAxis: {
             title: {
-                text: 'Pain Itensity'
+                text: 'Pain Intensity'
             }
         },
         xAxis: {
