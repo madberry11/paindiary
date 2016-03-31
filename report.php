@@ -209,7 +209,6 @@ switch ($calmonth) {
 
 <div id="pagewrap">
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
-<div id=''>
 <script>
 $(document).ready(function () {
   $('#pcomp').click(function () {
@@ -234,10 +233,12 @@ $(document).ready(function () {
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 ?>
+
 <form id="reportform" action="report.php" method="post">
 <p><input class='checkbox' type='checkbox' id='avgp' name='avgp' /><label for='avgp'>Average Pain Intensity</label></p>
 <p><input class='checkbox pcomp' type='checkbox' id='pcomp' name='pcomp' /><label for='pcomp'>Pain Intensity Comparison including</label></p>
 <div class="sub-comp" id="sub-p">
+
 <?php
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY bodypart";
 $result2 = $dbc->query($sql2);
@@ -3143,7 +3144,6 @@ else {
 
 ?>
 
-</div>
 </div>
 </body>
 </html>

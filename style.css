@@ -950,3 +950,11 @@ display: none !important;
 .cont {
 	margin-bottom: 20px;
 }
+
+#reportform {
+	margin-left: 40px;
+}
+
+#reportform input[type=checkbox] {
+	padding-right: 10px;
+}
