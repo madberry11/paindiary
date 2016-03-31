@@ -1650,7 +1650,658 @@ else {
 	
 	// if Average Medicine Efficiency got ticked
 	if (isset($_POST['avgrel'])) {
-		echo "average medicine efficiency<br />";
+	
+	// Day 1
+	$qq1 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
+	$rr1 = $dbc->query($qq1);
+	if ($rr1 -> num_rows > 0) {
+	
+	 $d1num = 0;
+	 $d1sum = 0;
+     while($row = $rr1->fetch_assoc()) {
+		 $d1num++;
+		 $d1sum = $d1sum + $row['avgpain'];
+	 }
+	 	$d1 = $d1sum/$d1num;
+	}
+	else {
+		$d1 = 0;
+	}
+	
+	// Day 2
+	$qq2 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 2 ";
+	$rr2 = $dbc->query($qq2);
+	if ($rr2 -> num_rows > 0) {
+	
+	 $d2num = 0;
+	 $d2sum = 0;
+     while($row = $rr2->fetch_assoc()) {
+		 $d2num++;
+		 $d2sum = $d2sum + $row['avgpain'];
+	 }
+	 	$d2 = $d2sum/$d2num;
+	}
+	else {
+		$d2 = 0;
+	}
+	
+	// Day 3
+	$qq3 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 3 ";
+	$rr3 = $dbc->query($qq3);
+	if ($rr3 -> num_rows > 0) {
+	
+	 $d3num = 0;
+	 $d3sum = 0;
+     while($row = $rr3->fetch_assoc()) {
+		 $d3num++;
+		 $d3sum = $d3sum + $row['avgpain'];
+	 }
+	 	$d3 = $d3sum/$d3num;
+	}
+	else {
+		$d3 = 0;
+	}
+	
+	// Day 4
+	$qq4 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 4 ";
+	$rr4 = $dbc->query($qq4);
+	if ($rr4 -> num_rows > 0) {
+	
+	 $d4num = 0;
+	 $d4sum = 0;
+     while($row = $rr4->fetch_assoc()) {
+		 $d4num++;
+		 $d4sum = $d4sum + $row['avgpain'];
+	 }
+	 	$d4 = $d4sum/$d4num;
+	}
+	else {
+		$d4 = 0;
+	}
+	
+	// Day 5
+	$qq5 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 5 ";
+	$rr5 = $dbc->query($qq5);
+	if ($rr5 -> num_rows > 0) {
+	
+	 $d5num = 0;
+	 $d5sum = 0;
+     while($row = $rr5->fetch_assoc()) {
+		 $d5num++;
+		 $d5sum = $d5sum + $row['avgpain'];
+	 }
+	 	$d5 = $d5sum/$d5num;
+	}
+	else {
+		$d5 = 0;
+	}
+	
+	// Day 6
+	$qq6 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 6 ";
+	$rr6 = $dbc->query($qq6);
+	if ($rr6 -> num_rows > 0) {
+	
+	 $d6num = 0;
+	 $d6sum = 0;
+     while($row = $rr6->fetch_assoc()) {
+		 $d6num++;
+		 $d6sum = $d6sum + $row['avgpain'];
+	 }
+	 	$d6 = $d6sum/$d6num;
+	}
+	else {
+		$d6 = 0;
+	}
+	
+	// Day 7
+	$qq7 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 7 ";
+	$rr7 = $dbc->query($qq7);
+	if ($rr7 -> num_rows > 0) {
+	
+	 $d7num = 0;
+	 $d7sum = 0;
+     while($row = $rr7->fetch_assoc()) {
+		 $d7num++;
+		 $d7sum = $d7sum + $row['avgpain'];
+	 }
+	 	$d7 = $d7sum/$d7num;
+	}
+	else {
+		$d7 = 0;
+	}
+	
+	// Day 8
+	$qq8 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 8 ";
+	$rr8 = $dbc->query($qq8);
+	if ($rr8 -> num_rows > 0) {
+	
+	 $d8num = 0;
+	 $d8sum = 0;
+     while($row = $rr8->fetch_assoc()) {
+		 $d8num++;
+		 $d8sum = $d8sum + $row['avgpain'];
+	 }
+	 	$d8 = $d8sum/$d8num;
+	}
+	else {
+		$d8 = 0;
+	}
+	
+	// Day 9
+	$qq9 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 9 ";
+	$rr9 = $dbc->query($qq9);
+	if ($rr9 -> num_rows > 0) {
+	
+	 $d9num = 0;
+	 $d9sum = 0;
+     while($row = $rr9->fetch_assoc()) {
+		 $d9num++;
+		 $d9sum = $d9sum + $row['avgpain'];
+	 }
+	 	$d9 = $d9sum/$d9num;
+	}
+	else {
+		$d9 = 0;
+	}
+	
+	// Day 10
+	$qq10 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 10 ";
+	$rr10 = $dbc->query($qq10);
+	if ($rr10 -> num_rows > 0) {
+	
+	 $d10num = 0;
+	 $d10sum = 0;
+     while($row = $rr10->fetch_assoc()) {
+		 $d10num++;
+		 $d10sum = $d10sum + $row['avgpain'];
+	 }
+	 	$d10 = $d10sum/$d10num;
+	}
+	else {
+		$d10 = 0;
+	}
+	
+	// Day 11
+	$qq11 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 11 ";
+	$rr11 = $dbc->query($qq11);
+	if ($rr11 -> num_rows > 0) {
+	
+	 $d11num = 0;
+	 $d11sum = 0;
+     while($row = $rr11->fetch_assoc()) {
+		 $d11num++;
+		 $d11sum = $d11sum + $row['avgpain'];
+	 }
+	 	$d11 = $d11sum/$d11num;
+	}
+	else {
+		$d11 = 0;
+	}
+	
+	// Day 12
+	$qq12 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 12 ";
+	$rr12 = $dbc->query($qq12);
+	if ($rr12 -> num_rows > 0) {
+	
+	 $d12num = 0;
+	 $d12sum = 0;
+     while($row = $rr12->fetch_assoc()) {
+		 $d12num++;
+		 $d12sum = $d12sum + $row['avgpain'];
+	 }
+	 	$d12 = $d12sum/$d12num;
+	}
+	else {
+		$d12 = 0;
+	}
+	
+	// Day 13
+	$qq13 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 13 ";
+	$rr13 = $dbc->query($qq13);
+	if ($rr13 -> num_rows > 0) {
+	
+	 $d13num = 0;
+	 $d13sum = 0;
+     while($row = $rr13->fetch_assoc()) {
+		 $d13num++;
+		 $d13sum = $d13sum + $row['avgpain'];
+	 }
+	 	$d13 = $d13sum/$d13num;
+	}
+	else {
+		$d13 = 0;
+	}
+	
+	// Day 14
+	$qq14 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 14 ";
+	$rr14 = $dbc->query($qq14);
+	if ($rr14 -> num_rows > 0) {
+	
+	 $d14num = 0;
+	 $d14sum = 0;
+     while($row = $rr14->fetch_assoc()) {
+		 $d14num++;
+		 $d14sum = $d14sum + $row['avgpain'];
+	 }
+	 	$d14 = $d14sum/$d14num;
+	}
+	else {
+		$d14 = 0;
+	}
+	
+	// Day 15
+	$qq15 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 15 ";
+	$rr15 = $dbc->query($qq15);
+	if ($rr15 -> num_rows > 0) {
+	
+	 $d15num = 0;
+	 $d15sum = 0;
+     while($row = $rr15->fetch_assoc()) {
+		 $d15num++;
+		 $d15sum = $d15sum + $row['avgpain'];
+	 }
+	 	$d15 = $d15sum/$d15num;
+	}
+	else {
+		$d15 = 0;
+	}
+	
+	// Day 16
+	$qq16 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16 ";
+	$rr16 = $dbc->query($qq16);
+	if ($rr16 -> num_rows > 0) {
+	
+	 $d16num = 0;
+	 $d16sum = 0;
+     while($row = $rr16->fetch_assoc()) {
+		 $d16num++;
+		 $d16sum = $d16sum + $row['avgpain'];
+	 }
+	 	$d16 = $d16sum/$d16num;
+	}
+	else {
+		$d16 = 0;
+	}
+	
+	// Day 17
+	$qq17 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 17 ";
+	$rr17 = $dbc->query($qq17);
+	if ($rr17 -> num_rows > 0) {
+	
+	 $d17num = 0;
+	 $d17sum = 0;
+     while($row = $rr17->fetch_assoc()) {
+		 $d17num++;
+		 $d17sum = $d17sum + $row['avgpain'];
+	 }
+	 	$d17 = $d17sum/$d17num;
+	}
+	else {
+		$d17 = 0;
+	}
+	
+	// Day 18
+	$qq18 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 18 ";
+	$rr18 = $dbc->query($qq18);
+	if ($rr18 -> num_rows > 0) {
+	
+	 $d18num = 0;
+	 $d18sum = 0;
+     while($row = $rr18->fetch_assoc()) {
+		 $d18num++;
+		 $d18sum = $d18sum + $row['avgpain'];
+	 }
+	 	$d18 = $d18sum/$d18num;
+	}
+	else {
+		$d18 = 0;
+	}
+	
+	// Day 19
+	$qq19 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 19 ";
+	$rr19 = $dbc->query($qq19);
+	if ($rr19 -> num_rows > 0) {
+	
+	 $d19num = 0;
+	 $d19sum = 0;
+     while($row = $rr19->fetch_assoc()) {
+		 $d19num++;
+		 $d19sum = $d19sum + $row['avgpain'];
+	 }
+	 	$d19 = $d19sum/$d19num;
+	}
+	else {
+		$d19 = 0;
+	}
+	
+	// Day 20
+	$qq20 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 20 ";
+	$rr20 = $dbc->query($qq20);
+	if ($rr20 -> num_rows > 0) {
+	
+	 $d20num = 0;
+	 $d20sum = 0;
+     while($row = $rr20->fetch_assoc()) {
+		 $d20num++;
+		 $d20sum = $d20sum + $row['avgpain'];
+	 }
+	 	$d20 = $d20sum/$d20num;
+	}
+	else {
+		$d20 = 0;
+	}
+	
+	// Day 21
+	$qq21 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 21 ";
+	$rr21 = $dbc->query($qq21);
+	if ($rr21 -> num_rows > 0) {
+	
+	 $d21num = 0;
+	 $d21sum = 0;
+     while($row = $rr21->fetch_assoc()) {
+		 $d21num++;
+		 $d21sum = $d21sum + $row['avgpain'];
+	 }
+	 	$d21 = $d21sum/$d21num;
+	}
+	else {
+		$d21 = 0;
+	}
+	
+	// Day 22
+	$qq22 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 22 ";
+	$rr22 = $dbc->query($qq22);
+	if ($rr22 -> num_rows > 0) {
+	
+	 $d22num = 0;
+	 $d22sum = 0;
+     while($row = $rr22->fetch_assoc()) {
+		 $d22num++;
+		 $d22sum = $d22sum + $row['avgpain'];
+	 }
+	 	$d22 = $d22sum/$d22num;
+	}
+	else {
+		$d22 = 0;
+	}
+	
+	// Day 23
+	$qq23 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 23 ";
+	$rr23 = $dbc->query($qq23);
+	if ($rr23 -> num_rows > 0) {
+	
+	 $d23num = 0;
+	 $d23sum = 0;
+     while($row = $rr23->fetch_assoc()) {
+		 $d23num++;
+		 $d23sum = $d23sum + $row['avgpain'];
+	 }
+	 	$d23 = $d23sum/$d23num;
+	}
+	else {
+		$d23 = 0;
+	}
+	
+	// Day 24
+	$qq24 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 24 ";
+	$rr24 = $dbc->query($qq24);
+	if ($rr24 -> num_rows > 0) {
+	
+	 $d24num = 0;
+	 $d24sum = 0;
+     while($row = $rr24->fetch_assoc()) {
+		 $d24num++;
+		 $d24sum = $d24sum + $row['avgpain'];
+	 }
+	 	$d24 = $d24sum/$d24num;
+	}
+	else {
+		$d24 = 0;
+	}
+	
+	// Day 25
+	$qq25 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 25 ";
+	$rr25 = $dbc->query($qq25);
+	if ($rr25 -> num_rows > 0) {
+	
+	 $d25num = 0;
+	 $d25sum = 0;
+     while($row = $rr25->fetch_assoc()) {
+		 $d25num++;
+		 $d25sum = $d25sum + $row['avgpain'];
+	 }
+	 	$d25 = $d25sum/$d25num;
+	}
+	else {
+		$d25 = 0;
+	}
+	
+	// Day 26
+	$qq26 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 26 ";
+	$rr26 = $dbc->query($qq26);
+	if ($rr26 -> num_rows > 0) {
+	
+	 $d26num = 0;
+	 $d26sum = 0;
+     while($row = $rr26->fetch_assoc()) {
+		 $d26num++;
+		 $d26sum = $d26sum + $row['avgpain'];
+	 }
+	 	$d26 = $d26sum/$d26num;
+	}
+	else {
+		$d26 = 0;
+	}
+	
+	// Day 27
+	$qq27 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 27 ";
+	$rr27 = $dbc->query($qq27);
+	if ($rr27 -> num_rows > 0) {
+	
+	 $d27num = 0;
+	 $d27sum = 0;
+     while($row = $rr27->fetch_assoc()) {
+		 $d27num++;
+		 $d27sum = $d27sum + $row['avgpain'];
+	 }
+	 	$d27 = $d27sum/$d27num;
+	}
+	else {
+		$d27 = 0;
+	}
+	
+	// Day 28
+	$qq28 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 28 ";
+	$rr28 = $dbc->query($qq28);
+	if ($rr28 -> num_rows > 0) {
+	
+	 $d28num = 0;
+	 $d28sum = 0;
+     while($row = $rr28->fetch_assoc()) {
+		 $d28num++;
+		 $d28sum = $d28sum + $row['avgpain'];
+	 }
+	 	$d28 = $d28sum/$d28num;
+	}
+	else {
+		$d28 = 0;
+	}
+	
+	// Day 29
+	$qq29 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 29 ";
+	$rr29 = $dbc->query($qq29);
+	if ($rr29 -> num_rows > 0) {
+	
+	 $d29num = 0;
+	 $d29sum = 0;
+     while($row = $rr29->fetch_assoc()) {
+		 $d29num++;
+		 $d29sum = $d29sum + $row['avgpain'];
+	 }
+	 	$d29 = $d29sum/$d29num;
+	}
+	else {
+		$d29 = 0;
+	}
+	
+	// Day 30
+	$qq30 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 30 ";
+	$rr30 = $dbc->query($qq30);
+	if ($rr30 -> num_rows > 0) {
+	
+	 $d30num = 0;
+	 $d30sum = 0;
+     while($row = $rr30->fetch_assoc()) {
+		 $d30num++;
+		 $d30sum = $d30sum + $row['avgpain'];
+	 }
+	 	$d30 = $d30sum/$d30num;
+	}
+	else {
+		$d30 = 0;
+	}
+	
+	// Day 31
+	$qq31 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 31 ";
+	$rr31 = $dbc->query($qq31);
+	if ($rr31 -> num_rows > 0) {
+	
+	 $d31num = 0;
+	 $d31sum = 0;
+     while($row = $rr31->fetch_assoc()) {
+		 $d31num++;
+		 $d31sum = $d31sum + $row['avgpain'];
+	 }
+	 	$d31 = $d31sum/$d31num;
+	}
+	else {
+		$d31 = 0;
+	}
+	
+	
+	?>
+	<div id="container6" class="cont"></div>
+
+<script>
+$(function () { 
+    $('#container6').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Monthly Medicine Efficiency'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Relief Rate',
+				enabled: false
+            }
+        },
+		
+<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
+        },
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+        },
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29']
+        },
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']
+        },
+<?php
+	}
+
+}
+?>	
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		{
+			showInLegend: false, 
+            name: 'Monthly Pain Intensity',
+			
+			<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        data: [<?php echo $d1. ',' .$d2. ',' .$d3. ',' .$d4. ',' .$d5. ',' .$d6. ',' .$d7. ',' .$d8. ',' .$d9. ',' .$d10. ',' .$d11. ',' .$d12. ',' .$d13. ',' .$d14. ',' .$d15. ',' .$d16. ',' .$d17. ',' .$d18. ',' .$d19. ',' .$d20. ',' .$d21. ',' .$d22. ',' .$d23. ',' .$d24. ',' .$d25. ',' .$d26. ',' .$d27. ',' .$d28. ',' .$d29. ',' .$d30. ',' .$d31 ?>],
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        data: [<?php echo $d1. ',' .$d2. ',' .$d3. ',' .$d4. ',' .$d5. ',' .$d6. ',' .$d7. ',' .$d8. ',' .$d9. ',' .$d10. ',' .$d11. ',' .$d12. ',' .$d13. ',' .$d14. ',' .$d15. ',' .$d16. ',' .$d17. ',' .$d18. ',' .$d19. ',' .$d20. ',' .$d21. ',' .$d22. ',' .$d23. ',' .$d24. ',' .$d25. ',' .$d26. ',' .$d27. ',' .$d28. ',' .$d29. ',' .$d30 ?>],
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        data: [<?php echo $d1. ',' .$d2. ',' .$d3. ',' .$d4. ',' .$d5. ',' .$d6. ',' .$d7. ',' .$d8. ',' .$d9. ',' .$d10. ',' .$d11. ',' .$d12. ',' .$d13. ',' .$d14. ',' .$d15. ',' .$d16. ',' .$d17. ',' .$d18. ',' .$d19. ',' .$d20. ',' .$d21. ',' .$d22. ',' .$d23. ',' .$d24. ',' .$d25. ',' .$d26. ',' .$d27. ',' .$d28. ',' .$d29 ?>],
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        data: [<?php echo $d1. ',' .$d2. ',' .$d3. ',' .$d4. ',' .$d5. ',' .$d6. ',' .$d7. ',' .$d8. ',' .$d9. ',' .$d10. ',' .$d11. ',' .$d12. ',' .$d13. ',' .$d14. ',' .$d15. ',' .$d16. ',' .$d17. ',' .$d18. ',' .$d19. ',' .$d20. ',' .$d21. ',' .$d22. ',' .$d23. ',' .$d24. ',' .$d25. ',' .$d26. ',' .$d27. ',' .$d28 ?>],
+<?php
+	}
+
+}
+?>
+			
+			draggableY: true,
+			dragMinY: 0
+        }
+		]
+    });
+});
+
+</script>
+<?php
+	
+	
+	
 	} // close tag for Average Medicine Efficiency
 	
 	
