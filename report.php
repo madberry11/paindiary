@@ -848,7 +848,8 @@ else {
 	$day31 = 0;
 }
 ?>
-
+<fieldset>
+<legend>Average Pain Intensity</legend>
 <div id="container2" class="cont"></div>
 
 <script>
@@ -967,6 +968,7 @@ else {
 });
 
 </script>
+</fieldset>
 <?php
 	
 	} // close tag for Average Pain Intensity
@@ -1334,6 +1336,8 @@ while ($i < $countparts) {
 }
 
 ?>
+<fieldset>
+<legend>Pain Intensity Comparison</legend>
 <div id="container3" class="cont"></div>
 <script>
 $(function () { 
@@ -1642,6 +1646,7 @@ else {
 });
 
 </script>
+</fieldset>
 <?php
 
 
@@ -2182,6 +2187,8 @@ else {
 	
 	
 	?>
+<fieldset>
+<legend>Average Medicine Efficiency</legend>
 	<div id="container6" class="cont"></div>
 
 <script>
@@ -2300,6 +2307,7 @@ else {
 });
 
 </script>
+</fieldset>
 <?php
 	
 	
@@ -2821,6 +2829,8 @@ $i++;
 } // close tag for while 1 < countmed
 
 ?>
+<fieldset>
+<legend>Medicine Efficiency Comparison</legend>
 <div id="container7" class="cont"></div>
 <script>
 $(function () { 
@@ -3127,6 +3137,7 @@ else {
 });
 
 </script>
+</fieldset>
 <?php
 	
 	
@@ -3152,7 +3163,7 @@ if ($result -> num_rows > 0) {
 			}	
 			}
 		else {
-		$ecomment[] = "There is no comment for this day yet.";
+		$ecomment[] = "There is no comment to justify why this day was marked as important.";
 		}
 		$n++;
 
