@@ -274,6 +274,19 @@ echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' v
 else {
 	echo "There is nothing to report for this month yet.";
 }
+$sql3 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
+$result3 = $dbc->query($sql3);
+if ($result2 -> num_rows == 0) {
+	?>
+    <script>
+$(document).ready(function () {
+       $('#avgrel').css('display','none');
+	   $('#relcomp').css('display','none');
+  });
+  </script>
+    <?php
+}
+
 
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
 $username = "bcac3dbe9c1d06";
