@@ -1,7 +1,19 @@
 @charset "utf-8";
 /* CSS Document */
 
-#printbuttonm #reportform, #navbar {
+#title {
+	text-align: center;
+	text-transform: uppercase;
+	display: block;
+	width: 550px;
+	padding-top: 30px;
+	padding-bottom: 0px;
+	margin: 0 auto;
+	font-size: 48px;
+	float: left;
+}
+
+#printbutton, #reportform, #navbar {
 	display: none !important;	
 }
 
