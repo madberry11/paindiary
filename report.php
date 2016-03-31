@@ -847,7 +847,7 @@ else {
 }
 ?>
 
-<div id="container2"></div>
+<div id="container2" class="cont"></div>
 
 <script>
 $(function () { 
@@ -977,15 +977,15 @@ else {
 		if(!empty($_POST['bodypart'])) {
 			$countparts = 0;
     	foreach($_POST['bodypart'] as $check1) {
-			echo $check1 . "<br />";
+			//echo $check1 . "<br />";
 			$pain[] = $check1;
 			$countparts++;
 		}
-print_r($pain);
+//print_r($pain);
 
 $i = 0;
 while ($i < $countparts) {
-	echo $pain[$i];
+	//echo $pain[$i];
 	
 	// Day 1
 	$q1 = "SELECT avgpain FROM pain WHERE entryyear=". $calyear. " AND entrymonth=". $calmonth ." AND entryday=1 AND bodypart='". $pain[$i] ."' AND user_id="  . $_SESSION['user_id'];
@@ -1332,7 +1332,7 @@ while ($i < $countparts) {
 }
 
 ?>
-<div id="container3"></div>
+<div id="container3" class="cont"></div>
 <script>
 $(function () { 
     $('#container3').highcharts({
@@ -1388,7 +1388,7 @@ $(function () {
 
 </script>
 
-<div id="container4"></div>
+<div id="container4" class="cont"></div>
 <script>
 $(function () { 
     $('#container4').highcharts({
