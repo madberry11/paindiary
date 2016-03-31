@@ -1443,6 +1443,203 @@ $(function () {
 });
 
 </script>
+
+<div id="container5" class="cont"></div>
+<script>
+$(function () { 
+    $('#container5').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Pain Intensity Comparison (3)'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Intensity'
+            }
+        },
+		<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
+        },
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+        },
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29']
+        },
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28']
+        },
+<?php
+	}
+
+}
+?>	
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+	<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countparts-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j]. ',' .$p30[$j]. ',' .$p31[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j]. ',' .$p30[$j]. ',' .$p31[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countparts-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j]. ',' .$p30[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j]. ',' .$p30[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countparts-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j]. ',' .$p29[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countparts-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countparts-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p21[$j]. ',' .$p22[$j]. ',' .$p23[$j]. ',' .$p24[$j]. ',' .$p25[$j]. ',' .$p26[$j]. ',' .$p27[$j]. ',' .$p28[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+	}
+
+}
+?>	
+    });
+});
+
+</script>
 <?php
 
 
