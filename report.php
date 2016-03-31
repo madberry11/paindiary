@@ -3221,6 +3221,9 @@ $i++;
 		
 		
 	} // closing tag for Important Entries
+?>	
+<a href="javascript:window.print()">Print Report</a>
+<?php	
 	
 } // closing request method post
 
