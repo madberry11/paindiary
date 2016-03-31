@@ -3158,7 +3158,8 @@ if ($result -> num_rows > 0) {
 		
 print_r($eday);
 print_r($ecomment);
-		
+
+	}
 ?>
 <table>
 <?php
@@ -3174,9 +3175,8 @@ $i++;
 }
 ?>
 </table>
-<?php
-
-	}
+<?php	
+	
 }
 		
 		
