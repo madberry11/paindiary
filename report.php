@@ -877,8 +877,7 @@ else {
 	$day31 = 0;
 }
 ?>
-<fieldset>
-<legend>Average Pain Intensity</legend>
+<h2>Average Pain Intensity</h2>
 <div id="container2" class="cont"></div>
 
 <script>
@@ -997,7 +996,6 @@ else {
 });
 
 </script>
-</fieldset>
 <?php
 	
 	} // close tag for Average Pain Intensity
@@ -1365,8 +1363,7 @@ while ($i < $countparts) {
 }
 
 ?>
-<fieldset>
-<legend>Pain Intensity Comparison</legend>
+<h2>Pain Intensity Comparison</h2>
 <div id="container3" class="cont"></div>
 <script>
 $(function () { 
@@ -1675,7 +1672,6 @@ else {
 });
 
 </script>
-</fieldset>
 <?php
 
 
@@ -2216,8 +2212,7 @@ else {
 	
 	
 	?>
-<fieldset>
-<legend>Average Medicine Efficiency</legend>
+<h2>Average Medicine Efficiency</h2>
 	<div id="container6" class="cont"></div>
 
 <script>
@@ -2336,7 +2331,6 @@ else {
 });
 
 </script>
-</fieldset>
 <?php
 	
 	
@@ -2858,8 +2852,7 @@ $i++;
 } // close tag for while 1 < countmed
 
 ?>
-<fieldset>
-<legend>Medicine Efficiency Comparison</legend>
+<h2>Medicine Efficiency Comparison</h2>
 <div id="container7" class="cont"></div>
 <script>
 $(function () { 
@@ -3166,7 +3159,6 @@ else {
 });
 
 </script>
-</fieldset>
 <?php
 	
 	
@@ -3198,8 +3190,7 @@ if ($result -> num_rows > 0) {
 
 	}
 ?>
-<fieldset>
-<legend>Days marked as important</legend>
+<h2>Days marked as important</h2>
 <table>
 <?php
 $i=0;
@@ -3214,7 +3205,6 @@ $i++;
 }
 ?>
 </table>
-</fieldset>
 <?php	
 	
 }
@@ -3224,24 +3214,6 @@ $i++;
 	} // closing tag for Important Entries
 ?>	
 <a href="javascript:window.print()"><div id="printbutton" class="center"><div class="icon-print"></div><div class="linktext">Print Report</div></div></a>
-<script type='text/javascript'>
-    $(window).bind('beforeprint', function(){
-        $('fieldset').each(
-            function(item)
-            {
-                $(this).replaceWith($('<div class="fieldset">' + this.innerHTML + '</div>'));
-            }
-        )
-    });
-    $(window).bind('afterprint', function(){
-        $('.fieldset').each(
-            function(item)
-            {
-                $(this).replaceWith($('<fieldset>' + this.innerHTML + '</fieldset>'));
-            }
-        )
-    });
-</script>
 <?php	
 	
 } // closing request method post
