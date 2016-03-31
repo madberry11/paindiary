@@ -3160,7 +3160,7 @@ if ($result -> num_rows > 0) {
 <table>
 <?php
 $i=0;
-while ($i<=$n-1) {
+while ($i<$n-1) {
 ?>
 <tr>
 <td><?php echo $eday[$i] .'/'. $calmonth .'/'. $calyear ?></td>
