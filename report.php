@@ -1341,7 +1341,7 @@ $(function () {
 			//zoomType: 'xy'
         },
         title: {
-            text: 'Pain Itensity Comparison'
+            text: 'Pain Itensity Comparison (1)'
         },
 		yAxis: {
             title: {
@@ -1349,7 +1349,7 @@ $(function () {
             }
         },
         xAxis: {
-            categories: ['0AM', '1AM', '2AM', '3AM', '4AM', '5AM', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
         },
 		
 		plotOptions: {
@@ -1366,8 +1366,8 @@ $(function () {
 		//repeat this part until i = countparts
 		?>
 		{
-            name: '<?php echo $j ?>',
-			data: [<?php echo $j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j ?>]
+            name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p6[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j]. ',' .$p11[$j]. ',' .$p12[$j]. ',' .$p13[$j]. ',' .$p14[$j]. ',' .$p15[$j] ?>]
         },
 		<?php
 		$j++;
@@ -1376,8 +1376,8 @@ $(function () {
 		// write this for the last one only
 		?>
 		 {
-			name: '<?php echo $j ?>',
-			data: [<?php echo $j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j ?>]
+			name: '<?php echo $pain[$j] ?>',
+			data: [<?php echo $p1[$j]. ',' .$p2[$j]. ',' .$p3[$j]. ',' .$p4[$j]. ',' .$p5[$j]. ',' .$p6[$j]. ',' .$p7[$j]. ',' .$p8[$j]. ',' .$p9[$j]. ',' .$p10[$j]. ',' .$p11[$j]. ',' .$p12[$j]. ',' .$p13[$j]. ',' .$p14[$j]. ',' .$p15[$j] ?>]
         }
 		<?php
 		}
