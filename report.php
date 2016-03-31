@@ -3141,7 +3141,7 @@ else {
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
-		$eday[] = $row['entryday'];
+		$eday = $row['entryday'];
 		
 		$sql2 = "SELECT * FROM comments WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth. " AND entryday = '" . $eday ."'";
 		$result2 = $dbc->query($sql2);
