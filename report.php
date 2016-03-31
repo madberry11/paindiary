@@ -3155,11 +3155,11 @@ if ($result -> num_rows > 0) {
 		$ecomment[] = "There is no comment for this day yet.";
 		}
 		$n++;
-		
-print_r($eday);
-print_r($ecomment);
 
 	}
+echo $n;
+print_r($eday);
+print_r($ecomment);
 ?>
 <table>
 <?php
