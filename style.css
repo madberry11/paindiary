@@ -249,7 +249,7 @@ transition-property: position;
 transition-duration: 1s;
 }
 
-#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass, #printbutton {
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
 	position: relative;
 	display: inline-block;
 	padding: 5px;
@@ -265,6 +265,28 @@ transition-duration: 1s;
 	float: left;
 	padding-left: 10px;
 	padding-right: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; /* future proofing */
+	-khtml-border-radius: 5px; /* for old Konqueror browsers */
+	border: none;
+	transition-property: background-color;
+	transition-duration: 1s;
+	cursor: pointer;
+}
+
+#printbutton {
+	display: inline-block;
+	padding: 5px;
+	margin: 5px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-family: Lato;
+	font-weight: 700;
+	font-size: 14px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	line-height: 30px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px; /* future proofing */
