@@ -1362,7 +1362,7 @@ $(function () {
         series: [
 		<?php
 		$j=0;
-		while ($j<$countparts) {
+		while ($j<$countparts-1) {
 		//repeat this part until i = countparts
 		?>
 		{
@@ -1372,7 +1372,7 @@ $(function () {
 		<?php
 		$j++;
 		}
-		if ($j == $countparts) {
+		if ($j == $countparts-1) {
 		// write this for the last one only
 		?>
 		 {
