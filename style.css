@@ -30,6 +30,7 @@
 	margin-left: 10px;
 }
 .icon-trash:before{content:'\f0ce'}
+.icon-print:before{content:'\f125'}
 .icon-plus-sign:before{content:'\f476'}
 .icon-men:before{content:'\f24c'}
 .icon-commentroundtyping:before{content:'\f157'}
@@ -38,7 +39,7 @@
 .icon-warning-sign:before{content:'\f316'; color: #ffc200 !important;}
 .icon-exclamation-sign:before{content:'\f04a'}
 .icon-circledelete:before{content:'\f0d2'; padding-left: 10px; vertical-align: middle !important;}
-.icon-plus-sign, .icon-commentroundtyping, .icon-pill-antivirusalt, .trash2, .icon-men {
+.icon-plus-sign, .icon-commentroundtyping, .icon-pill-antivirusalt, .trash2, .icon-men, .icon-print {
 	margin-right: 10px;
 	font-size: 1.4em;
 	vertical-align: middle;

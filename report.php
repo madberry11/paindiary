@@ -3222,7 +3222,7 @@ $i++;
 		
 	} // closing tag for Important Entries
 ?>	
-<a href="javascript:window.print()"><div id="printbutton" class="center"><div class="icon-men"></div><div class="linktext">Print Report</div></div></a>
+<a href="javascript:window.print()"><div id="printbutton" class="center"><div class="icon-print"></div><div class="linktext">Print Report</div></div></a>
 <?php	
 	
 } // closing request method post
