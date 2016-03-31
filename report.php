@@ -1330,7 +1330,11 @@ while ($i < $countparts) {
 	
 	$i++;
 }
-?>
+
+
+		} // close tag for if not empty
+		
+		?>
 <div id="container3"</div>
 <script>
 $(function () { 
@@ -1388,9 +1392,7 @@ $(function () {
 
 </script>
 <?php
-
-
-		} // close tag for if not empty
+		
 	} // close tag for Pain Intensity Comparison
 	
 	
