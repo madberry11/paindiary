@@ -3224,24 +3224,7 @@ $i++;
 	} // closing tag for Important Entries
 ?>	
 <a href="javascript:window.print()"><div id="printbutton" class="center"><div class="icon-print"></div><div class="linktext">Print Report</div></div></a>
-<script type='text/javascript'>
-    $(window).bind('beforeprint', function(){
-        $('fieldset').each(
-            function(item)
-            {
-                $(this).replaceWith($('<div class="fieldset">' + this.innerHTML + '</div>'));
-            }
-        )
-    });
-    $(window).bind('afterprint', function(){
-        $('.fieldset').each(
-            function(item)
-            {
-                $(this).replaceWith($('<fieldset>' + this.innerHTML + '</fieldset>'));
-            }
-        )
-    });
-</script>
+
 <?php	
 	
 } // closing request method post
