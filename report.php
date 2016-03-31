@@ -3158,8 +3158,9 @@ if ($result -> num_rows > 0) {
 
 	}
 ?>
+<fieldset>
+<legend>Days marked as important</legend>
 <table>
-<th>Day</th><th>Why it was marked as important</th>
 <?php
 $i=0;
 while ($i<= $n-1) {
@@ -3173,6 +3174,7 @@ $i++;
 }
 ?>
 </table>
+</fieldset>
 <?php	
 	
 }
