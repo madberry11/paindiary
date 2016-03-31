@@ -3140,8 +3140,10 @@ else {
 		$sql = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
+		$n=0;
 	while($row = $result->fetch_assoc()) {
 		$eday = $row['entryday'];
+		$n++;
 		
 		$sql2 = "SELECT * FROM comments WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth. " AND entryday = '" . $eday ."'";
 		$result2 = $dbc->query($sql2);
@@ -3156,7 +3158,7 @@ if ($result -> num_rows > 0) {
 <table>
 <?php
 $i=0;
-while ($i<$row_cnt-1) {
+while ($i<$n-1) {
 ?>
 <tr>
 <td><?php echo $eday[$i] .'/'. $calmonth .'/'. $calyear ?></td>
