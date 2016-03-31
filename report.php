@@ -1331,10 +1331,7 @@ while ($i < $countparts) {
 	$i++;
 }
 
-
-		} // close tag for if not empty
-		
-		?>
+?>
 <div id="container3"</div>
 <script>
 $(function () { 
@@ -1379,7 +1376,6 @@ $(function () {
 		// write this for the last one only
 		?>
 		 {
-			name: '<?php echo $pain[$j] ?>',
 			name: '<?php echo $j ?>',
 			data: [<?php echo $j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j. ',' .$j ?>]
         }
@@ -1392,8 +1388,11 @@ $(function () {
 
 </script>
 <?php
-		
+
+
+		} // close tag for if not empty
 	} // close tag for Pain Intensity Comparison
+	
 	
 	
 	// if Average Medicine Efficiency got ticked
