@@ -3141,7 +3141,34 @@ else {
 $result = $dbc->query($sql);
 if ($result -> num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
-		echo $row['important_id'] . "<br />";
+		$eday[] = $row['entryday'];
+		
+		$sql2 = "SELECT * FROM comments WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth. " AND entryday = " . $eday;
+		$result2 = $dbc->query($sql2);
+		if ($result2 -> num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+		$ecomment[] = $row['comment'];
+		
+			}
+		}
+		
+?>
+<table>
+<?php
+$i=0;
+while ($i<$row_cnt-1) {
+?>
+<tr>
+<td><?php echo $eday[$i] .'/'. $calmonth .'/'. $calyear ?></td>
+<td><?php echo $ecomment[$i] ?></td>
+</tr>
+<?php
+$i++;	
+}
+?>
+</table>
+<?php
+
 	}
 }
 		
