@@ -252,8 +252,8 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='bodypart[]' v
 	}
 ?>
 </div>
-<p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label for='avgrel'>Average Medicine Efficiency</label></p>
-<p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label for='relcomp'>Medicine Efficiency Comparison including</label></p>
+<p><input class='checkbox' type='checkbox' id='avgrel' name='avgrel' /><label id="avgrellabel" for='avgrel'>Average Medicine Efficiency</label></p>
+<p><input class='checkbox relcomp' type='checkbox' id='relcomp' name='relcomp' /><label id="relcomplabel" for='relcomp'>Medicine Efficiency Comparison including</label></p>
 <div class="sub-comp" id="sub-rel">
 <?php
 $sql2 = "SELECT medicine, COUNT(record_id) FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY medicine";
@@ -281,7 +281,9 @@ if ($result2 -> num_rows == 0) {
     <script>
 $(document).ready(function () {
        $('#avgrel').css('display','none');
+	   $('#avgrellabel').css('display','none');
 	   $('#relcomp').css('display','none');
+	   $('#relcomplabel').css('display','none');
   });
   </script>
     <?php
