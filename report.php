@@ -69,6 +69,7 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
     <link rel="stylesheet" href="colour2.css" type="text/css" id="colour2" />
     <link rel="stylesheet" href="colour3.css" type="text/css" id="colour3" />
     <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.css" type="text/css" />
+    <link rel="stylesheet" href="print.css" type="text/css" media="print" /> 
 
 <!-- JavaScript / JQuery -->
 	<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.4.5.js"></script>
