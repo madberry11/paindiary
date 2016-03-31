@@ -3191,6 +3191,7 @@ if ($result -> num_rows > 0) {
 	}
 ?>
 <h2>Days marked as important</h2>
+<div class="cont">
 <table>
 <?php
 $i=0;
@@ -3205,6 +3206,7 @@ $i++;
 }
 ?>
 </table>
+</div>
 <?php	
 	
 }
