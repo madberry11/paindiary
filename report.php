@@ -3136,7 +3136,17 @@ else {
 		
 	// if Important Entries got ticked
 	if (isset($_POST['impent'])) {
-		echo "important entries<br />";
+		
+		$sql = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
+$result = $dbc->query($sql);
+if ($result -> num_rows > 0) {
+	while($row = $result2->fetch_assoc()) {
+		echo $row['important_id'] . "<br />";
+	}
+}
+		
+		
+		
 	} // closing tag for Important Entries
 	
 } // closing request method post
