@@ -2719,6 +2719,257 @@ $(function () {
 });
 
 </script>
+<div id="container8" class="cont"></div>
+<script>
+$(function () { 
+    $('#container8').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Medicine Efficiency Comparison (2)'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Relief Rate'
+            }
+        },
+        xAxis: {
+            categories: ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+        },
+		
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+		
+        series: [
+		<?php
+		$j=0;
+		while ($j<$countmed-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m11[$j]. ',' .$m12[$j]. ',' .$m13[$j]. ',' .$m14[$j]. ',' .$m15[$j]. ',' .$m16[$j]. ',' .$m17[$j]. ',' .$m18[$j]. ',' .$m19[$j]. ',' .$m20[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countmed-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m11[$j]. ',' .$m12[$j]. ',' .$m13[$j]. ',' .$m14[$j]. ',' .$m15[$j]. ',' .$m16[$j]. ',' .$m17[$j]. ',' .$m18[$j]. ',' .$m19[$j]. ',' .$m20[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+    });
+});
+
+</script>
+<div id="container9" class="cont"></div>
+<script>
+$(function () { 
+    $('#container9').highcharts({
+        chart: {
+            type: 'column'
+			//zoomType: 'xy'
+        },
+        title: {
+            text: 'Medicine Efficiency Comparison (3)'
+        },
+		yAxis: {
+            title: {
+                text: 'Pain Relief Rate'
+            }
+        },
+		<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']
+        },
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+        },
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28', '29']
+        },
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+        xAxis: {
+            categories: ['21', '22', '23', '24', '25', '26', '27', '28']
+        },
+<?php
+	}
+
+}
+?>	
+		plotOptions: {
+        
+                line: {
+            cursor: 'ns-resize'
+        }
+    },
+	<?php 
+
+// if the month is January, March, May, July, August, October or December
+if (($calmonth == 1) OR ($calmonth == 3) OR ($calmonth == 5) OR ($calmonth == 7) OR ($calmonth == 8) OR ($calmonth == 10) OR ($calmonth == 12)) {
+?>		
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countmed-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j]. ',' .$m30[$j]. ',' .$m31[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countmed-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j]. ',' .$m30[$j]. ',' .$m31[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+}
+
+// if the month is April, June, September or November
+elseif (($calmonth == 4) OR ($calmonth == 6) OR ($calmonth == 9) OR ($calmonth == 11)) {
+?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countmed-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j]. ',' .$m30[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countmed-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j]. ',' .$m30[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+}
+
+// if the month is February
+else {
+	
+	// if it is a leap year
+	if ($calyear % 4 == 0) {
+		?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countmed-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countmed-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j]. ',' .$m29[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+	}
+	
+	// if it is not a leap year
+	else {
+		?>	
+                series: [
+		<?php
+		$j=0;
+		while ($j<$countmed-1) {
+		//repeat this part until i = countparts
+		?>
+		{
+            name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j] ?>]
+        },
+		<?php
+		$j++;
+		}
+		if ($j == $countmed-1) {
+		// write this for the last one only
+		?>
+		 {
+			name: '<?php echo $med[$j] ?>',
+			data: [<?php echo $m21[$j]. ',' .$m22[$j]. ',' .$m23[$j]. ',' .$m24[$j]. ',' .$m25[$j]. ',' .$m26[$j]. ',' .$m27[$j]. ',' .$m28[$j] ?>]
+        }
+		<?php
+		}
+		?>
+		]
+<?php
+	}
+
+}
+?>	
+    });
+});
+
+</script>
 <?php
 	
 	
