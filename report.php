@@ -2327,7 +2327,7 @@ while ($i < $countmed) {
 	 $m1sum = 0;
      while($row = $rrr1->fetch_assoc()) {
 		 $m1num++;
-		 $m1sum = $m1sum + $row['painrelief'];
+		 $m1sum = $m1sum + $row['reliefrating'];
 	 }
 	 $m1[] = $m1sum/$m1num;
 	}
@@ -2343,7 +2343,7 @@ while ($i < $countmed) {
 	 $m2sum = 0;
      while($row = $rrr2->fetch_assoc()) {
 		 $m2num++;
-		 $m2sum = $m2sum + $row['painrelief'];
+		 $m2sum = $m2sum + $row['reliefrating'];
 	 }
 	 $m2[] = $m2sum/$m2num;
 	}
@@ -2359,7 +2359,7 @@ while ($i < $countmed) {
 	 $m3sum = 0;
      while($row = $rrr3->fetch_assoc()) {
 		 $m3num++;
-		 $m3sum = $m3sum + $row['painrelief'];
+		 $m3sum = $m3sum + $row['reliefrating'];
 	 }
 	 $m3[] = $m3sum/$m3num;
 	}
@@ -2375,7 +2375,7 @@ while ($i < $countmed) {
 	 $m4sum = 0;
      while($row = $rrr4->fetch_assoc()) {
 		 $m4num++;
-		 $m4sum = $m4sum + $row['painrelief'];
+		 $m4sum = $m4sum + $row['reliefrating'];
 	 }
 	 $m4[] = $m4sum/$m4num;
 	}
@@ -2391,7 +2391,7 @@ while ($i < $countmed) {
 	 $m5sum = 0;
      while($row = $rrr5->fetch_assoc()) {
 		 $m5num++;
-		 $m5sum = $m5sum + $row['painrelief'];
+		 $m5sum = $m5sum + $row['reliefrating'];
 	 }
 	 $m5[] = $m5sum/$m5num;
 	}
@@ -2407,7 +2407,7 @@ while ($i < $countmed) {
 	 $m6sum = 0;
      while($row = $rrr6->fetch_assoc()) {
 		 $m6num++;
-		 $m6sum = $m6sum + $row['painrelief'];
+		 $m6sum = $m6sum + $row['reliefrating'];
 	 }
 	 $m6[] = $m6sum/$m6num;
 	}
@@ -2423,7 +2423,7 @@ while ($i < $countmed) {
 	 $m7sum = 0;
      while($row = $rrr7->fetch_assoc()) {
 		 $m7num++;
-		 $m7sum = $m7sum + $row['painrelief'];
+		 $m7sum = $m7sum + $row['reliefrating'];
 	 }
 	 $m7[] = $m7sum/$m7num;
 	}
@@ -2439,7 +2439,7 @@ while ($i < $countmed) {
 	 $m8sum = 0;
      while($row = $rrr8->fetch_assoc()) {
 		 $m8num++;
-		 $m8sum = $m8sum + $row['painrelief'];
+		 $m8sum = $m8sum + $row['reliefrating'];
 	 }
 	 $m8[] = $m8sum/$m8num;
 	}
@@ -2455,7 +2455,7 @@ while ($i < $countmed) {
 	 $m9sum = 0;
      while($row = $rrr9->fetch_assoc()) {
 		 $m9num++;
-		 $m9sum = $m9sum + $row['painrelief'];
+		 $m9sum = $m9sum + $row['reliefrating'];
 	 }
 	 $m9[] = $m9sum/$m9num;
 	}
@@ -2471,7 +2471,7 @@ while ($i < $countmed) {
 	 $m10sum = 0;
      while($row = $rrr10->fetch_assoc()) {
 		 $m10num++;
-		 $m10sum = $m10sum + $row['painrelief'];
+		 $m10sum = $m10sum + $row['reliefrating'];
 	 }
 	 $m10[] = $m10sum/$m10num;
 	}
@@ -2487,7 +2487,7 @@ while ($i < $countmed) {
 	 $m11sum = 0;
      while($row = $rrr11->fetch_assoc()) {
 		 $m11num++;
-		 $m11sum = $m11sum + $row['painrelief'];
+		 $m11sum = $m11sum + $row['reliefrating'];
 	 }
 	 $m11[] = $m11sum/$m11num;
 	}
@@ -2503,7 +2503,7 @@ while ($i < $countmed) {
 	 $m12sum = 0;
      while($row = $rrr12->fetch_assoc()) {
 		 $m12num++;
-		 $m12sum = $m12sum + $row['painrelief'];
+		 $m12sum = $m12sum + $row['reliefrating'];
 	 }
 	 $m12[] = $m12sum/$m12num;
 	}
@@ -2519,7 +2519,7 @@ while ($i < $countmed) {
 	 $m13sum = 0;
      while($row = $rrr13->fetch_assoc()) {
 		 $m13num++;
-		 $m13sum = $m13sum + $row['painrelief'];
+		 $m13sum = $m13sum + $row['reliefrating'];
 	 }
 	 $m13[] = $m13sum/$m13num;
 	}
@@ -2535,7 +2535,7 @@ while ($i < $countmed) {
 	 $m14sum = 0;
      while($row = $rrr14->fetch_assoc()) {
 		 $m14num++;
-		 $m14sum = $m14sum + $row['painrelief'];
+		 $m14sum = $m14sum + $row['reliefrating'];
 	 }
 	 $m14[] = $m14sum/$m14num;
 	}
@@ -2551,7 +2551,7 @@ while ($i < $countmed) {
 	 $m15sum = 0;
      while($row = $rrr15->fetch_assoc()) {
 		 $m15num++;
-		 $m15sum = $m15sum + $row['painrelief'];
+		 $m15sum = $m15sum + $row['reliefrating'];
 	 }
 	 $m15[] = $m15sum/$m15num;
 	}
@@ -2567,7 +2567,7 @@ while ($i < $countmed) {
 	 $m16sum = 0;
      while($row = $rrr16->fetch_assoc()) {
 		 $m16num++;
-		 $m16sum = $m16sum + $row['painrelief'];
+		 $m16sum = $m16sum + $row['reliefrating'];
 	 }
 	 $m16[] = $m16sum/$m16num;
 	}
@@ -2583,7 +2583,7 @@ while ($i < $countmed) {
 	 $m17sum = 0;
      while($row = $rrr17->fetch_assoc()) {
 		 $m17num++;
-		 $m17sum = $m17sum + $row['painrelief'];
+		 $m17sum = $m17sum + $row['reliefrating'];
 	 }
 	 $m17[] = $m17sum/$m17num;
 	}
@@ -2599,7 +2599,7 @@ while ($i < $countmed) {
 	 $m18sum = 0;
      while($row = $rrr18->fetch_assoc()) {
 		 $m18num++;
-		 $m18sum = $m18sum + $row['painrelief'];
+		 $m18sum = $m18sum + $row['reliefrating'];
 	 }
 	 $m18[] = $m18sum/$m18num;
 	}
@@ -2615,7 +2615,7 @@ while ($i < $countmed) {
 	 $m19sum = 0;
      while($row = $rrr19->fetch_assoc()) {
 		 $m19num++;
-		 $m19sum = $m19sum + $row['painrelief'];
+		 $m19sum = $m19sum + $row['reliefrating'];
 	 }
 	 $m19[] = $m19sum/$m19num;
 	}
@@ -2631,7 +2631,7 @@ while ($i < $countmed) {
 	 $m20sum = 0;
      while($row = $rrr20->fetch_assoc()) {
 		 $m20num++;
-		 $m20sum = $m20sum + $row['painrelief'];
+		 $m20sum = $m20sum + $row['reliefrating'];
 	 }
 	 $m20[] = $m20sum/$m20num;
 	}
@@ -2647,7 +2647,7 @@ while ($i < $countmed) {
 	 $m21sum = 0;
      while($row = $rrr21->fetch_assoc()) {
 		 $m21num++;
-		 $m21sum = $m21sum + $row['painrelief'];
+		 $m21sum = $m21sum + $row['reliefrating'];
 	 }
 	 $m21[] = $m21sum/$m21num;
 	}
@@ -2663,7 +2663,7 @@ while ($i < $countmed) {
 	 $m22sum = 0;
      while($row = $rrr22->fetch_assoc()) {
 		 $m22num++;
-		 $m22sum = $m22sum + $row['painrelief'];
+		 $m22sum = $m22sum + $row['reliefrating'];
 	 }
 	 $m22[] = $m22sum/$m22num;
 	}
@@ -2679,7 +2679,7 @@ while ($i < $countmed) {
 	 $m23sum = 0;
      while($row = $rrr23->fetch_assoc()) {
 		 $m23num++;
-		 $m23sum = $m23sum + $row['painrelief'];
+		 $m23sum = $m23sum + $row['reliefrating'];
 	 }
 	 $m23[] = $m23sum/$m23num;
 	}
@@ -2695,7 +2695,7 @@ while ($i < $countmed) {
 	 $m24sum = 0;
      while($row = $rrr24->fetch_assoc()) {
 		 $m24num++;
-		 $m24sum = $m24sum + $row['painrelief'];
+		 $m24sum = $m24sum + $row['reliefrating'];
 	 }
 	 $m24[] = $m24sum/$m24num;
 	}
@@ -2711,7 +2711,7 @@ while ($i < $countmed) {
 	 $m25sum = 0;
      while($row = $rrr25->fetch_assoc()) {
 		 $m25num++;
-		 $m25sum = $m25sum + $row['painrelief'];
+		 $m25sum = $m25sum + $row['reliefrating'];
 	 }
 	 $m25[] = $m25sum/$m25num;
 	}
@@ -2727,7 +2727,7 @@ while ($i < $countmed) {
 	 $m26sum = 0;
      while($row = $rrr26->fetch_assoc()) {
 		 $m26num++;
-		 $m26sum = $m26sum + $row['painrelief'];
+		 $m26sum = $m26sum + $row['reliefrating'];
 	 }
 	 $m26[] = $m26sum/$m26num;
 	}
@@ -2743,7 +2743,7 @@ while ($i < $countmed) {
 	 $m27sum = 0;
      while($row = $rrr27->fetch_assoc()) {
 		 $m27num++;
-		 $m27sum = $m27sum + $row['painrelief'];
+		 $m27sum = $m27sum + $row['reliefrating'];
 	 }
 	 $m27[] = $m27sum/$m27num;
 	}
@@ -2759,7 +2759,7 @@ while ($i < $countmed) {
 	 $m28sum = 0;
      while($row = $rrr28->fetch_assoc()) {
 		 $m28num++;
-		 $m28sum = $m28sum + $row['painrelief'];
+		 $m28sum = $m28sum + $row['reliefrating'];
 	 }
 	 $m28[] = $m28sum/$m28num;
 	}
@@ -2775,7 +2775,7 @@ while ($i < $countmed) {
 	 $m29sum = 0;
      while($row = $rrr29->fetch_assoc()) {
 		 $m29num++;
-		 $m29sum = $m29sum + $row['painrelief'];
+		 $m29sum = $m29sum + $row['reliefrating'];
 	 }
 	 $m29[] = $m29sum/$m29num;
 	}
@@ -2791,7 +2791,7 @@ while ($i < $countmed) {
 	 $m30sum = 0;
      while($row = $rrr30->fetch_assoc()) {
 		 $m30num++;
-		 $m30sum = $m30sum + $row['painrelief'];
+		 $m30sum = $m30sum + $row['reliefrating'];
 	 }
 	 $m30[] = $m30sum/$m30num;
 	}
@@ -2807,7 +2807,7 @@ while ($i < $countmed) {
 	 $m31sum = 0;
      while($row = $rrr31->fetch_assoc()) {
 		 $m31num++;
-		 $m31sum = $m31sum + $row['painrelief'];
+		 $m31sum = $m31sum + $row['reliefrating'];
 	 }
 	 $m31[] = $m31sum/$m31num;
 	}
