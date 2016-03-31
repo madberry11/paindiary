@@ -2324,7 +2324,7 @@ while ($i < $countmed) {
 	$rrr1 = mysqli_query ($dbc, $qqq1) or trigger_error("Query: $qqq1\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr1) == 1) { 
 	$row = mysqli_fetch_assoc($rrr1);
-	$m1[] = $row['avgpain'];
+	$m1[] = $row['painrelief'];
 	}
 	else {
 	$m1[] = 0;	
@@ -2335,7 +2335,7 @@ while ($i < $countmed) {
 	$rrr2 = mysqli_query ($dbc, $qqq2) or trigger_error("Query: $qqq2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr2) == 1) { 
 	$row = mysqli_fetch_assoc($rrr2);
-	$m2[] = $row['avgpain'];
+	$m2[] = $row['painrelief'];
 	}
 	else {
 	$m2[] = 0;	
@@ -2346,7 +2346,7 @@ while ($i < $countmed) {
 	$rrr3 = mysqli_query ($dbc, $qqq3) or trigger_error("Query: $qqq3\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr3) == 1) { 
 	$row = mysqli_fetch_assoc($rrr3);
-	$m3[] = $row['avgpain'];
+	$m3[] = $row['painrelief'];
 	}
 	else {
 	$m3[] = 0;	
@@ -2357,7 +2357,7 @@ while ($i < $countmed) {
 	$rrr4 = mysqli_query ($dbc, $qqq4) or trigger_error("Query: $qqq4\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr4) == 1) { 
 	$row = mysqli_fetch_assoc($rrr4);
-	$m4[] = $row['avgpain'];
+	$m4[] = $row['painrelief'];
 	}
 	else {
 	$m4[] = 0;	
@@ -2368,7 +2368,7 @@ while ($i < $countmed) {
 	$rrr5 = mysqli_query ($dbc, $qqq5) or trigger_error("Query: $qqq5\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr5) == 1) { 
 	$row = mysqli_fetch_assoc($rrr5);
-	$m5[] = $row['avgpain'];
+	$m5[] = $row['painrelief'];
 	}
 	else {
 	$m5[] = 0;	
@@ -2379,7 +2379,7 @@ while ($i < $countmed) {
 	$rrr6 = mysqli_query ($dbc, $qqq6) or trigger_error("Query: $qqq6\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr6) == 1) { 
 	$row = mysqli_fetch_assoc($rrr6);
-	$m6[] = $row['avgpain'];
+	$m6[] = $row['painrelief'];
 	}
 	else {
 	$m6[] = 0;	
@@ -2390,7 +2390,7 @@ while ($i < $countmed) {
 	$rrr7 = mysqli_query ($dbc, $qqq7) or trigger_error("Query: $qqq7\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr7) == 1) { 
 	$row = mysqli_fetch_assoc($rrr7);
-	$m7[] = $row['avgpain'];
+	$m7[] = $row['painrelief'];
 	}
 	else {
 	$m7[] = 0;	
@@ -2401,7 +2401,7 @@ while ($i < $countmed) {
 	$rrr8 = mysqli_query ($dbc, $qqq8) or trigger_error("Query: $qqq8\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr8) == 1) { 
 	$row = mysqli_fetch_assoc($rrr8);
-	$m8[] = $row['avgpain'];
+	$m8[] = $row['painrelief'];
 	}
 	else {
 	$m8[] = 0;	
@@ -2412,7 +2412,7 @@ while ($i < $countmed) {
 	$rrr9 = mysqli_query ($dbc, $qqq9) or trigger_error("Query: $qqq9\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr9) == 1) { 
 	$row = mysqli_fetch_assoc($rrr9);
-	$m9[] = $row['avgpain'];
+	$m9[] = $row['painrelief'];
 	}
 	else {
 	$m9[] = 0;	
@@ -2423,7 +2423,7 @@ while ($i < $countmed) {
 	$rrr10 = mysqli_query ($dbc, $qqq10) or trigger_error("Query: $qqq10\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr10) == 1) { 
 	$row = mysqli_fetch_assoc($rrr10);
-	$m10[] = $row['avgpain'];
+	$m10[] = $row['painrelief'];
 	}
 	else {
 	$m10[] = 0;	
@@ -2434,7 +2434,7 @@ while ($i < $countmed) {
 	$rrr11 = mysqli_query ($dbc, $qqq11) or trigger_error("Query: $qqq11\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr11) == 1) { 
 	$row = mysqli_fetch_assoc($rrr11);
-	$m11[] = $row['avgpain'];
+	$m11[] = $row['painrelief'];
 	}
 	else {
 	$m11[] = 0;	
@@ -2445,7 +2445,7 @@ while ($i < $countmed) {
 	$rrr12 = mysqli_query ($dbc, $qqq12) or trigger_error("Query: $qqq12\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr12) == 1) { 
 	$row = mysqli_fetch_assoc($rrr12);
-	$m12[] = $row['avgpain'];
+	$m12[] = $row['painrelief'];
 	}
 	else {
 	$m12[] = 0;	
@@ -2456,7 +2456,7 @@ while ($i < $countmed) {
 	$rrr13 = mysqli_query ($dbc, $qqq13) or trigger_error("Query: $qqq13\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr13) == 1) { 
 	$row = mysqli_fetch_assoc($rrr13);
-	$m13[] = $row['avgpain'];
+	$m13[] = $row['painrelief'];
 	}
 	else {
 	$m13[] = 0;	
@@ -2467,7 +2467,7 @@ while ($i < $countmed) {
 	$rrr14 = mysqli_query ($dbc, $qqq14) or trigger_error("Query: $qqq14\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr14) == 1) { 
 	$row = mysqli_fetch_assoc($rrr14);
-	$m14[] = $row['avgpain'];
+	$m14[] = $row['painrelief'];
 	}
 	else {
 	$m14[] = 0;	
@@ -2478,7 +2478,7 @@ while ($i < $countmed) {
 	$rrr15 = mysqli_query ($dbc, $qqq15) or trigger_error("Query: $qqq15\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr15) == 1) { 
 	$row = mysqli_fetch_assoc($rrr15);
-	$m15[] = $row['avgpain'];
+	$m15[] = $row['painrelief'];
 	}
 	else {
 	$m15[] = 0;	
@@ -2489,7 +2489,7 @@ while ($i < $countmed) {
 	$rrr16 = mysqli_query ($dbc, $qqq16) or trigger_error("Query: $qqq16\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr16) == 1) { 
 	$row = mysqli_fetch_assoc($rrr16);
-	$m16[] = $row['avgpain'];
+	$m16[] = $row['painrelief'];
 	}
 	else {
 	$m16[] = 0;	
@@ -2500,7 +2500,7 @@ while ($i < $countmed) {
 	$rrr17 = mysqli_query ($dbc, $qqq17) or trigger_error("Query: $qqq17\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr17) == 1) { 
 	$row = mysqli_fetch_assoc($rrr17);
-	$m17[] = $row['avgpain'];
+	$m17[] = $row['painrelief'];
 	}
 	else {
 	$m17[] = 0;	
@@ -2511,7 +2511,7 @@ while ($i < $countmed) {
 	$rrr18 = mysqli_query ($dbc, $qqq18) or trigger_error("Query: $qqq18\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr18) == 1) { 
 	$row = mysqli_fetch_assoc($rrr18);
-	$m18[] = $row['avgpain'];
+	$m18[] = $row['painrelief'];
 	}
 	else {
 	$m18[] = 0;	
@@ -2522,7 +2522,7 @@ while ($i < $countmed) {
 	$rrr19 = mysqli_query ($dbc, $qqq19) or trigger_error("Query: $qqq19\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr19) == 1) { 
 	$row = mysqli_fetch_assoc($rrr19);
-	$m19[] = $row['avgpain'];
+	$m19[] = $row['painrelief'];
 	}
 	else {
 	$m19[] = 0;	
@@ -2533,7 +2533,7 @@ while ($i < $countmed) {
 	$rrr20 = mysqli_query ($dbc, $qqq20) or trigger_error("Query: $qqq20\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr20) == 1) { 
 	$row = mysqli_fetch_assoc($rrr20);
-	$m20[] = $row['avgpain'];
+	$m20[] = $row['painrelief'];
 	}
 	else {
 	$m20[] = 0;	
@@ -2544,7 +2544,7 @@ while ($i < $countmed) {
 	$rrr21 = mysqli_query ($dbc, $qqq21) or trigger_error("Query: $qqq21\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr21) == 1) { 
 	$row = mysqli_fetch_assoc($rrr21);
-	$m21[] = $row['avgpain'];
+	$m21[] = $row['painrelief'];
 	}
 	else {
 	$m21[] = 0;	
@@ -2555,7 +2555,7 @@ while ($i < $countmed) {
 	$rrr22 = mysqli_query ($dbc, $qqq22) or trigger_error("Query: $qqq22\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr22) == 1) { 
 	$row = mysqli_fetch_assoc($rrr22);
-	$m22[] = $row['avgpain'];
+	$m22[] = $row['painrelief'];
 	}
 	else {
 	$m22[] = 0;	
@@ -2566,7 +2566,7 @@ while ($i < $countmed) {
 	$rrr23 = mysqli_query ($dbc, $qqq23) or trigger_error("Query: $qqq23\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr23) == 1) { 
 	$row = mysqli_fetch_assoc($rrr23);
-	$m23[] = $row['avgpain'];
+	$m23[] = $row['painrelief'];
 	}
 	else {
 	$m23[] = 0;	
@@ -2577,7 +2577,7 @@ while ($i < $countmed) {
 	$rrr24 = mysqli_query ($dbc, $qqq24) or trigger_error("Query: $qqq24\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr24) == 1) { 
 	$row = mysqli_fetch_assoc($rrr24);
-	$m24[] = $row['avgpain'];
+	$m24[] = $row['painrelief'];
 	}
 	else {
 	$m24[] = 0;	
@@ -2588,7 +2588,7 @@ while ($i < $countmed) {
 	$rrr25 = mysqli_query ($dbc, $qqq25) or trigger_error("Query: $qqq25\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr25) == 1) { 
 	$row = mysqli_fetch_assoc($rrr25);
-	$m25[] = $row['avgpain'];
+	$m25[] = $row['painrelief'];
 	}
 	else {
 	$m25[] = 0;	
@@ -2599,7 +2599,7 @@ while ($i < $countmed) {
 	$rrr26 = mysqli_query ($dbc, $qqq26) or trigger_error("Query: $qqq26\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr26) == 1) { 
 	$row = mysqli_fetch_assoc($rrr26);
-	$m26[] = $row['avgpain'];
+	$m26[] = $row['painrelief'];
 	}
 	else {
 	$m26[] = 0;	
@@ -2610,7 +2610,7 @@ while ($i < $countmed) {
 	$rrr27 = mysqli_query ($dbc, $qqq27) or trigger_error("Query: $qqq27\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr27) == 1) { 
 	$row = mysqli_fetch_assoc($rrr27);
-	$m27[] = $row['avgpain'];
+	$m27[] = $row['painrelief'];
 	}
 	else {
 	$m27[] = 0;	
@@ -2621,7 +2621,7 @@ while ($i < $countmed) {
 	$rrr28 = mysqli_query ($dbc, $qqq28) or trigger_error("Query: $qqq28\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr28) == 1) { 
 	$row = mysqli_fetch_assoc($rrr28);
-	$m28[] = $row['avgpain'];
+	$m28[] = $row['painrelief'];
 	}
 	else {
 	$m28[] = 0;	
@@ -2632,7 +2632,7 @@ while ($i < $countmed) {
 	$rrr29 = mysqli_query ($dbc, $qqq29) or trigger_error("Query: $qqq29\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr29) == 1) { 
 	$row = mysqli_fetch_assoc($rrr29);
-	$m29[] = $row['avgpain'];
+	$m29[] = $row['painrelief'];
 	}
 	else {
 	$m29[] = 0;	
@@ -2643,7 +2643,7 @@ while ($i < $countmed) {
 	$rrr30 = mysqli_query ($dbc, $qqq30) or trigger_error("Query: $qqq30\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr30) == 1) { 
 	$row = mysqli_fetch_assoc($rrr30);
-	$m30[] = $row['avgpain'];
+	$m30[] = $row['painrelief'];
 	}
 	else {
 	$m30[] = 0;	
@@ -2654,7 +2654,7 @@ while ($i < $countmed) {
 	$rrr31 = mysqli_query ($dbc, $qqq31) or trigger_error("Query: $qqq31\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (@mysqli_num_rows($rrr31) == 1) { 
 	$row = mysqli_fetch_assoc($rrr31);
-	$m31[] = $row['avgpain'];
+	$m31[] = $row['painrelief'];
 	}
 	else {
 	$m31[] = 0;	
