@@ -3166,7 +3166,7 @@ $i=0;
 while ($i<= $n-1) {
 ?>
 <tr>
-<td><?php echo $eday[$i] .'/'. $calmonth .'/'. $calyear ?></td>
+<td class="bold"><?php echo $eday[$i] .'/'. $calmonth .'/'. $calyear ?>:</td>
 <td><?php echo $ecomment[$i] ?></td>
 </tr>
 <?php
