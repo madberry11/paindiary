@@ -3157,11 +3157,9 @@ if ($result -> num_rows > 0) {
 		$n++;
 
 	}
-echo $n;
-print_r($eday);
-print_r($ecomment);
 ?>
 <table>
+<th>Day</th><th>Why it was marked as important</th>
 <?php
 $i=0;
 while ($i<= $n-1) {
