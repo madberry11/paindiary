@@ -249,7 +249,7 @@ transition-property: position;
 transition-duration: 1s;
 }
 
-#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass {
+#addnewbutton, #addpainrelief, #addcomment, #deleteall, #changepass, #printbutton {
 	position: relative;
 	display: inline-block;
 	padding: 5px;
