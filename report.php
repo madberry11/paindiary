@@ -209,7 +209,7 @@ switch ($calmonth) {
 
 <div id="pagewrap">
 <h1><a href="home.php" class="icon-chevron-left nounderline"></a>Report for <?php echo $month ?> <?php echo $calyear ?></h1>
-<div id='container'>
+<div id=''>
 <script>
 $(document).ready(function () {
   $('#pcomp').click(function () {
