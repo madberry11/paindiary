@@ -266,7 +266,7 @@ echo "<input class='checkbox' type='checkbox' id='$medicine' name='medicine[]' v
 	}
 ?>
 </div>
-<p><input class='checkbox' type='checkbox' id='impent' name='impent' /><label for='relcomp'>Important Entries</label></p>
+<p><input class='checkbox' type='checkbox' id='impent' name='impent' /><label id='impentlabel' for='relcomp'>Important Entries</label></p>
 <p><input type="submit" name="generate" id="generate" value="Generate Report" /></p>
 </form>
 <?php
@@ -284,6 +284,19 @@ $(document).ready(function () {
 	   $('#avgrellabel').css('display','none');
 	   $('#relcomp').css('display','none');
 	   $('#relcomplabel').css('display','none');
+  });
+  </script>
+    <?php
+}
+
+$sql4 = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
+$result4 = $dbc->query($sql4);
+if ($result4 -> num_rows == 0) {
+	?>
+    <script>
+$(document).ready(function () {
+       $('#impent').css('display','none');
+	   $('#impentlabel').css('display','none');
   });
   </script>
     <?php
