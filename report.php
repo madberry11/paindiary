@@ -1332,7 +1332,7 @@ while ($i < $countparts) {
 }
 
 ?>
-<div id="container3"</div>
+<div id="container3"></div>
 <script>
 $(function () { 
     $('#container3').highcharts({
@@ -1388,7 +1388,7 @@ $(function () {
 
 </script>
 
-<div id="container4"</div>
+<div id="container4"></div>
 <script>
 $(function () { 
     $('#container4').highcharts({
