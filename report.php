@@ -3156,6 +3156,9 @@ if ($result -> num_rows > 0) {
 		}
 		$n++;
 		
+print_r($eday);
+print_r($ecomment);
+		
 ?>
 <table>
 <?php
