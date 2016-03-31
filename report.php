@@ -2662,7 +2662,7 @@ while ($i < $countmed) {
 	
 $i++;
 } // close tag for while 1 < countmed
-
+print_r($m24);
 ?>
 <div id="container7" class="cont"></div>
 <script>
