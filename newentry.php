@@ -599,7 +599,7 @@ $('#closemessage').click(function(){
 <legend>Add New Body Part</legend>
 <form id="newentryform" name="newentryform" action="newentry.php" method="post">
     <p><label for="bodypart">Body Part</label>
-    <input name="bodypart" type="text" placeholder="body part" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
+    <input name="bodypart" class="logininput" type="text" placeholder="body part" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label for="tags">What words would you use to describe the pain?</label>
     
   <ul id="demo4"></ul>
@@ -882,7 +882,7 @@ if ($result -> num_rows > 0) {
 ?>
 <form id="editentryform" name="editentryform" action="newentry.php" method="post">
     <p><label for="bodypart">Body Part</label>
-    <input name="bodypart" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>Type of pain:
+    <input name="bodypart" class="logininput" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>Type of pain:
     <ul id="demo2" name="demo2">
         <?php 
 		echo $entrytags;
