@@ -558,7 +558,7 @@ document.write(document.getElementById("paintags").value);
 </script>
 
     
-    
+    <br clear="all" />
     <table class="paintable">
     <tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr>
 		 <tr><th class='firstcol'>Pain Intensity</th>
