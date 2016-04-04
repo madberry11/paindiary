@@ -1008,8 +1008,7 @@ h2 {
 .buttons {
 	float: right;
 	display: block;
-	vertical-align: middle;
-	height: auto;
+	margin-top: 10px;
 }
 
 #demo4 {
