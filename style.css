@@ -403,8 +403,8 @@ background-color: #dddee0;
 }
 
 #relieftable th {
-	width: 200px;
-	text-align: left;	
+	width: 100px;
+	text-align: right;	
 }
 
 input::-webkit-outer-spin-button,
