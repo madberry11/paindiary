@@ -938,6 +938,8 @@ function painrelief(){
 	document.getElementById('addnew').style.display = "none";
 	document.getElementById('newcomment').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "block";
+	window.location.href = "#"+newpainrelief;
+	
 }
 
 function comment(){
