@@ -946,6 +946,7 @@ function comment(){
 	document.getElementById('addnew').style.display = "none";
 	document.getElementById('newcomment').style.display = "block";
 	document.getElementById('newpainrelief').style.display = "none";
+	window.location.href = "#"+addcomment;
 }
 
 //function editEntry() {
