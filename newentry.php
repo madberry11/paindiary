@@ -366,6 +366,9 @@ if(isset($_GET['newrecord'])) {
 if(isset($_GET['createcomment'])) {
 	$createcomment = $_GET['createcomment'];
 	$cvalue = 2;
+	$url = BASE_URL . 'newentry.php#newcomment'; 
+	ob_end_clean(); 
+	header("Location: $url");
 }
 
 if(isset($_GET['newbodypart'])) {
@@ -398,9 +401,6 @@ if(isset($_GET['deleterecord'])) {
 if(isset($_GET['commentedit'])) {
 	$commentedit = $_GET['commentedit'];
 	$cvalue = 3;
-	$url = BASE_URL . 'newentry.php#newcomment'; 
-	ob_end_clean(); 
-	header("Location: $url");
 }
 
 if(isset($_GET['deleteall'])) {
