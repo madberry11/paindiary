@@ -7,6 +7,11 @@ ob_start();
 session_start();
 require ('config.inc.php'); 
 
+$todayday = date("j");
+$todaymonth = date("n");
+$todayyear = date("Y");
+echo $todayday . " " . $todaymonth . " " . $todayyear;
+
 if (!isset($page_title)) {
 	$page_title = 'Your Pain Diary';
 
