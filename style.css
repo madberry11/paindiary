@@ -1001,7 +1001,7 @@ h2 {
 .demodiv {
 	float: left;
 	display: block;
-	width: 89%;
+	width: 88%;
 	background-color: yellow;
 	padding-right: 0px;
 	margin-right: 0px;
@@ -1022,5 +1022,5 @@ h2 {
 	font-family: 'Ruda', sans-serif;
 	font-weight: 700;
 	text-align: left;	
-	border: 1px solid #666;
+	border: 1px solid #999;
 }
