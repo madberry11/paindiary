@@ -542,13 +542,12 @@ $('#closemessage').click(function(){
     <p><label for="bodypart" class="ui-hidden-accessible">Body Part</label>
     <input name="bodypart" class="logininput" type="text" placeholder="Affected body part" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label for="tags">What words would you use to describe the pain?</label>
-    
-  <ul id="demo4"></ul>
-  
-  <div class="buttons">
-    <button id="demo4GetTags" value="Get Tags">Save Tags</button>
+  <div class="democontainer">
+  <div class="demodiv"><ul id="demo4"></ul></div>
+  <div class="buttons"><button id="demo4GetTags" value="Get Tags">Save Tags</button></div>
   </div>
-  <div>Your tags:</div><ul class="taglist"><div id="demo4Out"></div></ul>
+  <div>Your tags:</div>
+  <ul class="taglist"><div id="demo4Out"></div></ul>
   <input id="paintags" name="paintags" class="hidden" />
 <script>
 function() {

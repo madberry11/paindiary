@@ -992,3 +992,17 @@ h2 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.democontainer {
+	width: 100%;	
+}
+
+.demodiv {
+	float: left;
+	display: block;
+}
+
+.buttons {
+	float: right;
+	display: block;
+}
