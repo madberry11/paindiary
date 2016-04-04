@@ -101,8 +101,8 @@ var myInterval = setTimeout("location=('index.php');",3600000);
                 string += "<li>" + tags[i].value + "</li>";
 				string += "&nbsp;";
             }
-			$('#demo4Out').append(string);
-			$('#demo2Out').append(string);
+			$('#demo4Out').val(string);
+			$('#demo2Out').val(string);
 			$("input[id=paintags]").val(string);
 			$("input[id=paintags2]").val(string);
             
