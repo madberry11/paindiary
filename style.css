@@ -1066,6 +1066,6 @@ h2 {
 	margin-left: 24px;
 }
 
-.today {
-	background-color: yellow;	
+td .today {
+	background-color: yellow !important;	
 }
