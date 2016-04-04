@@ -381,7 +381,7 @@ padding-left: 20px;
 font-weight: normal;	
 }
 
-.paintable, .relieftable2 {
+.paintable, .relieftable2, .relieftable {
 width: 95%;
 text-align: center;
 -webkit-box-shadow: none !important;
