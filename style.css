@@ -1002,7 +1002,10 @@ h2 {
 	float: left;
 	display: block;
 	width: 88%;
-	background-color: yellow;
+}
+
+.demodiv [type=text] {
+	border: 1px solid #333;
 }
 
 .buttons {
