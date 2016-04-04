@@ -411,7 +411,10 @@ background-color: #dddee0;
 }
 
 #relieftable td {
-	padding-left: 20px;	
+	padding: 5px;
+	padding-left: 20px !important;
+	width: 200px;
+	text-align: center !important;	
 }
 
 input::-webkit-outer-spin-button,
@@ -457,12 +460,6 @@ padding: 10px;
 
 .tdright[type=number] {
 width: 60px;
-}
-
-#relieftable td {
-padding: 5px;
-width: 200px;
-text-align: center !important;
 }
 
 .relieftable2 {
