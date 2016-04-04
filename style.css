@@ -395,6 +395,7 @@ background-color: #dddee0;
 }
 
 #relieftable {
+	width: 90%;
 	margin: 0px auto;
 	background-color: #eee;	
 	-webkit-box-shadow: none !important;
