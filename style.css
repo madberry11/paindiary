@@ -1002,6 +1002,8 @@ h2 {
 	float: left;
 	display: block;
 	width: 88%;
+	padding-right: 0px;
+	margin-right: 0px;
 }
 
 .demodiv [type=text] {
