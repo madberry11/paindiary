@@ -405,6 +405,8 @@ background-color: #dddee0;
 #relieftable th {
 	width: 100px;
 	text-align: right;	
+	font-size: small;
+	padding-right: 20px;
 }
 
 input::-webkit-outer-spin-button,
