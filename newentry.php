@@ -539,8 +539,8 @@ $('#closemessage').click(function(){
 <fieldset>
 <legend>Add New Body Part</legend>
 <form id="newentryform" name="newentryform" action="newentry.php" method="post">
-    <p><label class="bodypartlabel" for="bodypart" class="ui-hidden-accessible">Body Part</label>
-    <input name="bodypart" class="logininput" type="text" placeholder="Affected body part" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
+    <p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
+    <input name="bodypart" class="logininput" type="text" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
   <div class="democontainer">
   <div class="demodiv"><ul id="demo4"></ul></div>
