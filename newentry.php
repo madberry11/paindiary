@@ -833,11 +833,6 @@ if ($result -> num_rows > 0) {
 
   <ul class="taglist"><div id="demo2Out"></div></ul>
   <input id="paintags2" name="paintags2" class="hidden" />
-<script>
-function() {
-document.write(document.getElementById("paintags2").value);
-}
-</script>
 <br clear="all" />
 
     <table class="paintable">
