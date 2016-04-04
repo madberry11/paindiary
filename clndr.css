@@ -78,7 +78,7 @@ position: relative !important;
 }
 
 .today {
-background-color: yellow !important;	
+border: 2px solid #008b9a !important;
 }
 
 .actualday:hover {
