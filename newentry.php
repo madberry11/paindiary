@@ -541,7 +541,7 @@ $('#closemessage').click(function(){
 <legend>Add New Body Part</legend>
 <form id="newentryform" name="newentryform" action="newentry.php" method="post">
     <p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
-    <input id="bodypart" name="bodypart" type="text" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
+    <input class="bodypart" name="bodypart" type="text" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
   <div class="democontainer">
   <div class="demodiv"><ul id="demo4"></ul></div>
@@ -821,19 +821,27 @@ if ($result -> num_rows > 0) {
  
 ?>
 <form id="editentryform" name="editentryform" action="newentry.php" method="post">
-    <p><label for="bodypart" class="ui-hidden-accessible">Body Part</label>
-    <input name="bodypart" class="logininput" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
-    <ul id="demo2" name="demo2">
-        <?php 
-		echo $entrytags;
-		?>
-    </ul>
+	<p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
+    <input class="bodypart" name="bodypart" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
+    <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
+  <div class="democontainer">
+  <div class="demodiv"><ul id="demo2" name="demo2"><?php echo $entrytags; ?></ul></div>
   <div class="buttons">
-    <button id="demo2GetTags" value="Get Tags">Get Tags</button>
-    <button id="demo2ResetTags" value="Reset Tags">Reset Tags</button>
+  <button id="demo2GetTags" value="Get Tags">Save Tags</button>
+  <button id="demo2ResetTags" value="Reset Tags">Reset Tags</button>
   </div>
-  <div id="demo2Out"></div>
+  </div>
+  <br clear="all" />
+
+  <ul class="taglist"><div id="demo2Out"></div></ul>
   <input id="paintags2" name="paintags2" class="hidden" />
+<script>
+function() {
+document.write(document.getElementById("paintags2").value);
+}
+</script>
+<br clear="all" />
+
     <table class="paintable">
     <tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr>
 		 <tr><th class='firstcol'>Pain Intensity</th>
