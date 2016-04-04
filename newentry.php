@@ -1199,7 +1199,7 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 
 
 <!-- ADD NEW COMMENT -->
-<div id="newcomment" name="newcomment" class="hidden">
+<div id="newcomment" class="hidden"><a name="newcomment"></a>
 <fieldset>
 <legend>Add Comment</legend>
 <!--<span id="commentlabel">Add Comment: </span>-->
