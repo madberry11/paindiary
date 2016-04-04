@@ -384,10 +384,10 @@ font-weight: normal;
 .paintable, .relieftable2 {
 width: 95%;
 text-align: center;
--webkit-box-shadow: none;
+-webkit-box-shadow: none !important;
 -moz-box-shadow: none;
 box-shadow: none;
-background-color: #eee;
+background-color: ##dddee0 !important;
 }
 
 .paintable td, .relieftable2 td {
