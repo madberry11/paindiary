@@ -1008,7 +1008,8 @@ h2 {
 .buttons {
 	float: right;
 	display: block;
-	line-height: 3em;
+	vertical-align: middle;
+	height: auto;
 }
 
 #demo4 {
