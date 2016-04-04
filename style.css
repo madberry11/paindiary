@@ -1002,10 +1002,7 @@ h2 {
 	float: left;
 	display: block;
 	width: 88%;
-}
-
-.demodiv [type=text] {
-	border: 1px solid #333;
+	background-color: yellow;
 }
 
 .buttons {
@@ -1025,5 +1022,5 @@ h2 {
 	text-align: left;
 	padding-right: 0px;
 	margin-right: 0px;	
-	border: 1px solid #333;
+	border: 1px solid #666;
 }
