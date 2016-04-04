@@ -398,6 +398,9 @@ if(isset($_GET['deleterecord'])) {
 if(isset($_GET['commentedit'])) {
 	$commentedit = $_GET['commentedit'];
 	$cvalue = 3;
+	$url = BASE_URL . 'newentry.php#newcomment'; 
+	ob_end_clean(); 
+	header("Location: $url");
 }
 
 if(isset($_GET['deleteall'])) {
@@ -1290,13 +1293,6 @@ if ($evalue == 4) {
 		$idtoedit = $_GET['toedit'];
 		$_SESSION['entryid'] = $_GET['toedit'];
 		$entryvalue = 3;
-		?>
-  <script>
-        document.onload = function(){
-		window.location.href = "#"+editoldentry;
-		}
-		</script>
-        <?php
 		//echo "case 3";
 	}
 	else {
