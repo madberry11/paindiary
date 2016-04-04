@@ -994,14 +994,14 @@ h2 {
 }
 
 .democontainer {
-	width: 90%;	
+	width: 95%;	
 	margin: 0px auto;
 }
 
 .demodiv {
 	float: left;
 	display: block;
-	width: 90%;
+	width: 85%;
 	background-color: yellow;
 }
 
