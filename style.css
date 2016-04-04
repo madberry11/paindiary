@@ -1067,5 +1067,8 @@ h2 {
 }
 
 .today {
-	border: 3px solid green;	
+	border-radius: 50%;
+	width: 20px;
+	height: 20px; 
+	background-color: green;	
 }
