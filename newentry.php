@@ -824,12 +824,10 @@ if ($result -> num_rows > 0) {
 	<p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
     <input class="bodypart" name="bodypart" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
-  <div class="democontainer">
   <div class="demodiv"><ul id="demo2" name="demo2"><?php echo $entrytags; ?></ul></div>
   <div class="buttons">
   <button id="demo2GetTags" value="Get Tags">Save Tags</button>
   <button id="demo2ResetTags" value="Reset Tags">Reset Tags</button>
-  </div>
   </div>
   <br clear="all" />
 
