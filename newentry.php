@@ -938,7 +938,6 @@ function painrelief(){
 	document.getElementById('addnew').style.display = "none";
 	document.getElementById('newcomment').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "block";
-	window.location.href = "#"+newpainrelief;
 	
 }
 
@@ -946,7 +945,6 @@ function comment(){
 	document.getElementById('addnew').style.display = "none";
 	document.getElementById('newcomment').style.display = "block";
 	document.getElementById('newpainrelief').style.display = "none";
-	window.location.href = "#"+addcomment;
 }
 
 //function editEntry() {
@@ -1292,6 +1290,13 @@ if ($evalue == 4) {
 		$idtoedit = $_GET['toedit'];
 		$_SESSION['entryid'] = $_GET['toedit'];
 		$entryvalue = 3;
+		?>
+  <script>
+        document.onload = function(){
+		window.location.href = "#"+editoldentry;
+		}
+		</script>
+        <?php
 		//echo "case 3";
 	}
 	else {
