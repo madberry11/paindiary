@@ -96,7 +96,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             console.log(tags);
             var string = "";
             var i;
-			string += "Saved tags: ";
+			string += "<span class='b'>Type of pain:</span> ";
             for (i in tags) {
                 string += "<li>" + tags[i].value + "</li>";
 				string += "&nbsp;";
@@ -630,8 +630,6 @@ if ($result -> num_rows > 0) {
 	 //$evalue= 4;
 	 		 ?>
 <div id='container'></div>
-<div id="drag"></div>
-<div id="drop"></div>
          <?php
      while($row = $result->fetch_assoc()) {
 		
@@ -824,7 +822,7 @@ if ($result -> num_rows > 0) {
 ?>
 <form id="editentryform" name="editentryform" action="newentry.php" method="post">
     <p><label for="bodypart" class="ui-hidden-accessible">Body Part</label>
-    <input name="bodypart" class="logininput" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>Type of pain:
+    <input name="bodypart" class="logininput" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <ul id="demo2" name="demo2">
         <?php 
 		echo $entrytags;
