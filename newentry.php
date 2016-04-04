@@ -186,11 +186,11 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 
         $('#demo1').tagit({tagSource:availableTags, select:true, sortable:true});
         $('#demo2').tagit({tagSource:availableTags, inputWidth: 180, tagsChanged:function (a, b) {
-			$('#demo2Out').html(a + ' was ' + b);
+			//$('#demo2Out').html(a + ' was ' + b);
 		}});
         $('#demo3').tagit({tagSource:availableTags, triggerKeys:['enter', 'comma', 'tab']});
         $('#demo4').tagit({tagSource:availableTags, sortable:true, tagsChanged:function (a, b) {
-            $('#demo4Out').html(a + ' was ' + b);
+            //$('#demo4Out').html(a + ' was ' + b);
 			
 			
 			
@@ -511,69 +511,11 @@ $("#makeimportant").toggle(function()
         $('#makeimportant').removeClass("notimportant").addClass("important"); //Adds 'a', removes 'b'
 		$("#importantday").css("display", "block");
 		window.location.replace("http://paindiary.azurewebsites.net/newentry.php?important=1");
-/*	
-			 function ajaxFunction(){
- var ajaxRequest;  // The variable that makes Ajax possible!
 
- try{
-   // Opera 8.0+, Firefox, Safari
-   ajaxRequest = new XMLHttpRequest();
- }catch (e){
-   // Internet Explorer Browsers
-   try{
-      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-   }catch (e) {
-      try{
-         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-      }catch (e){
-         // Something went wrong
-         alert("Your browser broke!");
-         return false;
-      }
-   }
- } }
-		
-		$.ajax({
-       url: 'makeimportant.php',
-       dataType: 'json',
-       success: function(data){
-            alert(data); 
-       }
-    });
-*/
 }, function() {
         $('#makeimportant').removeClass("important").addClass("notimportant"); //Adds 'b', removes 'a'
 		$("#importantday").css("display", "none");
-/*		
-			 function ajaxFunction(){
- var ajaxRequest;  // The variable that makes Ajax possible!
 
- try{
-   // Opera 8.0+, Firefox, Safari
-   ajaxRequest = new XMLHttpRequest();
- }catch (e){
-   // Internet Explorer Browsers
-   try{
-      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-   }catch (e) {
-      try{
-         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-      }catch (e){
-         // Something went wrong
-         alert("Your browser broke!");
-         return false;
-      }
-   }
- } }
-		
-		$.ajax({
-       url: 'makenotimportant.php',
-       dataType: 'json',
-       success: function(data){
-            alert(data);
-       }
-    });
-	*/
 });
 
 $('#closemessage').click(function(){
