@@ -994,12 +994,14 @@ h2 {
 }
 
 .democontainer {
-	width: 100%;	
+	width: 95%;	
 }
 
 .demodiv {
 	float: left;
 	display: block;
+	width: 80%;
+	background-color: yellow;
 }
 
 .buttons {
