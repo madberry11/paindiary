@@ -1009,7 +1009,7 @@ h2 {
 .buttons {
 	float: right;
 	display: block;
-	margin-top: 15px;
+	margin-top: 12px;
 }
 
 #demo4 {
@@ -1017,8 +1017,6 @@ h2 {
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	font-family: 'Ruda', sans-serif;
-	font-weight: 700;
 	text-align: left;	
 	border: 1px solid #999;
 }
@@ -1026,8 +1024,6 @@ h2 {
 #bodypart {
 	padding-left: 15px;
 	padding-right: 15px;
-	font-family: 'Ruda', sans-serif;
-	font-weight: 700;
 	text-align: left;	
 	border: 1px solid #999;
 	padding-top: 15px !important;
