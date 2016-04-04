@@ -366,9 +366,6 @@ if(isset($_GET['newrecord'])) {
 if(isset($_GET['createcomment'])) {
 	$createcomment = $_GET['createcomment'];
 	$cvalue = 2;
-	$url = BASE_URL . 'newentry.php#newcomment'; 
-	ob_end_clean(); 
-	header("Location: $url");
 }
 
 if(isset($_GET['newbodypart'])) {
@@ -1199,7 +1196,7 @@ echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$r
 
 
 <!-- ADD NEW COMMENT -->
-<div id="newcomment" class="hidden"><a name="newcomment"></a>
+<div id="newcomment" name="newcomment" class="hidden">
 <fieldset>
 <legend>Add Comment</legend>
 <!--<span id="commentlabel">Add Comment: </span>-->
