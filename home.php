@@ -10,7 +10,7 @@ require ('config.inc.php');
 $todayday = date("j");
 $todaymonth = date("n");
 $todayyear = date("Y");
-echo $todayday . " " . $todaymonth . " " . $todayyear;
+//echo $todayday . " " . $todaymonth . " " . $todayyear;
 
 if (!isset($page_title)) {
 	$page_title = 'Your Pain Diary';
@@ -320,6 +320,295 @@ for (var i = 0; i < choose.length; i++) {
 ?>
 </ul>
 </div>
+<?php
+if (($todayyear == $cYear) AND ($todaymonth == $cMonth)) {
+?>
+<table id="calendar">
+<tr>
+<th>S</th>
+<th>M</th>
+<th>T</th>
+<th>W</th>
+<th>T</th>
+<th>F</th>
+<th>S</th>
+</tr>
+<?php 
+$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
+$result = $dbc->query($sql);
+$timestamp = mktime(0,0,0,$cMonth,1,$cYear);
+$maxday = date("t",$timestamp);
+$thismonth = getdate ($timestamp);
+$startday = $thismonth['wday'];
+for ($i=0; $i<($maxday+$startday); $i++) {
+	
+		$thisday = $i - $startday + 1;
+		
+if ($thisday == $todayday) {
+
+switch($whichquery) {
+		
+case 'allpain':
+	//echo " case all entries";
+	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
+	$result = $dbc->query($sql);
+
+	break;
+case 'bodypart':
+	 //echo " case " . $active;
+	 if(!isset($_SESSION['active'])) {
+		 //echo "It is really not set.";
+	 }
+	$sql2 = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday . " AND bodypart = '" . $_SESSION['active'] . "'" ;
+	 //echo $sql2;
+	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
+	break;
+	
+	
+default:
+	//echo " case default";
+	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
+	$result = $dbc->query($sql);
+	break;
+}
+
+	if ($result == FALSE) {
+		// "Something is wrong."
+	}
+	
+	elseif ($result -> num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
+		 // if there's an entry for this day
+		 if ($row['entryday'] == $thisday) {
+			 //echo $row['entryday'];
+			 
+			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
+	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+	$r = $dbc->query($query);
+	if ($r -> num_rows == 1) {
+		//echo "yes";
+			 
+			 if ($row['AVG(avgpain)'] < 0.95) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			 }
+			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l2'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 1.95) && ($row['AVG(avgpain)'] < 2.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l3'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 2.95) && ($row['AVG(avgpain)'] < 3.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l4'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 3.95) && ($row['AVG(avgpain)'] < 4.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l5'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 4.95) && ($row['AVG(avgpain)'] < 5.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l6'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 5.95) && ($row['AVG(avgpain)'] < 6.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l7'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 6.95) && ($row['AVG(avgpain)'] < 7.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l8'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 7.95) && ($row['AVG(avgpain)'] < 8.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l9'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 8.95) && ($row['AVG(avgpain)'] <= 10)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l10'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+	}
+	elseif ($r -> num_rows == 0) {
+		//echo "no";
+			 
+			 if ($row['AVG(avgpain)'] < 0.95) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l1'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 }
+			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l2'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 1.95) && ($row['AVG(avgpain)'] < 2.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l3'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 2.95) && ($row['AVG(avgpain)'] < 3.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l4'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 3.95) && ($row['AVG(avgpain)'] < 4.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l5'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 4.95) && ($row['AVG(avgpain)'] < 5.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l6'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 5.95) && ($row['AVG(avgpain)'] < 6.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l7'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 6.95) && ($row['AVG(avgpain)'] < 7.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l8'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 7.95) && ($row['AVG(avgpain)'] < 8.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l9'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 8.95) && ($row['AVG(avgpain)'] <= 10)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l10'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+	}
+			
+		 }
+				 
+	 }
+}
+?>
+<?php
+	
+    if(($i % 7) == 0 )  {echo "<tr>"; }
+    if($i < $startday) {echo "<td></td>";}
+	
+	
+    // for cells in the table that have days in them
+    else { 
+		
+		 echo "<td title='Create/Edit Entry' class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
+		 if(($i % 7) == 6 ) echo "</tr>";
+	}
+		 
+}
+else {
+switch($whichquery) {
+		
+case 'allpain':
+	//echo " case all entries";
+	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
+	$result = $dbc->query($sql);
+
+	break;
+case 'bodypart':
+	 //echo " case " . $active;
+	 if(!isset($_SESSION['active'])) {
+		 //echo "It is really not set.";
+	 }
+	$sql2 = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday . " AND bodypart = '" . $_SESSION['active'] . "'" ;
+	 //echo $sql2;
+	$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
+	break;
+	
+	
+default:
+	//echo " case default";
+	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
+	$result = $dbc->query($sql);
+	break;
+}
+
+	if ($result == FALSE) {
+		// "Something is wrong."
+	}
+	
+	elseif ($result -> num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
+		 // if there's an entry for this day
+		 if ($row['entryday'] == $thisday) {
+			 //echo $row['entryday'];
+			 
+			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
+	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+	$r = $dbc->query($query);
+	if ($r -> num_rows == 1) {
+		//echo "yes";
+			 
+			 if ($row['AVG(avgpain)'] < 0.95) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l1'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			 }
+			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l2'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 1.95) && ($row['AVG(avgpain)'] < 2.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l3'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 2.95) && ($row['AVG(avgpain)'] < 3.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l4'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 3.95) && ($row['AVG(avgpain)'] < 4.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l5'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 4.95) && ($row['AVG(avgpain)'] < 5.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l6'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 5.95) && ($row['AVG(avgpain)'] < 6.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l7'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 6.95) && ($row['AVG(avgpain)'] < 7.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l8'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 7.95) && ($row['AVG(avgpain)'] < 8.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l9'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 8.95) && ($row['AVG(avgpain)'] <= 10)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere l10'><span class='icon-exclamation-sign nounderline important'></span><span class='vmiddle'>" . number_format($row['AVG(avgpain)'],1) ."</span></div>";
+			}
+	}
+	elseif ($r -> num_rows == 0) {
+		//echo "no";
+			 
+			 if ($row['AVG(avgpain)'] < 0.95) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l1'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			 }
+			elseif (($row['AVG(avgpain)'] >= 0.95) && ($row['AVG(avgpain)'] < 1.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l2'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 1.95) && ($row['AVG(avgpain)'] < 2.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l3'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 2.95) && ($row['AVG(avgpain)'] < 3.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l4'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 3.95) && ($row['AVG(avgpain)'] < 4.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l5'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 4.95) && ($row['AVG(avgpain)'] < 5.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l6'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 5.95) && ($row['AVG(avgpain)'] < 6.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l7'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 6.95) && ($row['AVG(avgpain)'] < 7.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l8'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 7.95) && ($row['AVG(avgpain)'] < 8.95)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l9'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+			elseif (($row['AVG(avgpain)'] >= 8.95) && ($row['AVG(avgpain)'] <= 10)) {
+			 $thisday = "<div class='daynumber'>" . $thisday . "</div><div class='iconshere noimp l10'>" . number_format($row['AVG(avgpain)'],1) ."</div>";
+			}
+	}
+			
+		 }
+				 
+	 }
+}
+?>
+<?php
+	
+    if(($i % 7) == 0 )  {echo "<tr>"; }
+    if($i < $startday) {echo "<td></td>";}
+	
+	
+    // for cells in the table that have days in them
+    else { 
+		
+		 echo "<td title='Create/Edit Entry' class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
+		 if(($i % 7) == 6 ) echo "</tr>";
+	}
+		 
+}	
+}
+?>
+</tr>
+</table>
+<?php
+}
+else {
+	?>
 <table id="calendar">
 <tr>
 <th>S</th>
@@ -472,6 +761,9 @@ default:
 ?>
 </tr>
 </table>
+<?php	
+}
+?>
 <!--<div class="cal1">
     </div>-->
 </div>
