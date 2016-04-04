@@ -381,13 +381,13 @@ padding-left: 20px;
 font-weight: normal;	
 }
 
-.paintable, .relieftable2, .relieftable {
+.paintable, .relieftable2 {
 width: 95%;
 text-align: center;
--webkit-box-shadow: none !important;
+-webkit-box-shadow: none;
 -moz-box-shadow: none;
 box-shadow: none;
-background-color: ##dddee0 !important;
+background-color: #eee;
 }
 
 .paintable td, .relieftable2 td {
@@ -395,7 +395,10 @@ background-color: #dddee0;
 }
 
 #relieftable {
-	margin: 0px auto;	
+	margin: 0px auto;
+	background-color: #dddee0;	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
 }
 
 input::-webkit-outer-spin-button,
