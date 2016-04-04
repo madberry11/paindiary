@@ -548,7 +548,7 @@ $('#closemessage').click(function(){
   <div class="buttons">
     <button id="demo4GetTags" value="Get Tags">Save Tags</button>
   </div>
-  You have added:<ul class="taglist"><div id="demo4Out"></div></ul>
+  <div>Your tags:</div><ul class="taglist"><div id="demo4Out"></div></ul>
   <input id="paintags" name="paintags" class="hidden" />
 <script>
 function() {
