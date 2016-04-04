@@ -96,6 +96,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             console.log(tags);
             var string = "";
             var i;
+			string += "Saved tags: ";
             for (i in tags) {
                 string += "<li>" + tags[i].value + "</li>";
 				string += "&nbsp;";
@@ -547,7 +548,7 @@ $('#closemessage').click(function(){
   <div class="buttons"><button id="demo4GetTags" value="Get Tags">Save Tags</button></div>
   </div>
   <br clear="all" />
-  <div>Your tags:</div>
+
   <ul class="taglist"><div id="demo4Out"></div></ul>
   <input id="paintags" name="paintags" class="hidden" />
 <script>
