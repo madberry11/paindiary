@@ -75,11 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo '<p class="error">Sorry, this username is already taken!</p>';
 		}
 		
-	} else {
-		echo '<p class="error">Please enter a username!</p>';
-	}
-	
-	if (filter_var($trimmed['email'], FILTER_VALIDATE_EMAIL)) {
+		else {
+			
+			if (filter_var($trimmed['email'], FILTER_VALIDATE_EMAIL)) {
 		$e = mysqli_real_escape_string ($dbc, $trimmed['email']);
 	} else {
 		echo '<p class="error">Please enter a valid email address!</p>';
@@ -189,10 +187,20 @@ if(!$mail->send()) {
 	} else { 
 		echo '<p class="error">Please try again.</p>';
 	}
-
+		}
+			
+			
+			
+			
+		}
+		
+	} else {
+		echo '<p class="error">Please enter a username!</p>';
+	}
+	
+	
 	mysqli_close($dbc);
 
-		}
 } 
 ?>
 
