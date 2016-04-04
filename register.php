@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $captcha=$_POST['g-recaptcha-response'];
         }
         if(!$captcha){
-          echo '<h2>Please check the the captcha form.</h2>';
+          echo '<p class="error">Please check the the captcha form.</p>';
           exit;
         }
 	$secretKey = "6LdAMhsTAAAAAMNbXZqi_puaVdJ_LJPhfj-w9g7o";
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
 	$responseKeys = json_decode($response,true);
         if(intval($responseKeys["success"]) !== 1) {
-          echo '<h2>You have failed the reCaptcha validation. Please try again to prove you are not a computer or bot.</h2>';
+          echo '<p class="error">You have failed the reCaptcha validation. Please try again to prove you are not a computer or bot.</p>';
         } else {
 	
 	if ($un && $e && $p) { 
