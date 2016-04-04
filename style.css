@@ -402,6 +402,11 @@ background-color: #dddee0;
 	box-shadow: none !important;
 }
 
+#relieftable th {
+	width: 200px;
+	text-align: left;	
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;

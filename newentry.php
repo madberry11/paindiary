@@ -1017,27 +1017,27 @@ window.location="newentry.php#newentryform";
 <form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
 <table id="relieftable">
 <tr>
-<td><label for="time">Approximate Time</label></td>
+<th><label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
 <?php for($i = 0; $i <= 23; $i++): ?>
     <option value="<?= $i; ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
 <?php endfor; ?>
 </select></td></tr>
-<tr><td><label for="medicine">Medicine Name</label></td>
+<tr><th><label for="medicine">Medicine Name</label></th>
 <td><input class="tdright" name="medicine" type="text" placeholder="" maxlength="30" value="<?php if (isset($trimmed['medicine'])) echo $trimmed['medicine']; ?>" /></td></tr>
-<tr><td><label for="amount">Amount / Dose</label></td>
+<tr><th><label for="amount">Amount / Dose</label></th>
 <td><input class="tdright" class="amount" name="amount" type="number" min="0" placeholder="0" value="<?php if (isset($trimmed['amount'])) echo $trimmed['amount']; ?>" />
 <select id="measure" name="measure">
 <option value="na">Measurement</option>
 <option value="milligrams">milligrams (mg)</option>
 <option value="millilitres">millilitres (ml)</option>
 </select></td></tr>
-<tr><td><label for="otherthings">Other Methods</label></td>
+<tr><th><label for="otherthings">Other Methods</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="otherthings">
 <?php if (isset($trimmed['otherthings'])) echo $trimmed['otherthings']; ?>
 </TEXTAREA>
 </td></tr>
-<tr><td><label for="reliefrating">Pain Relief Rating</label></td>
+<tr><th><label for="reliefrating">Pain Relief Rating</label></th>
 <td>
 <select class="tdright" id="reliefrating" name="reliefrating">
 <option value="0">0 - No Relief</option>
@@ -1047,7 +1047,7 @@ window.location="newentry.php#newentryform";
 </select>
 <!--<input class="tdright" name="reliefrating" type="number" placeholder="0" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" />-->
 </td></tr>
-<tr><td><label for="sideeffects">Side Effects / Problems</label></td>
+<tr><th><label for="sideeffects">Side Effects / Problems</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="sideeffects">
 <?php if (isset($trimmed['sideeffects'])) echo $trimmed['sideeffects']; ?>
 </TEXTAREA></td></tr>
