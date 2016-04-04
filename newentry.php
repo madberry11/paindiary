@@ -1090,7 +1090,7 @@ if ($result -> num_rows == 1) {
 <form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
 <table id="relieftable">
 <tr>
-<td><label for="time">Approximate Time</label></td>
+<th><label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
 <script type="text/javascript">
 document.getElementById('time').selectedIndex=<?php echo $time ?>;
@@ -1099,9 +1099,9 @@ document.getElementById('time').selectedIndex=<?php echo $time ?>;
     <option value="<?= $i; ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
 <?php endfor; ?>
 </select></td></tr>
-<tr><td><label for="medicine">Medicine Name</label></td>
+<tr><th><label for="medicine">Medicine Name</label></th>
 <td><input class="tdright" name="medicine" type="text" placeholder="<?php echo $medicine; ?>" maxlength="30" value="<?php if (isset($trimmed['medicine'])) echo $trimmed['medicine']; ?>" /></td></tr>
-<tr><td><label for="amount">Amount / Dose</label></td>
+<tr><th><label for="amount">Amount / Dose</label></th>
 <td><input class="tdright" class="amount" name="amount" type="number" min="0" placeholder="<?php echo $amount; ?>" value="<?php if (isset($trimmed['amount'])) echo $trimmed['amount']; ?>" />
 <select id="measure" name="measure">
 <script type="text/javascript">
@@ -1111,7 +1111,7 @@ document.getElementById('measure').selectedIndex=<?php echo $measure ?>;
 <option value="milligrams">milligrams (mg)</option>
 <option value="millilitres">millilitres (ml)</option>
 </select></td></tr>
-<tr><td><label for="otherthings">Other Methods</label></td>
+<tr><th><label for="otherthings">Other Methods</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="otherthings">
 <?php
 $sql = "SELECT otherthings FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
@@ -1124,9 +1124,9 @@ echo $row['otherthings'];
 ?>
 </TEXTAREA></td></tr>
 <!--<td><input class="tdright" name="otherthings" type="text" placeholder="<?php echo $otherthings; ?>" maxlength="30" value="<?php if (isset($trimmed['otherthings'])) echo $trimmed['otherthings']; ?>" /></td></tr>-->
-<tr><td><label for="reliefrating">Pain Relief Rating</label></td>
+<tr><th><label for="reliefrating">Pain Relief Rating</label></th>
 <td><input class="tdright" name="reliefrating" type="number" placeholder="<?php echo $reliefrating; ?>" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" /></td></tr>
-<tr><td><label for="sideeffects">Side Effects / Problems</label></td>
+<tr><th><label for="sideeffects">Side Effects / Problems</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="sideeffects">
 <?php
 $sql = "SELECT sideeffects FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
