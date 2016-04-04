@@ -77,7 +77,6 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
   	<script src="demo/js/jquery-ui.1.8.20.min.js"></script>
   	<script src="js/tagit.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="draggable-points.js"></script>
     <noscript>JavaScript is essential for the functionality of this application. Please enable JavaScript for an improved user experience.</noscript>
     
 <!-- fonts -->
@@ -547,9 +546,9 @@ $('#closemessage').click(function(){
   <ul id="demo4"></ul>
   
   <div class="buttons">
-    <button id="demo4GetTags" value="Get Tags">Get Tags</button>
+    <button id="demo4GetTags" value="Get Tags">Save Tags</button>
   </div>
-  <div id="demo4Out"></div>
+  You have added:<ul class="taglist"><div id="demo4Out"></div></ul>
   <input id="paintags" name="paintags" class="hidden" />
 <script>
 function() {
