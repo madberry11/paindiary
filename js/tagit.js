@@ -115,7 +115,7 @@
             highlightOnExistColor: '#0F0',
             // The place holder to be shown in the
             // tagit field.
-            placeholder: 'Enter tags',
+            placeholder: '',
             // The input width of the text field, If the placeholder is
             // too long or too short this value can be adjusted to fit it in.
             inputWidth: 150,
