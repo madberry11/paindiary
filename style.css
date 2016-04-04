@@ -1012,6 +1012,10 @@ h2 {
 	margin-top: 12px;
 }
 
+.buttons2 {
+	margin: 10px auto; 
+}
+
 #demo4 {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -1029,6 +1033,7 @@ h2 {
 	text-align: left;	
 	border: 1px solid #999;
 	width: 94%;
+	margin-left: 24px;
 }
 
 .bodypart {
