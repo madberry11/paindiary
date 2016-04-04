@@ -68,10 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
 		$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
-			$sql = "SELECT FROM users WHERE username= " . $un;
+			$sql = "SELECT FROM users WHERE username= '" . $un . "'";
 			$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 		
-		if (mysqli_num_rows($result) > 0) {
+		if (@mysqli_num_rows($result) == 1) { 
 			echo '<p class="error">Sorry, this username is already taken!</p>';
 		}
 		
