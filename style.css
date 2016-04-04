@@ -1002,7 +1002,6 @@ h2 {
 	float: left;
 	display: block;
 	width: 88%;
-	background-color: yellow;
 	padding-right: 0px;
 	margin-right: 0px;
 	}
@@ -1013,7 +1012,7 @@ h2 {
 	margin-top: 10px;
 }
 
-#demo4 {
+#demo4, #bodypart {
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 10px;
@@ -1026,5 +1025,5 @@ h2 {
 }
 
 .bodypartlabel {
-	margin-left: 30px;	
+	margin-left: 25px;	
 }
