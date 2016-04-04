@@ -96,7 +96,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             console.log(tags);
             var string = "";
             var i;
-			string += "<span class='b'>Type of pain:</span> ";
+			string += "Type of pain: ";
             for (i in tags) {
                 string += "<li>" + tags[i].value + "</li>";
 				string += "&nbsp;";
