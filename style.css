@@ -1067,7 +1067,7 @@ h2 {
 }
 
 .today {
-	width: 100%;
-	height: 100%;
-	border: 2px solid green;	
+	width: 110%;
+	height: 110%;
+	border: 3px solid red;	
 }
