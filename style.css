@@ -1012,13 +1012,23 @@ h2 {
 	margin-top: 12px;
 }
 
-#demo4, #demo2 {
+#demo4 {
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: left;	
 	border: 1px solid #999;
+}
+
+#demo2 {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;	
+	border: 1px solid #999;
+	width: 94%;
 }
 
 .bodypart {
