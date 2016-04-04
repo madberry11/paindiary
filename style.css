@@ -396,9 +396,9 @@ background-color: #dddee0;
 
 #relieftable {
 	margin: 0px auto;
-	background-color: #dddee0;	
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
+	background-color: #eee;	
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
 }
 
 input::-webkit-outer-spin-button,
