@@ -1012,7 +1012,7 @@ h2 {
 	margin-top: 12px;
 }
 
-#demo4 {
+#demo4, #demo2 {
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 10px;
@@ -1033,6 +1033,6 @@ h2 {
 	margin-top: 10px;
 }
 
-.bodypartlabel, #demo4Out {
+.bodypartlabel, #demo4Out, #demo2Out {
 	margin-left: 24px;
 }
