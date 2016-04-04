@@ -408,6 +408,7 @@ background-color: #dddee0;
 	text-align: right;	
 	font-size: 10px;
 	padding-right: 20px;
+	border-top: none;
 }
 
 #relieftable td {
