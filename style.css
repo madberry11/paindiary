@@ -1001,13 +1001,14 @@ h2 {
 .demodiv {
 	float: left;
 	display: block;
-	width: 87%;
+	width: 88%;
 	background-color: yellow;
 }
 
 .buttons {
 	float: right;
 	display: block;
+	v-align: center;
 }
 
 #demo4 {
