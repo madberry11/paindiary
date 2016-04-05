@@ -126,7 +126,7 @@ if (isset($_SESSION['keeploggedin'])) {
 
 // if something has been clicked on as active
 if (isset($_GET['active'])) {
-	$_SESSION['active'] = mysqli_real_escape_string($_GET['active']);
+	$_SESSION['active'] = mysqli_real_escape_string($dbc, $_GET['active']);
 	$active = $_SESSION['active'];
 
 	if ($_GET['active'] == "allpain") {
@@ -156,8 +156,8 @@ if (isset($_SESSION['calmonth'])) {
 }
 
 if(isset($_GET['calday'])) {
-	$safe_calday = mysqli_real_escape_string($_GET['calday']);
-	$safe_startday = mysqli_real_escape_string($_GET['startday']);
+	$safe_calday = mysqli_real_escape_string($dbc, $_GET['calday']);
+	$safe_startday = mysqli_real_escape_string($dbc, $_GET['startday']);
     $day = $safe_calday - $safe_startday + 1;
 	$_SESSION['day'] = $day;
 }
