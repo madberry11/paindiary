@@ -649,7 +649,7 @@ if ($result -> num_rows > 0) {
 	 });
 	 </script>
      <?php
-	 //$evalue = 1 ;
+	 $evalue = 1 ;
 }
 ?>
 </fieldset>
