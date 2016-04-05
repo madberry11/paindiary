@@ -1294,7 +1294,7 @@ if ($evalue == 4) {
 
 switch($entryvalue) {
 case '1':
-	echo "There are no body part entries.";
+	//echo "There are no body part entries.";
 	?>
     <script type="text/javascript">
 	window.onload = function(){
@@ -1304,7 +1304,7 @@ case '1':
     <?php
 	break;
 case '2':
-	echo "New body part entry is being created, there are other existing body parts already.";
+	//echo "New body part entry is being created, there are other existing body parts already.";
 	?>
     <script type="text/javascript">
 	window.onload = function(){
