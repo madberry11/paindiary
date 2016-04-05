@@ -354,7 +354,6 @@ elseif(!isset($_GET['important'])) {
 }
 
 if(isset($_GET['editrecord'])) {
-	$editrecord = mysqli_real_escape_string ($dbc, $_GET['editrecord']);
 	$rvalue = 3;
 }
 
@@ -394,10 +393,18 @@ if(isset($_GET['commentedit'])) {
 }
 
 if(isset($_GET['deleteall'])) {
-	$query = "DELETE FROM pain WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	$query = "DELETE FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	// code to delete pain relief record too
-    mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+	// Delete bodypart entries
+	$query1 = "DELETE FROM pain WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	$result1 = mysqli_query ($dbc, $query1) or trigger_error("Query: $query1\n<br />MySQL Error: " . mysqli_error($dbc));
+	// Delete comments
+	$query2 = "DELETE FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	$result2 = mysqli_query ($dbc, $query2) or trigger_error("Query: $query2\n<br />MySQL Error: " . mysqli_error($dbc));
+	// Delete pain relief records
+	$query3 = "DELETE FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+    $result3 = mysqli_query ($dbc, $query3) or trigger_error("Query: $query3\n<br />MySQL Error: " . mysqli_error($dbc));
+	// Delete important
+	$query4 = "DELETE FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
+	$result4 = mysqli_query ($dbc, $query4) or trigger_error("Query: $query4\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if (isset($_SESSION['calmonth'])) {
@@ -416,7 +423,7 @@ if ($dbc->connect_error) {
 } 
 						
 $sql = "SELECT entryid FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows > 0) {
 	$evalue = 4;
@@ -616,11 +623,10 @@ if ($dbc->connect_error) {
 } 
 						
 $sql = "SELECT entryid, bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows > 0) {
      // output data of each row
-	 //$evalue= 4;
 	 		 ?>
 <div id='container'></div>
          <?php
@@ -654,7 +660,7 @@ if ($result -> num_rows > 0) {
 <!-- HIGH CHARTS -->
 <?php
 $sql = "SELECT bodypart, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 FROM pain WHERE entryyear='$calyear' AND entrymonth='$calmonth' AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows > 0) {
 	$row_cnt = $result->num_rows;
@@ -685,29 +691,15 @@ while ($row = mysqli_fetch_array($result)) {
 	$p21[] = $row['p21'];
 	$p22[] = $row['p22'];
 	$p23[] = $row['p23'];
-   //echo "query works";
 }
 }
 ?>
-<!--
-var chart = new Highcharts.Chart({
-      chart: {
-         renderTo: 'container'
-      },
-      series: [{
-         data: [<?php echo join($data, ',') ?>],
-         pointStart: 0,
-         pointInterval
-      }]
-});
--->
 
 <script>
 $(function () { 
     $('#container').highcharts({
         chart: {
             type: 'column'
-			//zoomType: 'xy'
         },
         title: {
             text: 'Daily Pain Intensity'
@@ -770,9 +762,9 @@ $(function () {
 <div id="editoldentry" class="hidden">
 <fieldset>
 <?php
-if(isset($_GET['toedit'])) {
-	$safe_toedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
-	$_SESSION['entryid'] = $safe_toedit;
+if (isset($_GET['toedit'])) {
+	$idtoedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+	$_SESSION['entryid'] = $idtoedit;
 }
 	$sql = "SELECT user_id, bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags, entryyear, entrymonth, entryday FROM pain WHERE entryid = " . $_SESSION['entryid'] ." AND user_id='". $_SESSION['user_id']."'";
 	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -877,7 +869,7 @@ if ($result -> num_rows > 0) {
 // check if there are any comments
 
 $sql2="SELECT comment FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql2);
+$result = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_num_rows($result) == 1) {
 	while($row = $result->fetch_assoc()) {
@@ -900,7 +892,7 @@ else {
 // check if there are any pain relief records
 
 $sql3="SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id="  . $_SESSION['user_id'];
-$result = $dbc->query($sql3);
+$result = mysqli_query ($dbc, $sql3) or trigger_error("Query: $sql3\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_num_rows($result) > 0) {
 	while($row = $result->fetch_assoc()) {
@@ -1006,9 +998,9 @@ window.location="newentry.php#newentryform";
 <!-- CREATE PAIN RELIEF RECORD -->
 <div id="newpainrelief" class="hidden">
 <fieldset>
-<legend>Create New Pain Relief Record</legend>
+<legend> Create New Pain Relief Record</legend>
 <form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
-<table id="relieftable">
+<table id= "relieftable">
 <tr>
 <th><label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
@@ -1060,14 +1052,14 @@ window.location="newentry.php#newentryform";
 <!-- EDIT PAIN RELIEF -->
 <div id="editpainrelief" class="hidden">
 <fieldset>
-<legend>Edit Pain Relief Record</legend>
+<legend> Edit Pain Relief Record</legend>
 <?php
 if(isset($_GET['editrecord'])) {
-	$editrecord = $_GET['editrecord'];
-	$_SESSION['record_id'] = $_GET['editrecord'];
+	$editrecord = mysqli_real_escape_string ($dbc, $_GET['editrecord']);
+	$_SESSION['record_id'] = $editrecord;
 }
 	$sql = "SELECT time, medicine, amount, measure, otherthings, reliefrating, sideeffects FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows == 1) {
      // output data of each row
@@ -1081,9 +1073,9 @@ if ($result -> num_rows == 1) {
 		 $sideeffects = $row["sideeffects"];
 ?>
 <form id="painreliefform" name="painreliefform" action="newentry.php" method="post">
-<table id="relieftable">
+<table id= "relieftable">
 <tr>
-<th><label for="time">Approximate Time</label></th>
+<th> <label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
 <script type="text/javascript">
 document.getElementById('time').selectedIndex=<?php echo $time ?>;
@@ -1107,8 +1099,8 @@ document.getElementById('measure').selectedIndex=<?php echo $measure ?>;
 <tr><th><label for="otherthings">Other Methods</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="otherthings">
 <?php
-$sql = "SELECT otherthings FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
-$result = $dbc->query($sql);
+$sql = "SELECT otherthings FROM painrelief WHERE record_id = " . $_SESSION['record_id'] ." AND user_id='".$_SESSION['user_id'].'"';
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows == 1) {
 while($row = $result->fetch_assoc()) {
 echo $row['otherthings'];
@@ -1122,8 +1114,8 @@ echo $row['otherthings'];
 <tr><th><label for="sideeffects">Side Effects / Problems</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="sideeffects">
 <?php
-$sql = "SELECT sideeffects FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
-$result = $dbc->query($sql);
+$sql = "SELECT sideeffects FROM painrelief WHERE record_id = " . $_SESSION['record_id'] ." AND user_id='".$_SESSION['user_id'].'"';
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows == 1) {
 while($row = $result->fetch_assoc()) {
 echo $row['sideeffects'];
@@ -1153,7 +1145,7 @@ echo $row['sideeffects'];
 <div id="oldpainrelief" class="hidden">
 <br />
 <fieldset>
-<legend>Pain Relief Record</legend>
+<legend> Pain Relief Record</legend>
 <?php
 
 $servername = "ap-cdbr-azure-east-c.cloudapp.net";
@@ -1275,13 +1267,13 @@ else {
 
 if ($evalue == 4) {
 	if (isset($_GET['newbodypart'])) {
-		$newbodypart = $_GET['newbodypart'];
+		//$newbodypart = $_GET['newbodypart'];
 		$entryvalue = 2;
 		//echo "case 2";
 	}
 	elseif (isset($_GET['toedit'])) {
-		$idtoedit = $_GET['toedit'];
-		$_SESSION['entryid'] = $_GET['toedit'];
+		//$idtoedit = $_GET['toedit'];
+		//$_SESSION['entryid'] = $_GET['toedit'];
 		$entryvalue = 3;
 		//echo "case 3";
 	}
