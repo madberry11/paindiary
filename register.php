@@ -81,19 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
 			}
 	}
-		
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
-		$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
-			$sql = "SELECT FROM users WHERE username= " . $un;
-			$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $slq\n<br />MySQL Error: " . mysqli_error($dbc));
-		
-		if (mysqli_num_rows($result) > 0) {
-			echo '<p class="error">Sorry, this username is already taken!</p>';
-		}
-		
-	} else {
-		echo '<p class="error">Please enter a username!</p>';
-	}
 	
 	if (filter_var($trimmed['email'], FILTER_VALIDATE_EMAIL)) {
 		$e = mysqli_real_escape_string ($dbc, $trimmed['email']);
