@@ -66,21 +66,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$un = $sid = $st = $e = $p = FALSE;
 	
-	if (!preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
-		echo '<p class="error">Please enter a username!</p>';
-	}
-	else {
+	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
 			$n = mysqli_real_escape_string ($dbc, $trimmed['username']);
 			$sql = "SELECT FROM users WHERE username= " . $n;
 			$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $slq\n<br />MySQL Error: " . mysqli_error($dbc));
 		
-			if (mysqli_num_rows($result) > 0) {
+			if (mysqli_num_rows($result) == 0) {
 				echo '<p class="error">Sorry, this username is already taken!</p>';
 			}
 			else {
 				$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
 			}
+	}else {
+		echo '<p class="error">Please enter a username!</p>';
 	}
+			
 	
 	if (filter_var($trimmed['email'], FILTER_VALIDATE_EMAIL)) {
 		$e = mysqli_real_escape_string ($dbc, $trimmed['email']);
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $captcha=$_POST['g-recaptcha-response'];
         }
         if(!$captcha){
-          echo '<h2>Please check the the captcha form.</h2>';
+          echo '<p class="error">Please check the reCaptcha form.</p>';
           exit;
         }
 	$secretKey = "6LdAMhsTAAAAAMNbXZqi_puaVdJ_LJPhfj-w9g7o";
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
 	$responseKeys = json_decode($response,true);
         if(intval($responseKeys["success"]) !== 1) {
-          echo '<h2>You have failed the reCaptcha validation. Please try again to prove you are not a computer or bot.</h2>';
+          echo '<p class="error">You have failed the reCaptcha validation. Please try again to prove you are not a computer or bot.</p>';
         } else {
 	
 	if ($un && $e && $p) { 
