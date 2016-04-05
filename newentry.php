@@ -28,7 +28,7 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 	
-	$q = "SELECT user_id, username FROM users WHERE (username='".$_SESSION['username']."' AND active IS NULL";		
+	$q = "SELECT user_id, username FROM users WHERE username='".$_SESSION['username']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -296,15 +296,16 @@ if (isset($_SESSION['keeploggedin'])) {
 }
 
 if(isset($_GET['calday'])) {
-     $day = $_GET['calday'] - $_GET['startday'] + 1;
-	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
+	$safe_calday = mysqli_real_escape_string ($dbc, $_GET['calday']);
+	$safe_startday = mysqli_real_escape_string ($dbc, $_GET['startday']);
+    $day = $safe_calday - $safe_startday + 1;
+	$_SESSION['day'] = $day;
 }
 
 if(isset($_GET['important'])) {
 	
 	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	// if this day had not been marked as important --> make important
 	if ($result -> num_rows == 0) {
@@ -330,7 +331,7 @@ if(isset($_GET['important'])) {
 	elseif ($result -> num_rows == 1) {
 		//echo "now not important";
 		$query = "DELETE FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-      	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+      	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		
 	}
@@ -338,8 +339,7 @@ if(isset($_GET['important'])) {
 
 elseif(!isset($_GET['important'])) {
 	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($result -> num_rows == 1) {
 		?>
     <script>
@@ -354,28 +354,22 @@ elseif(!isset($_GET['important'])) {
 }
 
 if(isset($_GET['editrecord'])) {
-	$editrecord = $_GET['editrecord'];
+	$editrecord = mysqli_real_escape_string ($dbc, $_GET['editrecord']);
 	$rvalue = 3;
 }
 
 if(isset($_GET['newrecord'])) {
-	$newrecord = $_GET['newrecord'];
 	$rvalue = 2;
 }
 
 if(isset($_GET['createcomment'])) {
-	$createcomment = $_GET['createcomment'];
 	$cvalue = 2;
-}
-
-if(isset($_GET['newbodypart'])) {
-	$newbodypart = $_GET['newbodypart'];
 }
 	
 if(isset($_GET['todelete'])) {
-	$idtodelete = $_GET['todelete'];
+	$idtodelete = $newbodypart($_GET['todelete']);
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['toedit'])) {
@@ -538,7 +532,7 @@ $('#closemessage').click(function(){
 
 <div id="addnew" class="hidden">
 <fieldset>
-<legend>Add New Body Part</legend>
+<legend> Add New Body Part </legend>
 <form id="newentryform" name="newentryform" action="newentry.php" method="post">
     <p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
     <input class="bodypart" name="bodypart" type="text" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
@@ -778,11 +772,11 @@ $(function () {
 <fieldset>
 <?php
 if(isset($_GET['toedit'])) {
-	$idtoedit = $_GET['toedit'];
-	$_SESSION['entryid'] = $_GET['toedit'];
+	$safe_toedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+	$_SESSION['entryid'] = $safe_toedit;
 }
-	$sql = "SELECT bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags, entryyear, entrymonth, entryday FROM pain WHERE entryid = " . $_SESSION['entryid'];
-	$result = $dbc->query($sql);
+	$sql = "SELECT user_id, bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags, entryyear, entrymonth, entryday FROM pain WHERE entryid = " . $_SESSION['entryid'] ." AND user_id='". $_SESSION['user_id']."'";
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows > 0) {
      // output data of each row
@@ -1308,7 +1302,7 @@ case '1':
     <?php
 	break;
 case '2':
-	//echo "New body part entry is being created, there are other existing body parts already.";
+	echo "New body part entry is being created, there are other existing body parts already.";
 	?>
     <script type="text/javascript">
     document.getElementById('addnew').style.display = "block";
@@ -1318,7 +1312,7 @@ case '2':
     <?php
 	break;
 case '3':
-	//echo "Body part entry is getting edited.";
+	echo "Body part entry is getting edited.";
 	?>
     <script type="text/javascript">
 	//document.getElementById('oldpainentries').style.display = "block";
@@ -1329,7 +1323,7 @@ case '3':
     <?php
 	break;
 case '4':
-	//echo "Existing body part entries are getting displayed.";
+	echo "Existing body part entries are getting displayed.";
 	?>
     <script type="text/javascript">
 	document.onload = function(){
@@ -1407,7 +1401,7 @@ case '2' :
     <?php
 	break;
 case '3' :
-	//echo "Existing pain relief record is getting edited.";
+	echo "Existing pain relief record is getting edited.";
 	?>
     <script type="text/javascript">
 	window.onload = function(){
@@ -1421,7 +1415,7 @@ case '3' :
     <?php
 	break;
 case '4' :
-	//echo "Display pain relief records.";
+	echo "Display pain relief records.";
 	?>
     <script type="text/javascript">
 	window.onload = function(){
@@ -1434,7 +1428,7 @@ case '4' :
     <?php
 	break;
 case '5' :
-	//echo "New pain relief is getting created but some already exist.";
+	echo "New pain relief is getting created but some already exist.";
 	?>
     <script type="text/javascript">
 	window.onload = function(){
@@ -1496,7 +1490,7 @@ case '2' :
     <?php
 	break;
 case '3' :
-	//echo "Existing comment is getting edited.";
+	echo "Existing comment is getting edited.";
 	?>
     <script type="text/javascript">
     document.getElementById('editcomment').style.display = "block";
@@ -1507,7 +1501,7 @@ case '3' :
     <?php
 	break;
 case '4' :
-	//echo "Display existing comment.";
+	echo "Display existing comment.";
 	?>
     <script type="text/javascript">
     document.getElementById('oldcomment').style.display = "block";
