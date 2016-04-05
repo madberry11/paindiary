@@ -43,10 +43,15 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 }
 
 else {
+	$url = BASE_URL . 'index.php'; 
+	ob_end_clean(); 
+	header("Location: $url");
 ?>
-<script type="text/javascript">
+
+<!--<script type="text/javascript">
             window.location.href = "http://paindiary.azurewebsites.net/index.php"
         </script>
+->
 <?php	
 }
 
@@ -119,30 +124,29 @@ if (isset($_SESSION['keeploggedin'])) {
     <?php
 }
 
+// if something has been clicked on as active
 if (isset($_GET['active'])) {
-$_SESSION['active'] = $_GET['active'];
-$active = $_SESSION['active'];
+	$_SESSION['active'] = mysql_real_escape_string($_GET['active']);
+	$active = $_SESSION['active'];
 
-if ($_GET['active'] == "allpain") {
-$whichquery = "allpain";}
-else { $whichquery = "bodypart";}
-// echo $active;
+	if ($_GET['active'] == "allpain") {
+		$whichquery = "allpain";}
+	else { $whichquery = "bodypart";}
 }
 
+// if nothing has been clicked on as active, but there is a previous session_active
 elseif ((!isset($_GET['active'])) AND (isset($_SESSION['active']))) {
-$_SESSION['active'] = $_SESSION['active'];
-$active = $_SESSION['active'];
+	$_SESSION['active'] = $_SESSION['active'];
+	$active = $_SESSION['active'];
 
-if ($_SESSION['active'] == "allpain") {
-$whichquery = "allpain";}
-else { $whichquery = "bodypart";}
-// echo $active;
+	if ($_SESSION['active'] == "allpain") {
+		$whichquery = "allpain";}
+	else { $whichquery = "bodypart";}
 }
 
 else { 
-$active='allpain';
-// echo $active;
-$whichquery = "allpain";
+	$active='allpain';
+	$whichquery = "allpain";
 }
 
 
@@ -152,17 +156,13 @@ if (isset($_SESSION['calmonth'])) {
 }
 
 if(isset($_GET['calday'])) {
-     $day = $_GET['calday'] - $_GET['startday'] + 1;
-	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
+	$safe_calday = mysql_real_escape_string($_GET['calday']);
+	$safe_startday = mysql_real_escape_string($_GET['startday']);
+    $day = $safe_calday - $safe_startday + 1;
+	$_SESSION['day'] = $day;
 }
 
-if (isset($_SESSION['first_name'])) { //Session based on correct First Name
-	//echo "{$_SESSION['first_name']}";
-}
-?>
-<!--<h1>Calendar</h1>-->
 
-<?php
 $monthNames = Array("January", "February", "March", "April", "May", "June", "July", 
 "August", "September", "October", "November", "December");
 ?>
