@@ -28,7 +28,7 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 	
-	$q = "SELECT user_id, username FROM users WHERE (username='".$_SESSION['username']."' AND active IS NULL";		
+	$q = "SELECT user_id, username FROM users WHERE username='".$_SESSION['username']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -296,15 +296,16 @@ if (isset($_SESSION['keeploggedin'])) {
 }
 
 if(isset($_GET['calday'])) {
-     $day = $_GET['calday'] - $_GET['startday'] + 1;
-	 $_SESSION['day'] = $_GET['calday'] - $_GET['startday'] + 1;
+	$safe_calday = mysqli_real_escape_string ($dbc, $_GET['calday']);
+	$safe_startday = mysqli_real_escape_string ($dbc, $_GET['startday']);
+    $day = $safe_calday - $safe_startday + 1;
+	$_SESSION['day'] = $day;
 }
 
 if(isset($_GET['important'])) {
 	
 	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	// if this day had not been marked as important --> make important
 	if ($result -> num_rows == 0) {
@@ -330,7 +331,7 @@ if(isset($_GET['important'])) {
 	elseif ($result -> num_rows == 1) {
 		//echo "now not important";
 		$query = "DELETE FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-      	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+      	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		
 	}
@@ -338,8 +339,7 @@ if(isset($_GET['important'])) {
 
 elseif(!isset($_GET['important'])) {
 	$sql = "SELECT important_id FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$sql) or die(mysqli_error($dbc));
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($result -> num_rows == 1) {
 		?>
     <script>
@@ -354,49 +354,42 @@ elseif(!isset($_GET['important'])) {
 }
 
 if(isset($_GET['editrecord'])) {
-	$editrecord = $_GET['editrecord'];
+	$editrecord = mysqli_real_escape_string ($dbc, $_GET['editrecord']);
 	$rvalue = 3;
 }
 
 if(isset($_GET['newrecord'])) {
-	$newrecord = $_GET['newrecord'];
 	$rvalue = 2;
 }
 
 if(isset($_GET['createcomment'])) {
-	$createcomment = $_GET['createcomment'];
 	$cvalue = 2;
-}
-
-if(isset($_GET['newbodypart'])) {
-	$newbodypart = $_GET['newbodypart'];
 }
 	
 if(isset($_GET['todelete'])) {
-	$idtodelete = $_GET['todelete'];
+	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['toedit'])) {
-	$idtoedit = $_GET['toedit'];
-	$_SESSION['entryid'] = $_GET['toedit'];
+	$idtoedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+	$_SESSION['entryid'] = $idtoedit;
 }
 
 if(isset($_GET['commentdelete'])) {
 	$commentdelete = $_GET['commentdelete'];
 	$query = "DELETE FROM comments WHERE comment_id =" . $commentdelete;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['deleterecord'])) {
-	$deleterecord = $_GET['deleterecord'];
+	$deleterecord = mysqli_real_escape_string ($dbc, $_GET['deleterecord']);
 	$query = "DELETE FROM painrelief WHERE record_id =" . $deleterecord;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['commentedit'])) {
-	$commentedit = $_GET['commentedit'];
 	$cvalue = 3;
 }
 
@@ -527,10 +520,10 @@ $('#closemessage').click(function(){
 
 <div id="addnewstuffwrap">
 <ul id="addnewstuff">
-<li><a href='newentry.php?newbodypart="1"'><div id="addnewbutton" class="visible" onClick="showform()"><div class="icon-men"></div><div class="linktext">Add New Body Part</div></div></a></li>
-<li><a href='newentry.php?newrecord="1"'><div id="addpainrelief" class="visible" onClick="painrelief()"><div class="icon-pill-antivirusalt"></div><div class="linktext">Add New Pain Relief Record</div></div></a></li>
-<li><a href='newentry.php?createcomment="1"'><div id="addcomment" class="visible" onClick="comment()"><div class="icon-commentroundtyping"></div><div class="linktext">Comment</div></div></a></li>
-<li><div id="deleteall" class="hidden" onClick="Deleteall()"><div class="icon-trash trash2"></div><div class="linktext">Delete All</div></div></li>
+<li><a href='newentry.php?newbodypart="1"'><div id="addnewbutton" class = "visible" onClick="showform()"><div class="icon-men"></div><div class="linktext">Add New Body Part</div></div></a></li>
+<li><a href='newentry.php?newrecord="1"'><div id = "addpainrelief" class = "visible" onClick="painrelief()"><div class="icon-pill-antivirusalt"></div><div class="linktext">Add New Pain Relief Record</div></div></a></li>
+<li><a href='newentry.php?createcomment="1"'><div id = "addcomment" class = "visible" onClick="comment()"><div class="icon-commentroundtyping"></div><div class="linktext">Comment</div></div></a></li>
+<li><div id= " deleteall" class = "hidden" onClick="Deleteall()"><div class="icon-trash trash2"></div><div class="linktext">Delete All</div></div></li>
 </ul>
 </div>
 
@@ -538,13 +531,13 @@ $('#closemessage').click(function(){
 
 <div id="addnew" class="hidden">
 <fieldset>
-<legend>Add New Body Part</legend>
+<legend> Add New Body Part </legend>
 <form id="newentryform" name="newentryform" action="newentry.php" method="post">
     <p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
     <input class="bodypart" name="bodypart" type="text" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
-  <div class="democontainer">
-  <div class="demodiv"><ul id="demo4"></ul></div>
+  <div class = "democontainer" >
+  <div class = "demodiv" ><ul id="demo4"></ul></div>
   <div class="buttons"><button id="demo4GetTags" value="Get Tags">Save Tags</button></div>
   </div>
   <br clear="all" />
@@ -559,7 +552,7 @@ document.write(document.getElementById("paintags").value);
 
     
     <br clear="all" />
-    <table class="paintable">
+    <table class = "paintable">
     <tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr>
 		 <tr><th class='firstcol'>Pain Intensity</th>
 <td><input name="p00" class="hourpain" type="number" min="0" max="10" placeholder="0" value="<?php if (isset($trimmed['p00'])) echo $trimmed['p00']; ?>"/></td>
@@ -778,11 +771,11 @@ $(function () {
 <fieldset>
 <?php
 if(isset($_GET['toedit'])) {
-	$idtoedit = $_GET['toedit'];
-	$_SESSION['entryid'] = $_GET['toedit'];
+	$safe_toedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+	$_SESSION['entryid'] = $safe_toedit;
 }
-	$sql = "SELECT bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags, entryyear, entrymonth, entryday FROM pain WHERE entryid = " . $_SESSION['entryid'];
-	$result = $dbc->query($sql);
+	$sql = "SELECT user_id, bodypart, avgpain, p00, p01, p02, p03, p04, p05, p06, p07, p08, p09, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, entrytags, entryyear, entrymonth, entryday FROM pain WHERE entryid = " . $_SESSION['entryid'] ." AND user_id='". $_SESSION['user_id']."'";
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if ($result -> num_rows > 0) {
      // output data of each row
@@ -824,7 +817,7 @@ if ($result -> num_rows > 0) {
 	<p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
     <input class="bodypart" name="bodypart" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
- 	<ul id="demo2" name="demo2"><?php echo $entrytags; ?></ul>
+ 	<ul id="demo2" name = "demo2"><?php echo $entrytags; ?></ul>
   <div class="buttons2">
   <button id="demo2GetTags" value="Get Tags">Save Tags</button>
   <button id="demo2ResetTags" value="Reset Tags">Reset Tags</button>
@@ -835,7 +828,7 @@ if ($result -> num_rows > 0) {
   <input id="paintags2" name="paintags2" class="hidden" />
 <br clear="all" />
 
-    <table class="paintable">
+    <table class= "paintable">
     <tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr>
 		 <tr><th class='firstcol'>Pain Intensity</th>
 <td><input name="p00" class="hourpain" type="number" min="0" max="10" placeholder="<?php echo $p00 ?>" value="<?php if (isset($trimmed['p00'])) echo $trimmed['p00']; ?>"/></td>
