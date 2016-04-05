@@ -1310,7 +1310,7 @@ case '2':
 	window.onload = function(){
     document.getElementById('addnew').style.display = "block";
 	document.getElementById('oldpainentries').style.display = "block";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	}
 	</script>
     <?php
@@ -1323,7 +1323,7 @@ case '3':
 	//document.getElementById('oldpainentries').style.display = "block";
     document.getElementById('editoldentry').style.display = "block";
 	document.getElementById('addnew').style.display = "none";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	}
 	</script>
     <?php
@@ -1334,7 +1334,7 @@ case '4':
     <script type="text/javascript">
 	window.onload = function(){
     document.getElementById('oldpainentries').style.display = "block";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	}
 	</script>
     <?php
@@ -1416,7 +1416,7 @@ case '3' :
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "block";
 	document.getElementById('newpainrelief').style.display = "none";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	document.getElementById('editpainrelief_link').click();
 	}
 	</script>
@@ -1430,7 +1430,7 @@ case '4' :
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "none";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	}
 	</script>
     <?php
@@ -1443,7 +1443,7 @@ case '5' :
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "block";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	document.getElementById('newpainrelief_link').click();
 	}
 	</script>
@@ -1508,7 +1508,7 @@ case '3' :
 	window.onload = function(){
     document.getElementById('editcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	document.getElementById('editcomment_link').click();
 	}
 	</script>
@@ -1521,7 +1521,7 @@ case '4' :
 	window.onload = function(){
     document.getElementById('oldcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
-	document.getElementById('deleteall').style.display = "block";
+	document.getElementById('deleteall').style.display = "inline-block";
 	}
 	</script>
     <?php
