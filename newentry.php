@@ -1294,7 +1294,7 @@ if ($evalue == 4) {
 
 switch($entryvalue) {
 case '1':
-	//echo "There are no body part entries.";
+	echo "There are no body part entries.";
 	?>
     <script type="text/javascript">
     document.getElementById('oldpainentries').style.display = "block";
