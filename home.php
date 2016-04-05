@@ -171,8 +171,8 @@ if (!isset($_REQUEST["month"])) $_REQUEST["month"] = date("n");
 if (!isset($_REQUEST["year"])) $_REQUEST["year"] = date("Y");
 ?>
 <?php
-$cMonth = $_REQUEST["month"];
-$cYear = $_REQUEST["year"];
+$cMonth = mysql_real_escape_string($dbc, $_REQUEST["month"]);
+$cYear = mysql_real_escape_string($dbc, $_REQUEST["year"]);
 
 	$q = "SELECT user_id, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
