@@ -1307,11 +1307,9 @@ case '2':
 	//echo "New body part entry is being created, there are other existing body parts already.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('addnew').style.display = "block";
 	document.getElementById('oldpainentries').style.display = "block";
 	document.getElementById('deleteall').style.display = "inline-block";
-	}
 	</script>
     <?php
 	break;
@@ -1319,12 +1317,9 @@ case '3':
 	echo "Body part entry is getting edited.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
-	//document.getElementById('oldpainentries').style.display = "block";
     document.getElementById('editoldentry').style.display = "block";
 	document.getElementById('addnew').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
-	}
 	</script>
     <?php
 	break;
@@ -1332,10 +1327,8 @@ case '4':
 	echo "Existing body part entries are getting displayed.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('oldpainentries').style.display = "block";
 	document.getElementById('deleteall').style.display = "inline-block";
-	}
 	</script>
     <?php
 	break;
@@ -1343,10 +1336,8 @@ case '5':
 	//echo "New body part is getting added, no other existing body parts.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('oldpainentries').style.display = "none";
 	document.getElementById('addnew').style.display = "block";
-	}
 	</script>
     <?php
 	break;
