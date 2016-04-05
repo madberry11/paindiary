@@ -26,7 +26,7 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 	
-	$q = "SELECT user_id, username FROM users WHERE (username='".$_SESSION['username']."' AND active IS NULL";		
+	$q = "SELECT user_id, username FROM users WHERE (user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -58,8 +58,8 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 
 if (isset($_GET['colourIn'])) {
-	$colourIn = $_GET['colourIn'];
-	$q = "UPDATE users SET colour='". $colourIn . "' WHERE user_id={$_SESSION['user_id']}";	
+	$colourIn = mysqli_real_escape_string($_GET['colourIn']);
+	$q = "UPDATE users SET colour='". $colourIn . "' WHERE user_id='".$_SESSION['user_id']."'";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 			mysqli_close($dbc); 
@@ -106,7 +106,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 <?php
 
 $q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
-	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
 	$row = mysqli_fetch_assoc($r);
@@ -182,7 +182,6 @@ default:
 <?php
 	
 $q2 = "SELECT entryyear, entrymonth, entryday FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
-//$q2 = "SELECT COUNT(*) AS numofentries FROM pain WHERE user_id='".$_SESSION['user_id']."' GROUP BY entryyear, entrymonth, entryday";
 $r2 = mysqli_query ($dbc, $q2) or trigger_error("Query: $q2\n<br />MySQL Error: " . mysqli_error($dbc));
 $numofentries = 0;
 if (@mysqli_num_rows($r2) > 0) { 
@@ -190,23 +189,22 @@ while($row2 = $r2->fetch_assoc()) {
 	$year = $row2['entryyear'];
 	$month = $row2['entrymonth'];
 	$day = $row2['entryday'];
-	//echo $year . " " . $month . " " . $day . " ";
 	$numofentries++;
 	
 }
 }
 
 if(isset($_GET['edit'])) {
-     if ($_GET['edit'] == "username") {
+     if (mysqli_real_escape_string($dbc, $_GET['edit']) == "username") {
 		$editthis = 2;
 	 }
-	 elseif ($_GET['edit'] == "email") {
+	 elseif (mysqli_real_escape_string($dbc, $_GET['edit']) == "email") {
 		$editthis = 3;
 	 }
-	 elseif ($_GET['edit'] == "password") {
+	 elseif (mysqli_real_escape_string($dbc, $_GET['edit']) == "password") {
 		 $editthis = 4;
 	 }
-	 elseif ($_GET['edit'] == "colour") {
+	 elseif (mysqli_real_escape_string($dbc, $_GET['edit']) == "colour") {
 		 $editthis = 1;
 		 ?>
      <script>
@@ -219,7 +217,7 @@ if(isset($_GET['edit'])) {
 	 </script>
      <?php
 	 }
-	 elseif ($_GET['edit'] == "delete"){
+	 elseif (mysqli_real_escape_string($dbc, $_GET['edit']) == "delete"){
 		 $editthis = 5;
 	 }
 }
@@ -297,9 +295,11 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 if (!empty($_POST['changepasswordsubmit'])) {
 	
 	$p = FALSE;
-	if (preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) {
-		if ($_POST['password1'] == $_POST['password2']) {
-			$p = mysqli_real_escape_string ($dbc, $_POST['password1']); //Password Validation
+	if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
+		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
+		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
+		if ($safe_password1 == $safe_password2) {
+			$p = $safe_password1;
 		} else {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
@@ -314,10 +314,9 @@ if (!empty($_POST['changepasswordsubmit'])) {
 	if ($p) { 
 
 		
-		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id={$_SESSION['user_id']} LIMIT 1";	
+		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		if (mysqli_affected_rows($dbc) == 1) { //Updating MYSQL Database
-
+		if (mysqli_affected_rows($dbc) == 1) {
 			
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
@@ -354,9 +353,11 @@ else {
 if (!empty($_POST['changeemailsubmit'])) {
 	
 	$e2 = FALSE;
-	if (filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL)) {
-		if ($_POST['email1'] == $_POST['email2']) {
-			$e2 = mysqli_real_escape_string ($dbc, $_POST['email1']);
+	if ((filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL)) AND (filter_var($_POST['email2'], FILTER_VALIDATE_EMAIL))) {
+		$safe_email1 = mysqli_real_escape_string ($dbc, $_POST['email1']);
+		$safe_email2 = mysqli_real_escape_string ($dbc, $_POST['email2']);
+		if ($safe_email1 == $safe_email2) {
+			$e2 = $safe_email1;
 		} else {
 			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
 		}
@@ -371,7 +372,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 	if ($e) { 
 
 		
-		$q = "UPDATE users SET email='". $e2 . "' WHERE user_id={$_SESSION['user_id']}";	
+		$q = "UPDATE users SET email='". $e2 . "' WHERE user_id='".$_SESSION['user_id']."'";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 
@@ -398,7 +399,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 } 
 
 else {
-		$p = FALSE;
+		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old email address!</p>';
 	}
 	
@@ -411,9 +412,11 @@ else {
 if (!empty($_POST['changeusernamesubmit'])) {
 	
 	$u2 = FALSE;
-	if (preg_match ('/^(\w){4,20}$/', $_POST['username1']) ) {
-		if ($_POST['username1'] == $_POST['username2']) {
-			$u2 = mysqli_real_escape_string ($dbc, $_POST['username1']);
+	if ((preg_match ('/^(\w){4,20}$/', $_POST['username1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['username2']))) {
+		$safe_username1 = mysqli_real_escape_string ($dbc, $_POST['username1']);
+		$safe_username2 = mysqli_real_escape_string ($dbc, $_POST['username2']);
+		if ($safe_username1 == $safe_username2) {
+			$u2 = $safe_username1;
 		} else {
 			echo '<p class="error">Your username did not match the confirmed username!</p>';
 		}
@@ -428,7 +431,7 @@ if (!empty($_POST['changeusernamesubmit'])) {
 	if ($u) { 
 
 		
-		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id={$_SESSION['user_id']}";	
+		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id='".$_SESSION['user_id']."'";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 
@@ -468,7 +471,7 @@ else {
 if (!empty($_POST['colour-submit'])) {
 	echo "colour scheme got changed";
 	$colour = isset($_POST['csscolour']) ? $_POST['csscolour'] : false;
-		$q = "UPDATE users SET colour='". $colour . "' WHERE user_id={$_SESSION['user_id']}";	
+		$q = "UPDATE users SET colour='". $colour . "' WHERE user_id='".$_SESSION['user_id']."'";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 
