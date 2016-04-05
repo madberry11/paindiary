@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$un = $sid = $st = $e = $p = FALSE;
 	
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
+	if (preg_match ('/^\w{4,20}$/', $trimmed['username'])) {
 			$n = mysqli_real_escape_string ($dbc, $trimmed['username']);
 			$sql = "SELECT * FROM users WHERE username= '" . $n . "'";
 			$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$un = mysqli_real_escape_string ($dbc, $trimmed['username']);
 			}
 	}else {
-		echo '<p class="error">Please enter a username!</p>';
+		echo '<p class="error">Please enter a valid username! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 	}
 			
 	
