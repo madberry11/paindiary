@@ -1378,11 +1378,9 @@ case '1' :
 	//echo "No pain relief records.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('oldpainrelief').style.display = "none";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "none";
-	}
 	</script>
     <?php
 	break;
@@ -1390,10 +1388,10 @@ case '2' :
 	//echo "New pain relief record is getting created, no other exists yet.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('oldpainrelief').style.display = "none";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "block";
+	window.onload = function(){
 	document.getElementById('newpainrelief_link').click();
 	}
 	</script>
@@ -1403,11 +1401,11 @@ case '3' :
 	echo "Existing pain relief record is getting edited.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "block";
 	document.getElementById('newpainrelief').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
+	window.onload = function(){
 	document.getElementById('editpainrelief_link').click();
 	}
 	</script>
@@ -1417,12 +1415,10 @@ case '4' :
 	echo "Display pain relief records.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
-	}
 	</script>
     <?php
 	break;
@@ -1430,11 +1426,11 @@ case '5' :
 	echo "New pain relief is getting created but some already exist.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('oldpainrelief').style.display = "block";
     document.getElementById('editpainrelief').style.display = "none";
 	document.getElementById('newpainrelief').style.display = "block";
 	document.getElementById('deleteall').style.display = "inline-block";
+	window.onload = function(){
 	document.getElementById('newpainrelief_link').click();
 	}
 	</script>
@@ -1472,11 +1468,9 @@ case '1' :
 	//echo "No comment.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
 	document.getElementById('newcomment').style.display = "none";
 	document.getElementById('editcomment').style.display = "none";
 	document.getElementById('oldcomment').style.display = "none";
-	}
 	</script>
     <?php
 	break;
@@ -1484,9 +1478,9 @@ case '2' :
 	//echo "New comment is getting created.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('newcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
+	window.onload = function(){
 	document.getElementById('newcomment_link').click();
 	}
 	</script>
@@ -1496,10 +1490,10 @@ case '3' :
 	echo "Existing comment is getting edited.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('editcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
+	window.onload = function(){
 	document.getElementById('editcomment_link').click();
 	}
 	</script>
@@ -1509,11 +1503,9 @@ case '4' :
 	echo "Display existing comment.";
 	?>
     <script type="text/javascript">
-	window.onload = function(){
     document.getElementById('oldcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
-	}
 	</script>
     <?php
 	break;
