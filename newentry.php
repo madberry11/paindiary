@@ -1314,7 +1314,7 @@ case '2':
     <?php
 	break;
 case '3':
-	echo "Body part entry is getting edited.";
+	//echo "Body part entry is getting edited.";
 	?>
     <script type="text/javascript">
     document.getElementById('editoldentry').style.display = "block";
@@ -1324,7 +1324,7 @@ case '3':
     <?php
 	break;
 case '4':
-	echo "Existing body part entries are getting displayed.";
+	//echo "Existing body part entries are getting displayed.";
 	?>
     <script type="text/javascript">
     document.getElementById('oldpainentries').style.display = "block";
@@ -1398,7 +1398,7 @@ case '2' :
     <?php
 	break;
 case '3' :
-	echo "Existing pain relief record is getting edited.";
+	//echo "Existing pain relief record is getting edited.";
 	?>
     <script type="text/javascript">
 	document.getElementById('oldpainrelief').style.display = "block";
@@ -1412,7 +1412,7 @@ case '3' :
     <?php
 	break;
 case '4' :
-	echo "Display pain relief records.";
+	//echo "Display pain relief records.";
 	?>
     <script type="text/javascript">
 	document.getElementById('oldpainrelief').style.display = "block";
@@ -1423,7 +1423,7 @@ case '4' :
     <?php
 	break;
 case '5' :
-	echo "New pain relief is getting created but some already exist.";
+	//echo "New pain relief is getting created but some already exist.";
 	?>
     <script type="text/javascript">
 	document.getElementById('oldpainrelief').style.display = "block";
@@ -1487,7 +1487,7 @@ case '2' :
     <?php
 	break;
 case '3' :
-	echo "Existing comment is getting edited.";
+	//echo "Existing comment is getting edited.";
 	?>
     <script type="text/javascript">
     document.getElementById('editcomment').style.display = "block";
@@ -1500,7 +1500,7 @@ case '3' :
     <?php
 	break;
 case '4' :
-	echo "Display existing comment.";
+	//echo "Display existing comment.";
 	?>
     <script type="text/javascript">
     document.getElementById('oldcomment').style.display = "block";
