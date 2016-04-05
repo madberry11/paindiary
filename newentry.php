@@ -1256,7 +1256,7 @@ $entryvalue=0;
 
 if ($evalue == 1) {
 if (isset($_GET['newbodypart'])) {
-	$newbodypart = $_GET['newbodypart'];
+	$newbodypart = mysqli_real_escape_string ($dbc, $_GET['newbodypart']);
 	$entryvalue = 5;
 	}
 else {
@@ -1267,13 +1267,13 @@ else {
 
 if ($evalue == 4) {
 	if (isset($_GET['newbodypart'])) {
-		//$newbodypart = $_GET['newbodypart'];
+		$newbodypart = mysqli_real_escape_string ($dbc, $_GET['newbodypart']);
 		$entryvalue = 2;
 		//echo "case 2";
 	}
 	elseif (isset($_GET['toedit'])) {
-		//$idtoedit = $_GET['toedit'];
-		//$_SESSION['entryid'] = $_GET['toedit'];
+		$idtoedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+		$_SESSION['entryid'] = $idtoedit;
 		$entryvalue = 3;
 		//echo "case 3";
 	}
