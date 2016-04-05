@@ -223,7 +223,7 @@ default:
 }
 
 $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows > 0) {
 	
 	
@@ -269,14 +269,14 @@ if ($next_month == 13 ) {
 <ul id="monthly">
 <?php
 $sql = "SELECT *, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows > 0) {
 
 	while($row = $result->fetch_assoc()) {
 echo "<a data-ajax='false' onclick='allfunc()' href='home.php?active=allpain&month=$cMonth&year=$cYear'><li id='allpain'> all entries (". $row['COUNT(entryid)'] .")</li></a>";
 	}
 $sql2 = "SELECT bodypart, COUNT(entryid) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth . " GROUP BY bodypart";
-$result2 = $dbc->query($sql2);
+$result2 = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$bodypart = $row['bodypart'];
@@ -335,7 +335,7 @@ if (($todayyear == $cYear) AND ($todaymonth == $cMonth)) {
 </tr>
 <?php 
 $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 $timestamp = mktime(0,0,0,$cMonth,1,$cYear);
 $maxday = date("t",$timestamp);
 $thismonth = getdate ($timestamp);
@@ -351,7 +351,7 @@ switch($whichquery) {
 case 'allpain':
 	//echo " case all entries";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 	break;
 case 'bodypart':
@@ -368,7 +368,7 @@ case 'bodypart':
 default:
 	//echo " case default";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	break;
 }
 
@@ -384,7 +384,7 @@ default:
 			 
 			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
 	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
-	$r = $dbc->query($query);
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($r -> num_rows == 1) {
 		//echo "yes";
 			 
@@ -479,7 +479,7 @@ switch($whichquery) {
 case 'allpain':
 	//echo " case all entries";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 	break;
 case 'bodypart':
@@ -496,7 +496,7 @@ case 'bodypart':
 default:
 	//echo " case default";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	break;
 }
 
@@ -511,8 +511,7 @@ default:
 			 //echo $row['entryday'];
 			 
 			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
-	$r = $dbc->query($query);
+	$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($r -> num_rows == 1) {
 		//echo "yes";
 			 
@@ -621,7 +620,7 @@ else {
 </tr>
 <?php 
 $sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ;
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 $timestamp = mktime(0,0,0,$cMonth,1,$cYear);
 $maxday = date("t",$timestamp);
 $thismonth = getdate ($timestamp);
@@ -636,7 +635,7 @@ switch($whichquery) {
 case 'allpain':
 	//echo " case all entries";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 	break;
 case 'bodypart':
@@ -653,7 +652,7 @@ case 'bodypart':
 default:
 	//echo " case default";
 	$sql = "SELECT entryday, AVG(avgpain) FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $cYear . " AND entrymonth = " . $cMonth ." AND entryday =" . $thisday  ;
-	$result = $dbc->query($sql);
+	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 	break;
 }
 
@@ -668,8 +667,7 @@ default:
 			 //echo $row['entryday'];
 			 
 			 	$query = "SELECT important_id FROM important WHERE entryyear=". $cYear ." AND entrymonth=". $cMonth ." AND entryday=". $thisday ." AND user_id=". $_SESSION['user_id'];
-	mysqli_query($dbc,$query) or die(mysqli_error($dbc));
-	$r = $dbc->query($query);
+	$r = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($r -> num_rows == 1) {
 		//echo "yes";
 			 
