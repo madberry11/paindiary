@@ -1584,6 +1584,11 @@ if (!empty($_POST['entry-submit'])) {
 	 }
 	 
 	 else {
+		 ?>
+         <script>
+		 alert("Still no good!");
+		 </script>
+         <?php
 		 $entrytags = "";
 	 }
 
