@@ -2203,7 +2203,7 @@ if (mysqli_affected_rows($dbc) == 1) {
 
 						
 }else {
-echo '<p class="error">The comment could not be edited due to a system error. We apologize for any inconvenience.</p>';
+echo '<p class="error">You did not change anything.</p>';
 }
 }
 ?>
