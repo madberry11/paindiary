@@ -637,7 +637,7 @@ if ($result -> num_rows > 0) {
 	 if (isset($row['entrytags'])) {
 		 $tags = $row['entrytags'];
 		 $tagsarray = explode(',', $tags);
-		print_r($myArray);
+		print_r($tagsarray);
 		 $tagsforthis = $row['entrytags'];
 	 }
 	 if (!$row['entrytags']) {
