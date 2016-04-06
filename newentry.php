@@ -952,7 +952,7 @@ function Deleteqry() {
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
 	document.getElementById('todelete').click();
-	//alert("Gonna delete it!");
+	alert("Gonna delete it!");
 } else {
     x = "You pressed Cancel!";
 	document.getElementById('canceldeleteentry').click();
