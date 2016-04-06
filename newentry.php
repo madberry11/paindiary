@@ -1941,14 +1941,12 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 	} else {
 		echo '<p class="error"> You need to enter either the name of a medicine or other treatment method.</p>';
 	}
-// otherthings
+// otherthings - if medicine is not empty
 if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
 	}
-// reliefrating - if medicine is not empty
+// reliefrating
 $reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
-//if (empty($_POST["reliefrating"])) {$reliefrating = 0;}
-//else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
 // sideeffects
 if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
 		$sideeffects = mysqli_real_escape_string ($dbc, $trimmed['sideeffects']);
@@ -1960,7 +1958,7 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
 // if there are no errors	
 if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherthings)) {
  
-  $q = "SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'] ." AND time='$hour' AND ((medicine='$medicine') OR (otherthings='$otherthings'))";
+  $q = "SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'] ." AND time='$hour' AND ((medicine=isset('$medicine')) OR (otherthings=isset('$otherthings')))";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		if (mysqli_num_rows($r) == 0) { 
