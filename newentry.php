@@ -1002,7 +1002,7 @@ if (r == true) {
 	}, 500);
 } else {
     setTimeout(function(){
-	window.location="newentry.php?deleteall=0";
+	window.location="newentry.php";
 	}, 500);
 }
 }
