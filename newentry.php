@@ -98,7 +98,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             var i;
 			string += "Type of pain: ";
             for (i in tags) {
-                string += "<li>" + tags[i].value + "</li>";
+                string += tags[i].value + ",&nbsp;";
 				//string += "&nbsp;";
             }
 			$('#demo4Out').append(string);
