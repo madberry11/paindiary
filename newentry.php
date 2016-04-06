@@ -951,9 +951,12 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	document.getElementById('todelete').click();;
+	setTimeout(function(){
+	document.getElementById('todelete').click();
+	window.location="newentry.php?todelete=$row[entryid]";
+	}, 500);
 } else {
-	document.getElementById('canceldeleteentry').click();;
+	document.getElementById('canceldeleteentry').click();
 }
 }
 
