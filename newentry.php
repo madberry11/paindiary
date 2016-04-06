@@ -951,15 +951,11 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	window.onload = function(){
 	window.location="newentry.php?todelete=$row[entryid]";
 	document.getElementById('todelete').click();
-	}
 } else {
     x = "You pressed Cancel!";
-	window.onload = function(){
 	document.getElementById('canceldeleteentry').click();
-	}
 }
 }
 
@@ -969,9 +965,7 @@ if (r == true) {
 	document.getElementById('deletepainrelief').click();
 } else {
     x = "You pressed Cancel!";
-	window.onload = function(){
 	document.getElementById('canceldeletepainrelief').click();
-	}
 }
 }
 
