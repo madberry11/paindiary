@@ -1577,6 +1577,7 @@ if (!empty($_POST['entry-submit'])) {
 		 
 		 if (!empty($_POST['paintags']) ) {
 		 $entrytags = $_POST['paintags'];
+		 echo $entrytags;
 		 }
 		 else {
 			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
@@ -1585,6 +1586,7 @@ if (!empty($_POST['entry-submit'])) {
 	 
 	 else {
 		 $entrytags = "";
+		 echo "no entrytags";
 	 }
 
 	require (MYSQL);
@@ -1717,11 +1719,11 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 					if (mysqli_affected_rows($dbc) == 1) {
-
+/*
 	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
-
+*/
 						
 					}else {
 						echo '<p class="error">The entry could not be changed due to a system error. We apologize for any inconvenience.</p>';
