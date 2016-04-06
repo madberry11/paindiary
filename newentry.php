@@ -951,33 +951,45 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
+	window.onload = function(){
 	window.location="newentry.php?todelete=$row[entryid]";
 	document.getElementById('todelete').click();
+	}
 } else {
     x = "You pressed Cancel!";
+	window.onload = function(){
 	document.getElementById('canceldeleteentry').click();
+	}
 }
 }
 
 function Deleterecordqry() { 
 	var r = confirm("Are you sure you want to delete this pain relief record?");
 if (r == true) {
+	window.onload = function(){
 	window.location="newentry.php?deleterecord=$row[record_id]";
 	document.getElementById('deletepainrelief').click();
+	}
 } else {
     x = "You pressed Cancel!";
+	window.onload = function(){
 	document.getElementById('canceldeletepainrelief').click();
+	}
 }
 }
 
 function Deletecomment() { 
 	var r = confirm("Are you sure you want to delete this comment?");
 if (r == true) {
+	window.onload = function(){
 	window.location="newentry.php?commentdelete=$row[entryid]";
 	document.getElementById('deletecomment').click();
+	}
 } else {
     x = "You pressed Cancel!";
+	window.onload = function(){
 	document.getElementById('canceldeletecomment').click();
+	}
 }
 }
 
