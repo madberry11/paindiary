@@ -90,7 +90,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 
 /*globals $ */
 /*jslint vars:true */
-/*
+
     $(function () { 'use strict';
         function showTags(tags) {
             console.log(tags);
@@ -274,8 +274,6 @@ $('#formid').on('keyup keypress', function(e) {
     return false;
   }
 });
-
-*/
 </script>
 
 <?php 
@@ -953,9 +951,9 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	document.getElementById('todelete').click();
+	document.getElementById('todelete').click()
 } else {
-	document.getElementById('canceldeleteentry').click();
+	document.getElementById('canceldeleteentry').click()
 }
 }
 
