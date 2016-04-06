@@ -1926,6 +1926,7 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 } elseif (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
+		$medicine = '';
 		if (!empty($_POST['amount'])) {
 			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";
 			}
@@ -1945,6 +1946,9 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
 	}
+else {
+	$otherthings = "";
+}
 // reliefrating
 $reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
 // sideeffects
@@ -1963,17 +1967,17 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 		
 		if (mysqli_num_rows($r) == 0) { 
 			$q = "INSERT INTO painrelief SET
-			user_id := '". $_SESSION['user_id'] . "',
-			entryyear := '". $_SESSION['calyear'] . "',
-			entrymonth := '". $_SESSION['calmonth']. "',
-			entryday := '".mysqli_real_escape_string($dbc, $_SESSION['day']). "',
-			time := '".mysqli_real_escape_string($dbc,$hour) ."',
-			medicine := '".mysqli_real_escape_string($dbc,$medicine) ."',
-			amount := '".mysqli_real_escape_string($dbc,$amount) ."',
-			measure := '".mysqli_real_escape_string($dbc,$measure) ."',
-			otherthings := '".mysqli_real_escape_string($dbc,$otherthings) ."',
-			reliefrating := '".mysqli_real_escape_string($dbc,$reliefrating) ."',
-			sideeffects := '".mysqli_real_escape_string($dbc,$sideeffects) ."'";
+			user_id := '". $_SESSION['user_id'] ."',
+			entryyear := '". $_SESSION['calyear'] ."',
+			entrymonth := '". $_SESSION['calmonth'] ."',
+			entryday := '". $_SESSION['day'] ."',
+			time := '". $hour ."',
+			medicine := '". $medicine ."',
+			amount := '". $amount ."',
+			measure := '". $measure ."',
+			otherthings := '". $otherthings ."',
+			reliefrating := '". $reliefrating ."',
+			sideeffects := '". $sideeffects ."'";
 		
 		
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
