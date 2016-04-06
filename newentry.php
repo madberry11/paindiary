@@ -641,7 +641,7 @@ if ($result -> num_rows > 0) {
 		 echo $num;
 		print_r($tagsarray);
 		$i = 0;
-		while ($i <= $num-1) {
+		while ($i < $num-1) {
 			echo "<li>".$tagsarray[$i]."</li>";
 			$i++;
 		}
