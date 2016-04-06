@@ -1926,13 +1926,13 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 } elseif (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
-		if (!empty($_POST["amount"])) {
+		if (!empty($_POST['amount'])) {
 			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";
 			}
 		else {
 			$amount = "";	
 			}
-		if (!empty($POST["measure"])) {
+		if (!empty($POST['measure'])) {
 			echo "If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.";
 			}
 		else {
