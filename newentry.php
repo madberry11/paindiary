@@ -966,9 +966,7 @@ if (r == true) {
 function Deleterecordqry() { 
 	var r = confirm("Are you sure you want to delete this pain relief record?");
 if (r == true) {
-	window.onload = function(){
 	window.location="newentry.php?deleterecord=$row[record_id]";
-	}
 } else {
     x = "You pressed Cancel!";
 	window.onload = function(){
