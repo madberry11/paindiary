@@ -1176,7 +1176,13 @@ if ($dbc->connect_error) {
         <th class="col1">Time</th><th class="col2">Medicine</th><th class="col3">Amount</th><th class="col4">Other Things</th><th class="col5">Relief</th><th class="col6">Side Effects</th>
         <?php
 		while($row = $r->fetch_assoc()) {
-echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['amount'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' href='' onclick='Deleterecordqry()'></a></td></tr>";
+			if ($row['amount'] > 0) {
+				$row['am'] = $row['amount'];
+			}
+			else {
+				$row['am'] = "";
+			}
+echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['am'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' href='' onclick='Deleterecordqry()'></a></td></tr>";
 
 		}?>
         </table>
