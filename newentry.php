@@ -968,7 +968,6 @@ function Deleterecordqry() {
 if (r == true) {
 	window.onload = function(){
 	window.location="newentry.php?deleterecord=$row[record_id]";
-	document.getElementById('deletepainrelief').click();
 	}
 } else {
     x = "You pressed Cancel!";
