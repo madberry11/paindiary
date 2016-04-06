@@ -768,7 +768,7 @@ display: none !important;
 .taglist {
 	font-size: 10px;
 	float: left;
-	padding-left: 0px;
+	padding-left: 5px;
 }
 
 #monthnav {
