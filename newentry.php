@@ -1575,8 +1575,8 @@ if (!empty($_POST['entry-submit'])) {
 	 
 	 if (!empty($_POST['paintags'])) {
 		 
-		 if ( preg_match("/[^a-zA-Z<>:/ ]+/",$_POST['paintags']) ) {
-		 $entrytags = $_POST['paintags'];
+		 if (!empty($_POST['paintags']) ) {
+		 $entrytags = mysqli_real_escape_string ($dbc,$_POST['paintags']);
 		 echo $entrytags;
 		 }
 		 else {
@@ -1749,8 +1749,8 @@ if (!empty($_POST['entry-resubmit'])) {
 	
 	if (!empty($_POST['paintags2'])) {
 		 
-		  if ( preg_match("/[^a-zA-Z<>:]+/",$_POST['paintags2']) ) {
-		 $entrytags = $_POST['paintags2'];
+		  if (!empty($_POST['paintags2']) ) {
+		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags2']);
 		 }
 		 else {
 			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
