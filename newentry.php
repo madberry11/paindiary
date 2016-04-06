@@ -1562,7 +1562,6 @@ if (!empty($_POST['entry-submit'])) {
 		 
 		 if ( preg_match("/[^a-zA-Z<>:]+/",$_POST['paintags']) ) {
 		 $entrytags = $_POST['paintags'];
-		 $_SESSION['entrytags'] = $entrytags;
 		 }
 		 else {
 			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
@@ -1580,6 +1579,7 @@ if (!empty($_POST['entry-submit'])) {
  if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['bodypart'])) {
 		$bodypart = mysqli_real_escape_string ($dbc, $trimmed['bodypart']);
 	} else {
+		$bodypart = "";
 		echo '<p class="error">Please enter the affected body part!</p>';
 	}
 	
@@ -1669,33 +1669,33 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 			user_id := '". $_SESSION['user_id'] . "',
 			entryyear := '". $_SESSION['calyear'] . "',
 			entrymonth := '". $_SESSION['calmonth']. "',
-			entryday := '".mysqli_real_escape_string($dbc,$_SESSION['day']). "',
-			bodypart := '".mysqli_real_escape_string($dbc,$bodypart) ."',
-			p00 := '".mysqli_real_escape_string($dbc,$p00) ."',
-			p01 := '".mysqli_real_escape_string($dbc,$p01) ."',
-			p02 := '".mysqli_real_escape_string($dbc,$p02) ."',
-			p03 := '".mysqli_real_escape_string($dbc,$p03) ."',
-			p04 := '".mysqli_real_escape_string($dbc,$p04) ."',
-			p05 := '".mysqli_real_escape_string($dbc,$p05) ."',
-			p06 := '".mysqli_real_escape_string($dbc,$p06) ."',
-			p07 := '".mysqli_real_escape_string($dbc,$p07) ."',
-			p08 := '".mysqli_real_escape_string($dbc,$p08) ."',
-			p09 := '".mysqli_real_escape_string($dbc,$p09) ."',
-			p10 := '".mysqli_real_escape_string($dbc,$p10) ."',
-			p11 := '".mysqli_real_escape_string($dbc,$p11) ."',
-			p12 := '".mysqli_real_escape_string($dbc,$p12) ."',
-			p13 := '".mysqli_real_escape_string($dbc,$p13) ."',
-			p14 := '".mysqli_real_escape_string($dbc,$p14) ."',
-			p15 := '".mysqli_real_escape_string($dbc,$p15) ."',
-			p16 := '".mysqli_real_escape_string($dbc,$p16) ."',
-			p17 := '".mysqli_real_escape_string($dbc,$p17) ."',
-			p18 := '".mysqli_real_escape_string($dbc,$p18) ."',
-			p19 := '".mysqli_real_escape_string($dbc,$p19) ."',
-			p20 := '".mysqli_real_escape_string($dbc,$p20) ."',
-			p21 := '".mysqli_real_escape_string($dbc,$p21) ."',
-			p22 := '".mysqli_real_escape_string($dbc,$p22) ."',
-			p23 := '".mysqli_real_escape_string($dbc,$p23) ."',
-			entrytags := '". $_SESSION['entrytags']. "',
+			entryday := '". $_SESSION['day'] ."',
+			bodypart := '". $bodypart ."',
+			p00 := '". $p00 ."',
+			p01 := '". $p01 ."',
+			p02 := '". $p02 ."',
+			p03 := '". $p03 ."',
+			p04 := '". $p04 ."',
+			p05 := '". $p05 ."',
+			p06 := '". $p06 ."',
+			p07 := '". $p07 ."',
+			p08 := '". $p08 ."',
+			p09 := '". $p09 ."',
+			p10 := '". $p10 ."',
+			p11 := '". $p11 ."',
+			p12 := '". $p12 ."',
+			p13 := '". $p13 ."',
+			p14 := '". $p14 ."',
+			p15 := '". $p15 ."',
+			p16 := '". $p16 ."',
+			p17 := '". $p17 ."',
+			p18 := '". $p18 ."',
+			p19 := '". $p19 ."',
+			p20 := '". $p20 ."',
+			p21 := '". $p21 ."',
+			p22 := '". $p22 ."',
+			p23 := '". $p23 ."',
+			entrytags := '". $entrytags ."',
 			avgpain := ( $p00+ $p01 + $p02 + $p03 +$p04 + $p05 + $p06 + $p07 + $p08 + $p09 + $p10 + $p11 + $p12 + $p13 + $p14 + $p15 + $p16 + $p17 + $p18 + $p19 + $p20 + $p21 + $p22 + $p23) /24
 			";
 			
@@ -1732,14 +1732,16 @@ if (!empty($_POST['entry-resubmit'])) {
 	
 	if (!empty($_POST['paintags2'])) {
 		 
-		 $entrytags = $_POST['paintags2'];
-		 $_SESSION['entrytags'] = $entrytags;
-		 //echo $entrytags;
+		  if ( preg_match("/[^a-zA-Z<>:]+/",$_POST['paintags']) ) {
+		 $entrytags = $_POST['paintags'];
+		 }
+		 else {
+			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
+		 }
 	 }
 	 
 	 else {
 		 $entrytags = "";
-		 //echo "tags weren't changed";
 	 }
 	
 require (MYSQL);
@@ -1829,32 +1831,32 @@ else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);}
 		
 		if (mysqli_num_rows($r) == 1) { 
 			$q = "UPDATE pain SET
-			bodypart := '".mysqli_real_escape_string($dbc,$bodypart) ."',
-			p00 := '".mysqli_real_escape_string($dbc,$p00) ."',
-			p01 := '".mysqli_real_escape_string($dbc,$p01) ."',
-			p02 := '".mysqli_real_escape_string($dbc,$p02) ."',
-			p03 := '".mysqli_real_escape_string($dbc,$p03) ."',
-			p04 := '".mysqli_real_escape_string($dbc,$p04) ."',
-			p05 := '".mysqli_real_escape_string($dbc,$p05) ."',
-			p06 := '".mysqli_real_escape_string($dbc,$p06) ."',
-			p07 := '".mysqli_real_escape_string($dbc,$p07) ."',
-			p08 := '".mysqli_real_escape_string($dbc,$p08) ."',
-			p09 := '".mysqli_real_escape_string($dbc,$p09) ."',
-			p10 := '".mysqli_real_escape_string($dbc,$p10) ."',
-			p11 := '".mysqli_real_escape_string($dbc,$p11) ."',
-			p12 := '".mysqli_real_escape_string($dbc,$p12) ."',
-			p13 := '".mysqli_real_escape_string($dbc,$p13) ."',
-			p14 := '".mysqli_real_escape_string($dbc,$p14) ."',
-			p15 := '".mysqli_real_escape_string($dbc,$p15) ."',
-			p16 := '".mysqli_real_escape_string($dbc,$p16) ."',
-			p17 := '".mysqli_real_escape_string($dbc,$p17) ."',
-			p18 := '".mysqli_real_escape_string($dbc,$p18) ."',
-			p19 := '".mysqli_real_escape_string($dbc,$p19) ."',
-			p20 := '".mysqli_real_escape_string($dbc,$p20) ."',
-			p21 := '".mysqli_real_escape_string($dbc,$p21) ."',
-			p22 := '".mysqli_real_escape_string($dbc,$p22) ."',
-			p23 := '".mysqli_real_escape_string($dbc,$p23) ."',
-			entrytags := '". $_SESSION['entrytags']. "',
+			bodypart := '". $bodypart ."',
+			p00 := '". $p00 ."',
+			p01 := '". $p01 ."',
+			p02 := '". $p02 ."',
+			p03 := '". $p03 ."',
+			p04 := '". $p04 ."',
+			p05 := '". $p05 ."',
+			p06 := '". $p06 ."',
+			p07 := '". $p07 ."',
+			p08 := '". $p08 ."',
+			p09 := '". $p09 ."',
+			p10 := '". $p10 ."',
+			p11 := '". $p11 ."',
+			p12 := '". $p12 ."',
+			p13 := '". $p13 ."',
+			p14 := '". $p14 ."',
+			p15 := '". $p15 ."',
+			p16 := '". $p16 ."',
+			p17 := '". $p17 ."',
+			p18 := '". $p18 ."',
+			p19 := '". $p19 ."',
+			p20 := '". $p20 ."',
+			p21 := '". $p21 ."',
+			p22 := '". $p22 ."',
+			p23 := '". $p23 ."',
+			entrytags := '". $entrytags ."',
 			avgpain := ( $p00+ $p01 + $p02 + $p03 +$p04 + $p05 + $p06 + $p07 + $p08 + $p09 + $p10 + $p11 + $p12 + $p13 + $p14 + $p15 + $p16 + $p17 + $p18 + $p19 + $p20 + $p21 + $p22 + $p23) /24
 			WHERE entryid = " . $_SESSION['entryid'] . "";
 			
@@ -1919,18 +1921,31 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 				echo '<p class="error"> If you enter an amount, you need to choose a valid measure.</p>';	
 				}
 			}
-			}
+}
 		
-	} elseif (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['otherthings'])) {
-		// otherthings
+} elseif (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
+		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
+		if (!empty($_POST["amount"])) {
+			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";
+			}
+		else {
+			$amount = "";	
+			}
+		if (!empty($POST["measure"])) {
+			echo "If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.";
+			}
+		else {
+			$measure = "";	
+			}
 	} else {
 		echo '<p class="error"> You need to enter either the name of a medicine or other treatment method.</p>';
 	}
 // otherthings
-if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['otherthings'])) {
-		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);}
-// reliefrating
+if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
+		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
+	}
+// reliefrating - if medicine is not empty
 $reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
 //if (empty($_POST["reliefrating"])) {$reliefrating = 0;}
 //else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
