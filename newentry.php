@@ -974,7 +974,7 @@ if (r == true) {
 function Deletecomment() { 
 	var r = confirm("Are you sure you want to delete this comment?");
 if (r == true) {
-	window.location="newentry.php?commentdelete=$row[entryid]";
+	window.location="newentry.php?commentdelete=$row[comment_id]";
 	window.onload = function(){
 	document.getElementById('deletecomment').click();
 	}
