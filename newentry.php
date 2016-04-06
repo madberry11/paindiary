@@ -639,7 +639,7 @@ if ($result -> num_rows > 0) {
 		 $tagsforthis = $row['entrytags'];
 	 }
 	 if (!$row['entrytags']) {
-		 $tagsforthis = "Not defined.";
+		 $tagsforthis = "Type of pain: Not defined.";
 	 }
          echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'> " .$tagsforthis ."</ul></caption><tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p00"]. "</td><td>". $row["p01"]. "</td><td>". $row["p02"]."</td><td>". $row["p03"]."</td><td>". $row["p04"]."</td><td>". $row["p05"]."</td><td>". $row["p06"]."</td><td>". $row["p07"]."</td><td>". $row["p08"]."</td><td>". $row["p09"]."</td><td>". $row["p10"]."</td><td>". $row["p11"]."</td></tr><tr><th class='firstcol'>Hour of Day</th><th>12PM</th><th>1PM</th><th>2PM</th><th>3PM</th><th>4PM</th><th>5PM</th><th>6PM</th><th>7PM</th><th>8PM</th><th>9PM</th><th>10PM</th><th>11PM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p12"]."</td><td>". $row["p13"]."</td><td>". $row["p14"]."</td><td>". $row["p15"]."</td><td>". $row["p16"]."</td><td>". $row["p17"]."</td><td>". $row["p18"]."</td><td>". $row["p19"]."</td><td>". $row["p20"]."</td><td>". $row["p21"]."</td><td>". $row["p22"]."</td><td>". $row["p23"]."</td></tr><tr><td class='avgrow' colspan='13'> Daily Average Pain Intensity: ". $row["avgpain"] ."</td></tr></table></div>";
      }
@@ -1575,7 +1575,7 @@ if (!empty($_POST['entry-submit'])) {
 	 
 	 if (!empty($_POST['paintags'])) {
 		 
-		 if ( preg_match("/[^a-zA-Z<>:]+/",$_POST['paintags']) ) {
+		 if ( preg_match("/[^a-zA-Z<>/]+/",$_POST['paintags']) ) {
 		 $entrytags = $_POST['paintags'];
 		 }
 		 else {
@@ -2128,12 +2128,12 @@ if (empty($_POST["comment"])) {echo "You have not written anything.";}
 else {$comment = mysqli_real_escape_string ($dbc, $trimmed['comment']);}
 
 $sql = "SELECT comment FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 
 
 if ($result -> num_rows == 0) {
 		 $q = "INSERT INTO comments SET
-		 comment := '". mysqli_real_escape_string($dbc,$comment) ."',
+		 comment := '". $comment ."',
 		 entryyear := '". $_SESSION['calyear'] ."',
 		 entrymonth := '". $_SESSION['calmonth'] ."',
 		 entryday := '". $_SESSION['day'] ."',
@@ -2188,7 +2188,6 @@ if (mysqli_num_rows($result) == 1) {
 		 comment := '". mysqli_real_escape_string($dbc,$comment2) ."'
 		 WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
 		 $result = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		 echo $q;
 }
 
 if (mysqli_affected_rows($dbc) == 1) {
