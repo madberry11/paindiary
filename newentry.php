@@ -368,7 +368,6 @@ if(isset($_GET['createcomment'])) {
 	
 if(isset($_GET['todelete'])) {
 	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
-	echo "todelete";
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
@@ -963,6 +962,7 @@ if (r == true) {
 function Deleterecordqry() { 
 	var r = confirm("Are you sure you want to delete this pain relief record?");
 if (r == true) {
+	document.write("Yes");
 	document.getElementById('deletepainrelief').click();
 } else {
     x = "You pressed Cancel!";
