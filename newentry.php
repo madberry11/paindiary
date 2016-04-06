@@ -97,7 +97,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             var string = "";
             var i;
             for (i in tags) {
-                string += tags[i].value + ", ";
+                string += tags[i].value + " ";
 				//string += "&nbsp;";
             }
 			$('#demo4Out').append(string);
@@ -638,7 +638,7 @@ if ($result -> num_rows > 0) {
 		 $tagsforthis = $row['entrytags'];
 	 }
 	 if (!$row['entrytags']) {
-		 $tagsforthis = "Type of pain: Not defined.";
+		 $tagsforthis = "Not defined.";
 	 }
          echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: " .$tagsforthis ."</ul></caption><tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p00"]. "</td><td>". $row["p01"]. "</td><td>". $row["p02"]."</td><td>". $row["p03"]."</td><td>". $row["p04"]."</td><td>". $row["p05"]."</td><td>". $row["p06"]."</td><td>". $row["p07"]."</td><td>". $row["p08"]."</td><td>". $row["p09"]."</td><td>". $row["p10"]."</td><td>". $row["p11"]."</td></tr><tr><th class='firstcol'>Hour of Day</th><th>12PM</th><th>1PM</th><th>2PM</th><th>3PM</th><th>4PM</th><th>5PM</th><th>6PM</th><th>7PM</th><th>8PM</th><th>9PM</th><th>10PM</th><th>11PM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p12"]."</td><td>". $row["p13"]."</td><td>". $row["p14"]."</td><td>". $row["p15"]."</td><td>". $row["p16"]."</td><td>". $row["p17"]."</td><td>". $row["p18"]."</td><td>". $row["p19"]."</td><td>". $row["p20"]."</td><td>". $row["p21"]."</td><td>". $row["p22"]."</td><td>". $row["p23"]."</td></tr><tr><td class='avgrow' colspan='13'> Daily Average Pain Intensity: ". $row["avgpain"] ."</td></tr></table></div>";
      }
