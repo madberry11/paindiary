@@ -58,7 +58,7 @@ if(isset($_COOKIE["unm"]) == $_SESSION["username"]) {
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 
 if (isset($_GET['colourIn'])) {
-	$colourIn = mysqli_real_escape_string($_GET['colourIn']);
+	$colourIn = mysqli_real_escape_string($dbc, $_GET['colourIn']);
 	$q = "UPDATE users SET colour='". $colourIn . "' WHERE user_id='".$_SESSION['user_id']."'";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
