@@ -580,7 +580,7 @@ if (!empty($_POST['deleteaccount'])) {
 <div class="indent">This far you have created <?php echo $numofentries ?> entries. If you delete your account now, they will be lost and cannot be retrieved.
 <br /> Are you sure you want to delete your account?</div>
 	<br /><br /><div class="center">
-	<input type="submit" id="deleteaccount" name="deleteaccount" value="Delete Account" placeholder="Delete Account" />
+	<input type="submit" id="deleteuser" name="deleteaccount" value="Delete Account" placeholder="Delete Account" />
 	<button type="submit" id="canceldelete" name="canceldelete">Cancel</button>
     </form>
 	</div>
