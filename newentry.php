@@ -833,13 +833,14 @@ if ($result -> num_rows > 0) {
 	<p><label class="bodypartlabel" for="bodypart">Which body part is affected by the pain?</label>
     <input class="bodypart" name="bodypart" type="text" placeholder="<?php echo $bodypart ?>" maxlength="30" value="<?php if (isset($trimmed['bodypart'])) echo $trimmed['bodypart']; ?>" /></p>
     <p><label class="bodypartlabel" for="tags">What words would you use to describe the pain?</label>
- 	<div id="demo2" name="demo2"><?php echo mysqli_real_escape_string ($dbc, $entrytags); ?></div>
+ 	<ul id="demo2" name="demo2"><?php echo $entrytags; ?></ul>
   <div class="buttons2">
   <button id="demo2GetTags" value="Get Tags">Save Tags</button>
   <button id="demo2ResetTags" value="Reset Tags">Reset Tags</button>
   </div>
   <br clear="all" />
-<div id="demo2Out"></div>
+
+  <ul class="taglist"><div id="demo2Out"></div></ul>
   <input id="paintags2" name="paintags2" class="hidden" />
 <br clear="all" />
 
