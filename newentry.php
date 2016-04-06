@@ -99,7 +99,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 			string += "Type of pain: ";
             for (i in tags) {
                 string += "<li>" + tags[i].value + "</li>";
-				string += "&nbsp;";
+				//string += "&nbsp;";
             }
 			$('#demo4Out').append(string);
 			$('#demo2Out').append(string);
@@ -1557,23 +1557,16 @@ if ((!empty($_POST['cancelentry'])) OR (!empty($_POST['cancelrelief'])) OR (!emp
 
 
 if (!empty($_POST['entry-submit'])) {
-?>
-<!--
-<style>
-body {
-cursor: wait;	
-}
-* {
-cursor: wait;	
-}
-</style>
--->
-<?php
 	 
 	 if (!empty($_POST['paintags'])) {
 		 
+		 if ( preg_match("/[^a-zA-Z<>:]+/",$_POST['paintags']) ) {
 		 $entrytags = $_POST['paintags'];
 		 $_SESSION['entrytags'] = $entrytags;
+		 }
+		 else {
+			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
+		 }
 	 }
 	 
 	 else {
