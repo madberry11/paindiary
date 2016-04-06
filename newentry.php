@@ -1576,13 +1576,11 @@ if (!empty($_POST['entry-submit'])) {
 		 
 		 if (!empty($_POST['paintags']) ) {
 		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
-		 echo $entrytags;
 		 }
 	 }
 	 
 	 else {
 		 $entrytags = "";
-		 echo "no entrytags";
 	 }
 
 	require (MYSQL);
