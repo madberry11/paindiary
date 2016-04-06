@@ -26,7 +26,7 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 	
-	$q = "SELECT user_id, username FROM users WHERE (username='".$_SESSION['username']."' AND active IS NULL";		
+	$q = "SELECT user_id, username FROM users WHERE user_id='".$_SESSION['user_id']."'";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -92,15 +92,12 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 
 <?php
 
-$q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
+$q = "SELECT user_id, username, email, pass, registration_date, colour FROM users WHERE user_id='".$_SESSION['user_id']."'";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
 	$row = mysqli_fetch_assoc($r);
 	$username=$row['username'];
-	$register=new DateTime($row['registration_date']);
-	$email=$row['email'];
-	$password=$row['pass'];
 	$colour=$row['colour'];
 	
 	switch($colour) {
@@ -232,7 +229,7 @@ $(document).ready(function () {
 </script>
 <?php
 		$sql = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
-$result = $dbc->query($sql);
+$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows > 0) {
 ?>
 
@@ -258,7 +255,7 @@ echo "<input class='checkbox' type='checkbox' id='$bodypart' name='bodypart[]' v
 <div class="sub-comp" id="sub-rel">
 <?php
 $sql2 = "SELECT medicine, COUNT(record_id) FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " GROUP BY medicine";
-$result2 = $dbc->query($sql2);
+$result2 = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result2 -> num_rows > 0) {
 	while($row = $result2->fetch_assoc()) {
 		$medicine = $row['medicine'];
@@ -276,7 +273,7 @@ else {
 	echo "There is nothing to report for this month yet.";
 }
 $sql3 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
-$result3 = $dbc->query($sql3);
+$result3 = mysqli_query ($dbc, $sql3) or trigger_error("Query: $sql3\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result2 -> num_rows == 0) {
 	?>
     <script>
@@ -291,7 +288,7 @@ $(document).ready(function () {
 }
 
 $sql4 = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
-$result4 = $dbc->query($sql4);
+$result4 = mysqli_query ($dbc, $sql4) or trigger_error("Query: $sql4\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result4 -> num_rows == 0) {
 	?>
     <script>
@@ -320,7 +317,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Day 1
 $sql1 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
-$result1 = $dbc->query($sql1);
+$result1 = mysqli_query ($dbc, $sql1) or trigger_error("Query: $sql1\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result1 -> num_rows > 0) {
 	
 	 $day1num = 0;
@@ -338,7 +335,7 @@ else {
 
 // Day 2
 $sql2 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 2 ";
-$result2 = $dbc->query($sql2);
+$result2 = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result2 -> num_rows > 0) {
 	
 	 $day2num = 0;
@@ -356,7 +353,7 @@ else {
 
 // Day 3
 $sql3 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 3 ";
-$result3 = $dbc->query($sql3);
+$result3 = mysqli_query ($dbc, $sql3) or trigger_error("Query: $sql3\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result3 -> num_rows > 0) {
 	
 	 $day3num = 0;
@@ -374,7 +371,7 @@ else {
 
 // Day 4
 $sql4 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 4 ";
-$result4 = $dbc->query($sql4);
+$result4 = mysqli_query ($dbc, $sql4) or trigger_error("Query: $sql4\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result4 -> num_rows > 0) {
 	
 	 $day4num = 0;
@@ -392,7 +389,7 @@ else {
 
 // Day 5
 $sql5 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 5 ";
-$result5 = $dbc->query($sql5);
+$result5 = mysqli_query ($dbc, $sql5) or trigger_error("Query: $sql5\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result5 -> num_rows > 0) {
 	
 	 $day5num = 0;
@@ -410,7 +407,7 @@ else {
 
 // Day 6
 $sql6 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 6 ";
-$result6 = $dbc->query($sql6);
+$result6 = mysqli_query ($dbc, $sql6) or trigger_error("Query: $sql6\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result6 -> num_rows > 0) {
 	
 	 $day6num = 0;
@@ -428,7 +425,7 @@ else {
 
 // Day 7
 $sql7 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 7 ";
-$result7 = $dbc->query($sql7);
+$result7 = mysqli_query ($dbc, $sql7) or trigger_error("Query: $sql7\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result7 -> num_rows > 0) {
 	
 	 $day7num = 0;
@@ -446,7 +443,7 @@ else {
 
 // Day 8
 $sql8 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 8 ";
-$result8 = $dbc->query($sql8);
+$result8 = mysqli_query ($dbc, $sql8) or trigger_error("Query: $sql8\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result8 -> num_rows > 0) {
 	
 	 $day8num = 0;
@@ -465,7 +462,7 @@ else {
 
 // Day 9
 $sql9 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 9 ";
-$result9 = $dbc->query($sql9);
+$result9 = mysqli_query ($dbc, $sql9) or trigger_error("Query: $sql9\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result9 -> num_rows > 0) {
 	
 	 $day9num = 0;
@@ -483,7 +480,7 @@ else {
 
 // Day 10
 $sql10 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 10 ";
-$result10 = $dbc->query($sql10);
+$result10 = mysqli_query ($dbc, $sql10) or trigger_error("Query: $sql10\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result10 -> num_rows > 0) {
 	
 	 $day10num = 0;
@@ -501,7 +498,7 @@ else {
 
 // Day 11
 $sql11 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 11 ";
-$result11 = $dbc->query($sql11);
+$result11 = mysqli_query ($dbc, $sql11) or trigger_error("Query: $sql11\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result11 -> num_rows > 0) {
 	
 	 $day11num = 0;
@@ -519,7 +516,7 @@ else {
 
 // Day 12
 $sql12 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 12 ";
-$result12 = $dbc->query($sql12);
+$result12 = mysqli_query ($dbc, $sql12) or trigger_error("Query: $sql12\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result12 -> num_rows > 0) {
 	
 	 $day12num = 0;
@@ -537,7 +534,7 @@ else {
 
 // Day 13
 $sql13 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 13 ";
-$result13 = $dbc->query($sql13);
+$result13 = mysqli_query ($dbc, $sql13) or trigger_error("Query: $sql13\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result13 -> num_rows > 0) {
 	
 	 $day13num = 0;
@@ -555,7 +552,7 @@ else {
 
 // Day 14
 $sql14 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 14 ";
-$result14 = $dbc->query($sql14);
+$result14 = mysqli_query ($dbc, $sql14) or trigger_error("Query: $sql14\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result14 -> num_rows > 0) {
 	
 	 $day14num = 0;
@@ -573,7 +570,7 @@ else {
 
 // Day 15
 $sql15 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 15 ";
-$result15 = $dbc->query($sql15);
+$result15 = mysqli_query ($dbc, $sql15) or trigger_error("Query: $sql15\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result15 -> num_rows > 0) {
 	
 	 $day15num = 0;
@@ -591,7 +588,7 @@ else {
 
 // Day 16
 $sql16 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16 ";
-$result16 = $dbc->query($sql16);
+$result16 = mysqli_query ($dbc, $sql16) or trigger_error("Query: $sql16\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result16 -> num_rows > 0) {
 	
 	 $day16num = 0;
@@ -609,7 +606,7 @@ else {
 
 // Day 17
 $sql17 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 17 ";
-$result17 = $dbc->query($sql17);
+$result17 = mysqli_query ($dbc, $sql17) or trigger_error("Query: $sql17\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result17 -> num_rows > 0) {
 	
 	 $day17num = 0;
@@ -627,7 +624,7 @@ else {
 
 // Day 18
 $sql18 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 18 ";
-$result18 = $dbc->query($sql18);
+$result18 = mysqli_query ($dbc, $sql18) or trigger_error("Query: $sql18\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result18 -> num_rows > 0) {
 	
 	 $day18num = 0;
@@ -645,7 +642,7 @@ else {
 
 // Day 19
 $sql19 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 19 ";
-$result19 = $dbc->query($sql19);
+$result19 = mysqli_query ($dbc, $sql19) or trigger_error("Query: $sql19\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result19 -> num_rows > 0) {
 	
 	 $day19num = 0;
@@ -663,7 +660,7 @@ else {
 
 // Day 20
 $sql20 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 20 ";
-$result20 = $dbc->query($sql20);
+$result20 = mysqli_query ($dbc, $sql20) or trigger_error("Query: $sql20\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result20 -> num_rows > 0) {
 	
 	 $day20num = 0;
@@ -681,7 +678,7 @@ else {
 
 // Day 21
 $sql21 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 21 ";
-$result21 = $dbc->query($sql21);
+$result21 = mysqli_query ($dbc, $sql21) or trigger_error("Query: $sql21\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result21 -> num_rows > 0) {
 	
 	 $day21num = 0;
@@ -699,7 +696,7 @@ else {
 
 // Day 22
 $sql22 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 22 ";
-$result22 = $dbc->query($sql22);
+$result22 = mysqli_query ($dbc, $sql22) or trigger_error("Query: $sql22\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result22 -> num_rows > 0) {
 	
 	 $day22num = 0;
@@ -717,7 +714,7 @@ else {
 
 // Day 23
 $sql23 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 23 ";
-$result23 = $dbc->query($sql23);
+$result23 = mysqli_query ($dbc, $sql23) or trigger_error("Query: $sql23\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result23 -> num_rows > 0) {
 	
 	 $day23num = 0;
@@ -735,7 +732,7 @@ else {
 
 // Day 24
 $sql24 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 24 ";
-$result24 = $dbc->query($sql24);
+$result24 = mysqli_query ($dbc, $sql24) or trigger_error("Query: $sql24\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result24 -> num_rows > 0) {
 	
 	 $day24num = 0;
@@ -753,7 +750,7 @@ else {
 
 // Day 25
 $sql25 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 25 ";
-$result25 = $dbc->query($sql25);
+$result25 = mysqli_query ($dbc, $sql25) or trigger_error("Query: $sql25\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result25 -> num_rows > 0) {
 	
 	 $day25num = 0;
@@ -771,7 +768,7 @@ else {
 
 // Day 26
 $sql26 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 26 ";
-$result26 = $dbc->query($sql26);
+$result26 = mysqli_query ($dbc, $sql26) or trigger_error("Query: $sql26\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result26 -> num_rows > 0) {
 	
 	 $day26num = 0;
@@ -789,7 +786,7 @@ else {
 
 // Day 27
 $sql27 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 27 ";
-$result27 = $dbc->query($sql27);
+$result27 = mysqli_query ($dbc, $sql27) or trigger_error("Query: $sql27\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result27 -> num_rows > 0) {
 	
 	 $day27num = 0;
@@ -807,7 +804,7 @@ else {
 
 // Day 28
 $sql28 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 28 ";
-$result28 = $dbc->query($sql28);
+$result28 = mysqli_query ($dbc, $sql28) or trigger_error("Query: $sql28\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result28 -> num_rows > 0) {
 	
 	 $day28num = 0;
@@ -825,7 +822,7 @@ else {
 
 // Day 29
 $sql29 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 29 ";
-$result29 = $dbc->query($sql29);
+$result29 = mysqli_query ($dbc, $sql29) or trigger_error("Query: $sql29\n<br />MySQL Error: " . mysqli_error($dbc));;
 if ($result29 -> num_rows > 0) {
 	
 	 $day29num = 0;
@@ -843,7 +840,7 @@ else {
 
 // Day 30
 $sql30 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 30 ";
-$result30 = $dbc->query($sql30);
+$result30 = mysqli_query ($dbc, $sql30) or trigger_error("Query: $sql30\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result30 -> num_rows > 0) {
 	
 	 $day30num = 0;
@@ -861,7 +858,7 @@ else {
 
 // Day 31
 $sql31 = "SELECT * FROM pain WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 31 ";
-$result31 = $dbc->query($sql31);
+$result31 = mysqli_query ($dbc, $sql31) or trigger_error("Query: $sql31\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result31 -> num_rows > 0) {
 	
 	 $day31num = 0;
@@ -1685,7 +1682,7 @@ else {
 	
 	// Day 1
 	$qq1 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 1 ";
-	$rr1 = $dbc->query($qq1);
+	$rr1 = mysqli_query ($dbc, $qq1) or trigger_error("Query: $qq1\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr1 -> num_rows > 0) {
 	
 	 $d1num = 0;
@@ -1702,7 +1699,7 @@ else {
 	
 	// Day 2
 	$qq2 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 2 ";
-	$rr2 = $dbc->query($qq2);
+	$rr2 = mysqli_query ($dbc, $qq2) or trigger_error("Query: $qq2\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr2 -> num_rows > 0) {
 	
 	 $d2num = 0;
@@ -1719,7 +1716,7 @@ else {
 	
 	// Day 3
 	$qq3 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 3 ";
-	$rr3 = $dbc->query($qq3);
+	$rr3 = mysqli_query ($dbc, $qq3) or trigger_error("Query: $qq3\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr3 -> num_rows > 0) {
 	
 	 $d3num = 0;
@@ -1736,7 +1733,7 @@ else {
 	
 	// Day 4
 	$qq4 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 4 ";
-	$rr4 = $dbc->query($qq4);
+	$rr4 = mysqli_query ($dbc, $qq4) or trigger_error("Query: $qq4\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr4 -> num_rows > 0) {
 	
 	 $d4num = 0;
@@ -1753,7 +1750,7 @@ else {
 	
 	// Day 5
 	$qq5 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 5 ";
-	$rr5 = $dbc->query($qq5);
+	$rr5 = mysqli_query ($dbc, $qq5) or trigger_error("Query: $qq5\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr5 -> num_rows > 0) {
 	
 	 $d5num = 0;
@@ -1770,7 +1767,7 @@ else {
 	
 	// Day 6
 	$qq6 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 6 ";
-	$rr6 = $dbc->query($qq6);
+	$rr6 = mysqli_query ($dbc, $qq6) or trigger_error("Query: $qq6\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr6 -> num_rows > 0) {
 	
 	 $d6num = 0;
@@ -1787,7 +1784,7 @@ else {
 	
 	// Day 7
 	$qq7 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 7 ";
-	$rr7 = $dbc->query($qq7);
+	$rr7 = mysqli_query ($dbc, $qq7) or trigger_error("Query: $qq7\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr7 -> num_rows > 0) {
 	
 	 $d7num = 0;
@@ -1804,7 +1801,7 @@ else {
 	
 	// Day 8
 	$qq8 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 8 ";
-	$rr8 = $dbc->query($qq8);
+	$rr8 = mysqli_query ($dbc, $qq8) or trigger_error("Query: $qq8\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr8 -> num_rows > 0) {
 	
 	 $d8num = 0;
@@ -1821,7 +1818,7 @@ else {
 	
 	// Day 9
 	$qq9 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 9 ";
-	$rr9 = $dbc->query($qq9);
+	$rr9 = mysqli_query ($dbc, $qq9) or trigger_error("Query: $qq9\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr9 -> num_rows > 0) {
 	
 	 $d9num = 0;
@@ -1838,7 +1835,7 @@ else {
 	
 	// Day 10
 	$qq10 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 10 ";
-	$rr10 = $dbc->query($qq10);
+	$rr10 = mysqli_query ($dbc, $qq10) or trigger_error("Query: $qq10\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr10 -> num_rows > 0) {
 	
 	 $d10num = 0;
@@ -1855,7 +1852,7 @@ else {
 	
 	// Day 11
 	$qq11 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 11 ";
-	$rr11 = $dbc->query($qq11);
+	$rr11 = mysqli_query ($dbc, $qq11) or trigger_error("Query: $qq11\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr11 -> num_rows > 0) {
 	
 	 $d11num = 0;
@@ -1872,7 +1869,7 @@ else {
 	
 	// Day 12
 	$qq12 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 12 ";
-	$rr12 = $dbc->query($qq12);
+	$rr12 = mysqli_query ($dbc, $qq12) or trigger_error("Query: $qq12\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr12 -> num_rows > 0) {
 	
 	 $d12num = 0;
@@ -1889,7 +1886,7 @@ else {
 	
 	// Day 13
 	$qq13 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 13 ";
-	$rr13 = $dbc->query($qq13);
+	$rr13 = mysqli_query ($dbc, $qq13) or trigger_error("Query: $qq13\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr13 -> num_rows > 0) {
 	
 	 $d13num = 0;
@@ -1906,7 +1903,7 @@ else {
 	
 	// Day 14
 	$qq14 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 14 ";
-	$rr14 = $dbc->query($qq14);
+	$rr14 = mysqli_query ($dbc, $qq14) or trigger_error("Query: $qq14\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr14 -> num_rows > 0) {
 	
 	 $d14num = 0;
@@ -1923,7 +1920,7 @@ else {
 	
 	// Day 15
 	$qq15 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 15 ";
-	$rr15 = $dbc->query($qq15);
+	$rr15 = mysqli_query ($dbc, $qq15) or trigger_error("Query: $qq15\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr15 -> num_rows > 0) {
 	
 	 $d15num = 0;
@@ -1940,7 +1937,7 @@ else {
 	
 	// Day 16
 	$qq16 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 16 ";
-	$rr16 = $dbc->query($qq16);
+	$rr16 = mysqli_query ($dbc, $qq16) or trigger_error("Query: $qq16\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr16 -> num_rows > 0) {
 	
 	 $d16num = 0;
@@ -1957,7 +1954,7 @@ else {
 	
 	// Day 17
 	$qq17 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 17 ";
-	$rr17 = $dbc->query($qq17);
+	$rr17 = mysqli_query ($dbc, $qq17) or trigger_error("Query: $qq17\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr17 -> num_rows > 0) {
 	
 	 $d17num = 0;
@@ -1974,7 +1971,7 @@ else {
 	
 	// Day 18
 	$qq18 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 18 ";
-	$rr18 = $dbc->query($qq18);
+	$rr18 = mysqli_query ($dbc, $qq18) or trigger_error("Query: $qq18\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr18 -> num_rows > 0) {
 	
 	 $d18num = 0;
@@ -1991,7 +1988,7 @@ else {
 	
 	// Day 19
 	$qq19 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 19 ";
-	$rr19 = $dbc->query($qq19);
+	$rr19 = mysqli_query ($dbc, $qq19) or trigger_error("Query: $qq19\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr19 -> num_rows > 0) {
 	
 	 $d19num = 0;
@@ -2008,7 +2005,7 @@ else {
 	
 	// Day 20
 	$qq20 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 20 ";
-	$rr20 = $dbc->query($qq20);
+	$rr20 = mysqli_query ($dbc, $qq20) or trigger_error("Query: $qq20\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr20 -> num_rows > 0) {
 	
 	 $d20num = 0;
@@ -2025,7 +2022,7 @@ else {
 	
 	// Day 21
 	$qq21 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 21 ";
-	$rr21 = $dbc->query($qq21);
+	$rr21 = mysqli_query ($dbc, $qq21) or trigger_error("Query: $qq21\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr21 -> num_rows > 0) {
 	
 	 $d21num = 0;
@@ -2042,7 +2039,7 @@ else {
 	
 	// Day 22
 	$qq22 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 22 ";
-	$rr22 = $dbc->query($qq22);
+	$rr22 = mysqli_query ($dbc, $qq22) or trigger_error("Query: $qq22\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr22 -> num_rows > 0) {
 	
 	 $d22num = 0;
@@ -2059,7 +2056,7 @@ else {
 	
 	// Day 23
 	$qq23 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 23 ";
-	$rr23 = $dbc->query($qq23);
+	$rr23 = mysqli_query ($dbc, $qq23) or trigger_error("Query: $qq23\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr23 -> num_rows > 0) {
 	
 	 $d23num = 0;
@@ -2076,7 +2073,7 @@ else {
 	
 	// Day 24
 	$qq24 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 24 ";
-	$rr24 = $dbc->query($qq24);
+	$rr24 = mysqli_query ($dbc, $qq24) or trigger_error("Query: $qq24\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr24 -> num_rows > 0) {
 	
 	 $d24num = 0;
@@ -2093,7 +2090,7 @@ else {
 	
 	// Day 25
 	$qq25 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 25 ";
-	$rr25 = $dbc->query($qq25);
+	$rr25 = mysqli_query ($dbc, $qq25) or trigger_error("Query: $qq25\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr25 -> num_rows > 0) {
 	
 	 $d25num = 0;
@@ -2110,7 +2107,7 @@ else {
 	
 	// Day 26
 	$qq26 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 26 ";
-	$rr26 = $dbc->query($qq26);
+	$rr26 = mysqli_query ($dbc, $qq26) or trigger_error("Query: $qq26\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr26 -> num_rows > 0) {
 	
 	 $d26num = 0;
@@ -2127,7 +2124,7 @@ else {
 	
 	// Day 27
 	$qq27 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 27 ";
-	$rr27 = $dbc->query($qq27);
+	$rr27 = mysqli_query ($dbc, $qq27) or trigger_error("Query: $qq27\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr27 -> num_rows > 0) {
 	
 	 $d27num = 0;
@@ -2144,7 +2141,7 @@ else {
 	
 	// Day 28
 	$qq28 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 28 ";
-	$rr28 = $dbc->query($qq28);
+	$rr28 = mysqli_query ($dbc, $qq28) or trigger_error("Query: $qq28\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr28 -> num_rows > 0) {
 	
 	 $d28num = 0;
@@ -2161,7 +2158,7 @@ else {
 	
 	// Day 29
 	$qq29 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 29 ";
-	$rr29 = $dbc->query($qq29);
+	$rr29 = mysqli_query ($dbc, $qq29) or trigger_error("Query: $qq29\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr29 -> num_rows > 0) {
 	
 	 $d29num = 0;
@@ -2178,7 +2175,7 @@ else {
 	
 	// Day 30
 	$qq30 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 30 ";
-	$rr30 = $dbc->query($qq30);
+	$rr30 = mysqli_query ($dbc, $qq30) or trigger_error("Query: $qq30\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr30 -> num_rows > 0) {
 	
 	 $d30num = 0;
@@ -2195,7 +2192,7 @@ else {
 	
 	// Day 31
 	$qq31 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 31 ";
-	$rr31 = $dbc->query($qq31);
+	$rr31 = mysqli_query ($dbc, $rr31) or trigger_error("Query: $rr31\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr31 -> num_rows > 0) {
 	
 	 $d31num = 0;
@@ -3170,14 +3167,14 @@ else {
 	if (isset($_POST['impent'])) {
 		
 		$sql = "SELECT * FROM important WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth;
-$result = $dbc->query($sql);
-if ($result -> num_rows > 0) {
+		$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
+		if ($result -> num_rows > 0) {
 		$n=0;
-	while($row = $result->fetch_assoc()) {
+		while($row = $result->fetch_assoc()) {
 		$eday[] = $row['entryday'];
 		
 		$sql2 = "SELECT * FROM comments WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth. " AND entryday = '" . $eday[$n] ."'";
-		$result2 = $dbc->query($sql2);
+		$result2 = mysqli_query ($dbc, $sql2) or trigger_error("Query: $sql2\n<br />MySQL Error: " . mysqli_error($dbc));
 		if ($result2 -> num_rows > 0) {
 		while($row = $result2->fetch_assoc()) {
 		$ecomment[] = $row['comment'];
