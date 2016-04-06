@@ -1575,11 +1575,8 @@ if (!empty($_POST['entry-submit'])) {
 	 if (!empty($_POST['paintags'])) {
 		 
 		 if (!empty($_POST['paintags']) ) {
-		 $entrytags = mysqli_real_escape_string ($dbc,$_POST['paintags']);
+		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
 		 echo $entrytags;
-		 }
-		 else {
-			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
 		 }
 	 }
 	 
@@ -1590,7 +1587,7 @@ if (!empty($_POST['entry-submit'])) {
 
 	require (MYSQL);
 	$trimmed = array_map('trim', $_POST);
-	$bodypart = $p00 = $p01 = $p02 = $p03 = $p04 = $p05 = $p06 = $p07 = $p08 = $p09 = $p10 = $p11 = $p12 = $p13 = $p14 = $p15 = $p16 = $p17 = $p18 = $p19 = $p20 = $p21 = $p22 = $p23 = $entrytags = FALSE;
+	$bodypart = $p00 = $p01 = $p02 = $p03 = $p04 = $p05 = $p06 = $p07 = $p08 = $p09 = $p10 = $p11 = $p12 = $p13 = $p14 = $p15 = $p16 = $p17 = $p18 = $p19 = $p20 = $p21 = $p22 = $p23 = FALSE;
   
  if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['bodypart'])) {
 		$bodypart = mysqli_real_escape_string ($dbc, $trimmed['bodypart']);
