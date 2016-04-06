@@ -955,7 +955,6 @@ if (r == true) {
 	alert("Gonna delete it!");
 } else {
 	document.getElementById('canceldeleteentry').click();
-	alert("Not gonna delete it!");
 }
 }
 
