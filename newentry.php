@@ -953,10 +953,11 @@ function Deleteqry() {
 if (r == true) {
 	setTimeout(function(){
 	document.getElementById('todelete').click();
-	window.location="newentry.php?todelete=$row[entryid]";
 	}, 500);
 } else {
+	setTimeout(function(){
 	document.getElementById('canceldeleteentry').click();
+	}, 500);
 }
 }
 
