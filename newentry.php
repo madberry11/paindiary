@@ -28,7 +28,7 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 
 	$dbc = new mysqli($servername, $username, $password, $dbname);
 	
-	$q = "SELECT user_id, username FROM users WHERE username='".$_SESSION['username']."' AND active IS NULL";		
+	$q = "SELECT user_id, username FROM users WHERE user_id='".$_SESSION['user_id']."' AND active IS NULL";		
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	
 	if (@mysqli_num_rows($r) == 1) { 
@@ -315,7 +315,7 @@ if(isset($_GET['important'])) {
 		$emonth = $_SESSION['calmonth'];
 		$eday = $_SESSION['day'];
 		$query ="INSERT INTO important (user_id, entryyear, entrymonth, entryday) VALUES ('$uid', '$eyear', '$emonth', '$eday')";
-		mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+		$result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 		?>
     <script>
 	$(document).ready(function(){
@@ -331,7 +331,7 @@ if(isset($_GET['important'])) {
 	elseif ($result -> num_rows == 1) {
 		//echo "now not important";
 		$query = "DELETE FROM important WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
-      	$result = mysqli_query ($dbc, $sql) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+      	$result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 		
 	}
