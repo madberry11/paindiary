@@ -97,7 +97,7 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             var string = "";
             var i;
             for (i in tags) {
-                string += tags[i].value + " ";
+                string += tags[i].value + ", ";
 				//string += "&nbsp;";
             }
 			$('#demo4Out').append(string);
