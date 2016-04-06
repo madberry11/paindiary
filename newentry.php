@@ -952,7 +952,7 @@ function Deleteqry() {
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
 	document.getElementById('todelete').click();
-	alert("Gonna delete it!");
+	//alert("Gonna delete it!");
 } else {
     x = "You pressed Cancel!";
 	document.getElementById('canceldeleteentry').click();
@@ -982,14 +982,10 @@ if (r == true) {
 function Deleteall() { 
 	var r = confirm("Are you sure you want to delete all data for this day?");
 if (r == true) {
-	window.onload = function(){
 	window.location="newentry.php?deleteall=1";
-	}
 } else {
     x = "You pressed Cancel!";
-	window.onload = function(){
 	window.location="newentry.php?deleteall=0";
-	}
 }
 }
 
