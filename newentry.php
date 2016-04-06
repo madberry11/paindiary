@@ -1575,7 +1575,7 @@ if (!empty($_POST['entry-submit'])) {
 	 
 	 if (!empty($_POST['paintags'])) {
 		 
-		 if ( preg_match("/[^a-zA-Z<>:/ ]+/",$_POST['paintags2']) ) {
+		 if ( preg_match("/[^a-zA-Z<>:/ ]+/",$_POST['paintags']) ) {
 		 $entrytags = $_POST['paintags'];
 		 echo $entrytags;
 		 }
