@@ -367,30 +367,29 @@ if(isset($_GET['createcomment'])) {
 }
 	
 if(isset($_GET['todelete'])) {
-	$idtodelete = $newbodypart($_GET['todelete']);
+	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
-    $result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['toedit'])) {
-	$idtoedit = $_GET['toedit'];
-	$_SESSION['entryid'] = $_GET['toedit'];
+	$idtoedit = mysqli_real_escape_string ($dbc, $_GET['toedit']);
+	$_SESSION['entryid'] = $idtoedit;
 }
 
 if(isset($_GET['commentdelete'])) {
-	$commentdelete = $_GET['commentdelete'];
+	$commentdelete = mysqli_real_escape_string ($dbc, $_GET['commentdelete']);
 	$query = "DELETE FROM comments WHERE comment_id =" . $commentdelete;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['deleterecord'])) {
-	$deleterecord = $_GET['deleterecord'];
+	$deleterecord = mysqli_real_escape_string ($dbc, $_GET['deleterecord']);
 	$query = "DELETE FROM painrelief WHERE record_id =" . $deleterecord;
-      mysqli_query($dbc,$query) or die(mysqli_error($dbc));
+    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
 if(isset($_GET['commentedit'])) {
-	$commentedit = $_GET['commentedit'];
 	$cvalue = 3;
 }
 
