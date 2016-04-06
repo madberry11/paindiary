@@ -964,30 +964,39 @@ if (r == true) {
 function Deleterecordqry() { 
 	var r = confirm("Are you sure you want to delete this pain relief record?");
 if (r == true) {
+	setTimeout(function(){
 	document.getElementById('deletepainrelief').click();
+	}, 500);
 } else {
-    x = "You pressed Cancel!";
+	setTimeout(function(){
 	document.getElementById('canceldeletepainrelief').click();
+	}, 500);
 }
 }
 
 function Deletecomment() { 
 	var r = confirm("Are you sure you want to delete this comment?");
 if (r == true) {
+	setTimeout(function(){
 	document.getElementById('deletecomment').click();
+	}, 500);
 } else {
-    x = "You pressed Cancel!";
+	setTimeout(function(){
 	document.getElementById('canceldeletecomment').click();
+	}, 500);
 }
 }
 
 function Deleteall() { 
 	var r = confirm("Are you sure you want to delete all data for this day?");
 if (r == true) {
+	setTimeout(function(){
 	window.location="newentry.php?deleteall=1";
+	}, 500);
 } else {
-    x = "You pressed Cancel!";
+    setTimeout(function(){
 	window.location="newentry.php?deleteall=0";
+	}, 500);
 }
 }
 
