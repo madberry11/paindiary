@@ -2181,8 +2181,7 @@ $trimmed = array_map('trim', $_POST);
 if (empty($_POST["comment2"])) {
 	echo "You have not written anything.";}
 else
-	{$comment2 = mysqli_real_escape_string ($dbc, $trimmed['comment2']);
-	echo $comment2;}
+	{$comment2 = mysqli_real_escape_string ($dbc, $trimmed['comment2']);}
 
 $sql = "SELECT comment FROM comments WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'];
 $result = $dbc->query($sql);
