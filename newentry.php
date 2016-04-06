@@ -1242,7 +1242,7 @@ $sql = "SELECT comment_id, comment FROM comments WHERE entryyear=". $_SESSION['c
 $result = mysqli_query ($dbc, $sql) or trigger_error("Query: $sql\n<br />MySQL Error: " . mysqli_error($dbc));
 if ($result -> num_rows > 0) {
 while($row = $result->fetch_assoc()) {
-echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?commentdelete=$row[comment_id]'></a><a class='icon-edit nounderline' onClick='comment()' href='newentry.php?commentedit=$row[comment_id]'></a><a href='' class='icon-trash nounderline' onClick='Deletecomment()'></a>" 
+echo $row['comment'] . "<a class='hidden' id='deletecomment' href='newentry.php?commentdelete=$row[comment_id]'></a><a class='icon-edit nounderline' href='newentry.php?commentedit=$row[comment_id]'></a><a href='' class='icon-trash nounderline' onClick='Deletecomment()'></a>" 
 ;}
 }
 ?>
@@ -1512,6 +1512,7 @@ case '3' :
     <script type="text/javascript">
     document.getElementById('editcomment').style.display = "block";
 	document.getElementById('addcomment').style.display = "none";
+	document.getElementById('newcomment').style.display = "none";
 	document.getElementById('deleteall').style.display = "inline-block";
 	window.onload = function(){
 	document.getElementById('editcomment_link').click();
