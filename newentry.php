@@ -965,7 +965,9 @@ if (r == true) {
 	document.getElementById('deletepainrelief').click();
 } else {
     x = "You pressed Cancel!";
+	window.onload = function(){
 	document.getElementById('canceldeletepainrelief').click();
+	}
 }
 }
 
@@ -973,7 +975,9 @@ function Deletecomment() {
 	var r = confirm("Are you sure you want to delete this comment?");
 if (r == true) {
 	window.location="newentry.php?commentdelete=$row[entryid]";
+	window.onload = function(){
 	document.getElementById('deletecomment').click();
+	}
 } else {
     x = "You pressed Cancel!";
 	document.getElementById('canceldeletecomment').click();
