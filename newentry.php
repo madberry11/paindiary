@@ -951,13 +951,13 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	(function() {
+	window.onload = function() {
 	document.getElementById('todelete').click();
-	})();
+	}();
 } else {
-	(function() {
+	window.onload = function() {
 	document.getElementById('canceldeleteentry').click();
-	})();
+	}();
 }
 }
 
