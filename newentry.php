@@ -953,7 +953,6 @@ function Deleteqry() {
 if (r == true) {
 	(function() {
 	document.getElementById('todelete').click();
-	alert("Gonna delete it!");
 	})();
 } else {
 	(function() {
