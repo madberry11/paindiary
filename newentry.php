@@ -637,7 +637,14 @@ if ($result -> num_rows > 0) {
 	 if (isset($row['entrytags'])) {
 		 $tags = $row['entrytags'];
 		 $tagsarray = explode(',', $tags);
+		 $num = count($tagsarray);
+		 echo $num;
 		print_r($tagsarray);
+		$i = 0;
+		while ($i < $num) {
+			echo "<li>".$tagsarray[$i]."</li>";
+			$i++;
+		}
 		 $tagsforthis = $row['entrytags'];
 	 }
 	 if (!$row['entrytags']) {
