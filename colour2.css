@@ -59,12 +59,12 @@ legend {
 	background-color: #bd2133;
 }
 
-#loginbutton, #registerbutton {
+#loginbutton, #registerbutton, #passwordbutton {
 	background-color: #da4657;
 	color: white;
 }
 
-#loginbutton:hover, #registerbutton:hover {
+#loginbutton:hover, #registerbutton:hover, #passwordbutton:hover {
 	background-color: #bd2133;
 }
 
