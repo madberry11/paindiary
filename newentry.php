@@ -951,7 +951,7 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	window.location="newentry.php?todelete=$row[entryid]";
+	alert("Gonna delete it!");
 	document.getElementById('todelete').click();
 } else {
     x = "You pressed Cancel!";
@@ -962,13 +962,10 @@ if (r == true) {
 function Deleterecordqry() { 
 	var r = confirm("Are you sure you want to delete this pain relief record?");
 if (r == true) {
-	document.write("Yes");
 	document.getElementById('deletepainrelief').click();
 } else {
     x = "You pressed Cancel!";
-	window.onload = function(){
 	document.getElementById('canceldeletepainrelief').click();
-	}
 }
 }
 
