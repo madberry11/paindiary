@@ -1094,3 +1094,8 @@ h2 {
 .bodypartlabel, #demo4Out, #demo2Out {
 	margin-left: 24px;
 }
+
+.indent {
+	width: 80%;
+	margin: 0px auto;	
+}
