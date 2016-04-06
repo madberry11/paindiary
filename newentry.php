@@ -951,9 +951,9 @@ function comment(){
 function Deleteqry() { 
 	var r = confirm("Are you sure you want to delete this entry?");
 if (r == true) {
-	document.getElementById('todelete').click()
+	document.getElementById('todelete').click();;
 } else {
-	document.getElementById('canceldeleteentry').click()
+	document.getElementById('canceldeleteentry').click();;
 }
 }
 
