@@ -1576,7 +1576,7 @@ if (!empty($_POST['entry-submit'])) {
 	 if (!empty($_POST['paintags'])) {
 		 
 		 if (!empty($_POST['paintags']) ) {
-		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
+		 $entrytags = $_POST['paintags'];
 		 }
 		 else {
 			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
