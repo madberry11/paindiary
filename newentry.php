@@ -633,28 +633,12 @@ if ($result -> num_rows > 0) {
 <div id='container'></div>
          <?php
      while($row = $result->fetch_assoc()) {
-		
-	 if (isset($row['entrytags'])) {
-		$tags = $row['entrytags'];
-		$tagsarray = explode(',', $tags);
-		$num = count($tagsarray);
-		//print_r($tagsarray);
-		$i = 0;
-		while ($i < $num-1) {
-			echo "<li>".$tagsarray[$i]."</li>";
-			$i++;
-		}
-		 $tagsforthis = $row['entrytags'];
-	 }
-	 if (!$row['entrytags']) {
-		 $tagsforthis = "Not defined.";
-	 }
+		 
          echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
 	if (isset($row['entrytags'])) {
 		$tags = $row['entrytags'];
 		$tagsarray = explode(',', $tags);
 		$num = count($tagsarray);
-		echo $num;
 		$i = 0;
 		while ($i < $num-1) {
 			echo "<li>".$tagsarray[$i]."</li>";
