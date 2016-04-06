@@ -635,6 +635,9 @@ if ($result -> num_rows > 0) {
      while($row = $result->fetch_assoc()) {
 		
 	 if (isset($row['entrytags'])) {
+		 $tags = $row['entrytags'];
+		 $tagsarray = explode(',', $tags);
+		print_r($myArray);
 		 $tagsforthis = $row['entrytags'];
 	 }
 	 if (!$row['entrytags']) {
