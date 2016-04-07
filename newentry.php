@@ -102,6 +102,9 @@ var myInterval = setTimeout("location=('index.php');",3600000);
                 string += tags[i].value + ", ";
 				//string += "&nbsp;";
 				}
+				else {
+				i++;
+				}
             }
 			$('#demo4Out').append(string);
 			$('#demo2Out').append(string);
