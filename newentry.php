@@ -1587,8 +1587,8 @@ if (!empty($_POST['entry-submit'])) {
 		 	$entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
 		 }
 	 	else {
-		 	$entrytags = "";
-		 	echo "<p class='error'>Invalid descriptive tags. Please use letters only.</p>";
+		 	$entrytagsnot = "invalid";
+			echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
 		}
 	}
 else {
@@ -1687,7 +1687,7 @@ else {$p22 = mysqli_real_escape_string ($dbc, $trimmed['p22']);}
 if (empty($_POST["p23"])) {$p23 = 0;}
 else {$p23 = mysqli_real_escape_string ($dbc, $trimmed['p23']);} 
   
-  if ($bodypart) {
+  if (($bodypart) AND (($entrytags) OR (empty($entrytags)) )) {
   
   $q = "SELECT entryid FROM pain WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND bodypart='$bodypart' AND user_id=". $_SESSION['user_id'];
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -1764,6 +1764,7 @@ if (!empty($_POST['entry-resubmit'])) {
 		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags2']);
 		 }
 		 else {
+			 $entrytags = "invalid";
 			 echo "<p class='error'>The tags contain unsupported characters. Please use letters only.</p>";
 		 }
 	 }
