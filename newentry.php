@@ -378,10 +378,12 @@ if(isset($_GET['plantodelete'])) {
 }
 	
 if(isset($_GET['todelete'])) {
-	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
-	echo $idtodelete;
-	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
-    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (($_GET['todelete']) == 0) {
+		$_SESSION['plantodelete'] = 0;	
+	}
+	else {
+		$query = "DELETE FROM pain WHERE entryid = " . $_SESSION['plantodelete'];
+    	$result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 	/*
 	if (mysqli_affected_rows($dbc) == 1) {
 
@@ -389,6 +391,7 @@ if(isset($_GET['todelete'])) {
 	ob_end_clean(); 
 	header("Location: $url");
 	}*/
+	}
 }
 
 if(isset($_GET['toedit'])) {
@@ -953,7 +956,7 @@ else {
 </fieldset>
 </div>
 
-
+<a class='hidden' id='todelete' href='newentry.php?todelete=1'></a>
 <a class="hidden" id='canceldeletepainrelief' href='newentry.php?deleterecord=0'></a>
 <a class="hidden" id='canceldeletecomment' href='newentry.php?commentdelete=0'></a>
 <a class="hidden" id='canceldeleteentry' href='newentry.php?todelete=0'></a>
