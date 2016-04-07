@@ -298,13 +298,13 @@ if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
 		if ($safe_password1 == $safe_password2) {
-			$p = $safe_password1;
+			$p2 = $safe_password1;
 		} else {
-			$p = "";
+			$p2 = "";
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
 	} else {
-		$p = "";
+		$p2 = "";
 		echo '<p class="error">Please enter a valid password! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 }
 	
@@ -315,7 +315,7 @@ if (!empty($_POST['password0'])) {
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
-			$p = $pass;
+			$p2 = $pass;
 		}
 		else {
 			echo "<br />";
@@ -327,7 +327,7 @@ if (!empty($_POST['password0'])) {
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
-		$q = "UPDATE users SET pass=".SHA1('$p')." WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
+		$q = "UPDATE users SET pass=".SHA1('$p2')." WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
 		echo "<br />";
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -353,12 +353,12 @@ if (!empty($_POST['password0'])) {
 } 
 
 elseif (empty($p)) {
-		$e = FALSE;
+		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
 	
 elseif (empty($p2)) {
-		$p = FALSE;
+		$p2 = FALSE;
 		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
 	
@@ -436,7 +436,7 @@ elseif (empty($e)) {
 	}
 	
 elseif (empty($e2)) {
-		$p = FALSE;
+		$e2 = FALSE;
 		echo '<p class="error">You need to enter the new email address twice!</p>';
 	}
 	
@@ -508,11 +508,11 @@ if (!empty($_POST['changeusernamesubmit'])) {
 } 
 
 elseif (empty($u)) {
-		$p = FALSE;
+		$u = FALSE;
 		echo '<p class="error">You forgot to enter your old username!</p>';
 	}
 elseif (empty($u2)) {
-		$p = FALSE;
+		$u2 = FALSE;
 		echo '<p class="error">You need to enter the new username twice!</p>';
 	}
 	
