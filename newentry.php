@@ -370,7 +370,9 @@ if(isset($_GET['plantodelete'])) {
 	$_SESSION['plantodelete'] = $idtodelete;
 	?>
     <script>
+	window.onload = function() {
     Deleteqry(); 
+	}
 	</script>
     <?php
 }
