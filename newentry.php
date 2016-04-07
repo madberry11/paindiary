@@ -1581,16 +1581,19 @@ if ((!empty($_POST['cancelentry'])) OR (!empty($_POST['cancelrelief'])) OR (!emp
 
 if (!empty($_POST['entry-submit'])) {
 	 
-	 if (!empty($_POST['paintags'])) {
+	 if (!empty($_POST['paintags']) ) {
 		 
-		 if (!empty($_POST['paintags']) ) {
-		 $entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
+		 if (preg_match ('/^[A-Z \',]{2,40}$/i', $_POST['paintags'])) {
+		 	$entrytags = mysqli_real_escape_string ($dbc, $_POST['paintags']);
 		 }
-	 }
-	 
-	 else {
-		 $entrytags = "";
-	 }
+	 	else {
+		 	$entrytags = "";
+		 	echo "<p class='error'>Invalid descriptive tags. Please use letters only.</p>";
+		}
+	}
+else {
+	$entrytags = "";
+}
 
 	require (MYSQL);
 	$trimmed = array_map('trim', $_POST);
