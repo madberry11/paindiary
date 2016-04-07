@@ -364,6 +364,16 @@ if(isset($_GET['newrecord'])) {
 if(isset($_GET['createcomment'])) {
 	$cvalue = 2;
 }
+
+if(isset($_GET['plantodelete'])) {
+	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['plantodelete']);
+	$_SESSION['plantodelete'] = $idtodelete;
+	?>
+    <script>
+    Deleteqry(); 
+	</script>
+    <?php
+}
 	
 if(isset($_GET['todelete'])) {
 	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
@@ -654,7 +664,7 @@ if ($result -> num_rows > 0) {
          <?php
      while($row = $result->fetch_assoc()) {
 		 
-         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a>". $row["entryid"]."<div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
+         echo "". $row["entryid"]."<div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' href='newentry.php?plantodelete=$row[entryid]'></a><br /><ul class='taglist'>Type of pain: ";
 		 
 	if (isset($row['entrytags'])) {
 		$tags = $row['entrytags'];
