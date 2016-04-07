@@ -2149,7 +2149,7 @@ else {
 }
 	
 // reliefrating
-if (empty($_POST["reliefrating"])) {$reliefrating = $reliefrating;}
+if (!isset($_POST["reliefrating"])) {$reliefrating = $reliefrating;}
 else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
 
 // sideeffects
