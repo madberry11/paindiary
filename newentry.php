@@ -2071,9 +2071,11 @@ if (mysqli_affected_rows($dbc) == 1) {
 		else {
 			echo '<p class="error">You have already added this pain relief method for this time of the day. <br />If you increased the dose, please change the dose instead of creating a new record.</p>';
 		} 
-	} else {
+	} else  {
+		if ((!empty($trimmed['sideeffects'])) AND (!preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects']))) {
 		echo '<p class="error">The side effects field contains invalid characters. Please use letters and numbers only.</p>';
 		}
+	}
 
 }
 
