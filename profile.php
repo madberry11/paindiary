@@ -331,7 +331,7 @@ if (!empty($_POST['password0'])) {
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
-		$q = "UPDATE users SET pass=".SHA1('$p2')." WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
+		$q = "UPDATE users SET pass='".SHA1('$p2')."' WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
 		echo "<br />";
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
