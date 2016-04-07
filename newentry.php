@@ -2013,6 +2013,10 @@ if (!empty($trimmed['otherthings'])) {
 			echo "<p class='error'>If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.</p>";}
 			else {$measure = "";}
 		} // close for if medicine is empty
+		else {
+			$amount = '0';
+			$measure = "";
+		}
 	} // close for if preg-match
 	else {echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';}
 } // close for elseif otherthings is not empty
