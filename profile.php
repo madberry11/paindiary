@@ -437,7 +437,7 @@ if (!empty($_POST['changeusernamesubmit'])) {
 			$u = "";
 		}
 	
-	if (!empty($u)) { 
+	if ((!empty($u)) AND (!empty($u2))) { 
 
 		
 		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id='".$_SESSION['user_id']."'";	
@@ -463,9 +463,13 @@ if (!empty($_POST['changeusernamesubmit'])) {
 
 } 
 
-else {
+elseif (empty($u)) {
 		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old username!</p>';
+	}
+elseif (empty($u2)) {
+		$p = FALSE;
+		echo '<p class="error">You need to enter the new username twice!</p>';
 	}
 	
 	
