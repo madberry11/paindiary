@@ -314,7 +314,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 			$row = mysqli_fetch_assoc($r);
-			if (SHA1('$pass') == $row['pass']) {
+			if (SHA1('$pass') = $row['pass']) {
 				$p = $pass;
 				}	
 			else {
