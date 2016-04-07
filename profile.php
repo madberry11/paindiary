@@ -336,13 +336,14 @@ if (!empty($_POST['password0'])) {
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
-			
+			/*
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
+			*/
 			echo '<p class="success">Your password has been changed.</p>';
-			exit();
+			//exit();
 			
 		} else { 
 			echo @mysqli_num_rows($r);
