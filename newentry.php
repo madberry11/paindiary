@@ -2029,12 +2029,12 @@ $reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
 if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
 		$sideeffects = mysqli_real_escape_string ($dbc, $trimmed['sideeffects']);
 	} else {
-		$sideeffects = "";
+		$sideeffects = "invalid";
 	}
 
 
 // if there are no errors	
-if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherthings)) {
+if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherthings) AND ($otherthings!='invalid')) {
  
   $q = "SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'] ." AND time='$hour' AND ((medicine!='' AND medicine='$medicine') OR (otherthings!='' AND otherthings='$otherthings'))";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -2057,18 +2057,14 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_affected_rows($dbc) == 1) {
-	if ((empty($medicine)) AND (!empty($amount)) AND (!empty($otherthings))) {
-		// error message
-	}
-	else {
+
 		$url = BASE_URL . 'newentry.php'; 
 		ob_end_clean(); 
 		header("Location: $url");	
-	}
 
 						
 					}else {
-						echo '<p class="error">The pain relief record was not added due to a system error. We apologize for any inconvenience.</p>';
+						echo '<p class="error">The side effects field contains invalid characters. Please use letters and numbers only.</p>';
 					}
 				}
 		else {
