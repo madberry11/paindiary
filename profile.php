@@ -421,7 +421,7 @@ if (!empty($_POST['changeusernamesubmit'])) {
 			echo '<p class="error">Your username did not match the confirmed username!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid username!</p>';
+		echo "<p class='error'>Invalid username. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>";
 	}
 	
 	
@@ -457,9 +457,6 @@ if (!empty($_POST['changeusernamesubmit'])) {
 			echo '<p class="error">Your username was not changed. Make sure your new username is different from the current one.</p>'; 
 
 		}
-
-	} else { 
-		echo '<p class="error">Invalid username. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';		
 	}
 	
 	mysqli_close($dbc); 
