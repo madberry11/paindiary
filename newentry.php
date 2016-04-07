@@ -1075,7 +1075,7 @@ window.location="newentry.php#newentryform";
 <th><label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
 <?php for($i = 0; $i <= 23; $i++): ?>
-    <option value="<?= $i.zfill(2); ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
+    <option value="<?= $i; ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
 <?php endfor; ?>
 </select></td></tr>
 <tr><th><label for="medicine">Medicine Name</label></th>
