@@ -370,12 +370,13 @@ if(isset($_GET['todelete'])) {
 	echo $idtodelete;
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+	/*
 	if (mysqli_affected_rows($dbc) == 1) {
 
 	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
-	}
+	}*/
 }
 
 if(isset($_GET['toedit'])) {
@@ -653,7 +654,7 @@ if ($result -> num_rows > 0) {
          <?php
      while($row = $result->fetch_assoc()) {
 		 
-         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
+         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a>". $row["entryid"]."<div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
 		 
 	if (isset($row['entrytags'])) {
 		$tags = $row['entrytags'];
