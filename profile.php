@@ -426,7 +426,15 @@ if (!empty($_POST['changeusernamesubmit'])) {
 	
 	
 	if (!empty($_POST['username0'])) {
-		$u = mysqli_real_escape_string ($dbc, $_POST['username0']);
+		$user = mysqli_real_escape_string ($dbc, $_POST['username0']);
+		$q= "SELECT user_id FROM users WHERE username='".$user."'";
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (@mysqli_num_rows($r) == 1) {
+			$u = $user;
+		}
+		else {
+			echo "<p class='error'>The old username is incorrect.</p>";
+		}
 	
 	if ($u) { 
 
