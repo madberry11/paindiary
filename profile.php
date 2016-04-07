@@ -232,7 +232,7 @@ else {
 <table class="usertable">
 <tr><th>Username:</th><td class="userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
 <tr><th>Email address:</th><td class="userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
-<tr><th>Password:</th><td class="userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
+<tr><th>Password:</th><td class="userdata"><?php echo $password ?><br /><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="userdata">
