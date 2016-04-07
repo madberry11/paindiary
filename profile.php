@@ -232,7 +232,7 @@ else {
 <table class="usertable">
 <tr><th>Username:</th><td class="userdata"> <?php echo $username ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=username'></a></td></tr>
 <tr><th>Email address:</th><td class="userdata"><?php echo $email ?></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=email'></a></td></tr>
-<tr><th>Password:</th><td class="userdata"><?php echo $password ?><br /><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
+<tr><th>Password:</th><td class="userdata"><a data-ajax='false' href='profile.php?edit=password'>Change Password</a></td><td class="editcell"><a data-ajax='false' class='icon-edit nounderline' href='profile.php?edit=password'></a></td></tr>
 <tr><th>Colour scheme:</th>
 <form id="colourform" name="colourform" action="profile.php" method="post">
 	<td class="userdata">
@@ -312,38 +312,29 @@ if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\
 if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
 		$q = "SELECT user_id, pass FROM users WHERE user_id='".$_SESSION['user_id']."' AND pass='".SHA1($pass)."' LIMIT 1";
-		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 			$p = $pass;
 		}
 		else {
-			echo "<br />";
-			echo @mysqli_num_rows($r);
 			echo "<p class='error'>The old password is incorrect.</p>";
 			$p = "";
 		}
 	
-	echo $p;
-	echo "<br />";
-	echo $p2;
-	echo "<br />";
+
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
 		$q = "UPDATE users SET pass='".SHA1($p2)."' WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
-		echo "<br />";
-		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
-			/*
+			
 			$url = BASE_URL . 'profile.php'; 
 			ob_end_clean(); 
 			header("Location: $url");
 			mysqli_close($dbc);  
-			*/
 			echo '<p class="success">Your password has been changed.</p>';
-			//exit();
+			exit();
 			
 		} else { 
 			echo @mysqli_num_rows($r);
