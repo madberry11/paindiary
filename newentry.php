@@ -409,15 +409,32 @@ if(isset($_GET['commentdelete'])) {
 	}
 }
 
-if(isset($_GET['deleterecord'])) {
-	$deleterecord = mysqli_real_escape_string ($dbc, $_GET['deleterecord']);
-	$query = "DELETE FROM painrelief WHERE record_id =" . $deleterecord;
-    $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
-	if (mysqli_affected_rows($dbc) == 1) {
+if(isset($_GET['plantodeleterecord'])) {
+	$deleterecord = mysqli_real_escape_string ($dbc, $_GET['plantodeleterecord']);
+	$_SESSION['plantodeleterecord'] = $deleterecord;
+	?>
+    <script>
+	window.onload = function() {
+    Deleterecordqry(); 
+	}
+	</script>
+    <?php
+}
 
-	$url = BASE_URL . 'newentry.php'; 
-	ob_end_clean(); 
-	header("Location: $url");
+if(isset($_GET['deleterecord'])) {
+	if (($_GET['deleterecord']) == 0) {
+		$_SESSION['plantodeleterecord'] = 0;	
+	}
+	else {
+		$query = "DELETE FROM painrelief WHERE record_id =" . $_SESSION['plantodeleterecord'];
+    	$result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (mysqli_affected_rows($dbc) == 1) {
+
+		$url = BASE_URL . 'newentry.php'; 
+		ob_end_clean(); 
+		header("Location: $url");
+		$_SESSION['plantodeleterecord'] = 0;
+		}	
 	}
 }
 
@@ -955,8 +972,10 @@ else {
 </div>
 
 <a class='hidden' id='todelete' href='newentry.php?todelete=1'></a>
+<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=1'></a>
+
 <a class="hidden" id='canceldeletepainrelief' href='newentry.php?deleterecord=0'></a>
-<a class="hidden" id='canceldeletecomment' href='newentry.php?commentdelete=0'></a>
+<a class="hidden" id='canceldeletecomment' href='newentry.php'></a>
 <a class="hidden" id='canceldeleteentry' href='newentry.php?todelete=0'></a>
 
 <script type="text/javascript">
@@ -1221,7 +1240,7 @@ if ($dbc->connect_error) {
 			else {
 				$row['am'] = "";
 			}
-echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['am'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' onClick='Deleterecordqry()'></a></td></tr>";
+echo "<tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['am'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a href='newentry.php?plantodeleterecord=$row[record_id]' class='icon-trash nounderline'></a></td></tr>";
 
 		}?>
         </table>
