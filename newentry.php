@@ -370,6 +370,12 @@ if(isset($_GET['todelete'])) {
 	echo $idtodelete;
 	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (mysqli_affected_rows($dbc) == 1) {
+
+	$url = BASE_URL . 'newentry.php'; 
+	ob_end_clean(); 
+	header("Location: $url");
+	}
 }
 
 if(isset($_GET['toedit'])) {
@@ -381,12 +387,24 @@ if(isset($_GET['commentdelete'])) {
 	$commentdelete = mysqli_real_escape_string ($dbc, $_GET['commentdelete']);
 	$query = "DELETE FROM comments WHERE comment_id =" . $commentdelete;
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (mysqli_affected_rows($dbc) == 1) {
+
+	$url = BASE_URL . 'newentry.php'; 
+	ob_end_clean(); 
+	header("Location: $url");
+	}
 }
 
 if(isset($_GET['deleterecord'])) {
 	$deleterecord = mysqli_real_escape_string ($dbc, $_GET['deleterecord']);
 	$query = "DELETE FROM painrelief WHERE record_id =" . $deleterecord;
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
+	if (mysqli_affected_rows($dbc) == 1) {
+
+	$url = BASE_URL . 'newentry.php'; 
+	ob_end_clean(); 
+	header("Location: $url");
+	}
 }
 
 if(isset($_GET['commentedit'])) {
