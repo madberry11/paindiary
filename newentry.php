@@ -1970,7 +1970,10 @@ if ($hour) {
      $hour ="0";
    }
 // medicine
-if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
+if ((!empty($trimmed['medicine'])) OR (!empty($trimmed['otherthings']))) {
+	
+if (!empty($trimmed['medicine'])) {
+	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 		$medicine = mysqli_real_escape_string ($dbc, $trimmed['medicine']);
 		// amount
 		if (empty($_POST["amount"])) {
@@ -1990,31 +1993,39 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 				echo '<p class="error"> If you enter an amount, you need to choose a valid measure.</p>';	
 				}
 			}
+		}
+	}
+else {
+	echo '<p class="error"> The medicine name you entered is invalid! It should only contain letters and numbers, and it should be 2-40 characters long.</p>';	
 }
 		
-} elseif (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
+} elseif (!empty($trimmed['otherthings'])) {
+	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
 		$medicine = '';
 		if (!empty($_POST['amount'])) {
-			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";
-			}
-		else {
-			$amount = "0";	
-			}
+			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";}
+		else { $amount = "0";}
 		if (!empty($POST['measure'])) {
-			echo "If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.";
-			}
-		else {
-			$measure = "";	
-			}
-	} else {
-		echo '<p class="error"> You need to enter either the name of a medicine or other treatment method.</p>';
-	}
+			echo "If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.";}
+		else {$measure = "";}
+	} // close for if preg-match
+	else {echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';}
+} // close for elseif otherthings is not empty
+} // close for either medicine or otherthings is not empty
+else { echo '<p class="error"> You need to enter either the name of a medicine or other treatment method.</p>';
+
+}
 // otherthings - if medicine is not empty
-if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
+if (!empty($trimmed['otherthings'])) {
+	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
 	}
+	else {
+		echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';
+	}
+}
 else {
 	$otherthings = "";
 }
