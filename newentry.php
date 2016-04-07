@@ -2082,71 +2082,64 @@ if (mysqli_affected_rows($dbc) == 1) {
 // IF PAIN RELIEF RECORD GETS CHANGED
 
 if (!empty($_POST['changerelief-submit'])) {
+	
+require (MYSQL);
+$dbc = new mysqli($servername, $username, $password, $dbname);
+if ($dbc->connect_error) {die("Connection failed: " . $dbc->connect_error);}
 
 // time
 $hour = isset($_POST['time']) ? $_POST['time'] : false;
 if ($hour) {
    } else {
-     $hour =$time;
+     $hour ="$time";
    }
    
-// medicine and otherthings - if either or both of them not empty
-if (((!empty($trimmed['medicine'])) OR (!empty($trimmed['otherthings']))) OR ((!empty($trimmed['medicine'])) AND (!empty($trimmed['otherthings'])))) {
-	
+// medicine
 if (!empty($trimmed['medicine'])) {
 	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
 		$medicine = mysqli_real_escape_string ($dbc, $trimmed['medicine']);
-		// amount
-		if (empty($_POST["amount"])) {
-			$amount = $amount;
-			}
-		else {
-			$amount = mysqli_real_escape_string ($dbc, $trimmed['amount']);
-			//measure
-			if (empty($_POST["measure"])) {
-				$measure = $measure;
-			}
-			else {
-				$measure = isset($_POST['measure']) ? $_POST['measure'] : false;
-				if ($measure == "milligrams") {}
-				elseif ($measure == "millilitres") {}
-				elseif ($measure == "na") {
-				echo '<p class="error"> If you enter an amount, you need to choose a valid measure.</p>';	
-				}
-			}
 		}
+	else {
+		echo "<p class='error'>Invalid medicine name.</p>";
 	}
+}
 else {
-	echo '<p class="error"> The medicine name you entered is invalid! It should only contain letters and numbers, and it should be 2-40 characters long.</p>';	
+	$medicine = $medicine;	
 }
-		
-} 
+
+// amount
+if (!empty($_POST["amount"])) {
+	$amount = mysqli_real_escape_string ($dbc, $trimmed['amount']);	
+}
+else {
+	$amount = $amount;
+}
+
+//measure
+if (!empty($_POST["measure"])) {
+	if ($measure == "milligrams") {}
+	elseif ($measure == "millilitres") {}
+	elseif ($measure == "na") {$measure = $measure;}
+}
+
+// otherthings
 if (!empty($trimmed['otherthings'])) {
-	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
-		// otherthings - if medicine is empty
+	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['otherthings'])) {
+		// otherthings
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
-		if ((empty($trimmed['medicine'])) AND empty($medicine)) {
-			if (!empty($_POST['amount'])) {
-				$amount = 0;
-				echo "<p class='error'>If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.</p>";}
-			else { $amount = 0;}
-			if (!empty($POST['measure'])) {
-			echo "<p class='error'>If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.</p>";}
-			else {$measure = "";}
-		} // close for if medicine is empty
-	} // close for if preg-match
-	else {echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';}
-} // close for elseif otherthings is not empty
-else { $otherthings = $otherthings; }
-} // close for either medicine or otherthings is not empty
-else { 
-	$medicine = $medicine;
-	$otherthings = $otherthings;
-
+	}
+	else {
+		echo "<p class='error'>Invalid pain relief method.</p>";
+	}
 }
-
+else {
+	$otherthings = $otherthings;	
+}
+	
 // reliefrating
-$reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
+if (empty($_POST["reliefrating"])) {$reliefrating = $reliefrating;}
+else {$reliefrating = mysqli_real_escape_string ($dbc, $trimmed['reliefrating']); }
+
 // sideeffects
 if (!empty($trimmed['sideeffects'])) {
 if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
@@ -2162,23 +2155,20 @@ else {
 
 // if there are no errors	
 if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na') AND ($sideeffects!='invalid')) OR (($otherthings) AND ($sideeffects!='invalid'))) {
- 
-  $q = "SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'] ." AND time='$hour' AND ((medicine!='' AND medicine='$medicine') OR (otherthings!='' AND otherthings='$otherthings'))";
+		
+		$q = "SELECT record_id, time, medicine, amount, measure, otherthings, reliefrating, sideeffects FROM painrelief WHERE record_id = " . $_SESSION['record_id'];
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
-		if (mysqli_num_rows($r) == 0) { 
+		if (mysqli_num_rows($r) == 1) {
+		
 			$q = "UPDATE painrelief SET
-			user_id := '". $_SESSION['user_id'] ."',
-			entryyear := '". $_SESSION['calyear'] ."',
-			entrymonth := '". $_SESSION['calmonth'] ."',
-			entryday := '". $_SESSION['day'] ."',
-			time := '". $hour ."',
-			medicine := '". $medicine ."',
-			amount := '".$amount."',
-			measure := '". $measure ."',
-			otherthings := '". $otherthings ."',
-			reliefrating := '". $reliefrating ."',
-			sideeffects := '". $sideeffects ."' 
+			time := '".mysqli_real_escape_string($dbc,$hour) ."',
+			medicine := '".mysqli_real_escape_string($dbc,$medicine) ."',
+			amount := '".mysqli_real_escape_string($dbc,$amount) ."',
+			measure := '".mysqli_real_escape_string($dbc,$measure) ."',
+			otherthings := '".mysqli_real_escape_string($dbc,$otherthings) ."',
+			reliefrating := '".mysqli_real_escape_string($dbc,$reliefrating) ."',
+			sideeffects := '".mysqli_real_escape_string($dbc,$sideeffects) ."'
 			WHERE record_id = " . $_SESSION['record_id'];
 		
 		
@@ -2186,21 +2176,23 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na') AND ($sideeff
 
 if (mysqli_affected_rows($dbc) == 1) {
 
-		$url = BASE_URL . 'newentry.php'; 
-		ob_end_clean(); 
-		header("Location: $url");	
+	$url = BASE_URL . 'newentry.php'; 
+	ob_end_clean(); 
+	header("Location: $url");
 
 						
 					}
 				}
 		else {
 			echo '<p class="error">You have already added this pain relief method for this time of the day. <br />If you increased the dose, please change the dose instead of creating a new record.</p>';
-		} 
+		}
+
 	} else {
 		echo '<p class="error">The side effects field contains invalid characters. Please use letters and numbers only.</p>';
-		}
-}
+	}
 
+
+}
 
 
 // IF NEW COMMENT GETS SUBMITTED
