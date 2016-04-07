@@ -318,6 +318,7 @@ if (!empty($_POST['password0'])) {
 			$p = $pass;
 		}
 		else {
+			echo "<br />";
 			echo @mysqli_num_rows($r);
 			echo "<p class='error'>The old password is incorrect.</p>";
 			$p = "";
@@ -326,7 +327,9 @@ if (!empty($_POST['password0'])) {
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
-		$q = "UPDATE users SET pass=".SHA1('$p')." WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
+		$q = "UPDATE users SET pass=".SHA1('$p')." WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";
+		echo "<br />";
+		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 			
@@ -338,7 +341,7 @@ if (!empty($_POST['password0'])) {
 			exit();
 			
 		} else { 
-		
+			echo @mysqli_num_rows($r);
 			echo '<p class="error">Your password was not changed. Make sure your new password is different from the current password.</p>'; 
 
 		}
