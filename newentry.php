@@ -632,48 +632,16 @@ if ($result -> num_rows > 0) {
 	 		 ?>
 <div id='container'></div>
          <?php
-		$row_cnt = $result->num_rows;
-     	while($row = $result->fetch_assoc()) {
-		$entryid[] = $row['entryid'];
-		$bodypart[] = ucfirst($row['bodypart']);
-		$entrytags[] = $row['entrytags'];
-		$p00[] = $row['p00'];
-		$p01[] = $row['p01'];
-		$p02[] = $row['p02'];
-		$p03[] = $row['p03'];
-		$p04[] = $row['p04'];
-		$p05[] = $row['p05'];
-		$p06[] = $row['p06'];
-		$p07[] = $row['p07'];
-		$p08[] = $row['p08'];
-		$p09[] = $row['p09'];
-		$p10[] = $row['p10'];
-		$p11[] = $row['p11'];
-		$p12[] = $row['p12'];
-		$p13[] = $row['p13'];
-		$p14[] = $row['p14'];
-		$p15[] = $row['p15'];
-		$p16[] = $row['p16'];
-		$p17[] = $row['p17'];
-		$p18[] = $row['p18'];
-		$p19[] = $row['p19'];
-		$p20[] = $row['p20'];
-		$p21[] = $row['p21'];
-		$p22[] = $row['p22'];
-		$p23[] = $row['p23'];
-		$avgpain[] = $row['avgpain'];
-		
-		$j=0;
-		while ($j<$row_cnt-1) {
+     while($row = $result->fetch_assoc()) {
 		 
-         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$entryid[$j]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". $bodypart[$j] ."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$entryid[$j]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
-	
-	if (isset($entrytags[$j])) {
-		$tags = $entrytags[$j];
+         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
+		 
+	if (isset($row['entrytags'])) {
+		$tags = $row['entrytags'];
 		$tagsarray = explode(',', $tags);
 		$num = count($tagsarray);
 		$i = 0;
-		while ($i < $num) {
+		while ($i < $num-1) {
 			echo "<li>".$tagsarray[$i]."</li>";
 			$i++;
 		}
@@ -682,10 +650,8 @@ if ($result -> num_rows > 0) {
 			echo "Not defined."; 
 		 }
 		 
-         echo "</ul></caption><tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $p00[$j]. "</td><td>". $p01[$j]. "</td><td>". $p02[$j]."</td><td>". $p03[$j]."</td><td>". $p04[$j]."</td><td>". $p05[$j]."</td><td>". $p06[$j]."</td><td>". $p07[$j]."</td><td>". $p08[$j]."</td><td>". $p09[$j]."</td><td>". $p10[$j]."</td><td>". $p11[$j]."</td></tr><tr><th class='firstcol'>Hour of Day</th><th>12PM</th><th>1PM</th><th>2PM</th><th>3PM</th><th>4PM</th><th>5PM</th><th>6PM</th><th>7PM</th><th>8PM</th><th>9PM</th><th>10PM</th><th>11PM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $p12[$j]."</td><td>". $p13[$j]."</td><td>". $p14[$j]."</td><td>". $p15[$j]."</td><td>". $p16[$j]."</td><td>". $p17[$j]."</td><td>". $p18[$j]."</td><td>". $p19[$j]."</td><td>". $p20[$j]."</td><td>". $p21[$j]."</td><td>". $p22[$j]."</td><td>". $p23[$j]."</td></tr><tr><td class='avgrow' colspan='13'> Daily Average Pain Intensity: ". $avgpain[$j] ."</td></tr></table></div>";
+         echo "</ul></caption><tr><th class='firstcol'>Hour of Day</th><th>0AM</th><th>1AM</th><th>2AM</th><th>3AM</th><th>4AM</th><th>5AM</th><th>6AM</th><th>7AM</th><th>8AM</th><th>9AM</th><th>10AM</th><th>11AM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p00"]. "</td><td>". $row["p01"]. "</td><td>". $row["p02"]."</td><td>". $row["p03"]."</td><td>". $row["p04"]."</td><td>". $row["p05"]."</td><td>". $row["p06"]."</td><td>". $row["p07"]."</td><td>". $row["p08"]."</td><td>". $row["p09"]."</td><td>". $row["p10"]."</td><td>". $row["p11"]."</td></tr><tr><th class='firstcol'>Hour of Day</th><th>12PM</th><th>1PM</th><th>2PM</th><th>3PM</th><th>4PM</th><th>5PM</th><th>6PM</th><th>7PM</th><th>8PM</th><th>9PM</th><th>10PM</th><th>11PM</th></tr><tr><th class='firstcol'>Pain Intensity</th><td>". $row["p12"]."</td><td>". $row["p13"]."</td><td>". $row["p14"]."</td><td>". $row["p15"]."</td><td>". $row["p16"]."</td><td>". $row["p17"]."</td><td>". $row["p18"]."</td><td>". $row["p19"]."</td><td>". $row["p20"]."</td><td>". $row["p21"]."</td><td>". $row["p22"]."</td><td>". $row["p23"]."</td></tr><tr><td class='avgrow' colspan='13'> Daily Average Pain Intensity: ". $row["avgpain"] ."</td></tr></table></div>";
      }
-	 
-}
 } else {
      echo "<div class='indent'>You have not entered anything for this day.</div>";
 	 ?>
