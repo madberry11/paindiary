@@ -2063,14 +2063,14 @@ if (mysqli_affected_rows($dbc) == 1) {
 		header("Location: $url");	
 
 						
-					}else {
-						echo '<p class="error">The side effects field contains invalid characters. Please use letters and numbers only.</p>';
 					}
 				}
 		else {
 			echo '<p class="error">You have already added this pain relief method for this time of the day. <br />If you increased the dose, please change the dose instead of creating a new record.</p>';
+		} 
+	} else {
+		echo '<p class="error">The side effects field contains invalid characters. Please use letters and numbers only.</p>';
 		}
-	}
 
 }
 
