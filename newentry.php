@@ -2000,7 +2000,8 @@ else {
 	echo '<p class="error"> The medicine name you entered is invalid! It should only contain letters and numbers, and it should be 2-40 characters long.</p>';	
 }
 		
-} elseif (!empty($trimmed['otherthings'])) {
+} 
+if (!empty($trimmed['otherthings'])) {
 	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
