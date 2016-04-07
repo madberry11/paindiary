@@ -38,11 +38,9 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 }
 
 else {
-?>
-<script type="text/javascript">
-            window.location.href = "http://paindiary.azurewebsites.net/index.php"
-        </script>
-<?php	
+	$url = BASE_URL . 'index.php'; 
+	ob_end_clean(); 
+	header("Location: $url");		
 }
 
 

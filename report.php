@@ -38,11 +38,9 @@ elseif(!isset($_SESSION["username"]) && isset($_COOKIE["unm"]) && ($_SESSION["ke
 }
 
 else {
-?>
-<script type="text/javascript">
-            window.location.href = "http://paindiary.azurewebsites.net/index.php"
-        </script>
-<?php	
+	$url = BASE_URL . 'index.php'; 
+	ob_end_clean(); 
+	header("Location: $url");	
 }
 
 
@@ -2192,7 +2190,7 @@ else {
 	
 	// Day 31
 	$qq31 = "SELECT * FROM painrelief WHERE user_id="  . $_SESSION['user_id'] . " AND entryyear = " . $calyear . " AND entrymonth = " . $calmonth . " AND entryday = 31 ";
-	$rr31 = mysqli_query ($dbc, $qq31) or trigger_error("Query: $qq31\n<br />MySQL Error: " . mysqli_error($dbc));
+	$rr31 = mysqli_query ($dbc, $rr31) or trigger_error("Query: $qq31\n<br />MySQL Error: " . mysqli_error($dbc));
 	if ($rr31 -> num_rows > 0) {
 	
 	 $d31num = 0;
