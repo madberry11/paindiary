@@ -2007,8 +2007,9 @@ if (!empty($trimmed['otherthings'])) {
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
 		if (empty($trimmed['medicine'])) {
 			if (!empty($_POST['amount'])) {
+				$amount = 0;
 				echo "<p class='error'>If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.</p>";}
-			else { $amount = 1;}
+			else { $amount = 0;}
 			if (!empty($POST['measure'])) {
 			echo "<p class='error'>If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.</p>";}
 			else {$measure = "";}
