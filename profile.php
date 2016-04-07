@@ -304,16 +304,27 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid password!</p>';
+		echo '<p class="error">Please enter a valid password! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 	}
 	
 	
 	if (!empty($_POST['password0'])) {
-		$p = mysqli_real_escape_string ($dbc, $_POST['password0']);
+		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
+		$q= "SELECT pass FROM users WHERE username='".$user."'";
+		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+		if (@mysqli_num_rows($r) == 1) {
+			$row = mysqli_fetch_assoc($r);
+			if ($pass = $row['pass']) {
+			$p = $pass;
+			}
+		}
+		else {
+			echo "<p class='error'>The old password is incorrect.</p>";
+			$p = "";
+		}
 	
-	if ($p) { 
+	if ((!empty($p)) AND (!empty($p2))) { 
 
-		
 		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
@@ -331,17 +342,20 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 		}
 
-	} else { 
-		echo '<p class="error">Invalid password. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';		
 	}
 	
 	mysqli_close($dbc); 
 
 } 
 
-else {
-		$p = FALSE;
+elseif (empty($p)) {
+		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
+	}
+	
+elseif (empty($p2)) {
+		$p = FALSE;
+		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
 	
 	
@@ -361,7 +375,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 			$q = "SELECT user_id FROM users WHERE email='".$safe_email1."'";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 				if (@mysqli_num_rows($r) == 1) {
-					echo '<p class="error">Sorry, this email address is already registered with another account!</p>';
+					echo '<p class="error">Sorry, this email address is already registered with an account!</p>';
 				}
 				else {
 					$e2 = $safe_email1;
@@ -370,7 +384,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid email address! The username/local part of the email address should only contain letters, numbers, and the underscore.</p>';
+		echo '<p class="error">Please enter a valid email address!</p>';
 	}
 	
 	if (!empty($_POST['email0'])) {
