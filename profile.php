@@ -304,13 +304,13 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid password! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
+		echo '<p class="error">Please enter a valid password for all fields! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 	}
 	
 	
 	if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
-		$q= "SELECT pass FROM users WHERE username='".$_SESSION['user_id']."'";
+		$q= "SELECT pass, user_id FROM users WHERE user_id='".$_SESSION['user_id']."'";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 			$row = mysqli_fetch_assoc($r);
@@ -384,7 +384,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
 		}
 	} else {
-		echo '<p class="error">Please enter a valid email address!</p>';
+		echo '<p class="error">Please enter a valid email address to all fields!</p>';
 	}
 	
 	if (!empty($_POST['email0'])) {
