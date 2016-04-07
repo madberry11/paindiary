@@ -1145,12 +1145,14 @@ if ($result -> num_rows == 1) {
 <tr>
 <th><label for="time">Approximate Time</label></th>
 <td><select class="tdright" id="time" name="time">
-<script type="text/javascript">
-document.getElementById('time').selectedIndex=<?php echo $time ?>;
-</script>
 <?php for($i = 0; $i <= 23; $i++): ?>
+	<?php if ($i == $time) {?>
+    <option value="<?= sprintf('%02d', $i); ?>" selected><?= date("h:iA", strtotime("$i:00")); ?></option>
+    <? }
+	else {?>
     <option value="<?= sprintf('%02d', $i); ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
-<?php endfor; ?>
+    <? }
+ endfor; ?>
 </select></td></tr>
 <tr><th><label for="medicine">Medicine Name</label></th>
 <td><input class="tdright" name="medicine" type="text" placeholder="<?php echo $medicine; ?>" maxlength="30" value="<?php if (isset($trimmed['medicine'])) echo $trimmed['medicine']; ?>" /></td></tr>
