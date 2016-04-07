@@ -416,9 +416,16 @@ if (!empty($_POST['changeusernamesubmit'])) {
 		$safe_username1 = mysqli_real_escape_string ($dbc, $_POST['username1']);
 		$safe_username2 = mysqli_real_escape_string ($dbc, $_POST['username2']);
 		if ($safe_username1 == $safe_username2) {
-			$u2 = $safe_username1;
+			$q = "SELECT user_id FROM users WHERE username='".$safe_username1."'";
+			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+				if (@mysqli_num_rows($r) == 1) {
+					echo '<p class="error">Sorry, this username is already taken!</p>';
+				}
+				else {
+					$u2 = $safe_username1;
+				}
 		} else {
-			echo '<p class="error">Your username did not match the confirmed username!</p>';
+			echo '<p class="error">Your new username did not match the confirmed username!</p>';
 		}
 	} else {
 		echo "<p class='error'>Invalid username. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>";
