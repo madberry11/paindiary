@@ -1149,7 +1149,7 @@ if ($result -> num_rows == 1) {
 document.getElementById('time').selectedIndex=<?php echo $time ?>;
 </script>
 <?php for($i = 0; $i <= 23; $i++): ?>
-    <option value="<?= $i; ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
+    <option value="<?= sprintf('%02d', $i); ?>"><?= date("h:iA", strtotime("$i:00")); ?></option>
 <?php endfor; ?>
 </select></td></tr>
 <tr><th><label for="medicine">Medicine Name</label></th>
@@ -1178,7 +1178,15 @@ echo $row['otherthings'];
 </TEXTAREA></td></tr>
 <!--<td><input class="tdright" name="otherthings" type="text" placeholder="<?php echo $otherthings; ?>" maxlength="30" value="<?php if (isset($trimmed['otherthings'])) echo $trimmed['otherthings']; ?>" /></td></tr>-->
 <tr><th><label for="reliefrating">Pain Relief Rating</label></th>
-<td><input class="tdright" name="reliefrating" min="0" max="3" type="number" placeholder="<?php echo $reliefrating; ?>" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" /></td></tr>
+<td>
+<select class="tdright" id="reliefrating" name="reliefrating">
+<option value="0">0 - No Relief</option>
+<option value="1">1 - Slight Relief</option>
+<option value="2">2 - Significant Relief</option>
+<option value="3">3 - Full Relief</option>
+</select>
+<!--<input class="tdright" name="reliefrating" type="number" placeholder="0" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" />-->
+</td></tr>
 <tr><th><label for="sideeffects">Side Effects / Problems</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="sideeffects">
 <?php
