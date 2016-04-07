@@ -302,8 +302,10 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			$p = $safe_password1;
 		} else {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
+			$p = 0;
 		}
 	} else {
+		$p = 0;
 		echo '<p class="error">Please enter a valid password for all fields! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
 	}
 	
