@@ -2005,7 +2005,6 @@ if (!empty($trimmed['otherthings'])) {
 	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
 		// otherthings - if medicine is empty
 		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
-		$medicine = '';
 		if (!empty($_POST['amount'])) {
 			echo "If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.";}
 		else { $amount = "0";}
