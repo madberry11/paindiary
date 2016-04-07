@@ -437,7 +437,7 @@ if (!empty($_POST['changeusernamesubmit'])) {
 			$u = "";
 		}
 	
-	if (isset($u)) { 
+	if (!empty($u)) { 
 
 		
 		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id='".$_SESSION['user_id']."'";	
