@@ -2058,9 +2058,11 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 
 if (mysqli_affected_rows($dbc) == 1) {
 
+	/*
 	$url = BASE_URL . 'newentry.php'; 
 	ob_end_clean(); 
 	header("Location: $url");
+	*/
 
 						
 					}else {
