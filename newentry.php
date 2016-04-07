@@ -2057,12 +2057,14 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_affected_rows($dbc) == 1) {
-
-	/*
-	$url = BASE_URL . 'newentry.php'; 
-	ob_end_clean(); 
-	header("Location: $url");
-	*/
+	if ((!empty($amount)) AND (!empty($otherthings))) {
+		// error message
+	}
+	else {
+		$url = BASE_URL . 'newentry.php'; 
+		ob_end_clean(); 
+		header("Location: $url");	
+	}
 
 						
 					}else {
