@@ -293,8 +293,9 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 // if password is getting changed
 	
 if (!empty($_POST['changepasswordsubmit'])) {
-	
-if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
+
+if ((!empty($_POST['password1'])) AND (!empty($_POST['password1']))) {
+	if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
 		if ($safe_password1 == $safe_password2) {
@@ -305,7 +306,11 @@ if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\
 		}
 	} else {
 		$p2 = "";
-		echo '<p class="error">Please enter a valid password! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
+		echo '<p class="error">Please enter a valid password in all the fields! Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>';
+	}
+}
+else {
+	echo "You need to enter the new password twice.";
 }
 	
 	
@@ -350,11 +355,6 @@ if (!empty($_POST['password0'])) {
 elseif (empty($p)) {
 		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
-	}
-	
-elseif (empty($p2)) {
-		$p2 = FALSE;
-		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
 	
 	
