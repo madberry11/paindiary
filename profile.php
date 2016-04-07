@@ -337,11 +337,11 @@ if (!empty($_POST['changepasswordsubmit'])) {
 			echo '<p class="success">Your password has been changed.</p>';
 			exit();
 			
-		} else { 
+		}
+	} else { 
 		
 			echo '<p class="error">Your password was not changed. Make sure your new password is different from the current password.</p>'; 
 		}
-	}
 
 }
 	
