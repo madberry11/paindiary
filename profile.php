@@ -324,6 +324,10 @@ if (!empty($_POST['password0'])) {
 			$p = "";
 		}
 	
+	echo $p;
+	echo "<br />";
+	echo $p2;
+	echo "<br />";
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
