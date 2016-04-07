@@ -434,9 +434,10 @@ if (!empty($_POST['changeusernamesubmit'])) {
 		}
 		else {
 			echo "<p class='error'>The old username is incorrect.</p>";
+			$u = "";
 		}
 	
-	if ($u) { 
+	if (isset($u)) { 
 
 		
 		$q = "UPDATE users SET username='". $u2 . "' WHERE user_id='".$_SESSION['user_id']."'";	
