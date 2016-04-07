@@ -294,12 +294,12 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 	
 if (!empty($_POST['changepasswordsubmit'])) {
 	
-	$p2 = FALSE;
+	$p = FALSE;
 	if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
 		if ($safe_password1 == $safe_password2) {
-			$p2 = $safe_password1;
+			$p = $safe_password1;
 		} else {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
@@ -310,15 +310,16 @@ if (!empty($_POST['changepasswordsubmit'])) {
 	
 	if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
-		$q = "SELECT pass, user_id FROM users WHERE user_id='".$_SESSION['user_id']."' AND pass=SHA1('$pass')";
+		$q = "SELECT user_id FROM users WHERE user_id='".$_SESSION['user_id']."' AND pass=SHA1('$pass')";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
-				$p = $pass;
+				$p2 = $pass;
 				}	
 		else {
 				echo "<p class='error'>The old password is incorrect.</p>";
-				$p = "";
+				$p2 = "";
 			}
+	
 		
 	if ((!empty($p)) AND (!empty($p2))) { 
 		if ($p != $p2){
@@ -346,12 +347,12 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 } 
 
-elseif (empty($p)) {
+elseif (empty($p2)) {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
 	
-elseif (empty($p2)) {
+elseif (empty($p)) {
 		$p = FALSE;
 		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
