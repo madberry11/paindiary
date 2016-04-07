@@ -667,7 +667,7 @@ if ($result -> num_rows > 0) {
          <?php
      while($row = $result->fetch_assoc()) {
 		 
-         echo "". $row["entryid"]."<div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' href='newentry.php?plantodelete=$row[entryid]'></a><br /><ul class='taglist'>Type of pain: ";
+         echo "<div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' href='newentry.php?plantodelete=$row[entryid]'></a><br /><ul class='taglist'>Type of pain: ";
 		 
 	if (isset($row['entrytags'])) {
 		$tags = $row['entrytags'];
@@ -1221,7 +1221,7 @@ if ($dbc->connect_error) {
 			else {
 				$row['am'] = "";
 			}
-echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['am'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' href='' onClick='Deleterecordqry()'></a></td></tr>";
+echo "<a class='hidden' id='deletepainrelief' href='newentry.php?deleterecord=$row[record_id]'></a><tr><td>" . $row['time'] . ":00</td><td>" . $row['medicine'] . "</td><td>" . $row['am'] . str_replace("milligrams","mg", str_replace("millilitres","ml", $row['measure'])) . "</td><td>" . $row['otherthings'] . "</td><td>" . $row['reliefrating'] . "</td><td>" . $row['sideeffects'] . "</td><td class='icontd'><a class='icon-edit nounderline' href='newentry.php?editrecord=$row[record_id]'></a><a class='icon-trash nounderline' onClick='Deleterecordqry()'></a></td></tr>";
 
 		}?>
         </table>
