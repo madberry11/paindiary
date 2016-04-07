@@ -375,7 +375,7 @@ if (!empty($_POST['changeemailsubmit'])) {
 	
 	if (!empty($_POST['email0'])) {
 		$oldmail = mysqli_real_escape_string ($dbc, $_POST['email0']);
-		$q= "SELECT user_id FROM users WHERE username='".$user."'";
+		$q= "SELECT user_id FROM users WHERE email='".$oldmail."'";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 			$e = $oldmail;
