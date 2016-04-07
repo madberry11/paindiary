@@ -384,14 +384,12 @@ if(isset($_GET['todelete'])) {
 	else {
 		$query = "DELETE FROM pain WHERE entryid = " . $_SESSION['plantodelete'];
     	$result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
-	/*
-	if (mysqli_affected_rows($dbc) == 1) {
-
-	$url = BASE_URL . 'newentry.php'; 
-	ob_end_clean(); 
-	header("Location: $url");
-	}*/
-	}
+		if (mysqli_affected_rows($dbc) == 1) {
+			$url = BASE_URL . 'newentry.php'; 
+			ob_end_clean(); 
+			header("Location: $url");
+			}
+		}
 }
 
 if(isset($_GET['toedit'])) {
