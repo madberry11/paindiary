@@ -353,7 +353,7 @@ if (!empty($_POST['password0'])) {
 
 } 
 
-else {
+elseif (empty($p)) {
 		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
@@ -430,7 +430,7 @@ else {
 
 } 
 
-else {
+elseif (empty($e)) {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old email address!</p>';
 	}
@@ -507,7 +507,7 @@ else {
 
 } 
 
-else {
+elseif (empty($u)) {
 		$u = FALSE;
 		echo '<p class="error">You forgot to enter your old username!</p>';
 	}
