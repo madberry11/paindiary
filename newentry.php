@@ -653,7 +653,7 @@ if ($result -> num_rows > 0) {
          <?php
      while($row = $result->fetch_assoc()) {
 		 
-         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a href='' class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
+         echo "<a class='hidden' id='todelete' href='newentry.php?todelete=$row[entryid]'></a><div class='center'><table class='paintable'><caption class='paintablecaption'>". ucfirst($row["bodypart"])."<a data-ajax='false' class='icon-edit nounderline' href='newentry.php?toedit=$row[entryid]'></a><a class='icon-trash nounderline' onClick='Deleteqry()'></a><br /><ul class='taglist'>Type of pain: ";
 		 
 	if (isset($row['entrytags'])) {
 		$tags = $row['entrytags'];
