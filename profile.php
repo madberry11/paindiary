@@ -348,12 +348,12 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 } 
 
-elseif (empty($p)) {
+elseif (empty($p2)) {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
 	
-elseif (empty($p2)) {
+elseif (empty($p)) {
 		$p = FALSE;
 		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
