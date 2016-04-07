@@ -311,7 +311,7 @@ if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\
 	
 if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
-		$q = "SELECT user_id, pass FROM users WHERE pass='".SHA1($pass)."' LIMIT 1";
+		$q = "SELECT user_id, pass FROM users WHERE user_id='".$_SESSION['user_id']."' AND pass='".SHA1($pass)."' LIMIT 1";
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
@@ -326,7 +326,7 @@ if (!empty($_POST['password0'])) {
 	if ((!empty($p)) AND (!empty($p2))) { 
 
 		
-		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
+		$q = "UPDATE users SET pass='".SHA1($p)."' WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (mysqli_affected_rows($dbc) == 1) {
 			
