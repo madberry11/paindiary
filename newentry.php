@@ -2083,7 +2083,9 @@ if (mysqli_affected_rows($dbc) == 1) {
 
 if (!empty($_POST['changerelief-submit'])) {
 	
-require (MYSQL);
+require (MYSQL);	
+$trimmed = array_map('trim', $_POST);
+	
 $dbc = new mysqli($servername, $username, $password, $dbname);
 if ($dbc->connect_error) {die("Connection failed: " . $dbc->connect_error);}
 
