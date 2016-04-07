@@ -1595,13 +1595,18 @@ if (!empty($_POST['entry-submit'])) {
 	require (MYSQL);
 	$trimmed = array_map('trim', $_POST);
 	$bodypart = $p00 = $p01 = $p02 = $p03 = $p04 = $p05 = $p06 = $p07 = $p08 = $p09 = $p10 = $p11 = $p12 = $p13 = $p14 = $p15 = $p16 = $p17 = $p18 = $p19 = $p20 = $p21 = $p22 = $p23 = FALSE;
-  
+ 
+if (!empty($trimmed['bodypart'])) {
  if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['bodypart'])) {
 		$bodypart = mysqli_real_escape_string ($dbc, $trimmed['bodypart']);
 	} else {
 		$bodypart = "";
-		echo '<p class="error">Please enter the affected body part!</p>';
+		echo '<p class="error">Please enter a valid body part! Use only letters.</p>';
 	}
+}
+else {
+	echo '<p class="error">Please enter the affected body part!</p>';
+}
 	
 if ((empty($_POST["p00"])) AND (empty($_POST["p01"])) AND (empty($_POST["p02"])) AND (empty($_POST["p03"])) AND (empty($_POST["p04"])) AND (empty($_POST["p05"])) AND (empty($_POST["p06"])) AND (empty($_POST["p07"])) AND (empty($_POST["p08"])) AND (empty($_POST["p09"])) AND (empty($_POST["p10"])) AND (empty($_POST["p11"])) AND (empty($_POST["p12"])) AND (empty($_POST["p13"])) AND (empty($_POST["p14"])) AND (empty($_POST["p15"])) AND (empty($_POST["p16"])) AND (empty($_POST["p17"])) AND (empty($_POST["p18"])) AND (empty($_POST["p19"])) AND (empty($_POST["p20"])) AND (empty($_POST["p21"])) AND (empty($_POST["p22"])) AND (empty($_POST["p23"])))
 { echo '<p class="error">You have not entered any pain intensity values!</p>';}
