@@ -2008,7 +2008,7 @@ if (!empty($trimmed['otherthings'])) {
 		if (empty($trimmed['medicine'])) {
 			if (!empty($_POST['amount'])) {
 				echo "<p class='error'>If you do not enter a medicine name, there is no need to enter an amount. If you mean the amount of other pain relief methods, just write it in the same field.</p>";}
-			else { $amount = 0;}
+			else { $amount = '0';}
 			if (!empty($POST['measure'])) {
 			echo "<p class='error'>If you do not enter a medicine name, there is no need to choose a measure. If you mean the measure of other pain relief methods, just write it in the same field.</p>";}
 			else {$measure = "";}
@@ -2046,7 +2046,7 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 			entryday := '". $_SESSION['day'] ."',
 			time := '". $hour ."',
 			medicine := '". $medicine ."',
-			amount := ". $amount .",
+			amount := '". $amount ."',
 			measure := '". $measure ."',
 			otherthings := '". $otherthings ."',
 			reliefrating := '". $reliefrating ."',
