@@ -337,7 +337,6 @@ if (!empty($_POST['password0'])) {
 			exit();
 			
 		} else { 
-			echo @mysqli_num_rows($r);
 			echo '<p class="error">Your password was not changed. Make sure your new password is different from the current password.</p>'; 
 
 		}
