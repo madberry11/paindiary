@@ -315,14 +315,14 @@ if (!empty($_POST['changepasswordsubmit'])) {
 		if (@mysqli_num_rows($r) == 1) {
 			$row = mysqli_fetch_assoc($r);
 			if ($pass = $row['pass']) {
-			$p = $pass;
+				$p = $pass;
+				}	
+			else {
+				echo "<p class='error'>The old password is incorrect.</p>";
+				$p = "";
 			}
 		}
-		else {
-			echo "<p class='error'>The old password is incorrect.</p>";
-			$p = "";
-		}
-	
+		
 	if ((!empty($p)) AND (!empty($p2))) { 
 		if ($p != $p2){
 
@@ -349,12 +349,12 @@ if (!empty($_POST['changepasswordsubmit'])) {
 
 } 
 
-elseif (empty($p2)) {
+elseif (empty($p)) {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
 	
-elseif (empty($p)) {
+elseif (empty($p2)) {
 		$p = FALSE;
 		echo '<p class="error">You need to enter the new password twice!</p>';
 	}
