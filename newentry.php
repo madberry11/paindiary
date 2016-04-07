@@ -1162,9 +1162,19 @@ if ($result -> num_rows == 1) {
 <script type="text/javascript">
 document.getElementById('measure').selectedIndex=<?php echo $measure ?>;
 </script>
-<option value="na">Measurement</option>
+<?php if ($measure == "na") { ?>
+<option value="na" selected>Measurement</option>
 <option value="milligrams">milligrams (mg)</option>
 <option value="millilitres">millilitres (ml)</option>
+<?php } elseif ($measure == "milligrams") { ?>
+<option value="na">Measurement</option>
+<option value="milligrams" selected>milligrams (mg)</option>
+<option value="millilitres">millilitres (ml)</option>
+<?php } else { ?>
+<option value="na">Measurement</option>
+<option value="milligrams">milligrams (mg)</option>
+<option value="millilitres" selected>millilitres (ml)</option>
+<?php } ?>
 </select></td></tr>
 <tr><th><label for="otherthings">Other Methods</label></th>
 <td><TEXTAREA class="relieftextarea tdright" name="otherthings">
@@ -1182,10 +1192,27 @@ echo $row['otherthings'];
 <tr><th><label for="reliefrating">Pain Relief Rating</label></th>
 <td>
 <select class="tdright" id="reliefrating" name="reliefrating">
-<option value="0">0 - No Relief</option>
+<?php if ($reliefrating == 0) { ?>
+<option value="0" selected>0 - No Relief</option>
 <option value="1">1 - Slight Relief</option>
 <option value="2">2 - Significant Relief</option>
 <option value="3">3 - Full Relief</option>
+<?php } elseif ($reliefrating == 1) { ?>
+<option value="0">0 - No Relief</option>
+<option value="1" selected>1 - Slight Relief</option>
+<option value="2">2 - Significant Relief</option>
+<option value="3">3 - Full Relief</option>
+<?php } elseif ($reliefrating == 2) { ?>
+<option value="0">0 - No Relief</option>
+<option value="1">1 - Slight Relief</option>
+<option value="2" selected>2 - Significant Relief</option>
+<option value="3">3 - Full Relief</option>
+<?php } else { ?>
+<option value="0">0 - No Relief</option>
+<option value="1">1 - Slight Relief</option>
+<option value="2">2 - Significant Relief</option>
+<option value="3" selected>3 - Full Relief</option>
+<?php } ?>
 </select>
 <!--<input class="tdright" name="reliefrating" type="number" placeholder="0" min="0" max="10" value="<?php if (isset($trimmed['reliefrating'])) echo $trimmed['reliefrating']; ?>" />-->
 </td></tr>
