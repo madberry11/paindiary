@@ -482,7 +482,8 @@ padding-left: 10px;
 padding-right: 10px;
 padding-top: 10px;
 padding-bottom: 10px;
-font-family: 'Ruda', sans-serif;	
+font-family: Verdana, Geneva, sans-serif;
+font-size: 0.8em;	
 }
 
 .tdright[type=text], .tdright[type=number], select {
