@@ -98,13 +98,8 @@ var myInterval = setTimeout("location=('index.php');",3600000);
             var string = "";
             var i;
             for (i in tags) {
-				if (isValid(tags[i].value)){
-                string += tags[i].value + ", ";
+                string += tags[i].value.replace(/[^a-z0-9\s]/gi, '') + ", ";
 				//string += "&nbsp;";
-				}
-				else {
-				i++;
-				}
             }
 			$('#demo4Out').append(string);
 			$('#demo2Out').append(string);
@@ -249,11 +244,6 @@ var myInterval = setTimeout("location=('index.php');",3600000);
 {
    $(this).attr('rel'); // This is your rel value
 });
-
-function isValid(tags) {
-            var regex = /^[a-z0-9]+$/i;
-            return regex.test(email);
-        }
 
 
     });
