@@ -315,7 +315,7 @@ if (!empty($_POST['password0'])) {
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
-			$p2 = $pass;
+			$p = $pass;
 		}
 		else {
 			echo "<br />";
