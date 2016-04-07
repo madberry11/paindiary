@@ -377,20 +377,19 @@ if ((!empty($_POST['email1'])) AND (!empty($_POST['email2']))) {
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 				if (@mysqli_num_rows($r) == 1) {
 					echo '<p class="error">Sorry, this email address is already registered with an account!</p>';
-				}
-				else {
-					$e2 = $safe_email1;
-				}
-		} else {
-			echo '<p class="error">Your email address did not match the confirmed email address!</p>';
-		}
-	} else {
-		echo '<p class="error">Please enter a valid email address!</p>';
-	}
+				} // close: if one line was changed
+				else { $e2 = $safe_email1;}
+		} // close: if the two new emails are the same
+		else { echo '<p class="error">Your new email address did not match the confirmed email address!</p>';}
+	} // close: if the two new emails are valid
+	else {echo '<p class="error">Please enter a valid email address in all fields!</p>';}
+}// close: if neither of the two new emails is empty
+else {echo '<p class="error">You need to enter the new email address twice.</p>';}
+
 	
 	if (!empty($_POST['email0'])) {
 		$oldmail = mysqli_real_escape_string ($dbc, $_POST['email0']);
-		$q= "SELECT user_id FROM users WHERE email='".$oldmail."'";
+		$q = "SELECT user_id FROM users WHERE email='".$oldmail."'";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 			$e = $oldmail;
@@ -400,9 +399,6 @@ if ((!empty($_POST['email1'])) AND (!empty($_POST['email2']))) {
 			$e = "";
 		}
 	}
-else {
-	echo "<p class='error'>You need to enter the new email address twice.</p>";	
-}
 	
 	if ((!empty($e)) AND (!empty($e2))) { 
 
@@ -418,23 +414,17 @@ else {
 			mysqli_close($dbc);  
 			echo '<p class="success">Your email address has been changed.</p>';
 			exit();
-			
-		} else { 
-		
-			echo '<p class="error">Your email address was not changed. Please make sure your new email address is different from the current one.</p>'; 
-
-		}
-	}
-	
-	mysqli_close($dbc); 
-
-} 
+		} // close: if one row is affected
+		else { echo '<p class="error">Your email address was not changed. Please make sure your new email address is different from the current one.</p>'; }
+	} // close: if both the old and new email address are fine
 
 elseif (empty($e)) {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old email address!</p>';
 	}
 	
+mysqli_close($dbc); 
+
 	
 }
 
