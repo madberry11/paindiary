@@ -1969,8 +1969,9 @@ if ($hour) {
    } else {
      $hour ="0";
    }
-// medicine
-if ((!empty($trimmed['medicine'])) OR (!empty($trimmed['otherthings']))) {
+   
+// medicine and otherthings - if either or both of them not empty
+if (((!empty($trimmed['medicine'])) OR (!empty($trimmed['otherthings']))) OR ((!empty($trimmed['medicine'])) AND (!empty($trimmed['otherthings'])))) {
 	
 if (!empty($trimmed['medicine'])) {
 	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['medicine'])) {
@@ -2013,22 +2014,12 @@ else {
 	} // close for if preg-match
 	else {echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';}
 } // close for elseif otherthings is not empty
+else { $otherthings = ""; }
 } // close for either medicine or otherthings is not empty
 else { echo '<p class="error"> You need to enter either the name of a medicine or other treatment method.</p>';
 
 }
-// otherthings - if medicine is not empty
-if (!empty($trimmed['otherthings'])) {
-	if (preg_match ('/^[A-Z0-9 \'.-]{2,40}$/i', $trimmed['otherthings'])) {
-		$otherthings = mysqli_real_escape_string ($dbc, $trimmed['otherthings']);
-	}
-	else {
-		echo '<p class="error"> The name of the pain relief method you entered is invalid. It should only contain letters and numbers, and it should be 2-40 characters long.</p>';
-	}
-}
-else {
-	$otherthings = "";
-}
+
 // reliefrating
 $reliefrating = isset($_POST['reliefrating']) ? $_POST['reliefrating'] : false;
 // sideeffects
