@@ -310,7 +310,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 	
 	if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
-		$q = "SELECT user_id FROM users WHERE user_id='".$_SESSION['user_id']."' AND pass=SHA1('$pass')";
+		$q = "SELECT user_id FROM users WHERE (user_id='".$_SESSION['user_id']."' AND pass=SHA1('$pass'))";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
 				$p2 = $pass;
