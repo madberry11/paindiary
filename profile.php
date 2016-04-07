@@ -294,7 +294,8 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 	
 if (!empty($_POST['changepasswordsubmit'])) {
 
-if ((!empty($_POST['password1'])) AND (!empty($_POST['password1']))) {
+$p2 = FALSE;
+if ((!empty($_POST['password1'])) AND (!empty($_POST['password2']))) {
 	if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
@@ -310,7 +311,7 @@ if ((!empty($_POST['password1'])) AND (!empty($_POST['password1']))) {
 	}
 }
 else {
-	echo "You need to enter the new password twice.";
+	echo '<p class="error">You need to enter the new password twice.</p>';
 }
 	
 	
@@ -352,7 +353,7 @@ if (!empty($_POST['password0'])) {
 
 } 
 
-elseif (empty($p)) {
+else {
 		$p = FALSE;
 		echo '<p class="error">You forgot to enter your old password!</p>';
 	}
@@ -366,8 +367,8 @@ elseif (empty($p)) {
 	
 if (!empty($_POST['changeemailsubmit'])) {
 	
-	
-	$e2 = FALSE;
+$e2 = FALSE;	
+if ((!empty($_POST['email1'])) AND (!empty($_POST['email2']))) {
 	if ((filter_var($_POST['email1'], FILTER_VALIDATE_EMAIL)) AND (filter_var($_POST['email2'], FILTER_VALIDATE_EMAIL))) {
 		$safe_email1 = mysqli_real_escape_string ($dbc, $_POST['email1']);
 		$safe_email2 = mysqli_real_escape_string ($dbc, $_POST['email2']);
@@ -398,6 +399,10 @@ if (!empty($_POST['changeemailsubmit'])) {
 			echo "<p class='error'>The old email address is incorrect.</p>";
 			$e = "";
 		}
+	}
+else {
+	echo "<p class='error'>You need to enter the new email address twice.</p>";	
+}
 	
 	if ((!empty($e)) AND (!empty($e2))) { 
 
@@ -425,14 +430,9 @@ if (!empty($_POST['changeemailsubmit'])) {
 
 } 
 
-elseif (empty($e)) {
+else {
 		$e = FALSE;
 		echo '<p class="error">You forgot to enter your old email address!</p>';
-	}
-	
-elseif (empty($e2)) {
-		$e2 = FALSE;
-		echo '<p class="error">You need to enter the new email address twice!</p>';
 	}
 	
 	
@@ -442,8 +442,9 @@ elseif (empty($e2)) {
 // if username is getting changed
 
 if (!empty($_POST['changeusernamesubmit'])) {
-	
-	$u2 = FALSE;
+
+$u2 = FALSE;
+if ((!empty($_POST['username1'])) AND (!empty($_POST['username2']))) {	
 	if ((preg_match ('/^(\w){4,20}$/', $_POST['username1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['username2']))) {
 		$safe_username1 = mysqli_real_escape_string ($dbc, $_POST['username1']);
 		$safe_username2 = mysqli_real_escape_string ($dbc, $_POST['username2']);
@@ -462,6 +463,10 @@ if (!empty($_POST['changeusernamesubmit'])) {
 	} else {
 		echo "<p class='error'>Invalid username. Please try again. Use only letters, numbers, and the underscore. Must be between 4 and 20 characters long.</p>";
 	}
+}
+else {
+	echo "<p class='error'>You need to enter the new username twice.</p>";	
+}
 	
 	
 	if (!empty($_POST['username0'])) {
@@ -502,13 +507,9 @@ if (!empty($_POST['changeusernamesubmit'])) {
 
 } 
 
-elseif (empty($u)) {
+else {
 		$u = FALSE;
 		echo '<p class="error">You forgot to enter your old username!</p>';
-	}
-elseif (empty($u2)) {
-		$u2 = FALSE;
-		echo '<p class="error">You need to enter the new username twice!</p>';
 	}
 	
 	
