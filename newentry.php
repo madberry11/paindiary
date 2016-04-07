@@ -2034,7 +2034,7 @@ if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['sideeffects'])) {
 
 
 // if there are no errors	
-if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na') AND ($otherthings!='invalid')) OR ($otherthings) AND ($otherthings!='invalid')) {
+if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherthings) AND ($sideeffects!='invalid')) {
  
   $q = "SELECT record_id FROM painrelief WHERE entryyear=". $_SESSION['calyear'] ." AND entrymonth=". $_SESSION['calmonth'] ." AND entryday=". $_SESSION['day'] ." AND user_id=". $_SESSION['user_id'] ." AND time='$hour' AND ((medicine!='' AND medicine='$medicine') OR (otherthings!='' AND otherthings='$otherthings'))";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
