@@ -2158,9 +2158,9 @@ else {
 
 //measure
 if (!empty($_POST["measure"])) {
-	if ($measure == "milligrams") {}
-	elseif ($measure == "millilitres") {}
-	elseif ($measure == "na") {$measure = $measure;}
+	if ($measure == "milligrams") {$measure = "milligrams";}
+	elseif ($measure == "millilitres") { $measure = "millilitres";}
+	elseif ($measure == "na") {$measure = "na";}
 }
 
 // otherthings
