@@ -294,7 +294,6 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 	
 if (!empty($_POST['changepasswordsubmit'])) {
 	
-$p = FALSE;
 if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
@@ -312,7 +311,7 @@ if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\
 	
 if (!empty($_POST['password0'])) {
 		$pass = mysqli_real_escape_string ($dbc, $_POST['password0']);
-		$q = "SELECT user_id FROM users WHERE (user_id=".$_SESSION['user_id']." AND pass=SHA1('$pass'))";
+		$q = "SELECT user_id, pass FROM users WHERE (user_id=".$_SESSION['user_id']." AND pass=SHA1(".'$pass'."))";
 		echo $q;
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		if (@mysqli_num_rows($r) == 1) {
