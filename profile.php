@@ -294,12 +294,12 @@ if ((!empty($_POST['canceldelete'])) OR (!empty($_POST['cancelpassword'])) OR (!
 	
 if (!empty($_POST['changepasswordsubmit'])) {
 	
-	$p = FALSE;
+	$p2 = FALSE;
 	if ((preg_match ('/^(\w){4,20}$/', $_POST['password1']) ) AND (preg_match ('/^(\w){4,20}$/', $_POST['password2'])) ) {
 		$safe_password1 = mysqli_real_escape_string ($dbc, $_POST['password1']);
 		$safe_password2 = mysqli_real_escape_string ($dbc, $_POST['password2']);
 		if ($safe_password1 == $safe_password2) {
-			$p = $safe_password1;
+			$p2 = $safe_password1;
 		} else {
 			echo '<p class="error">Your password did not match the confirmed password!</p>';
 		}
