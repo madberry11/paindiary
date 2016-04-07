@@ -324,6 +324,7 @@ if (!empty($_POST['changepasswordsubmit'])) {
 		}
 	
 	if ((!empty($p)) AND (!empty($p2))) { 
+		if ($p!==$p2){
 
 		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id='".$_SESSION['user_id']."' LIMIT 1";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
@@ -339,10 +340,10 @@ if (!empty($_POST['changepasswordsubmit'])) {
 		} else { 
 		
 			echo '<p class="error">Your password was not changed. Make sure your new password is different from the current password.</p>'; 
-
 		}
-
 	}
+
+}
 	
 	mysqli_close($dbc); 
 
