@@ -367,7 +367,7 @@ if(isset($_GET['createcomment'])) {
 	
 if(isset($_GET['todelete'])) {
 	$idtodelete = mysqli_real_escape_string ($dbc, $_GET['todelete']);
-	$query = "DELETE FROM pain WHERE entryid = " . $idtodelete;
+	$query = "DELETE FROM pain WHERE entryid = '" . $idtodelete ."'";
     $result = mysqli_query ($dbc, $query) or trigger_error("Query: $query\n<br />MySQL Error: " . mysqli_error($dbc));
 }
 
@@ -705,18 +705,6 @@ while ($row = mysqli_fetch_array($result)) {
 }
 }
 ?>
-<!--
-var chart = new Highcharts.Chart({
-      chart: {
-         renderTo: 'container'
-      },
-      series: [{
-         data: [<?php echo join($data, ',') ?>],
-         pointStart: 0,
-         pointInterval
-      }]
-});
--->
 
 <script>
 $(function () { 
