@@ -2057,7 +2057,7 @@ if ((($medicine) AND ($amount) AND ($measure) AND ($measure!='na')) OR ($otherth
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 if (mysqli_affected_rows($dbc) == 1) {
-	if ((!empty($amount)) AND (!empty($otherthings))) {
+	if ((empty($medicine)) AND (!empty($amount)) AND (!empty($otherthings))) {
 		// error message
 	}
 	else {
