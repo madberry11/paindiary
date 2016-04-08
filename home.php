@@ -461,7 +461,7 @@ default:
     // for cells in the table that have days in them
     else { 
 		
-		 echo "<a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><td title='Create/Edit Entry' class='actualday today'><div class='daynumber'>" . $thisday . "</div></td></a>";
+		 echo "<td title='Create/Edit Entry' class='actualday today'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
 		 if(($i % 7) == 6 ) echo "</tr>";
 	}
 		 
@@ -588,7 +588,7 @@ default:
     // for cells in the table that have days in them
     else { 
 		
-		 echo "<a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><td title='Create/Edit Entry' class='actualday'><div class='daynumber'>" . $thisday . "</div></td></a>";
+		 echo "<td title='Create/Edit Entry' class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
 		 if(($i % 7) == 6 ) echo "</tr>";
 	}
 		 
@@ -744,7 +744,7 @@ default:
     // for cells in the table that have days in them
     else { 
 		
-		 echo "<a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><td title='Create/Edit Entry' class='actualday'><div class='daynumber'>" . $thisday . "</div></td></a>";
+		 echo "<td title='Create/Edit Entry' class='actualday'><a data-ajax='false' href='newentry.php?calday=$i&startday=$startday'  class='nounderline'><div class='daynumber'>" . $thisday . "</div></a></td>";
 		 if(($i % 7) == 6 ) echo "</tr>";
 	}
 		 
