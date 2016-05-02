@@ -768,6 +768,7 @@ $(function () {
             text: 'Daily Pain Intensity'
         },
 		yAxis: {
+			max: 10,
             title: {
                 text: 'Pain Intensity'
             }
